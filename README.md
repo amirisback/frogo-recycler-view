@@ -13,7 +13,7 @@ Easy Adapter Base On RecyclerViewAdapter
 - minSdkVersion 21
 
 # How To Use This Project
-
+[![](https://jitpack.io/v/amirisback/frogo-recycler-view-adapter.svg)](https://jitpack.io/#amirisback/frogo-recycler-view-adapter)
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
