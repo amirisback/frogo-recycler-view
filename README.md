@@ -13,8 +13,8 @@ Easy Adapter Base On RecyclerViewAdapter
 - minSdkVersion 21
 
 # Version Release
-- $version_release = 1.0.0
-- This Is Latest Release
+<h2>$version_release = 1.0.0</h2>
+This Is Latest Release
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -30,14 +30,12 @@ Add it in your root build.gradle at the end of repositories:
   
   
 <h3>Step 2. Add the dependency</h3>
-<h2>Finally Stable Release</h2>
 
 	dependencies {
 	        implementation 'com.github.amirisback:frogo-recycler-view-adapter:$version_release'
 	}
-
-
-
+	
+	
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
