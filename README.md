@@ -3,7 +3,10 @@ FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
 - v1.0.0 - Development
 
 # About This Project
-Easy Adapter Base On RecyclerViewAdapter
+- Easy Adapter Base On RecyclerViewAdapter
+- SImple RecyclerViewAdapter
+- No longer requires variable declarations
+- Just setupRequirement()
 
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.61'
@@ -12,12 +15,11 @@ Easy Adapter Base On RecyclerViewAdapter
 - buildToolsVersion "29.0.1"
 - minSdkVersion 21
 
-# Screen Shoot Apps
-![ScreenShoot Apps](docs/ss_apps.jpg?raw=true)
-
 # Version Release
-<h3>$version_release = 1.0.0</h3>
 This Is Latest Release
+
+    <h3>$version_release = 1.0.0</h3>
+
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -99,6 +101,9 @@ Add it in your root build.gradle at the end of repositories:
     
     }
     
+    
+# Screen Shoot Apps
+![ScreenShoot Apps](docs/ss_apps.jpg?raw=true)
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
