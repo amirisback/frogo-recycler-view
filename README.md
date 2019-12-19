@@ -12,8 +12,11 @@ Easy Adapter Base On RecyclerViewAdapter
 - buildToolsVersion "29.0.1"
 - minSdkVersion 21
 
+# Screen Shoot Apps
+![ScreenShoot Apps](docs/ss_apps.jpg?raw=true)
+
 # Version Release
-<h2>$version_release = 1.0.0</h2>
+<h3>$version_release = 1.0.0</h3>
 This Is Latest Release
 
 # How To Use This Project
@@ -36,6 +39,67 @@ Add it in your root build.gradle at the end of repositories:
 	}
 	
 	
+<h3>Sample Code Adapter</h3>
+
+    class ExampleViewAdapter : FrogoRecyclerViewAdapter<String>() {
+
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): FrogoRecyclerViewHolder<String> {
+            return ExampleViewHolder(viewLayout(parent))
+        }
+    
+        inner class ExampleViewHolder(view: View) : FrogoRecyclerViewHolder<String>(view) {
+    
+            private val tvExampleItem = view.tv_example_item
+    
+            override fun initComponent(data: String) {
+                super.initComponent(data)
+    
+                tvExampleItem.text = data
+
+            }
+        }
+    }
+
+<h3>Sample Code Activity</h3>
+
+    class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<String> {
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+            setupAdapter()
+        }
+    
+        private fun listData(): MutableList<String> {
+            val listString = mutableListOf<String>()
+            listString.add("Example")
+            listString.add("Example")
+            listString.add("Example")
+            listString.add("Example")
+            return listString
+        }
+    
+        private fun setupAdapter() {
+            val adapter = ExampleViewAdapter()
+            adapter.setupRequirement(this, listData(), R.layout.example_list_item)
+            recycler_view.adapter = adapter
+            recycler_view.layoutManager = LinearLayoutManager(this)
+        }
+    
+        override fun onItemClicked(data: String) {
+            Toast.makeText(this, data, Toast.LENGTH_SHORT).show()
+        }
+    
+        override fun onItemLongClicked(data: String) {
+            Toast.makeText(this, data, Toast.LENGTH_LONG).show()
+        }
+    
+    }
+    
+
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
