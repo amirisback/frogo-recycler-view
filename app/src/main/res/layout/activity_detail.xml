@@ -9,4 +9,3 @@
     android:paddingTop="16dp"
     tools:context=".kotlinsample.MainActivity"
     tools:listitem="@layout/example_list_item" />
-
