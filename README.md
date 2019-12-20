@@ -18,7 +18,7 @@ FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
 # Version Release
 This Is Latest Release
 
-    <h3>$version_release = 1.0.0</h3>
+    $version_release = 1.0.0
 
 
 # How To Use This Project
