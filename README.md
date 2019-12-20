@@ -37,6 +37,8 @@ Add it in your root build.gradle at the end of repositories:
 <h3>Step 2. Add the dependency</h3>
 
 	dependencies {
+	        implementation 'com.google.android.material:material:$latest_version_android'
+            implementation 'androidx.legacy:legacy-support-v4:$latest_version_android'
 	        implementation 'com.github.amirisback:frogo-recycler-view-adapter:$version_release'
 	}
 	
