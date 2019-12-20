@@ -103,7 +103,7 @@ Add it in your root build.gradle at the end of repositories:
     
     
 # Screen Shoot Apps
-![ScreenShoot Apps](docs/ss_apps.jpg?raw=true)
+<p align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></p>
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
