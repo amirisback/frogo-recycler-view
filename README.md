@@ -43,33 +43,35 @@ Add it in your root build.gradle at the end of repositories:
 	}
 	
 	
-<h3>Sample Code Adapter</h3>
+# Sample Code Kotlin and Java
+<h3>Sample Code Adapter (Kotlin)</h3>
 
-    class ExampleViewAdapter : FrogoRecyclerViewAdapter<String>() {
-
+    class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
+    
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-        ): FrogoRecyclerViewHolder<String> {
+        ): FrogoRecyclerViewHolder<ExampleModel> {
             return ExampleViewHolder(viewLayout(parent))
         }
     
-        inner class ExampleViewHolder(view: View) : FrogoRecyclerViewHolder<String>(view) {
+        inner class ExampleViewHolder(view: View) : FrogoRecyclerViewHolder<ExampleModel>(view) {
     
             private val tvExampleItem = view.tv_example_item
     
-            override fun initComponent(data: String) {
+            override fun initComponent(data: ExampleModel) {
                 super.initComponent(data)
     
-                tvExampleItem.text = data
-
+                tvExampleItem.text = data.name
+    
             }
         }
+    
     }
 
-<h3>Sample Code Activity</h3>
+<h3>Sample Code Activity (Kotlin)</h3>
 
-    class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<String> {
+    class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
     
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -77,30 +79,102 @@ Add it in your root build.gradle at the end of repositories:
             setupAdapter()
         }
     
-        private fun listData(): MutableList<String> {
-            val listString = mutableListOf<String>()
-            listString.add("Example")
-            listString.add("Example")
-            listString.add("Example")
-            listString.add("Example")
+        private fun listData(): MutableList<ExampleModel> {
+            val listString = mutableListOf<ExampleModel>()
+            listString.add(ExampleModel("Amir Is Back"))
+            listString.add(ExampleModel("Amir Is Back"))
+            listString.add(ExampleModel("Amir Is Back"))
+            listString.add(ExampleModel("Amir Is Back"))
             return listString
         }
     
         private fun setupAdapter() {
-            val adapter = ExampleViewAdapter()
-            adapter.setupRequirement(this, listData(), R.layout.example_list_item)
+            val adapter =
+                MainViewAdapter()
+            adapter.setupRequirement(
+                this, listData(),
+                R.layout.example_list_item
+            )
             recycler_view.adapter = adapter
             recycler_view.layoutManager = LinearLayoutManager(this)
         }
     
-        override fun onItemClicked(data: String) {
-            Toast.makeText(this, data, Toast.LENGTH_SHORT).show()
+        override fun onItemClicked(data: ExampleModel) {
+            Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
         }
     
-        override fun onItemLongClicked(data: String) {
-            Toast.makeText(this, data, Toast.LENGTH_LONG).show()
+        override fun onItemLongClicked(data: ExampleModel) {
+            Toast.makeText(this, data.name, Toast.LENGTH_LONG).show()
         }
     
+    }
+    
+<h3>Sample Code Adapter (Java)</h3>
+
+    public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
+        @NonNull
+        @Override
+        public FrogoRecyclerViewHolder<ExampleModel> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new DetailViewHolder(parent);
+        }
+    
+        class DetailViewHolder extends FrogoRecyclerViewHolder<ExampleModel> {
+    
+            private TextView tvExample = itemView.findViewById(R.id.tv_example_item);
+    
+            public DetailViewHolder(@NotNull View view) {
+                super(view);
+            }
+    
+            @Override
+            public void initComponent(ExampleModel data) {
+                super.initComponent(data);
+    
+                tvExample.setText(data.getName());
+    
+            }
+        }
+    
+    }
+
+<h3>Sample Code Activity (Java)</h3>
+
+    public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_detail);
+            setupAdapter();
+        }
+    
+        private ArrayList<ExampleModel> listData(){
+            ArrayList<ExampleModel> exampleModels = new ArrayList<>();
+            exampleModels.add(new ExampleModel("Amir Is Back"));
+            exampleModels.add(new ExampleModel("Amir Is Back"));
+            exampleModels.add(new ExampleModel("Amir Is Back"));
+            exampleModels.add(new ExampleModel("Amir Is Back"));
+            return exampleModels;
+        }
+    
+        private void setupAdapter(){
+            DetailViewAdapter adapter = new DetailViewAdapter();
+            adapter.setupRequirement(this, listData(), R.layout.example_list_item);
+            RecyclerView recyclerView = findViewById(R.id.recycler_view);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
+    
+        @Override
+        public void onItemClicked(ExampleModel data) {
+            Toast.makeText(this, data.getName(), Toast.LENGTH_SHORT).show();
+        }
+    
+        @Override
+        public void onItemLongClicked(ExampleModel data) {
+            Toast.makeText(this, data.getName(), Toast.LENGTH_LONG).show();
+        }
+        
     }
     
     
