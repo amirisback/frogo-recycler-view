@@ -8,10 +8,11 @@ FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
 - No longer requires variable declarations
 - Just setupRequirement()
 
-<h3>3 Main Class</h3>
-<h3>FrogoRecyclerViewAdapter</h3>
-<h3>FrogoRecyclerViewHolder</h3>
-<h3>FrogoRecyclerViewListener</h3>
+
+    3 Main Class
+    FrogoRecyclerViewAdapter<T> - Extend From RecyclerViewAdapter
+    FrogoRecyclerViewHolder<T> - Extend From ReyclerView.ViewHolder
+    FrogoRecyclerViewListener<T> - Interface for callback function from ViewHolder
 
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.61'
