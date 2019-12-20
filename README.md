@@ -50,6 +50,17 @@ Add it in your root build.gradle at the end of repositories:
 	}
 	
 	
+<h3>Step 3. Create adapter</h3>
+
+	(Kotlin) - class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
+	(Java) - public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
+
+<h3>Step 4. Create Activity Or Fragment</h3>
+
+	(Kotlin) - class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
+	(Java) - public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
+	
+	
 # Sample Code Kotlin and Java
 <h3>Sample Code Adapter (Kotlin)</h3>
 
