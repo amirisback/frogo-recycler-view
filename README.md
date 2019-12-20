@@ -8,6 +8,7 @@ FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
 - No longer requires variable declarations
 - Just setupRequirement()
 
+# Function Main From This Project
 
     3 Main Class
     FrogoRecyclerViewAdapter<T> - Extend From RecyclerViewAdapter
