@@ -8,6 +8,11 @@ FrogoRecyclerView Extends RecyclerView
 - No longer requires variable declarations
 - Just setupRequirement()
 
+# Special From This Custom View
+
+    isViewLinear()
+
+
 # Function Main From This Project
 
     FrogoRecyclerView - In XML file
@@ -44,8 +49,11 @@ Add it in your root build.gradle at the end of repositories:
 <h3>Step 2. Add the dependency</h3>
 
 	dependencies {
+	        // library google
 	        implementation 'com.google.android.material:material:$latest_version_android'
             implementation 'androidx.legacy:legacy-support-v4:$latest_version_android'
+
+            // library frogo-recycler-view
 	        implementation 'com.github.amirisback:frogo-recycler-view:$version_release'
 	}
 	
