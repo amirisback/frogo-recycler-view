@@ -1,6 +1,6 @@
-# FrogoRecyclerViewAdapter by Amirisback
-FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
-- v1.0.0 - Development
+# FrogoRecyclerView by Amirisback
+FrogoRecyclerView Extends RecyclerView
+- v2.0.0 - Development
 
 # About This Project
 - Easy Adapter Base On RecyclerViewAdapter
@@ -10,7 +10,7 @@ FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
 
 # Function Main From This Project
 
-    3 Main Class
+    FrogoRecyclerView - In XML file
     FrogoRecyclerViewAdapter<T> - Extend From RecyclerViewAdapter
     FrogoRecyclerViewHolder<T> - Extend From ReyclerView.ViewHolder
     FrogoRecyclerViewListener<T> - Interface for callback function from ViewHolder
@@ -49,13 +49,27 @@ Add it in your root build.gradle at the end of repositories:
 	        implementation 'com.github.amirisback:frogo-recycler-view:$version_release'
 	}
 	
+		
+<h3>Step 3. Create xml view</h3>
+
+    <com.frogobox.recycler.view.FrogoRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        tools:context=".kotlinsample.MainActivity"
+        tools:listitem="@layout/example_list_item" />
+
 	
-<h3>Step 3. Create adapter</h3>
+<h3>Step 4. Create adapter</h3>
 
 	(Kotlin) - class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
 	(Java) - public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
 
-<h3>Step 4. Create Activity Or Fragment</h3>
+<h3>Step 5. Create Activity Or Fragment</h3>
 
 	(Kotlin) - class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
 	(Java) - public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
@@ -114,7 +128,7 @@ Add it in your root build.gradle at the end of repositories:
                 R.layout.example_list_item
             )
             recycler_view.adapter = adapter
-            recycler_view.layoutManager = LinearLayoutManager(this)
+            recycler_view.isViewLinear()
         }
     
         override fun onItemClicked(data: ExampleModel) {
@@ -180,7 +194,7 @@ Add it in your root build.gradle at the end of repositories:
             adapter.setupRequirement(this, listData(), R.layout.example_list_item);
             RecyclerView recyclerView = findViewById(R.id.recycler_view);
             recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.isViewLinear();
         }
     
         @Override
