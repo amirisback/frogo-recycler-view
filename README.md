@@ -25,7 +25,7 @@ FrogoRecyclerViewAdapter Extends RecyclerViewAdapter
 # Version Release
 This Is Latest Release
 
-    $version_release = 1.0.0
+    $version_release = 2.0.0
 
 
 # How To Use This Project
@@ -46,7 +46,7 @@ Add it in your root build.gradle at the end of repositories:
 	dependencies {
 	        implementation 'com.google.android.material:material:$latest_version_android'
             implementation 'androidx.legacy:legacy-support-v4:$latest_version_android'
-	        implementation 'com.github.amirisback:frogo-recycler-view-adapter:$version_release'
+	        implementation 'com.github.amirisback:frogo-recycler-view:$version_release'
 	}
 	
 	
