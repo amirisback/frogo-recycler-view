@@ -10,8 +10,10 @@ FrogoRecyclerView Extends RecyclerView
 
 # Special From This Custom View
 
-    isViewLinear()
-
+    fun isViewLinearVertical(dividerItem: Boolean) {}
+    fun isViewLinearHorizontal(dividerItem: Boolean) {}
+    fun isViewStaggeredGrid(spanCount: Int) {}
+    fun isViewGrid(spanCount: Int) {}
 
 # Function Main From This Project
 
@@ -30,7 +32,7 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.0.0
+    $version_release = 2.0.1
 
 
 # How To Use This Project
@@ -64,13 +66,7 @@ Add it in your root build.gradle at the end of repositories:
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:clipToPadding="false"
-        android:paddingTop="16dp"
-        tools:context=".kotlinsample.MainActivity"
-        tools:listitem="@layout/example_list_item" />
-
+        android:layout_height="match_parent"/>
 	
 <h3>Step 4. Create adapter</h3>
 
@@ -81,7 +77,6 @@ Add it in your root build.gradle at the end of repositories:
 
 	(Kotlin) - class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
 	(Java) - public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
-	
 	
 # Sample Code Kotlin and Java
 <h3>Sample Code Adapter (Kotlin)</h3>

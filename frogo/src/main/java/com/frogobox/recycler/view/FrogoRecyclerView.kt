@@ -2,9 +2,8 @@ package com.frogobox.recycler.view
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.*
+
 
 /**
  * Created by Faisal Amir
@@ -23,7 +22,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView {
+class FrogoRecyclerView : RecyclerView, FrogoView {
 
     constructor(context: Context) : super(context)
 
@@ -35,12 +34,28 @@ class FrogoRecyclerView : RecyclerView {
         defStyleAttr
     )
 
-    fun isViewLinear() {
-        layoutManager = LinearLayoutManager(context)
+    override fun isViewLinearVertical(dividerItem: Boolean) {
+        layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        if (dividerItem) {
+            addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+        }
     }
 
-    fun isViewStaggeredGrid(spanCount : Int) {
+    override fun isViewLinearHorizontal(dividerItem: Boolean) {
+        layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        if (dividerItem) {
+            addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.HORIZONTAL))
+        }
+    }
+
+    override fun isViewStaggeredGrid(spanCount: Int) {
         layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+    }
+
+    override fun isViewGrid(spanCount: Int) {
+        layoutManager = GridLayoutManager(context, spanCount)
     }
 
 }

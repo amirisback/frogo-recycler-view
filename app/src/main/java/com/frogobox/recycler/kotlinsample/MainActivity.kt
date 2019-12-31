@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(),
             R.layout.example_list_item
         )
         recycler_view.adapter = adapter
-        recycler_view.isViewLinear()
+        recycler_view.isViewLinearVertical(false)
     }
 
     override fun onItemClicked(data: ExampleModel) {
