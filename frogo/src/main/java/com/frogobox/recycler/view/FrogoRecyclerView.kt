@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.*
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView {
+class FrogoRecyclerView : RecyclerView, FrogoView {
 
     constructor(context: Context) : super(context)
 
@@ -34,7 +34,7 @@ class FrogoRecyclerView : RecyclerView {
         defStyleAttr
     )
 
-    fun isViewLinearVertical(dividerItem: Boolean) {
+    override fun isViewLinearVertical(dividerItem: Boolean) {
         layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         if (dividerItem) {
@@ -42,7 +42,7 @@ class FrogoRecyclerView : RecyclerView {
         }
     }
 
-    fun isViewLinearHorizontal(dividerItem: Boolean) {
+    override fun isViewLinearHorizontal(dividerItem: Boolean) {
         layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         if (dividerItem) {
@@ -50,11 +50,11 @@ class FrogoRecyclerView : RecyclerView {
         }
     }
 
-    fun isViewStaggeredGrid(spanCount: Int) {
+    override fun isViewStaggeredGrid(spanCount: Int) {
         layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
     }
 
-    fun isViewGrid(spanCount: Int) {
+    override fun isViewGrid(spanCount: Int) {
         layoutManager = GridLayoutManager(context, spanCount)
     }
 
