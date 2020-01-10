@@ -1,6 +1,7 @@
 # FrogoRecyclerView by Amirisback
 FrogoRecyclerView Extends RecyclerView
 - v2.0.2 - Development
+- Stable Use
 
 # About This Project
 - Easy Adapter Base On RecyclerViewAdapter
