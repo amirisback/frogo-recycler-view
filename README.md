@@ -32,7 +32,7 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.0.1
+    $version_release = 2.0.2
 
 What's New??
 
