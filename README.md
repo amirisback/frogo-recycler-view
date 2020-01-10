@@ -250,10 +250,12 @@ Add it in your root build.gradle at the end of repositories:
     To avoid conflicts between interfaces,
     
     *******
-    Try creating your own Interfarce Class by extending FrogoRecyclerViewListener <Your Data Class>. 
+    
+    Try creating your own Interfarce Class by extending FrogoRecyclerViewListener<YourDataClass>. 
+    
     *******
     
-    Examples can be seen above / clone this project
+    Examples can be seen above / clone this project.
     
 # Screen Shoot Apps
 <p align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></p>
