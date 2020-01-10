@@ -29,10 +29,12 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
     private val mRecyclerViewDataList = mutableListOf<T>()
     private var mRecyclerViewLayout: Int = 0
 
-    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>, dataList: List<T>, layoutItem: Int) {
+    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>, layoutItem: Int) {
 
         mRecyclerViewLayout = layoutItem
-        mViewListener = viewListener
+        if (viewListener != null) {
+            mViewListener = viewListener
+        }
 
         mRecyclerViewDataList.clear()
         mRecyclerViewDataList.addAll(dataList)
