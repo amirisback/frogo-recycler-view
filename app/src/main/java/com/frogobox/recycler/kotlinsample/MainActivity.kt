@@ -9,8 +9,7 @@ import com.frogobox.recycler.kotlinsample.adapter.MainViewListener
 import com.frogobox.recycler.model.ExampleModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),
-    MainViewListener {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,19 +30,19 @@ class MainActivity : AppCompatActivity(),
         val adapter =
             MainViewAdapter()
         adapter.setupRequirement(
-            this, listData(),
+            null, listData(),
             R.layout.example_list_item
         )
         recycler_view.adapter = adapter
         recycler_view.isViewLinearVertical(false)
     }
 
-    override fun onItemClickedMain(data: ExampleModel) {
-        Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onItemLongClickedMain(data: ExampleModel) {
-        Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
-    }
+//    override fun onItemClickedMain(data: ExampleModel) {
+//        Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onItemLongClickedMain(data: ExampleModel) {
+//        Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
+//    }
 
 }

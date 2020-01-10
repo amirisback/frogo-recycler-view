@@ -24,7 +24,7 @@ import androidx.recyclerview.widget.RecyclerView
  */
 abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
 
-    private lateinit var mViewListener: FrogoRecyclerViewListener<T>
+    private var mViewListener: FrogoRecyclerViewListener<T>? = null
 
     private val mRecyclerViewDataList = mutableListOf<T>()
     private var mRecyclerViewLayout: Int = 0
