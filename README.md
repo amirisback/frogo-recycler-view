@@ -1,6 +1,6 @@
 # FrogoRecyclerView by Amirisback
 FrogoRecyclerView Extends RecyclerView
-- v2.0.0 - Development
+- v2.0.1 - Development
 
 # About This Project
 - Easy Adapter Base On RecyclerViewAdapter
@@ -33,6 +33,10 @@ FrogoRecyclerView Extends RecyclerView
 This Is Latest Release
 
     $version_release = 2.0.1
+
+What's New??
+
+    * Null Safety For FrogoViewListener<T> *
 
 
 # How To Use This Project
