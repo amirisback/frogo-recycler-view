@@ -1,4 +1,4 @@
-package com.frogobox.recycler.javasample;
+package com.frogobox.recycler.javasample.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,7 @@ import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;
+
 
 /**
  * Created by Faisal Amir
