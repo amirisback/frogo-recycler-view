@@ -107,10 +107,28 @@ Add it in your root build.gradle at the end of repositories:
         }
     
     }
+    
+<h3>Sample Code View Listener (Kotlin)</h3>
+
+    interface MainViewListener : FrogoRecyclerViewListener<ExampleModel> {
+    
+        override fun onItemClicked(data: ExampleModel) {
+            onItemClickedMain(data)
+        }
+    
+        override fun onItemLongClicked(data: ExampleModel) {
+            onItemLongClickedMain(data)
+        }
+    
+        fun onItemClickedMain(data: ExampleModel)
+    
+        fun onItemLongClickedMain(data: ExampleModel)
+    
+    }
 
 <h3>Sample Code Activity (Kotlin)</h3>
 
-    class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
+    class MainActivity : AppCompatActivity(), MainViewListener {
     
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -138,11 +156,11 @@ Add it in your root build.gradle at the end of repositories:
             recycler_view.isViewLinear()
         }
     
-        override fun onItemClicked(data: ExampleModel) {
+        override fun onItemClickedMain(data: ExampleModel) {
             Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
         }
     
-        override fun onItemLongClicked(data: ExampleModel) {
+        override fun onItemLongClickedMain(data: ExampleModel) {
             Toast.makeText(this, data.name, Toast.LENGTH_LONG).show()
         }
     
@@ -176,9 +194,21 @@ Add it in your root build.gradle at the end of repositories:
     
     }
 
+<h3>Sample Code View Listener (Java)</h3>
+
+    public interface DetailViewListener extends FrogoRecyclerViewListener<ExampleModel> {
+    
+        @Override
+        void onItemClicked(ExampleModel data);
+    
+        @Override
+        void onItemLongClicked(ExampleModel data);
+    
+    }
+
 <h3>Sample Code Activity (Java)</h3>
 
-    public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
+    public class DetailActivity extends AppCompatActivity implements DetailViewListener {
     
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -216,6 +246,8 @@ Add it in your root build.gradle at the end of repositories:
         
     }
     
+# Important Note (Caution)
+    To avoid conflicts between interfaces, try creating your own Interfarce Class by extending FrogoRecyclerViewListener <Your Data Class>. Examples can be seen above / clone this project
     
 # Screen Shoot Apps
 <p align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></p>
