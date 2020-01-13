@@ -267,7 +267,6 @@ Add it in your root build.gradle at the end of repositories:
     
 # Screen Shoot Apps
 <span align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></span>
-<br>
 <span align="center"><img width="200px" height="360px" src="docs/ss_empty_view_sample.jpg"></span>
 <span align="center"><img width="200px" height="360px" src="docs/ss_empty_view_custom.jpg"></span>
 
