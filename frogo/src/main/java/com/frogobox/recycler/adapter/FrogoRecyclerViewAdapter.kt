@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
+import com.frogobox.recycler.view.FrogoAdapterView
 
 /**
  * Created by Faisal Amir
@@ -23,7 +24,7 @@ import com.frogobox.recycler.R
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
+abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>(), FrogoAdapterView<T> {
 
     private var mViewListener: FrogoRecyclerViewListener<T>? = null
 
@@ -34,7 +35,7 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
     private var hasEmptyView = false
     private var listCount = 0
 
-    fun setupRequirement(
+    override fun setupRequirement(
         viewListener: FrogoRecyclerViewListener<T>?,
         dataList: List<T>?,
         layoutItem: Int?
@@ -61,7 +62,7 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
         notifyDataSetChanged()
     }
 
-    fun setupEmptyView(emptyView: Int?) {
+    override fun setupEmptyView(emptyView: Int?) {
         hasEmptyView = true
         if (emptyView != null) {
             mEmptyView = emptyView

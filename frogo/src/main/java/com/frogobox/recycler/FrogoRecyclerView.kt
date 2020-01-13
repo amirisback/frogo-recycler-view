@@ -1,8 +1,9 @@
-package com.frogobox.recycler.view
+package com.frogobox.recycler
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.*
+import com.frogobox.recycler.view.FrogoLayoutView
 
 
 /**
@@ -22,7 +23,7 @@ import androidx.recyclerview.widget.*
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView, FrogoView {
+class FrogoRecyclerView : RecyclerView, FrogoLayoutView {
 
     constructor(context: Context) : super(context)
 

@@ -18,7 +18,7 @@ package com.frogobox.recycler.view
  *
  */
 
-interface FrogoView {
+interface FrogoLayoutView {
 
     fun isViewLinearVertical(dividerItem: Boolean) {}
     fun isViewLinearHorizontal(dividerItem: Boolean) {}

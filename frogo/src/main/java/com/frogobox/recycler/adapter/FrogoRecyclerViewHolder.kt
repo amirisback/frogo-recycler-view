@@ -2,6 +2,7 @@ package com.frogobox.recycler.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.recycler.view.FrogoHolderView
 
 /**
  * Created by Faisal Amir
@@ -20,9 +21,9 @@ import androidx.recyclerview.widget.RecyclerView
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view), FrogoHolderView<T> {
 
-    open fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?){
+    override fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?){
         if (data != null) {
             onItemViewClicked(data, listener)
         }
@@ -31,7 +32,7 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
         }
     }
 
-    protected fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?){
+    override fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?){
         itemView.setOnClickListener {
             if (data != null) {
                 listener?.onItemClicked(data)
@@ -45,7 +46,7 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
         }
     }
 
-    open fun initComponent(data: T){
+    override fun initComponent(data: T){
         // component view
     }
 
