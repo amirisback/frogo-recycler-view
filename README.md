@@ -63,11 +63,11 @@ Add it in your root build.gradle at the end of repositories:
 
 	dependencies {
 	        // library google
-	        implementation 'com.google.android.material:material:$latest_version_android'
-            implementation 'androidx.legacy:legacy-support-v4:$latest_version_android'
+	        implementation 'com.google.android.material:material:${latest_version_android}'
+            implementation 'androidx.legacy:legacy-support-v4:${latest_version_android}'
 
             // library frogo-recycler-view
-	        implementation 'com.github.amirisback:frogo-recycler-view:$version_release'
+	        implementation 'com.github.amirisback:frogo-recycler-view:${version_release}'
 	}
 	
 		
