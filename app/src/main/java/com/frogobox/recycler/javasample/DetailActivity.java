@@ -5,11 +5,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.javasample.adapter.DetailViewAdapter;
 import com.frogobox.recycler.javasample.adapter.DetailViewListener;
 import com.frogobox.recycler.model.ExampleModel;
-import com.frogobox.recycler.view.FrogoRecyclerView;
 
 import java.util.ArrayList;
 
@@ -34,6 +34,7 @@ public class DetailActivity extends AppCompatActivity implements DetailViewListe
     private void setupAdapter() {
         DetailViewAdapter adapter = new DetailViewAdapter();
         adapter.setupRequirement(this, listData(), R.layout.example_list_item);
+        adapter.setupEmptyView(null); // Without Custom View
         FrogoRecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setAdapter(adapter);
         recyclerView.isViewLinearVertical(false);

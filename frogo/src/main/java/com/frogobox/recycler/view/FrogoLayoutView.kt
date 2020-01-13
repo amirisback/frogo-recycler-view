@@ -1,11 +1,11 @@
-package com.frogobox.recycler.adapter
+package com.frogobox.recycler.view
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 20/12/2019.
+ * Copyright (C) 31/12/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,12 +14,15 @@ package com.frogobox.recycler.adapter
  * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
  * FrogoBox Software Industries
- * com.frogobox.frogoviewadapter
+ * com.frogobox.recycler.view
  *
  */
-interface FrogoRecyclerViewListener<T> {
 
-    fun onItemClicked(data: T)
-    fun onItemLongClicked(data: T)
+interface FrogoLayoutView {
+
+    fun isViewLinearVertical(dividerItem: Boolean) {}
+    fun isViewLinearHorizontal(dividerItem: Boolean) {}
+    fun isViewStaggeredGrid(spanCount: Int) {}
+    fun isViewGrid(spanCount: Int) {}
 
 }

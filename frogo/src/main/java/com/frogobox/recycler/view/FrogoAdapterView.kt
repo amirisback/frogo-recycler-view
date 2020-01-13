@@ -1,11 +1,15 @@
 package com.frogobox.recycler.view
 
+import android.view.View
+import android.view.ViewGroup
+import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 31/12/2019.
+ * Copyright (C) 14/01/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,12 +21,11 @@ package com.frogobox.recycler.view
  * com.frogobox.recycler.view
  *
  */
+interface FrogoAdapterView<T> {
 
-interface FrogoView {
+    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int)
+    fun setupEmptyView(emptyView: Int?)
+    fun viewLayout(parent: ViewGroup): View
 
-    fun isViewLinearVertical(dividerItem: Boolean) {}
-    fun isViewLinearHorizontal(dividerItem: Boolean) {}
-    fun isViewStaggeredGrid(spanCount: Int) {}
-    fun isViewGrid(spanCount: Int) {}
 
 }

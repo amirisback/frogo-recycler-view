@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.recycler.R
+import com.frogobox.recycler.view.FrogoAdapterView
 
 /**
  * Created by Faisal Amir
@@ -22,33 +24,83 @@ import androidx.recyclerview.widget.RecyclerView
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
+abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>(),
+    FrogoAdapterView<T> {
 
     private var mViewListener: FrogoRecyclerViewListener<T>? = null
 
     private val mRecyclerViewDataList = mutableListOf<T>()
     private var mRecyclerViewLayout: Int = 0
 
-    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>, layoutItem: Int) {
+    private var mLayoutItem: Int = 0
+    private var mEmptyView: Int = R.layout.empty_view_frogo
 
-        mRecyclerViewLayout = layoutItem
+    private var hasEmptyView = false
+    private var listCount = 0
+
+    private fun layoutHandle() {
+        if (mRecyclerViewDataList.isNotEmpty()) {
+            mRecyclerViewLayout = mLayoutItem
+        } else {
+            mRecyclerViewLayout = mEmptyView
+        }
+    }
+
+    override fun setupRequirement(
+        viewListener: FrogoRecyclerViewListener<T>?,
+        dataList: List<T>?,
+        layoutItem: Int
+    ) {
+
         if (viewListener != null) {
             mViewListener = viewListener
         }
 
         mRecyclerViewDataList.clear()
-        mRecyclerViewDataList.addAll(dataList)
+        if (dataList != null) {
+            mRecyclerViewDataList.addAll(dataList)
+        }
+
+        mLayoutItem = layoutItem
+        layoutHandle()
+
         notifyDataSetChanged()
     }
 
-    protected fun viewLayout(parent: ViewGroup): View {
+    override fun setupEmptyView(emptyView: Int?) {
+        hasEmptyView = true
+        if (emptyView != null) {
+            mEmptyView = emptyView
+        }
+        layoutHandle()
+        notifyDataSetChanged()
+    }
+
+    override fun viewLayout(parent: ViewGroup): View {
         return LayoutInflater.from(parent.context).inflate(mRecyclerViewLayout, parent, false)
     }
 
-    override fun getItemCount(): Int = mRecyclerViewDataList.size
+    override fun getItemCount(): Int {
+        if (hasEmptyView) {
+            if (mRecyclerViewDataList.size == 0) {
+                listCount = 1
+            } else {
+                listCount = mRecyclerViewDataList.size
+            }
+            return listCount
+        } else {
+            return mRecyclerViewDataList.size
+        }
+    }
 
     override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
-        holder.bindItem(mRecyclerViewDataList[position], mViewListener)
+        if (hasEmptyView) {
+            if (mRecyclerViewDataList.size != 0) {
+                holder.bindItem(mRecyclerViewDataList[position], mViewListener)
+            }
+        } else {
+            holder.bindItem(mRecyclerViewDataList[position], mViewListener)
+        }
     }
 
 }
