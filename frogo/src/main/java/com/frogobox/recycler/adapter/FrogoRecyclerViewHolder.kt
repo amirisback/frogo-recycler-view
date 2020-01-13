@@ -22,17 +22,25 @@ import androidx.recyclerview.widget.RecyclerView
  */
 abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
 
-    open fun bindItem(data: T, listener: FrogoRecyclerViewListener<T>?){
-        onItemViewClicked(data, listener)
-        initComponent(data)
+    open fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?){
+        if (data != null) {
+            onItemViewClicked(data, listener)
+        }
+        if (data != null) {
+            initComponent(data)
+        }
     }
 
-    protected fun onItemViewClicked(data: T, listener: FrogoRecyclerViewListener<T>?){
+    protected fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?){
         itemView.setOnClickListener {
-            listener?.onItemClicked(data)
+            if (data != null) {
+                listener?.onItemClicked(data)
+            }
         }
         itemView.setOnLongClickListener {
-            listener?.onItemLongClicked(data)
+            if (data != null) {
+                listener?.onItemLongClicked(data)
+            }
             true
         }
     }
