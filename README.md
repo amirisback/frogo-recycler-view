@@ -1,11 +1,11 @@
 # FrogoRecyclerView by Amirisback
 FrogoRecyclerView Extends RecyclerView
-- v2.0.3 - Development
+- v2.0.4 - Development
 - Stable Version
 
 # About This Project
 - Easy Adapter Base On RecyclerViewAdapter
-- SImple RecyclerViewAdapter
+- Simple RecyclerViewAdapter
 - No longer requires variable declarations
 - Just setupRequirement()
 
@@ -15,6 +15,11 @@ FrogoRecyclerView Extends RecyclerView
     fun isViewLinearHorizontal(dividerItem: Boolean) {}
     fun isViewStaggeredGrid(spanCount: Int) {}
     fun isViewGrid(spanCount: Int) {}
+    
+# Special Function Of Adapter
+
+    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int?)
+    fun setupEmptyView(emptyView: Int?)
 
 # Function Main From This Project
 
@@ -33,11 +38,12 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.0.3
+    $version_release = 2.0.4
 
 What's New??
 
-    * Null Safety For FrogoViewListener<T> - Bug Fixed*
+    * Bug Fixed *
+    * Adding Function "setupEmptyView(layoutEmptyView) - Can be null"
 
 
 # How To Use This Project
@@ -153,6 +159,7 @@ Add it in your root build.gradle at the end of repositories:
                 this, listData(),
                 R.layout.example_list_item
             )
+            adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
             recycler_view.adapter = adapter
             recycler_view.isViewLinear()
         }
@@ -230,6 +237,7 @@ Add it in your root build.gradle at the end of repositories:
         private void setupAdapter(){
             DetailViewAdapter adapter = new DetailViewAdapter();
             adapter.setupRequirement(this, listData(), R.layout.example_list_item);
+            adapter.setupEmptyView(null); // Without Custom View
             RecyclerView recyclerView = findViewById(R.id.recycler_view);
             recyclerView.setAdapter(adapter);
             recyclerView.isViewLinear();
