@@ -18,6 +18,8 @@ package com.frogobox.recycler.adapter
  *
  */
 interface FrogoRecyclerViewListener<T> {
+
     fun onItemClicked(data: T)
     fun onItemLongClicked(data: T)
+
 }

@@ -21,9 +21,10 @@ import com.frogobox.recycler.view.FrogoHolderView
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view), FrogoHolderView<T> {
+abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view),
+    FrogoHolderView<T> {
 
-    override fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?){
+    override fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         if (data != null) {
             onItemViewClicked(data, listener)
         }
@@ -32,7 +33,7 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
         }
     }
 
-    override fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?){
+    override fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         itemView.setOnClickListener {
             if (data != null) {
                 listener?.onItemClicked(data)
@@ -46,7 +47,7 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
         }
     }
 
-    override fun initComponent(data: T){
+    override fun initComponent(data: T) {
         // component view
     }
 

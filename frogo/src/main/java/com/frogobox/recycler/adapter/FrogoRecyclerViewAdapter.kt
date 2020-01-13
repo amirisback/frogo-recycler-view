@@ -24,40 +24,45 @@ import com.frogobox.recycler.view.FrogoAdapterView
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>(), FrogoAdapterView<T> {
+abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>(),
+    FrogoAdapterView<T> {
 
     private var mViewListener: FrogoRecyclerViewListener<T>? = null
 
     private val mRecyclerViewDataList = mutableListOf<T>()
     private var mRecyclerViewLayout: Int = 0
 
+    private var mLayoutItem: Int = 0
     private var mEmptyView: Int = R.layout.empty_view_frogo
+
     private var hasEmptyView = false
     private var listCount = 0
+
+    private fun layoutHandle() {
+        if (mRecyclerViewDataList.isNotEmpty()) {
+            mRecyclerViewLayout = mLayoutItem
+        } else {
+            mRecyclerViewLayout = mEmptyView
+        }
+    }
 
     override fun setupRequirement(
         viewListener: FrogoRecyclerViewListener<T>?,
         dataList: List<T>?,
-        layoutItem: Int?
+        layoutItem: Int
     ) {
 
         if (viewListener != null) {
             mViewListener = viewListener
         }
 
+        mRecyclerViewDataList.clear()
         if (dataList != null) {
-            if (dataList.isNotEmpty()) {
-                mRecyclerViewDataList.clear()
-                if (dataList != null) {
-                    mRecyclerViewDataList.addAll(dataList)
-                }
-                if (layoutItem != null) {
-                    mRecyclerViewLayout = layoutItem
-                }
-            } else {
-                mRecyclerViewLayout = mEmptyView
-            }
+            mRecyclerViewDataList.addAll(dataList)
         }
+
+        mLayoutItem = layoutItem
+        layoutHandle()
 
         notifyDataSetChanged()
     }
@@ -67,11 +72,11 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
         if (emptyView != null) {
             mEmptyView = emptyView
         }
-        mRecyclerViewLayout = mEmptyView
+        layoutHandle()
         notifyDataSetChanged()
     }
 
-    protected fun viewLayout(parent: ViewGroup): View {
+    override fun viewLayout(parent: ViewGroup): View {
         return LayoutInflater.from(parent.context).inflate(mRecyclerViewLayout, parent, false)
     }
 

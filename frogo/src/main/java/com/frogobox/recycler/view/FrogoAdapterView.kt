@@ -1,5 +1,7 @@
 package com.frogobox.recycler.view
 
+import android.view.View
+import android.view.ViewGroup
 import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
 
 /**
@@ -21,7 +23,9 @@ import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
  */
 interface FrogoAdapterView<T> {
 
-    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int?)
+    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int)
     fun setupEmptyView(emptyView: Int?)
+    fun viewLayout(parent: ViewGroup): View
+
 
 }
