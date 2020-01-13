@@ -34,6 +34,7 @@ public class DetailActivity extends AppCompatActivity implements DetailViewListe
     private void setupAdapter() {
         DetailViewAdapter adapter = new DetailViewAdapter();
         adapter.setupRequirement(this, listData(), R.layout.example_list_item);
+        adapter.setupEmptyView(null);
         FrogoRecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setAdapter(adapter);
         recyclerView.isViewLinearVertical(false);
