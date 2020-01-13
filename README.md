@@ -83,7 +83,7 @@ Add it in your root build.gradle at the end of repositories:
 	(Kotlin) - class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
 	(Java) - public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
 	
-<h3>Adapter Main Function</h3>
+<h3>FrogoRecyclerViewAdapter Special Use Function</h3>
 
     fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int?)
     fun setupEmptyView(emptyView: Int?)
