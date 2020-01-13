@@ -5,11 +5,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.javasample.adapter.DetailViewAdapter;
 import com.frogobox.recycler.javasample.adapter.DetailViewListener;
 import com.frogobox.recycler.model.ExampleModel;
-import com.frogobox.recycler.view.FrogoRecyclerView;
 
 import java.util.ArrayList;
 
