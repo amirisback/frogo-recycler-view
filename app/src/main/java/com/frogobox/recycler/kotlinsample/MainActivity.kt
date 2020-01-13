@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun listData(): MutableList<ExampleModel> {
         val listString = mutableListOf<ExampleModel>()
-        listString.add(ExampleModel("Sample Data"))
-        listString.add(ExampleModel("Sample Data"))
-        listString.add(ExampleModel("Sample Data"))
-        listString.add(ExampleModel("Sample Data"))
+//        listString.add(ExampleModel("Sample Data"))
+//        listString.add(ExampleModel("Sample Data"))
+//        listString.add(ExampleModel("Sample Data"))
+//        listString.add(ExampleModel("Sample Data"))
         return listString
     }
 
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             null, listData(),
             R.layout.example_list_item
         )
-//        adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
+        adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
         recycler_view.adapter = adapter
         recycler_view.isViewLinearVertical(false)
     }
