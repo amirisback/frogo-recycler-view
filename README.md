@@ -73,8 +73,7 @@ Add it in your root build.gradle at the end of repositories:
 		
 <h3>Step 3. Create xml view</h3>
 
-    <com.frogobox.recycler.view.FrogoRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <com.frogobox.recycler.FrogoRecyclerView 
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
