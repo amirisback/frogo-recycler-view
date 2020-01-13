@@ -15,11 +15,6 @@ FrogoRecyclerView Extends RecyclerView
     fun isViewLinearHorizontal(dividerItem: Boolean) {}
     fun isViewStaggeredGrid(spanCount: Int) {}
     fun isViewGrid(spanCount: Int) {}
-    
-# Special Function Of Adapter
-
-    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int?)
-    fun setupEmptyView(emptyView: Int?)
 
 # Function Main From This Project
 
@@ -88,6 +83,11 @@ Add it in your root build.gradle at the end of repositories:
 	(Kotlin) - class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
 	(Java) - public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
 	
+<h3>Adapter Main Function</h3>
+
+    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int?)
+    fun setupEmptyView(emptyView: Int?)
+    
 # Sample Code Kotlin and Java
 <h3>Sample Code Adapter (Kotlin)</h3>
 
