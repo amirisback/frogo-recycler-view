@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             null, listData(),
             R.layout.example_list_item
         )
-        adapter.setupEmptyView(R.layout.example_empty_view)
+        adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
         recycler_view.adapter = adapter
         recycler_view.isViewLinearVertical(false)
     }
