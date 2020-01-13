@@ -266,7 +266,9 @@ Add it in your root build.gradle at the end of repositories:
     Examples can be seen above / clone this project.
     
 # Screen Shoot Apps
-<p align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></p>
+<span align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></span>
+<span align="center"><img width="200px" height="360px" src="docs/ss_empty_view_custom.jpg"></span>
+<span align="center"><img width="200px" height="360px" src="docs/ss_empty_view_sample.jpg"></span>
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
