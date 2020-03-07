@@ -1,6 +1,6 @@
 # FrogoRecyclerView by Amirisback
 FrogoRecyclerView Extends RecyclerView
-- v2.0.4 - Development
+- v2.1.0 - Development
 - Stable Version
 
 # About This Project
@@ -24,10 +24,10 @@ FrogoRecyclerView Extends RecyclerView
     FrogoRecyclerViewListener<T> - Interface for callback function from ViewHolder
 
 # Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.61'
-- classpath 'com.android.tools.build:gradle:3.5.3'
+- ext.kotlin_version = '1.3.70'
+- classpath 'com.android.tools.build:gradle:3.6.1'
 - compileSdkVersion 29
-- buildToolsVersion "29.0.1"
+- buildToolsVersion "29.0.3"
 - minSdkVersion 21
 
 # Version Release
@@ -160,7 +160,7 @@ Add it in your root build.gradle at the end of repositories:
             )
             adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
             recycler_view.adapter = adapter
-            recycler_view.isViewLinear()
+            recycler_view.isViewLinearVertical(true)
         }
     
         override fun onItemClickedMain(data: ExampleModel) {

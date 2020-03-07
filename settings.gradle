@@ -1,2 +1,2 @@
-include ':app', ':frogo'
+include ':app', ':frogorecyclerview'
 rootProject.name='FrogoRecyclerViewAdapter'
