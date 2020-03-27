@@ -1,6 +1,6 @@
 # FrogoRecyclerView by Amirisback
 FrogoRecyclerView Extends RecyclerView
-- v2.1.0 - Development
+- v2.1.1 - Development
 - Stable Version
 
 # About This Project
@@ -61,7 +61,7 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 
 
 # Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.70'
+- ext.kotlin_version = '1.3.71'
 - classpath 'com.android.tools.build:gradle:3.6.1'
 - compileSdkVersion 29
 - buildToolsVersion "29.0.3"
@@ -70,7 +70,7 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.1.0
+    $version_release = 2.1.1
 
 What's New??
 
