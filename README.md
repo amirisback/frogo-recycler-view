@@ -11,9 +11,16 @@ FrogoRecyclerView Extends RecyclerView
 
 # Special From This Custom View
 
+    // Setup linear vertical recycler view
     fun isViewLinearVertical(dividerItem: Boolean) {}
+
+    // Setup linear horizontal recycler view
     fun isViewLinearHorizontal(dividerItem: Boolean) {}
+
+    // Setup staggered grid recycler view
     fun isViewStaggeredGrid(spanCount: Int) {}
+
+    // Setup grid recycler view
     fun isViewGrid(spanCount: Int) {}
 
 # Function Main From This Project
@@ -22,6 +29,36 @@ FrogoRecyclerView Extends RecyclerView
     FrogoRecyclerViewAdapter<T> - Extend From RecyclerViewAdapter
     FrogoRecyclerViewHolder<T> - Extend From ReyclerView.ViewHolder
     FrogoRecyclerViewListener<T> - Interface for callback function from ViewHolder
+    
+# You can just use the adapter
+only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerView ordinary
+
+## Interface FrogoAdapterView
+
+    // Setup adapter requirement
+    fun setupRequirement(
+        layoutItem: Int,
+        dataList: List<T>?,
+        viewListener: FrogoRecyclerViewListener<T>?
+    )
+
+    // Setup empty view for layout
+    fun setupEmptyView(emptyView: Int?)
+
+    // Setup view layout
+    fun viewLayout(parent: ViewGroup): View
+
+## Interface FrogoHolderView
+
+    // bind item data
+    fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?)
+
+    // setup on item view clicked
+    fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?)
+
+    // Initiation all component
+    fun initComponent(data: T)
+
 
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.70'
@@ -38,7 +75,7 @@ This Is Latest Release
 What's New??
 
     * Bug Fixed *
-    * Adding Function "setupEmptyView(layoutEmptyView) - Can be null"
+    * Sorting parameters setupRequirement"
 
 
 # How To Use This Project
@@ -85,10 +122,19 @@ Add it in your root build.gradle at the end of repositories:
 	
 <h3>FrogoRecyclerViewAdapter Special Use Function</h3>
 
-    fun setupRequirement(viewListener: FrogoRecyclerViewListener<T>?, dataList: List<T>?, layoutItem: Int?)
+    // Setup adapter requirement
+    fun setupRequirement(
+        layoutItem: Int,
+        dataList: List<T>?,
+        viewListener: FrogoRecyclerViewListener<T>?
+    )
+
+    // Setup empty view for layout
     fun setupEmptyView(emptyView: Int?)
     
 # Sample Code Kotlin and Java
+
+## Kotlin
 <h3>Sample Code Adapter (Kotlin)</h3>
 
     class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
@@ -155,8 +201,9 @@ Add it in your root build.gradle at the end of repositories:
             val adapter =
                 MainViewAdapter()
             adapter.setupRequirement(
-                this, listData(),
-                R.layout.example_list_item
+                R.layout.example_list_item, 
+                listData(), 
+                this 
             )
             adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
             recycler_view.adapter = adapter
@@ -173,6 +220,7 @@ Add it in your root build.gradle at the end of repositories:
     
     }
     
+## Java    
 <h3>Sample Code Adapter (Java)</h3>
 
     public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
@@ -235,7 +283,7 @@ Add it in your root build.gradle at the end of repositories:
     
         private void setupAdapter(){
             DetailViewAdapter adapter = new DetailViewAdapter();
-            adapter.setupRequirement(this, listData(), R.layout.example_list_item);
+            adapter.setupRequirement(R.layout.example_list_item, listData(), this);
             adapter.setupEmptyView(null); // Without Custom View
             RecyclerView recyclerView = findViewById(R.id.recycler_view);
             recyclerView.setAdapter(adapter);

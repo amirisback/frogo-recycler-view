@@ -24,13 +24,16 @@ import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
 interface FrogoAdapterView<T> {
 
     // Setup adapter requirement
-    fun setupRequirement(layoutItem: Int, dataList: List<T>?, viewListener: FrogoRecyclerViewListener<T>?)
+    fun setupRequirement(
+        layoutItem: Int,
+        dataList: List<T>?,
+        viewListener: FrogoRecyclerViewListener<T>?
+    )
 
     // Setup empty view for layout
     fun setupEmptyView(emptyView: Int?)
 
     // Setup view layout
     fun viewLayout(parent: ViewGroup): View
-
 
 }
