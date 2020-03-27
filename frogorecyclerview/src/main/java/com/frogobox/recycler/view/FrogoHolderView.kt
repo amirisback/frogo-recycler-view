@@ -21,8 +21,13 @@ import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
  */
 interface FrogoHolderView<T> {
 
+    // bind item data
     fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?)
+
+    // setup on item view clicked
     fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?)
+
+    // Initiation all component
     fun initComponent(data: T)
 
 }

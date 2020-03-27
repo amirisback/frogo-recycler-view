@@ -39,17 +39,18 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
     private var listCount = 0
 
     private fun layoutHandle() {
-        if (mRecyclerViewDataList.isNotEmpty()) {
-            mRecyclerViewLayout = mLayoutItem
+        mRecyclerViewLayout = if (mRecyclerViewDataList.isNotEmpty()) {
+            mLayoutItem
         } else {
-            mRecyclerViewLayout = mEmptyView
+            mEmptyView
         }
+        notifyDataSetChanged()
     }
 
     override fun setupRequirement(
-        viewListener: FrogoRecyclerViewListener<T>?,
+        layoutItem: Int,
         dataList: List<T>?,
-        layoutItem: Int
+        viewListener: FrogoRecyclerViewListener<T>?
     ) {
 
         if (viewListener != null) {
@@ -63,8 +64,6 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
 
         mLayoutItem = layoutItem
         layoutHandle()
-
-        notifyDataSetChanged()
     }
 
     override fun setupEmptyView(emptyView: Int?) {
@@ -73,7 +72,6 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
             mEmptyView = emptyView
         }
         layoutHandle()
-        notifyDataSetChanged()
     }
 
     override fun viewLayout(parent: ViewGroup): View {
