@@ -9,6 +9,11 @@ FrogoRecyclerView Extends RecyclerView
 - No longer requires variable declarations
 - Just setupRequirement()
 
+# Plan Development
+- RecyclerView without adapter
+- Simpifly code
+- Bug fixing
+
 # Special From This Custom View
 
     // Setup linear vertical recycler view
@@ -60,6 +65,11 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
     fun initComponent(data: T)
 
 
+# Screen Shoot Apps
+<span align="center"><img width="200px" height="360px" src="docs/ss_apps.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/ss_data.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/ss_empty.png"></span>
+
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.71'
 - classpath 'com.android.tools.build:gradle:3.6.1'
@@ -74,9 +84,9 @@ This Is Latest Release
 
 What's New??
 
-    * Bug Fixed *
-    * Sorting parameters setupRequirement"
-
+    * New sample code *
+    * frogo_rv_bg_card.xml *
+    * frogo_rv_dimens.xml *
 
 # How To Use This Project
 <h3>Step 1. Add the JitPack repository to your build file</h3>
@@ -89,7 +99,6 @@ Add it in your root build.gradle at the end of repositories:
 			maven { url 'https://jitpack.io' }
 		}
 	}
-  
   
 <h3>Step 2. Add the dependency</h3>
 
@@ -281,15 +290,85 @@ Add it in your root build.gradle at the end of repositories:
     
 ## values
 ### dimens
+
+    <!--  Frogo Rv Base Dimen  -->
+    <dimen name="frogo_rv_dimen_1dp">1dp</dimen>
+    <dimen name="frogo_rv_dimen_2dp">2dp</dimen>
+    <dimen name="frogo_rv_dimen_4dp">4dp</dimen>
+    <dimen name="frogo_rv_dimen_6dp">6dp</dimen>
+    <dimen name="frogo_rv_dimen_8dp">8dp</dimen>
+    <dimen name="frogo_rv_dimen_10dp">10dp</dimen>
+    <dimen name="frogo_rv_dimen_12dp">12dp</dimen>
+    <dimen name="frogo_rv_dimen_14dp">14dp</dimen>
+    <dimen name="frogo_rv_dimen_16dp">16dp</dimen>
+    <dimen name="frogo_rv_dimen_18dp">18dp</dimen>
+    <dimen name="frogo_rv_dimen_20dp">20dp</dimen>
+    <dimen name="frogo_rv_dimen_22dp">22dp</dimen>
+    <dimen name="frogo_rv_dimen_24dp">24dp</dimen>
+    <dimen name="frogo_rv_dimen_26dp">26dp</dimen>
+    <dimen name="frogo_rv_dimen_28dp">28dp</dimen>
+    <dimen name="frogo_rv_dimen_30dp">30dp</dimen>
+    <dimen name="frogo_rv_dimen_32dp">32dp</dimen>
+    <dimen name="frogo_rv_dimen_34dp">34dp</dimen>
+    <dimen name="frogo_rv_dimen_36dp">36dp</dimen>
+    <dimen name="frogo_rv_dimen_38dp">38dp</dimen>
+    <dimen name="frogo_rv_dimen_40dp">40dp</dimen>
+    <dimen name="frogo_rv_dimen_42dp">42dp</dimen>
+    <dimen name="frogo_rv_dimen_44dp">44dp</dimen>
+    <dimen name="frogo_rv_dimen_46dp">46dp</dimen>
+    <dimen name="frogo_rv_dimen_48dp">48dp</dimen>
+    <dimen name="frogo_rv_dimen_50dp">50dp</dimen>
+    <dimen name="frogo_rv_dimen_52dp">52dp</dimen>
+    <dimen name="frogo_rv_dimen_54dp">54dp</dimen>
+    <dimen name="frogo_rv_dimen_56dp">56dp</dimen>
+    <dimen name="frogo_rv_dimen_58dp">58dp</dimen>
+    <dimen name="frogo_rv_dimen_60dp">60dp</dimen>
+    <dimen name="frogo_rv_dimen_62dp">62dp</dimen>
+    <dimen name="frogo_rv_dimen_64dp">64dp</dimen>
+    <dimen name="frogo_rv_dimen_66dp">66dp</dimen>
+    <dimen name="frogo_rv_dimen_68dp">68dp</dimen>
+    <dimen name="frogo_rv_dimen_70dp">70dp</dimen>
+    <dimen name="frogo_rv_dimen_72dp">72dp</dimen>
+    <dimen name="frogo_rv_dimen_74dp">74dp</dimen>
+    <dimen name="frogo_rv_dimen_76dp">76dp</dimen>
+    <dimen name="frogo_rv_dimen_78dp">78dp</dimen>
+    <dimen name="frogo_rv_dimen_80dp">80dp</dimen>
+    <dimen name="frogo_rv_dimen_82dp">82dp</dimen>
+    <dimen name="frogo_rv_dimen_84dp">84dp</dimen>
+    <dimen name="frogo_rv_dimen_86dp">86dp</dimen>
+    <dimen name="frogo_rv_dimen_88dp">88dp</dimen>
+    <dimen name="frogo_rv_dimen_90dp">90dp</dimen>
+    <dimen name="frogo_rv_dimen_92dp">92dp</dimen>
+    <dimen name="frogo_rv_dimen_94dp">94dp</dimen>
+    <dimen name="frogo_rv_dimen_96dp">96dp</dimen>
+    <dimen name="frogo_rv_dimen_98dp">98dp</dimen>
+    <dimen name="frogo_rv_dimen_100dp">100dp</dimen>
+    <dimen name="frogo_rv_dimen_102dp">102dp</dimen>
+    <dimen name="frogo_rv_dimen_104dp">104dp</dimen>
+    <dimen name="frogo_rv_dimen_106dp">106dp</dimen>
+    <dimen name="frogo_rv_dimen_108dp">108dp</dimen>
+    <dimen name="frogo_rv_dimen_110dp">110dp</dimen>
+    <dimen name="frogo_rv_dimen_112dp">112dp</dimen>
+    <dimen name="frogo_rv_dimen_114dp">114dp</dimen>
+    <dimen name="frogo_rv_dimen_116dp">116dp</dimen>
+    <dimen name="frogo_rv_dimen_118dp">118dp</dimen>
+    <dimen name="frogo_rv_dimen_120dp">120dp</dimen>
+    <dimen name="frogo_rv_dimen_122dp">122dp</dimen>
+    <dimen name="frogo_rv_dimen_124dp">124dp</dimen>
+    <dimen name="frogo_rv_dimen_126dp">126dp</dimen>
+    <dimen name="frogo_rv_dimen_128dp">128dp</dimen>
+    <dimen name="frogo_rv_dimen_130dp">130dp</dimen>
+
 ### colors
-### strings
+
+    <!-- Frogo Rv Base Color-->
+    <color name="frogoRvColorBaseWhite">#FFFFFF</color>
+    <color name="frogoRvcolorBaseBlack">#000000</color>
+    <color name="frogoRvcolorBaseRed">#FF0000</color>
+
 ## layout
 
-    
-# Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></span>
-<span align="center"><img width="200px" height="360px" src="docs/ss_empty_view_sample.jpg"></span>
-<span align="center"><img width="200px" height="360px" src="docs/ss_empty_view_custom.jpg"></span>
+    frogo_rv_empty_view.xml
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
