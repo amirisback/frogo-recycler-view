@@ -1,0 +1,12 @@
+name: 'Frogo-Recycler-View'
+description: 'Library Easy FrogoRecyclerView Based on RecyclerView, Full and Clear Documentation, Have Empty View :books:'
+author: 'Muhammad Faisal Amir'
+inputs:
+  myInput:
+    description: 'Input to use'
+    default: 'world'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.myInput }}

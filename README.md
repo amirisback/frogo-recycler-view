@@ -1,6 +1,6 @@
-# FrogoRecyclerView by Amirisback
+# frogo-recycler-view by Amirisback (Muhammad Faisal Amir)
 FrogoRecyclerView Extends RecyclerView
-- v2.1.1 - Development
+- v2.1.2 - Development
 - Stable Version
 
 # About This Project
@@ -80,7 +80,7 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.1.1
+    $version_release = 2.1.2
 
 What's New??
 
@@ -385,5 +385,5 @@ Name Of Contribute
 Waiting for your contribute
 
 # Attention !!!
-Please enjoy and don't forget fork and give a star
+- Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
