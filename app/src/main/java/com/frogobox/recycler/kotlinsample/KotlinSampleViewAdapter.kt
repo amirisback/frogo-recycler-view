@@ -1,10 +1,10 @@
-package com.frogobox.recycler.kotlinsample.adapter
+package com.frogobox.recycler.kotlinsample
 
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.adapter.FrogoRecyclerViewAdapter
 import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder
+import com.frogobox.recycler.model.ExampleModel
 import kotlinx.android.synthetic.main.example_list_item.view.*
 
 /**
@@ -24,16 +24,16 @@ import kotlinx.android.synthetic.main.example_list_item.view.*
  * com.frogobox.frogorecyclerviewadapter
  *
  */
-class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
+class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerViewHolder<ExampleModel> {
-        return ExampleViewHolder(viewLayout(parent))
+        return KotlinSampleViewHolder(viewLayout(parent))
     }
 
-    inner class ExampleViewHolder(view: View) : FrogoRecyclerViewHolder<ExampleModel>(view) {
+    inner class KotlinSampleViewHolder(view: View) : FrogoRecyclerViewHolder<ExampleModel>(view) {
 
         private val tvExampleItem = view.tv_example_item
 

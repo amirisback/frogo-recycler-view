@@ -1,4 +1,4 @@
-package com.frogobox.recycler.javasample.adapter;
+package com.frogobox.recycler.javasample;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,18 +30,18 @@ import org.jetbrains.annotations.NotNull;
  * FrogoBox Software Industries
  * com.frogobox.frogorecyclerviewadapter.javasample
  */
-public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
+public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
     @NonNull
     @Override
     public FrogoRecyclerViewHolder<ExampleModel> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new DetailViewHolder(parent);
+        return new JavaSampleViewHolder(viewLayout(parent));
     }
 
-    class DetailViewHolder extends FrogoRecyclerViewHolder<ExampleModel> {
+    static class JavaSampleViewHolder extends FrogoRecyclerViewHolder<ExampleModel> {
 
         private TextView tvExample = itemView.findViewById(R.id.tv_example_item);
 
-        public DetailViewHolder(@NotNull View view) {
+        JavaSampleViewHolder(@NotNull View view) {
             super(view);
         }
 

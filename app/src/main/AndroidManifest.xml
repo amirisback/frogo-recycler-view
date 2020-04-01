@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.frogobox.recycler.javasample.DetailActivity"></activity>
-        <activity android:name="com.frogobox.recycler.kotlinsample.MainActivity">
+        <activity android:name=".kotlinsample.KotlinSampleActivity" />
+        <activity android:name=".javasample.JavaSampleActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
