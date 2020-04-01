@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<resources>
+
+    <!-- Frogo Rv Base Color-->
+    <color name="frogoRvColorBaseWhite">#FFFFFF</color>
+    <color name="frogoRvcolorBaseBlack">#000000</color>
+    <color name="frogoRvcolorBaseRed">#FF0000</color>
+
+</resources>

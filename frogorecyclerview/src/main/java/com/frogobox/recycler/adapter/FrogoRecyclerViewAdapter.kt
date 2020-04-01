@@ -33,7 +33,7 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
     private var mRecyclerViewLayout: Int = 0
 
     private var mLayoutItem: Int = 0
-    private var mEmptyView: Int = R.layout.empty_view_frogo
+    private var mEmptyView: Int = R.layout.frogo_rv_empty_view
 
     private var hasEmptyView = false
     private var listCount = 0
