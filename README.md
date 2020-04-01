@@ -112,13 +112,13 @@ Add it in your root build.gradle at the end of repositories:
 	
 <h3>Step 4. Create adapter</h3>
 
-	(Kotlin) - class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
-	(Java) - public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
+	(Kotlin) - class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
+	(Java) - public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
 
 <h3>Step 5. Create Activity Or Fragment</h3>
 
-	(Kotlin) - class MainActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
-	(Java) - public class DetailActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
+	(Kotlin) - class KotlinSampleActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
+	(Java) - public class JavaSampleActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
 	
 <h3>FrogoRecyclerViewAdapter Special Use Function</h3>
 
@@ -137,16 +137,16 @@ Add it in your root build.gradle at the end of repositories:
 ## Kotlin
 <h3>Sample Code Adapter (Kotlin)</h3>
 
-    class MainViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
+    class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
     
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
         ): FrogoRecyclerViewHolder<ExampleModel> {
-            return ExampleViewHolder(viewLayout(parent))
+            return KotlinSampleViewHolder(viewLayout(parent))
         }
     
-        inner class ExampleViewHolder(view: View) : FrogoRecyclerViewHolder<ExampleModel>(view) {
+        inner class KotlinSampleViewHolder(view: View) : FrogoRecyclerViewHolder<ExampleModel>(view) {
     
             private val tvExampleItem = view.tv_example_item
     
@@ -160,62 +160,45 @@ Add it in your root build.gradle at the end of repositories:
     
     }
     
-<h3>Sample Code View Listener (Kotlin)</h3>
-
-    interface MainViewListener : FrogoRecyclerViewListener<ExampleModel> {
     
-        override fun onItemClicked(data: ExampleModel) {
-            onItemClickedMain(data)
-        }
-    
-        override fun onItemLongClicked(data: ExampleModel) {
-            onItemLongClickedMain(data)
-        }
-    
-        fun onItemClickedMain(data: ExampleModel)
-    
-        fun onItemLongClickedMain(data: ExampleModel)
-    
-    }
-
 <h3>Sample Code Activity (Kotlin)</h3>
 
-    class MainActivity : AppCompatActivity(), MainViewListener {
+    class KotlinSampleActivity : AppCompatActivity() {
     
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
+            setContentView(R.layout.activity_frogo_rv_sample)
             setupAdapter()
         }
     
         private fun listData(): MutableList<ExampleModel> {
             val listString = mutableListOf<ExampleModel>()
-            listString.add(ExampleModel("Amir Is Back"))
-            listString.add(ExampleModel("Amir Is Back"))
-            listString.add(ExampleModel("Amir Is Back"))
-            listString.add(ExampleModel("Amir Is Back"))
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            listString.add(ExampleModel(Constant.FULL_NAME))
             return listString
         }
     
         private fun setupAdapter() {
             val adapter =
-                MainViewAdapter()
+                KotlinSampleViewAdapter()
             adapter.setupRequirement(
-                R.layout.example_list_item, 
-                listData(), 
-                this 
+                R.layout.example_list_item,
+                listData(),
+                object : FrogoRecyclerViewListener<ExampleModel> {
+                    override fun onItemClicked(data: ExampleModel) {
+                        Toast.makeText(this@KotlinSampleActivity, data.name, Toast.LENGTH_SHORT).show()
+                    }
+    
+                    override fun onItemLongClicked(data: ExampleModel) {
+                        Toast.makeText(this@KotlinSampleActivity, data.name, Toast.LENGTH_SHORT).show()
+                    }
+                }
             )
             adapter.setupEmptyView(R.layout.example_empty_view) // With Custom View
-            recycler_view.adapter = adapter
-            recycler_view.isViewLinearVertical(true)
-        }
-    
-        override fun onItemClickedMain(data: ExampleModel) {
-            Toast.makeText(this, data.name, Toast.LENGTH_SHORT).show()
-        }
-    
-        override fun onItemLongClickedMain(data: ExampleModel) {
-            Toast.makeText(this, data.name, Toast.LENGTH_LONG).show()
+            frogo_recycler_view.adapter = adapter
+            frogo_recycler_view.isViewLinearVertical(false)
         }
     
     }
@@ -223,18 +206,18 @@ Add it in your root build.gradle at the end of repositories:
 ## Java    
 <h3>Sample Code Adapter (Java)</h3>
 
-    public class DetailViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
+    public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
         @NonNull
         @Override
         public FrogoRecyclerViewHolder<ExampleModel> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new DetailViewHolder(parent);
+            return new JavaSampleViewHolder(viewLayout(parent));
         }
     
-        class DetailViewHolder extends FrogoRecyclerViewHolder<ExampleModel> {
+        static class JavaSampleViewHolder extends FrogoRecyclerViewHolder<ExampleModel> {
     
             private TextView tvExample = itemView.findViewById(R.id.tv_example_item);
     
-            public DetailViewHolder(@NotNull View view) {
+            JavaSampleViewHolder(@NotNull View view) {
                 super(view);
             }
     
@@ -249,69 +232,59 @@ Add it in your root build.gradle at the end of repositories:
     
     }
 
-<h3>Sample Code View Listener (Java)</h3>
-
-    public interface DetailViewListener extends FrogoRecyclerViewListener<ExampleModel> {
-    
-        @Override
-        void onItemClicked(ExampleModel data);
-    
-        @Override
-        void onItemLongClicked(ExampleModel data);
-    
-    }
-
 <h3>Sample Code Activity (Java)</h3>
 
-    public class DetailActivity extends AppCompatActivity implements DetailViewListener {
+    public class JavaSampleActivity extends AppCompatActivity {
     
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_detail);
+            setContentView(R.layout.activity_frogo_rv_sample);
             setupAdapter();
         }
     
-        private ArrayList<ExampleModel> listData(){
+        private ArrayList<ExampleModel> listData() {
             ArrayList<ExampleModel> exampleModels = new ArrayList<>();
-            exampleModels.add(new ExampleModel("Amir Is Back"));
-            exampleModels.add(new ExampleModel("Amir Is Back"));
-            exampleModels.add(new ExampleModel("Amir Is Back"));
-            exampleModels.add(new ExampleModel("Amir Is Back"));
+            exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+            exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+            exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+            exampleModels.add(new ExampleModel(Constant.NICK_NAME));
             return exampleModels;
         }
     
-        private void setupAdapter(){
-            DetailViewAdapter adapter = new DetailViewAdapter();
-            adapter.setupRequirement(R.layout.example_list_item, listData(), this);
+        private void setupAdapter() {
+            JavaSampleViewAdapter adapter = new JavaSampleViewAdapter();
+            adapter.setupRequirement(R.layout.example_list_item, listData(), new FrogoRecyclerViewListener<ExampleModel>() {
+                @Override
+                public void onItemClicked(ExampleModel data) {
+                    Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                }
+    
+                @Override
+                public void onItemLongClicked(ExampleModel data) {
+                    Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_LONG).show();
+                }
+            });
             adapter.setupEmptyView(null); // Without Custom View
-            RecyclerView recyclerView = findViewById(R.id.recycler_view);
+            FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
             recyclerView.setAdapter(adapter);
-            recyclerView.isViewLinear();
+            recyclerView.isViewLinearVertical(false);
         }
     
-        @Override
-        public void onItemClicked(ExampleModel data) {
-            Toast.makeText(this, data.getName(), Toast.LENGTH_SHORT).show();
-        }
-    
-        @Override
-        public void onItemLongClicked(ExampleModel data) {
-            Toast.makeText(this, data.getName(), Toast.LENGTH_LONG).show();
-        }
-        
     }
+
     
-# Important Note (Caution)
-    To avoid conflicts between interfaces,
+# Extension Resource
+
+## drawable
+    frogo_rv_bg_card.xml
     
-    *******
-    
-    Try creating your own Interfarce Class by extending FrogoRecyclerViewListener<YourDataClass>. 
-    
-    *******
-    
-    Examples can be seen above / clone this project.
+## values
+### dimens
+### colors
+### strings
+## layout
+
     
 # Screen Shoot Apps
 <span align="center"><img width="200px" height="360px" src="docs/ss_apps.jpg"></span>
