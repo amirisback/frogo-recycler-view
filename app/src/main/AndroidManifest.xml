@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".javasample.JavaSampleNoAdapterActivity"></activity>
+        <activity android:name=".kotlinsample.KotlinSampleNoAdapterActivity" />
         <activity android:name=".kotlinsample.KotlinSampleActivity" />
         <activity android:name=".javasample.JavaSampleActivity" />
         <activity android:name=".MainActivity">
