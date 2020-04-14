@@ -1,32 +1,126 @@
 # frogo-recycler-view by Amirisback (Muhammad Faisal Amir)
 FrogoRecyclerView Extends RecyclerView
-- v2.1.2 - Development
+- v2.1.3 - Development
 - Stable Version
 
 # About This Project
-- Easy Adapter Base On RecyclerViewAdapter
-- Simple RecyclerViewAdapter
-- No longer requires variable declarations
-- Just setupRequirement()
+- RecyclerView No Adapter (Adapter Has Been Handled)
 
-# Plan Development
-- RecyclerView without adapter
-- Simpifly code
-- Bug fixing
+# Screen Shoot Apps
+<span align="center"><img width="200px" height="360px" src="docs/ss_apps.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/ss_data.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/ss_empty.png"></span>
+
+# Version Release
+This Is Latest Release
+
+    $version_release = 2.1.3
+
+What's New??
+
+    * fun injectAdapter *
+    * New sample code *
+    
+# How To Use This Project
+<h3>Step 1. Add the JitPack repository to your build file</h3>
+    
+    Add it in your root build.gradle at the end of repositories:
+    
+    	allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    	}
+      
+<h3>Step 2. Add the dependency</h3>
+    
+    dependencies {
+            // library frogo-recycler-view
+            implementation 'com.github.amirisback:frogo-recycler-view:${version_release}'
+    }
+    	
+    
+<h3>Step 3. Create xml view</h3>
+    
+    <com.frogobox.recycler.FrogoRecyclerView 
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    	
+## No Adapter
+<h3>Step 4. Inject Adapter</h3>
+    
+    private fun setupFrogoRecyclerView() {
+        recycler_view.injectAdapter(
+            R.layout.example_list_item, // layout item
+            listData(), // List Data
+            null, // Layout empty view
+            object : FrogoAdapterCallback<ExampleModel> {
+                override fun setupInitComponent(view: View, data: ExampleModel) {
+                    // Init component content item recyclerview
+                    view.tv_example_item.text = data.name
+                }
+
+                override fun onItemClicked(data: ExampleModel) {
+                    // setup item clicked on frogo recycler view
+                    Toast.makeText(this@KotlinSampleNoAdapterActivity, data.name, Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onItemLongClicked(data: ExampleModel) {
+                    // setup item long clicked on frogo recycler view
+                    Toast.makeText(this@KotlinSampleNoAdapterActivity, data.name, Toast.LENGTH_SHORT).show()
+                }
+            })
+        recycler_view.isViewLinearVertical(false)
+    }
+    
+    	
+## With Adapter
+<h3>Step 4. Create adapter</h3>
+    
+    (Kotlin) - class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
+    (Java) - public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
+
+<h3>Step 5. Create Activity Or Fragment</h3>
+
+    (Kotlin) - class KotlinSampleActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
+    (Java) - public class JavaSampleActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
+    	
+<h3>FrogoRecyclerViewAdapter Special Use Function</h3>
+    
+    // Setup adapter requirement
+    fun setupRequirement(
+        layoutItem: Int,
+        dataList: List<T>?,
+        viewListener: FrogoRecyclerViewListener<T>?
+    )
+
+    // Setup empty view for layout
+    fun setupEmptyView(emptyView: Int?)
+        
 
 # Special From This Custom View
 
     // Setup linear vertical recycler view
-    fun isViewLinearVertical(dividerItem: Boolean) {}
+    fun isViewLinearVertical(dividerItem: Boolean)
 
     // Setup linear horizontal recycler view
-    fun isViewLinearHorizontal(dividerItem: Boolean) {}
+    fun isViewLinearHorizontal(dividerItem: Boolean)
 
     // Setup staggered grid recycler view
-    fun isViewStaggeredGrid(spanCount: Int) {}
+    fun isViewStaggeredGrid(spanCount: Int)
 
     // Setup grid recycler view
-    fun isViewGrid(spanCount: Int) {}
+    fun isViewGrid(spanCount: Int)
+
+    // Setup Adapter
+    fun <T> injectAdapter(
+        layoutItem: Int,
+        dataList: List<T>?,
+        emptyView: Int?,
+        callback: FrogoAdapterCallback<T>
+    )
 
 # Function Main From This Project
 
@@ -35,6 +129,7 @@ FrogoRecyclerView Extends RecyclerView
     FrogoRecyclerViewHolder<T> - Extend From ReyclerView.ViewHolder
     FrogoRecyclerViewListener<T> - Interface for callback function from ViewHolder
     
+
 # You can just use the adapter
 only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerView ordinary
 
@@ -64,87 +159,114 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
     // Initiation all component
     fun initComponent(data: T)
 
-
-# Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/ss_apps.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/ss_data.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/ss_empty.png"></span>
-
-# Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.71'
-- classpath 'com.android.tools.build:gradle:3.6.1'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.3"
-- minSdkVersion 21
-
-# Version Release
-This Is Latest Release
-
-    $version_release = 2.1.2
-
-What's New??
-
-    * New sample code *
-    * frogo_rv_bg_card.xml *
-    * frogo_rv_dimens.xml *
-
-# How To Use This Project
-<h3>Step 1. Add the JitPack repository to your build file</h3>
-
-Add it in your root build.gradle at the end of repositories:
-
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-  
-<h3>Step 2. Add the dependency</h3>
-
-	dependencies {
-	        // library google
-	        implementation 'com.google.android.material:material:${latest_version_android}'
-            implementation 'androidx.legacy:legacy-support-v4:${latest_version_android}'
-
-            // library frogo-recycler-view
-	        implementation 'com.github.amirisback:frogo-recycler-view:${version_release}'
-	}
-	
-		
-<h3>Step 3. Create xml view</h3>
-
-    <com.frogobox.recycler.FrogoRecyclerView 
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-	
-<h3>Step 4. Create adapter</h3>
-
-	(Kotlin) - class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
-	(Java) - public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
-
-<h3>Step 5. Create Activity Or Fragment</h3>
-
-	(Kotlin) - class KotlinSampleActivity : AppCompatActivity(), FrogoRecyclerViewListener<ExampleModel> {
-	(Java) - public class JavaSampleActivity extends AppCompatActivity implements FrogoRecyclerViewListener<ExampleModel> {
-	
-<h3>FrogoRecyclerViewAdapter Special Use Function</h3>
-
-    // Setup adapter requirement
-    fun setupRequirement(
-        layoutItem: Int,
-        dataList: List<T>?,
-        viewListener: FrogoRecyclerViewListener<T>?
-    )
-
-    // Setup empty view for layout
-    fun setupEmptyView(emptyView: Int?)
-    
 # Sample Code Kotlin and Java
 
-## Kotlin
-<h3>Sample Code Adapter (Kotlin)</h3>
+## No Adapter
+### Kotlin
+<h4>Sample Code Activity (Kotlin)</h3>
+
+    class KotlinSampleNoAdapterActivity : AppCompatActivity() {
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_frogo_rv_sample)
+            setupFrogoRecyclerView()
+        }
+    
+        private fun listData(): MutableList<ExampleModel> {
+            val listString = mutableListOf<ExampleModel>()
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            listString.add(ExampleModel(Constant.FULL_NAME))
+            return listString
+        }
+    
+        private fun setupFrogoRecyclerView() {
+            frogo_recycler_view.injectAdapter(
+                R.layout.example_list_item,
+                listData(),
+                null,
+                object : FrogoAdapterCallback<ExampleModel> {
+                    override fun setupInitComponent(view: View, data: ExampleModel) {
+                        // Init component content item recyclerview
+                        view.tv_example_item.text = data.name
+                    }
+    
+                    override fun onItemClicked(data: ExampleModel) {
+                        // setup item clicked on frogo recycler view
+                        Toast.makeText(this@KotlinSampleNoAdapterActivity, data.name, Toast.LENGTH_SHORT).show()
+                    }
+    
+                    override fun onItemLongClicked(data: ExampleModel) {
+                        // setup item long clicked on frogo recycler view
+                        Toast.makeText(this@KotlinSampleNoAdapterActivity, data.name, Toast.LENGTH_SHORT).show()
+                    }
+                })
+            frogo_recycler_view.isViewLinearVertical(false)
+        }
+    
+    }
+
+  
+    
+### Java    
+<h4>Sample Code Activity (Java)</h3>
+
+    public class JavaSampleNoAdapterActivity extends AppCompatActivity {
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_frogo_rv_sample);
+            setupFrogoRecyclerView();
+        }
+    
+        private ArrayList<ExampleModel> listData() {
+            ArrayList<ExampleModel> exampleModels = new ArrayList<>();
+    //        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+    //        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+    //        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+    //        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+            return exampleModels;
+        }
+    
+        private void setupFrogoRecyclerView() {
+            FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
+            recyclerView.injectAdapter(
+                    R.layout.example_list_item,
+                    listData(),
+                    R.layout.example_empty_view,
+                    new FrogoAdapterCallback<ExampleModel>() {
+                        @Override
+                        public void setupInitComponent(@NotNull View view, ExampleModel data) {
+                            // Init component content item recyclerview
+                            TextView tvExample = view.findViewById(R.id.tv_example_item);
+                            tvExample.setText(data.getName());
+                        }
+    
+                        @Override
+                        public void onItemClicked(ExampleModel data) {
+                            // setup item clicked on frogo recycler view
+                            Toast.makeText(JavaSampleNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                        }
+    
+                        @Override
+                        public void onItemLongClicked(ExampleModel data) {
+                            // setup item long clicked on frogo recycler view
+                            Toast.makeText(JavaSampleNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            recyclerView.isViewLinearVertical(false);
+        }
+    
+    }
+
+    
+
+## With Adapter
+### Kotlin
+<h4>Sample Code Adapter (Kotlin)</h4>
 
     class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
     
@@ -170,7 +292,7 @@ Add it in your root build.gradle at the end of repositories:
     }
     
     
-<h3>Sample Code Activity (Kotlin)</h3>
+<h4>Sample Code Activity (Kotlin)</h4>
 
     class KotlinSampleActivity : AppCompatActivity() {
     
@@ -212,8 +334,8 @@ Add it in your root build.gradle at the end of repositories:
     
     }
     
-## Java    
-<h3>Sample Code Adapter (Java)</h3>
+### Java    
+<h4>Sample Code Adapter (Java)</h4>
 
     public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel> {
         @NonNull
@@ -241,7 +363,7 @@ Add it in your root build.gradle at the end of repositories:
     
     }
 
-<h3>Sample Code Activity (Java)</h3>
+<h4>Sample Code Activity (Java)</h4>
 
     public class JavaSampleActivity extends AppCompatActivity {
     
@@ -283,6 +405,7 @@ Add it in your root build.gradle at the end of repositories:
     }
 
     
+
 # Extension Resource
 
 ## drawable
@@ -369,6 +492,13 @@ Add it in your root build.gradle at the end of repositories:
 ## layout
 
     frogo_rv_empty_view.xml
+
+# Android Library Version (build.gradle)
+- ext.kotlin_version = '1.3.71'
+- classpath 'com.android.tools.build:gradle:3.6.2'
+- compileSdkVersion 29
+- buildToolsVersion "29.0.3"
+- minSdkVersion 21
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
