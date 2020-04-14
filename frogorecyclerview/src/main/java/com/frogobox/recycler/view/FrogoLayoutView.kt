@@ -23,16 +23,16 @@ import com.frogobox.recycler.callback.FrogoAdapterCallback
 interface FrogoLayoutView {
 
     // Setup linear vertical recycler view
-    fun isViewLinearVertical(dividerItem: Boolean) {}
+    fun isViewLinearVertical(dividerItem: Boolean)
 
     // Setup linear horizontal recycler view
-    fun isViewLinearHorizontal(dividerItem: Boolean) {}
+    fun isViewLinearHorizontal(dividerItem: Boolean)
 
     // Setup staggered grid recycler view
-    fun isViewStaggeredGrid(spanCount: Int) {}
+    fun isViewStaggeredGrid(spanCount: Int)
 
     // Setup grid recycler view
-    fun isViewGrid(spanCount: Int) {}
+    fun isViewGrid(spanCount: Int)
 
     // Setup Adapter
     fun <T> injectAdapter(
