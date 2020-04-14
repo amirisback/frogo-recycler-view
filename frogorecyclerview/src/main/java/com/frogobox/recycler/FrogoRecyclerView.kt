@@ -2,7 +2,11 @@ package com.frogobox.recycler
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import androidx.recyclerview.widget.*
+import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
+import com.frogobox.recycler.callback.FrogoAdapterCallback
+import com.frogobox.recycler.callback.FrogoHolderCallback
 import com.frogobox.recycler.view.FrogoLayoutView
 
 
@@ -24,6 +28,7 @@ import com.frogobox.recycler.view.FrogoLayoutView
  *
  */
 class FrogoRecyclerView : RecyclerView, FrogoLayoutView {
+
 
     constructor(context: Context) : super(context)
 
@@ -58,5 +63,38 @@ class FrogoRecyclerView : RecyclerView, FrogoLayoutView {
     override fun isViewGrid(spanCount: Int) {
         layoutManager = GridLayoutManager(context, spanCount)
     }
+
+    override fun <T> injectAdapter(
+        layoutItem: Int,
+        dataList: List<T>?,
+        emptyView: Int?,
+        callback: FrogoAdapterCallback<T>
+    ) {
+
+        val frogoViewAdapter = FrogoViewAdapter(object :
+            FrogoHolderCallback<T> {
+            override fun setupInitComponent(view: View, data: T) {
+                callback.setupInitComponent(view, data)
+            }
+        })
+
+        frogoViewAdapter.setupRequirement(
+            layoutItem,
+            dataList,
+            object : FrogoRecyclerViewListener<T> {
+                override fun onItemClicked(data: T) {
+                    callback.onItemClicked(data)
+                }
+
+                override fun onItemLongClicked(data: T) {
+                    callback.onItemLongClicked(data)
+                }
+            })
+
+        frogoViewAdapter.setupEmptyView(emptyView)
+        adapter = frogoViewAdapter
+
+    }
+
 
 }

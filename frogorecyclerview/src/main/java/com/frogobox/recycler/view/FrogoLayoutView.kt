@@ -1,5 +1,7 @@
 package com.frogobox.recycler.view
 
+import com.frogobox.recycler.callback.FrogoAdapterCallback
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -31,5 +33,13 @@ interface FrogoLayoutView {
 
     // Setup grid recycler view
     fun isViewGrid(spanCount: Int) {}
+
+    // Setup Adapter
+    fun <T> injectAdapter(
+        layoutItem: Int,
+        dataList: List<T>?,
+        emptyView: Int?,
+        callback: FrogoAdapterCallback<T>
+    )
 
 }
