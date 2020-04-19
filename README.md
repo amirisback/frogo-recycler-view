@@ -23,6 +23,8 @@ What's New??
     * New sample code *
     
 # How To Use This Project
+Just following the step until finish
+
 ## Gradle
 <h3>Step 1. Add the JitPack repository to your build file</h3>
     
@@ -42,7 +44,7 @@ What's New??
             implementation 'com.github.amirisback:frogo-recycler-view:2.1.4'
     }
     	
-## Maven (Skip This if you using gradle)
+## Maven (Skip this if you using gradle)
 <h3>Step 1. Add the JitPack repository to your build file</h3>
 
     <repositories>
