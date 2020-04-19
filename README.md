@@ -25,7 +25,7 @@ What's New??
 # How To Use This Project
 Just following the step until finish
 
-## Gradle
+## Download with Gradle
 <h3>Step 1. Add the JitPack repository to your build file</h3>
     
     Add it in your root build.gradle at the end of repositories:
@@ -44,7 +44,7 @@ Just following the step until finish
             implementation 'com.github.amirisback:frogo-recycler-view:2.1.4'
     }
     	
-## Maven (Skip this if you using gradle)
+## Download with Maven (Skip this if you using gradle and continue to Step 3)
 <h3>Step 1. Add the JitPack repository to your build file</h3>
 
     <repositories>
