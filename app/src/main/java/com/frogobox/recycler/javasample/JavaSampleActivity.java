@@ -3,22 +3,22 @@ package com.frogobox.recycler.javasample;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.adapter.FrogoRecyclerViewListener;
+import com.frogobox.recycler.base.BaseActivity;
 import com.frogobox.recycler.model.ExampleModel;
 
 import java.util.ArrayList;
 
-public class JavaSampleActivity extends AppCompatActivity {
+public class JavaSampleActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frogo_rv_sample);
         setupAdapter();
+        setupDetailActivity("Java With Adapter");
     }
 
     private ArrayList<ExampleModel> listData() {

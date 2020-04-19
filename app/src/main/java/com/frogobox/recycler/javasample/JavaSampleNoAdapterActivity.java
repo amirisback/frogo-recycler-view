@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
+import com.frogobox.recycler.base.BaseActivity;
 import com.frogobox.recycler.callback.FrogoAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
 
@@ -16,13 +17,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaSampleNoAdapterActivity extends AppCompatActivity {
+public class JavaSampleNoAdapterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frogo_rv_sample);
         setupFrogoRecyclerView();
+        setupDetailActivity("Java No Adapter");
     }
 
     private ArrayList<ExampleModel> listData() {

@@ -4,18 +4,20 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.recycler.R
+import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.callback.FrogoAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
-class KotlinSampleNoAdapterActivity : AppCompatActivity() {
+
+class KotlinSampleNoAdapterActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_frogo_rv_sample)
         setupFrogoRecyclerView()
+        setupDetailActivity("Kotlin No Adapter")
     }
 
     private fun listData(): MutableList<ExampleModel> {
@@ -40,12 +42,20 @@ class KotlinSampleNoAdapterActivity : AppCompatActivity() {
 
                 override fun onItemClicked(data: ExampleModel) {
                     // setup item clicked on frogo recycler view
-                    Toast.makeText(this@KotlinSampleNoAdapterActivity, data.name, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@KotlinSampleNoAdapterActivity,
+                        data.name,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 override fun onItemLongClicked(data: ExampleModel) {
                     // setup item long clicked on frogo recycler view
-                    Toast.makeText(this@KotlinSampleNoAdapterActivity, data.name, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@KotlinSampleNoAdapterActivity,
+                        data.name,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             })
         frogo_recycler_view.isViewLinearVertical(false)
