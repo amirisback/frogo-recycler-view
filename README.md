@@ -1,6 +1,6 @@
-# frogo-recycler-view
+# frogo-recycler-view v2.1.4
 FrogoRecyclerView Extends RecyclerView
-- created by amirisback (Muhammad Faisal Amir)
+- Created by amirisback (Muhammad Faisal Amir)
 - Development
 - Stable Version
 
