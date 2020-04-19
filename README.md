@@ -7,18 +7,18 @@ FrogoRecyclerView Extends RecyclerView
 - RecyclerView No Adapter (Adapter Has Been Handled)
 
 # Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/ss_apps.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/ss_data.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/ss_empty.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_apps.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_data.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span>
 
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.1.3
+    $version_release = 2.1.4
 
 What's New??
 
-    * fun injectAdapter *
+    * add : drawable and colors *
     * New sample code *
     
 # How To Use This Project
@@ -409,7 +409,99 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 # Extension Resource
 
 ## drawable
-    frogo_rv_bg_card.xml
+
+    frogo_rv_bg_accent_16dp.xml
+    frogo_rv_bg_accent_32dp.xml
+    frogo_rv_bg_accent_4dp.xml
+    frogo_rv_bg_accent_8dp.xml
+    frogo_rv_bg_amber_16dp.xml
+    frogo_rv_bg_amber_32dp.xml
+    frogo_rv_bg_amber_4dp.xml
+    frogo_rv_bg_amber_8dp.xml
+    frogo_rv_bg_black_16dp.xml
+    frogo_rv_bg_black_32dp.xml
+    frogo_rv_bg_black_4dp.xml
+    frogo_rv_bg_black_8dp.xml
+    frogo_rv_bg_blue_16dp.xml
+    frogo_rv_bg_blue_32dp.xml
+    frogo_rv_bg_blue_4dp.xml
+    frogo_rv_bg_blue_8dp.xml
+    frogo_rv_bg_card_16dp.xml
+    frogo_rv_bg_card_32dp.xml
+    frogo_rv_bg_card_4dp.xml
+    frogo_rv_bg_card_8dp.xml
+    frogo_rv_bg_cyan_16dp.xml
+    frogo_rv_bg_cyan_32dp.xml
+    frogo_rv_bg_cyan_4dp.xml
+    frogo_rv_bg_cyan_8dp.xml
+    frogo_rv_bg_dark_yellow_16dp.xml
+    frogo_rv_bg_dark_yellow_32dp.xml
+    frogo_rv_bg_dark_yellow_4dp.xml
+    frogo_rv_bg_dark_yellow_8dp.xml
+    frogo_rv_bg_deep_purple_16dp.xml
+    frogo_rv_bg_deep_purple_32dp.xml
+    frogo_rv_bg_deep_purple_4dp.xml
+    frogo_rv_bg_deep_purple_8dp.xml
+    frogo_rv_bg_green_16dp.xml
+    frogo_rv_bg_green_32dp.xml
+    frogo_rv_bg_green_4dp.xml
+    frogo_rv_bg_green_8dp.xml
+    frogo_rv_bg_indigo_16dp.xml
+    frogo_rv_bg_indigo_32dp.xml
+    frogo_rv_bg_indigo_4dp.xml
+    frogo_rv_bg_indigo_8dp.xml
+    frogo_rv_bg_light_blue_16dp.xml
+    frogo_rv_bg_light_blue_32dp.xml
+    frogo_rv_bg_light_blue_4dp.xml
+    frogo_rv_bg_light_blue_8dp.xml
+    frogo_rv_bg_light_green_16dp.xml
+    frogo_rv_bg_light_green_32dp.xml
+    frogo_rv_bg_light_green_4dp.xml
+    frogo_rv_bg_light_green_8dp.xml
+    frogo_rv_bg_lime_16dp.xml
+    frogo_rv_bg_lime_32dp.xml
+    frogo_rv_bg_lime_4dp.xml
+    frogo_rv_bg_lime_8dp.xml
+    frogo_rv_bg_orange_16dp.xml
+    frogo_rv_bg_orange_32dp.xml
+    frogo_rv_bg_orange_4dp.xml
+    frogo_rv_bg_orange_8dp.xml
+    frogo_rv_bg_pink_16dp.xml
+    frogo_rv_bg_pink_32dp.xml
+    frogo_rv_bg_pink_4dp.xml
+    frogo_rv_bg_pink_8dp.xml
+    frogo_rv_bg_primary_16dp.xml
+    frogo_rv_bg_primary_32dp.xml
+    frogo_rv_bg_primary_4dp.xml
+    frogo_rv_bg_primary_8dp.xml
+    frogo_rv_bg_primary_dark_16dp.xml
+    frogo_rv_bg_primary_dark_32dp.xml
+    frogo_rv_bg_primary_dark_4dp.xml
+    frogo_rv_bg_primary_dark_8dp.xml
+    frogo_rv_bg_purple_16dp.xml
+    frogo_rv_bg_purple_32dp.xml
+    frogo_rv_bg_purple_4dp.xml
+    frogo_rv_bg_purple_8dp.xml
+    frogo_rv_bg_red_16dp.xml
+    frogo_rv_bg_red_32dp.xml
+    frogo_rv_bg_red_4dp.xml
+    frogo_rv_bg_red_8dp.xml
+    frogo_rv_bg_teal_16dp.xml
+    frogo_rv_bg_teal_32dp.xml
+    frogo_rv_bg_teal_4dp.xml
+    frogo_rv_bg_teal_8dp.xml
+    frogo_rv_bg_white_16dp.xml
+    frogo_rv_bg_white_32dp.xml
+    frogo_rv_bg_white_4dp.xml
+    frogo_rv_bg_white_8dp.xml
+    frogo_rv_bg_yellow_16dp.xml
+    frogo_rv_bg_yellow_32dp.xml
+    frogo_rv_bg_yellow_4dp.xml
+    frogo_rv_bg_yellow_8dp.xml
+    frogo_rv_bg_yellow_lime_16dp.xml
+    frogo_rv_bg_yellow_lime_32dp.xml
+    frogo_rv_bg_yellow_lime_4dp.xml
+    frogo_rv_bg_yellow_lime_8dp.xml
     
 ## values
 ### dimens
@@ -484,10 +576,30 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 
 ### colors
 
+    <color name="frogoRvColorPrimary">#6200EE</color>
+    <color name="frogoRvColorPrimaryDark">#3700B3</color>
+    <color name="frogoRvColorAccent">#03DAC5</color>
+
     <!-- Frogo Rv Base Color-->
     <color name="frogoRvColorWhite">#FFFFFF</color>
     <color name="frogoRvColorBlack">#000000</color>
-    <color name="frogoRvColorRed">#FF0000</color>
+    <color name="frogoRvColorRed">#F44336</color>
+    <color name="frogoRvColorPink">#E91E63</color>
+    <color name="frogoRvColorPurple">#9C27B0</color>
+    <color name="frogoRvColorDeepPurple">#673AB7</color>
+    <color name="frogoRvColorIndigo">#3F51B5</color>
+    <color name="frogoRvColorBlue">#2196F3</color>
+    <color name="frogoRvColorLightBlue">#03A9F4</color>
+    <color name="frogoRvColorCyan">#00BCD4</color>
+    <color name="frogoRvColorTeal">#009688</color>
+    <color name="frogoRvColorGreen">#4CAF50</color>
+    <color name="frogoRvColorLightGreen">#8BC34A</color>
+    <color name="frogoRvColorLime">#CDDC39</color>
+    <color name="frogoRvColorYellowLime">#CDDC39</color>
+    <color name="frogoRvColorYellow">#FFEB3B</color>
+    <color name="frogoRvColorDarkYellow">#FFC107</color>
+    <color name="frogoRvColorAmber">#FF9800</color>
+    <color name="frogoRvColorOrange">#FF5722</color>
 
 ## layout
 
