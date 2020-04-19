@@ -57,11 +57,11 @@ Just following the step until finish
     	
 <h3>Step 2. Add the dependency</h3>
 
-        <dependency>
-            <groupId>com.github.amirisback</groupId>
-            <artifactId>frogo-recycler-view</artifactId>
-            <version>2.1.4</version>
-        </dependency>
+    <dependency>
+        <groupId>com.github.amirisback</groupId>
+        <artifactId>frogo-recycler-view</artifactId>
+        <version>2.1.4</version>
+    </dependency>
     
     
 <h3>Step 3. Create xml view</h3>
