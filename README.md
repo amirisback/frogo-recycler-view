@@ -37,7 +37,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:${version_release}'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.1.4'
     }
     	
     
