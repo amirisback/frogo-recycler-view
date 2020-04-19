@@ -4,7 +4,7 @@
     android:id="@+id/frogo_recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/frogoRvColorWhite"
     android:clipToPadding="false"
     android:paddingTop="16dp"
-    tools:listitem="@layout/example_list_item" />
+    tools:listitem="@layout/frogo_rv_list_type_1" />

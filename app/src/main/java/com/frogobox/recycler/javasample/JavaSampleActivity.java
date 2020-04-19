@@ -32,7 +32,7 @@ public class JavaSampleActivity extends AppCompatActivity {
 
     private void setupAdapter() {
         JavaSampleViewAdapter adapter = new JavaSampleViewAdapter();
-        adapter.setupRequirement(R.layout.example_list_item, listData(), new FrogoRecyclerViewListener<ExampleModel>() {
+        adapter.setupRequirement(R.layout.frogo_rv_list_type_1, listData(), new FrogoRecyclerViewListener<ExampleModel>() {
             @Override
             public void onItemClicked(ExampleModel data) {
                 Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_SHORT).show();

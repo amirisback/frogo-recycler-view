@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/frogoRvColorWhite"
     android:padding="@dimen/frogo_rv_dimen_16dp"
     tools:context="com.frogobox.recycler.MainActivity">
 
@@ -11,6 +12,8 @@
         android:id="@+id/btn_with_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:background="@drawable/frogo_rv_bg_accent"
         android:text="With Data (Kotlin Sample)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +23,8 @@
         android:id="@+id/btn_empty_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:background="@drawable/frogo_rv_bg_accent"
         android:text="Empty Data (Java Sample)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +32,10 @@
 
     <Button
         android:id="@+id/btn_kotlin_no_adapter"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:background="@drawable/frogo_rv_bg_accent"
         android:text="With Data (Kotlin Sample)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +43,10 @@
 
     <Button
         android:id="@+id/btn_java_no_adapter"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:background="@drawable/frogo_rv_bg_accent"
         android:text="Empty Data (Java Sample)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="With Adapter"
+        android:textColor="@color/frogoRvColorBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="No Adapter"
+        android:textColor="@color/frogoRvColorBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_empty_data" />
 

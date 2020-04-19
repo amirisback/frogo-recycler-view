@@ -485,9 +485,9 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 ### colors
 
     <!-- Frogo Rv Base Color-->
-    <color name="frogoRvColorBaseWhite">#FFFFFF</color>
-    <color name="frogoRvcolorBaseBlack">#000000</color>
-    <color name="frogoRvcolorBaseRed">#FF0000</color>
+    <color name="frogoRvColorWhite">#FFFFFF</color>
+    <color name="frogoRvColorBlack">#000000</color>
+    <color name="frogoRvColorRed">#FF0000</color>
 
 ## layout
 

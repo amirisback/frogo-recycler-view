@@ -2,6 +2,7 @@ package com.frogobox.recycler.kotlinsample
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.frogobox.recycler.R
@@ -9,8 +10,6 @@ import com.frogobox.recycler.callback.FrogoAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
-import kotlinx.android.synthetic.main.example_list_item.view.*
-
 class KotlinSampleNoAdapterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +29,13 @@ class KotlinSampleNoAdapterActivity : AppCompatActivity() {
 
     private fun setupFrogoRecyclerView() {
         frogo_recycler_view.injectAdapter(
-            R.layout.example_list_item,
+            R.layout.frogo_rv_list_type_1,
             listData(),
             null,
             object : FrogoAdapterCallback<ExampleModel> {
                 override fun setupInitComponent(view: View, data: ExampleModel) {
                     // Init component content item recyclerview
-                    view.tv_example_item.text = data.name
+                    view.findViewById<TextView>(R.id.tv_example_item).text = data.name
                 }
 
                 override fun onItemClicked(data: ExampleModel) {

@@ -19,9 +19,29 @@
 
 <resources>
 
+    <color name="frogoRvColorPrimary">#6200EE</color>
+    <color name="frogoRvColorPrimaryDark">#3700B3</color>
+    <color name="frogoRvColorAccent">#03DAC5</color>
+
     <!-- Frogo Rv Base Color-->
-    <color name="frogoRvColorBaseWhite">#FFFFFF</color>
-    <color name="frogoRvcolorBaseBlack">#000000</color>
-    <color name="frogoRvcolorBaseRed">#FF0000</color>
+    <color name="frogoRvColorWhite">#FFFFFF</color>
+    <color name="frogoRvColorBlack">#000000</color>
+    <color name="frogoRvColorRed">#F44336</color>
+    <color name="frogoRvColorPink">#E91E63</color>
+    <color name="frogoRvColorPurple">#9C27B0</color>
+    <color name="frogoRvColorDeepPurple">#673AB7</color>
+    <color name="frogoRvColorIndigo">#3F51B5</color>
+    <color name="frogoRvColorBlue">#2196F3</color>
+    <color name="frogoRvColorLightBlue">#03A9F4</color>
+    <color name="frogoRvColorCyan">#00BCD4</color>
+    <color name="frogoRvColorTeal">#009688</color>
+    <color name="frogoRvColorGreen">#4CAF50</color>
+    <color name="frogoRvColorLightGreen">#8BC34A</color>
+    <color name="frogoRvColorLime">#CDDC39</color>
+    <color name="frogoRvColorYellowLime">#CDDC39</color>
+    <color name="frogoRvColorYellow">#FFEB3B</color>
+    <color name="frogoRvColorDarkYellow">#FFC107</color>
+    <color name="frogoRvColorAmber">#FF9800</color>
+    <color name="frogoRvColorOrange">#FF5722</color>
 
 </resources>

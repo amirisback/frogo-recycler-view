@@ -37,7 +37,7 @@ public class JavaSampleNoAdapterActivity extends AppCompatActivity {
     private void setupFrogoRecyclerView() {
         FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
         recyclerView.injectAdapter(
-                R.layout.example_list_item,
+                R.layout.frogo_rv_list_type_1,
                 listData(),
                 R.layout.example_empty_view,
                 new FrogoAdapterCallback<ExampleModel>() {

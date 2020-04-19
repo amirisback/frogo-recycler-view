@@ -30,7 +30,7 @@ class KotlinSampleActivity : AppCompatActivity() {
         val adapter =
             KotlinSampleViewAdapter()
         adapter.setupRequirement(
-            R.layout.example_list_item,
+            R.layout.frogo_rv_list_type_1,
             listData(),
             object : FrogoRecyclerViewListener<ExampleModel> {
                 override fun onItemClicked(data: ExampleModel) {
