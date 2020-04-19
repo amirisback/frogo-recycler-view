@@ -1,6 +1,7 @@
-# frogo-recycler-view by Amirisback (Muhammad Faisal Amir)
+# frogo-recycler-view
 FrogoRecyclerView Extends RecyclerView
-- v2.1.3 - Development
+- created by amirisback (Muhammad Faisal Amir)
+- Development
 - Stable Version
 
 # About This Project
@@ -22,6 +23,7 @@ What's New??
     * New sample code *
     
 # How To Use This Project
+## Gradle
 <h3>Step 1. Add the JitPack repository to your build file</h3>
     
     Add it in your root build.gradle at the end of repositories:
@@ -40,6 +42,25 @@ What's New??
             implementation 'com.github.amirisback:frogo-recycler-view:2.1.4'
     }
     	
+## Maven (Skip This if you using gradle)
+<h3>Step 1. Add the JitPack repository to your build file</h3>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    	
+<h3>Step 2. Add the dependency</h3>
+
+        <dependency>
+            <groupId>com.github.amirisback</groupId>
+            <artifactId>frogo-recycler-view</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+    
     
 <h3>Step 3. Create xml view</h3>
     
