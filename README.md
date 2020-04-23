@@ -22,7 +22,7 @@ What's New??
     * add : drawable and colors *
     * New sample code *
     
-# How To Use This Project
+# Usage (How To Use This Project)
 Just following the step until finish
 
 ## Download with Gradle
@@ -72,14 +72,16 @@ Just following the step until finish
         android:layout_height="match_parent"/>
     	
 ## No Adapter
-<h3>Step 4. Inject Adapter</h3>
-    
+### Step 4. Inject Adapter
+
+#### Kotlin
+
     private fun setupFrogoRecyclerView() {
         recycler_view.injectAdapter(
             R.layout.example_list_item, // layout item
-            listData(), // List Data
+            listData(), // List data
             null, // Layout empty view
-            object : FrogoAdapterCallback<ExampleModel> {
+            object : FrogoAdapterCallback<ExampleModel> { // <T> model data name
                 override fun setupInitComponent(view: View, data: ExampleModel) {
                     // Init component content item recyclerview
                     view.tv_example_item.text = data.name
@@ -97,9 +99,39 @@ Just following the step until finish
             })
         recycler_view.isViewLinearVertical(false)
     }
-    
+
+#### Java
+
+    private void setupFrogoRecyclerView() {
+        FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
+        recyclerView.injectAdapter(
+                R.layout.frogo_rv_list_type_1, // layout item
+                listData(), // List data
+                R.layout.example_empty_view, // Layout empty view
+                new FrogoAdapterCallback<ExampleModel>() { // <T> model data name
+                    @Override
+                    public void setupInitComponent(@NotNull View view, ExampleModel data) {
+                        // Init component content item recyclerview
+                        TextView tvExample = view.findViewById(R.id.tv_example_item);
+                        tvExample.setText(data.getName());
+                    }
+
+                    @Override
+                    public void onItemClicked(ExampleModel data) {
+                        // setup item clicked on frogo recycler view
+                        Toast.makeText(JavaSampleNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onItemLongClicked(ExampleModel data) {
+                        // setup item long clicked on frogo recycler view
+                        Toast.makeText(JavaSampleNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+        recyclerView.isViewLinearVertical(false);
+    }
     	
-## With Adapter
+## With Adapter (Skip this if you using No Adapter)
 <h3>Step 4. Create adapter</h3>
     
     (Kotlin) - class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
