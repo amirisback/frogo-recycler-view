@@ -1,4 +1,4 @@
-# frogo-recycler-view v2.1.4
+# frogo-recycler-view
 FrogoRecyclerView Extends RecyclerView
 - Created by amirisback (Muhammad Faisal Amir)
 - Development
@@ -22,6 +22,8 @@ What's New??
     * add : drawable and colors *
     * New sample code *
     
+    
+
 # Usage (How To Use This Project)
 Just following the step until finish
 
@@ -155,7 +157,8 @@ Just following the step until finish
     fun setupEmptyView(emptyView: Int?)
         
 
-# Special From This Custom View
+# Main Function
+## Special from this library frogo-recycler-view
 
     // Setup linear vertical recycler view
     fun isViewLinearVertical(dividerItem: Boolean)
@@ -177,7 +180,7 @@ Just following the step until finish
         callback: FrogoAdapterCallback<T>
     )
 
-# Function Main From This Project
+## Description function
 
     FrogoRecyclerView - In XML file
     FrogoRecyclerViewAdapter<T> - Extend From RecyclerViewAdapter
@@ -661,8 +664,8 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
     frogo_rv_empty_view.xml
 
 # Android Library Version (build.gradle)
-- ext.kotlin_version = '1.3.71'
-- classpath 'com.android.tools.build:gradle:3.6.2'
+- ext.kotlin_version = '1.3.72'
+- classpath 'com.android.tools.build:gradle:3.6.3'
 - compileSdkVersion 29
 - buildToolsVersion "29.0.3"
 - minSdkVersion 21
