@@ -6,7 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.BaseActivity
-import com.frogobox.recycler.callback.FrogoAdapterCallback
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
@@ -34,7 +34,8 @@ class KotlinSampleNoAdapterActivity : BaseActivity() {
             R.layout.frogo_rv_list_type_1,
             listData(),
             null,
-            object : FrogoAdapterCallback<ExampleModel> {
+            object :
+                FrogoAdapterCallback<ExampleModel> {
                 override fun setupInitComponent(view: View, data: ExampleModel) {
                     // Init component content item recyclerview
                     view.findViewById<TextView>(R.id.tv_example_item).text = data.name

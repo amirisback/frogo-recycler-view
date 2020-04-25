@@ -4,10 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.recyclerview.widget.*
-import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
-import com.frogobox.recycler.callback.FrogoAdapterCallback
-import com.frogobox.recycler.callback.FrogoHolderCallback
-import com.frogobox.recycler.view.FrogoLayoutView
+import com.frogobox.recycler.boilerplate.adapter.FrogoViewAdapter
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
+import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
 
 
 /**
@@ -27,7 +27,8 @@ import com.frogobox.recycler.view.FrogoLayoutView
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView, FrogoLayoutView {
+class FrogoRecyclerView : RecyclerView,
+    FrogoLayoutView {
 
 
     constructor(context: Context) : super(context)
@@ -71,17 +72,19 @@ class FrogoRecyclerView : RecyclerView, FrogoLayoutView {
         callback: FrogoAdapterCallback<T>
     ) {
 
-        val frogoViewAdapter = FrogoViewAdapter(object :
-            FrogoHolderCallback<T> {
-            override fun setupInitComponent(view: View, data: T) {
-                callback.setupInitComponent(view, data)
-            }
-        })
+        val frogoViewAdapter =
+            FrogoViewAdapter(object :
+                FrogoHolderCallback<T> {
+                override fun setupInitComponent(view: View, data: T) {
+                    callback.setupInitComponent(view, data)
+                }
+            })
 
         frogoViewAdapter.setupRequirement(
             layoutItem,
             dataList,
-            object : FrogoRecyclerViewListener<T> {
+            object :
+                FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
                     callback.onItemClicked(data)
                 }

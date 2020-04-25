@@ -3,7 +3,7 @@ package com.frogobox.recycler.kotlinsample
 import android.os.Bundle
 import android.widget.Toast
 import com.frogobox.recycler.R
-import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
@@ -33,7 +33,8 @@ class KotlinSampleActivity : BaseActivity() {
         adapter.setupRequirement(
             R.layout.frogo_rv_list_type_1,
             listData(),
-            object : FrogoRecyclerViewListener<ExampleModel> {
+            object :
+                FrogoRecyclerViewListener<ExampleModel> {
                 override fun onItemClicked(data: ExampleModel) {
                     Toast.makeText(this@KotlinSampleActivity, data.name, Toast.LENGTH_SHORT).show()
                 }

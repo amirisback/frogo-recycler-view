@@ -1,11 +1,12 @@
-package com.frogobox.recycler.adapter
+package com.frogobox.recycler.base.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.view.FrogoAdapterView
+import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 
 /**
  * Created by Faisal Amir
@@ -79,15 +80,15 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
     }
 
     override fun getItemCount(): Int {
-        if (hasEmptyView) {
-            if (mRecyclerViewDataList.size == 0) {
-                listCount = 1
+        return if (hasEmptyView) {
+            listCount = if (mRecyclerViewDataList.size == 0) {
+                1
             } else {
-                listCount = mRecyclerViewDataList.size
+                mRecyclerViewDataList.size
             }
-            return listCount
+            listCount
         } else {
-            return mRecyclerViewDataList.size
+            mRecyclerViewDataList.size
         }
     }
 

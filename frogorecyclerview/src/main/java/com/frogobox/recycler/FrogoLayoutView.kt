@@ -1,6 +1,6 @@
-package com.frogobox.recycler.view
+package com.frogobox.recycler
 
-import com.frogobox.recycler.callback.FrogoAdapterCallback
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
 
 /**
  * Created by Faisal Amir

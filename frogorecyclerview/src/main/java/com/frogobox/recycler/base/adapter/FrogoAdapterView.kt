@@ -1,8 +1,8 @@
-package com.frogobox.recycler.view
+package com.frogobox.recycler.base.adapter
 
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 
 /**
  * Created by Faisal Amir

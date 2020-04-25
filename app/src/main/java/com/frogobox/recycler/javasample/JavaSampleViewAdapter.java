@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.frogobox.recycler.R;
-import com.frogobox.recycler.adapter.FrogoRecyclerViewAdapter;
-import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder;
+import com.frogobox.recycler.base.adapter.FrogoRecyclerViewAdapter;
+import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -47,10 +47,7 @@ public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel
 
         @Override
         public void initComponent(ExampleModel data) {
-            super.initComponent(data);
-
             tvExample.setText(data.getName());
-
         }
     }
 

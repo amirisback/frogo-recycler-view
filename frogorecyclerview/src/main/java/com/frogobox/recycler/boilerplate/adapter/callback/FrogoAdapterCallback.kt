@@ -1,26 +1,31 @@
-package com.frogobox.recycler.adapter
+package com.frogobox.recycler.boilerplate.adapter.callback
 
-/**
+import android.view.View
+
+/*
  * Created by Faisal Amir
- * FrogoBox Inc License
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 20/12/2019.
+ * Copyright (C) 14/04/2020.      
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
- * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
- * FrogoBox Software Industries
- * com.frogobox.frogoviewadapter
- *
+ * FrogoBox Inc
+ * com.frogobox.recycler.callback
+ * 
  */
-interface FrogoRecyclerViewListener<T> {
+interface FrogoAdapterCallback<T> {
 
+    // Setup Init Component on ViewHolder
+    fun setupInitComponent(view: View, data: T)
+
+    // Setup item clicked
     fun onItemClicked(data: T)
 
+    // Setup item long clicked
     fun onItemLongClicked(data: T)
 
 }

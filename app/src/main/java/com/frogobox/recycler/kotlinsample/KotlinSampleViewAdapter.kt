@@ -4,8 +4,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.adapter.FrogoRecyclerViewAdapter
-import com.frogobox.recycler.adapter.FrogoRecyclerViewHolder
+import com.frogobox.recycler.base.adapter.FrogoRecyclerViewAdapter
+import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
 import com.frogobox.recycler.model.ExampleModel
 
 /**
@@ -39,10 +39,7 @@ class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
         private val tvExampleItem = view.findViewById<TextView>(R.id.tv_example_item)
 
         override fun initComponent(data: ExampleModel) {
-            super.initComponent(data)
-
             tvExampleItem.text = data.name
-
         }
     }
 

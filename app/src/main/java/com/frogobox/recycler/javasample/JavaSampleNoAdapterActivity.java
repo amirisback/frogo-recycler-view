@@ -5,12 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
-import com.frogobox.recycler.callback.FrogoAdapterCallback;
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;

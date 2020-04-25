@@ -1,6 +1,6 @@
-package com.frogobox.recycler.view
+package com.frogobox.recycler.base.holder
 
-import com.frogobox.recycler.adapter.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 
 /**
  * Created by Faisal Amir

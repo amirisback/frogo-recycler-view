@@ -1,4 +1,4 @@
-package com.frogobox.recycler.callback
+package com.frogobox.recycler.boilerplate.holder.callback
 
 import android.view.View
 
