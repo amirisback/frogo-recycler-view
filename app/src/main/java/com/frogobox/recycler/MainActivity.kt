@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.frogobox.recycler.javasample.JavaSampleActivity
 import com.frogobox.recycler.javasample.JavaSampleNoAdapterActivity
+import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
 import com.frogobox.recycler.kotlinsample.KotlinSampleActivity
 import com.frogobox.recycler.kotlinsample.KotlinSampleNoAdapterActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         btn_kotlin_no_adapter.setOnClickListener {
             startActivity(Intent(this, KotlinSampleNoAdapterActivity::class.java))
         }
+
+        btn_kotlin_multiview.setOnClickListener {
+            startActivity(Intent(this, KotlinNoAdapterMultiVewActivity::class.java))
+        }
+
     }
 
 }

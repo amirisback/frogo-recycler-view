@@ -71,4 +71,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_empty_data" />
 
+    <Button
+        android:id="@+id/btn_kotlin_multiview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:background="@drawable/frogo_rv_bg_accent_8dp"
+        android:text="Multi View (Kotlin Sample)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_java_no_adapter" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
