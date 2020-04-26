@@ -7,6 +7,7 @@ import com.frogobox.recycler.R
 import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
+import com.frogobox.recycler.util.Constant
 import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
 
 class KotlinNoAdapterActivity : BaseActivity() {
@@ -20,10 +21,10 @@ class KotlinNoAdapterActivity : BaseActivity() {
 
     private fun listData(): MutableList<ExampleModel> {
         val listString = mutableListOf<ExampleModel>()
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
         return listString
     }
 
