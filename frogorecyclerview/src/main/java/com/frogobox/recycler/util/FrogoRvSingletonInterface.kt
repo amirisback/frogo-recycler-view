@@ -21,13 +21,13 @@ import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallb
  */
 interface FrogoRvSingletonInterface<T> {
 
-    fun isViewLinearVertical(dividerItem: Boolean): FrogoRvSingleton<T>
+    fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingleton<T>
 
-    fun isViewLinearHorizontal(dividerItem: Boolean): FrogoRvSingleton<T>
+    fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingleton<T>
 
-    fun isViewStaggeredGrid(spanCount: Int): FrogoRvSingleton<T>
+    fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvSingleton<T>
 
-    fun isViewGrid(spanCount: Int): FrogoRvSingleton<T>
+    fun createLayoutGrid(spanCount: Int): FrogoRvSingleton<T>
 
     fun addEmptyView(layoutId: Int?): FrogoRvSingleton<T>
 
