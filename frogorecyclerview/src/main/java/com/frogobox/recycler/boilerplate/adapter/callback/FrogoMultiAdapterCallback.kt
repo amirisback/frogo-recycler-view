@@ -1,5 +1,7 @@
 package com.frogobox.recycler.boilerplate.adapter.callback
 
+import android.view.View
+
 /*
  * Created by Faisal Amir
  * =========================================
@@ -15,5 +17,24 @@ package com.frogobox.recycler.boilerplate.adapter.callback
  * com.frogobox.recycler.callback
  * 
  */
-interface FrogoMultiAdapterCallback {
+interface FrogoMultiAdapterCallback<T> {
+
+    // Setup First Init Component on ViewHolder
+    fun setupFirstInitComponent(view: View, data: T)
+
+    // Setup Second Init Component on ViewHolder
+    fun setupSecondInitComponent(view: View, data: T)
+
+    // Setup first item clicked
+    fun onFirstItemClicked(data: T)
+
+    // Setup first item long clicked
+    fun onFirstItemLongClicked(data: T)
+
+    // Setup second item clicked
+    fun onSecondItemClicked(data: T)
+
+    // Setup second item long clicked
+    fun onSecondItemLongClicked(data: T)
+
 }

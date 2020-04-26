@@ -1,4 +1,4 @@
-package com.frogobox.recycler.boilerplate.holder
+package com.frogobox.recycler.util
 
 /*
  * Created by Faisal Amir
@@ -12,8 +12,12 @@ package com.frogobox.recycler.boilerplate.holder
  * Github   : github.com/amirisback
  * -----------------------------------------
  * FrogoBox Inc
- * com.frogobox.recycler
+ * com.frogobox.recycler.util
  * 
  */
-class FrogoMultiViewHolder {
+object Constant {
+
+    const val OPTION_HOLDER_FIRST = 0
+    const val OPTION_HOLDER_SECOND = 1
+
 }

@@ -28,9 +28,9 @@ import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>(),
     FrogoAdapterView<T> {
 
-    private var mViewListener: FrogoRecyclerViewListener<T>? = null
-
     private val mRecyclerViewDataList = mutableListOf<T>()
+
+    private var mViewListener: FrogoRecyclerViewListener<T>? = null
     private var mRecyclerViewLayout: Int = 0
 
     private var mLayoutItem: Int = 0

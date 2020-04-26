@@ -4,9 +4,11 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.recyclerview.widget.*
-import com.frogobox.recycler.boilerplate.adapter.FrogoViewAdapter
 import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.boilerplate.adapter.FrogoViewAdapter
+import com.frogobox.recycler.boilerplate.adapter.FrogoViewMultiAdapter
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback
 import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
 
 
@@ -99,5 +101,50 @@ class FrogoRecyclerView : RecyclerView,
 
     }
 
+    fun <T> injectMultiAdapter(
+        dataList: List<T>?,
+        layoutItemList: List<Int>,
+        optionHolder: List<Int>,
+        emptyView: Int?,
+        callback: FrogoMultiAdapterCallback<T>
+    ) {
+
+        val frogoMultiViewAdapter = FrogoViewMultiAdapter(object : FrogoHolderCallback<T> {
+            override fun setupInitComponent(view: View, data: T) {
+                callback.setupFirstInitComponent(view, data)
+            }
+        }, object : FrogoHolderCallback<T> {
+            override fun setupInitComponent(view: View, data: T) {
+                callback.setupSecondInitComponent(view, data)
+            }
+        })
+
+        frogoMultiViewAdapter.setupRequirement(
+            dataList,
+            layoutItemList,
+            optionHolder,
+            object : FrogoRecyclerViewListener<T> {
+                override fun onItemClicked(data: T) {
+                    callback.onFirstItemClicked(data)
+                }
+
+                override fun onItemLongClicked(data: T) {
+                    callback.onFirstItemLongClicked(data)
+                }
+            },
+            object : FrogoRecyclerViewListener<T> {
+                override fun onItemClicked(data: T) {
+                    callback.onSecondItemClicked(data)
+                }
+
+                override fun onItemLongClicked(data: T) {
+                    callback.onSecondItemLongClicked(data)
+                }
+            }
+        )
+        frogoMultiViewAdapter.setupEmptyView(emptyView)
+        adapter = frogoMultiViewAdapter
+
+    }
 
 }
