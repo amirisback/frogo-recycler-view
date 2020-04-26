@@ -33,8 +33,8 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         val listOption = mutableListOf<Int>()
         listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
         return listOption
     }
 
