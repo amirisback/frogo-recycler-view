@@ -17,20 +17,16 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.2.0
+    $version_release = 2.2.1
 
 What's New??
 
-    * add : resource *
-    * add : fun injectMultiAdapter for Multi-View-Type *
-    * update : stucture code, Pleas re-import code object *
-    * add : new empty view template *
-    * New sample code *
+    * add : new method for calling with singleton *
+    * fixing bugs *
     
 
 # Download this project
 
-## Gradle
 ### Step 1. Add the JitPack repository to your build file
     
     Add it in your root build.gradle at the end of repositories:
@@ -46,27 +42,9 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.2.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.2.1'
     }
 
-## Maven (Skip this if you using gradle)
-### Step 1. Add the JitPack repository to your build file
-
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
-    	
-### Step 2. Add the dependency
-
-    <dependency>
-        <groupId>com.github.amirisback</groupId>
-        <artifactId>frogo-recycler-view</artifactId>
-        <version>2.2.0</version>
-    </dependency>
 
 # Usage (How to use this project)
 Just following the step until finish, for basic adapter using step 2, for multi adapter using step 3

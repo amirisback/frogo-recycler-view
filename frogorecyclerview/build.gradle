@@ -6,9 +6,10 @@ android {
 
     def versionMajor = 2
     def versionMinor = 2
-    def versionPatch = 0
+    def versionPatch = 1
 
-    def versionLibrary = "$versionMajor.$versionMinor.$versionPatch"
+    def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
+    def versionCodeLibrary = (versionMajor*100) + (versionMinor*10) + (versionPatch)
 
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -16,8 +17,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName versionLibrary
+        versionCode versionCodeLibrary
+        versionName versionNameLibrary
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
