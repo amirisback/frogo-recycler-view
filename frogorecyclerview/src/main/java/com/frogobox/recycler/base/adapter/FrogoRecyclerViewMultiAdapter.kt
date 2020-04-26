@@ -53,6 +53,10 @@ abstract class FrogoRecyclerViewMultiAdapter<T> :
         } else {
             mEmptyView
         }
+    }
+
+    private fun emptyViewHandle() {
+        layoutHandle()
         notifyDataSetChanged()
     }
 
@@ -79,7 +83,6 @@ abstract class FrogoRecyclerViewMultiAdapter<T> :
             mRecyclerViewDataList.addAll(dataList)
         }
 
-        layoutHandle()
     }
 
     override fun setupEmptyView(emptyView: Int?) {
@@ -87,12 +90,13 @@ abstract class FrogoRecyclerViewMultiAdapter<T> :
         if (emptyView != null) {
             mEmptyView = emptyView
         }
-        layoutHandle()
+        emptyViewHandle()
     }
 
     override fun viewLayout(parent: ViewGroup, position: Int): View {
         mLayoutItem = mRecyclerViewLayoutList[position]
-        return LayoutInflater.from(parent.context).inflate(mLayoutItem, parent, false)
+        layoutHandle()
+        return LayoutInflater.from(parent.context).inflate(mRecyclerViewLayout, parent, false)
     }
 
     override fun getItemCount(): Int {
@@ -137,7 +141,13 @@ abstract class FrogoRecyclerViewMultiAdapter<T> :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (mOptionHolder[position] == OPTION_HOLDER_FIRST) OPTION_HOLDER_FIRST else OPTION_HOLDER_SECOND
+
+        return if (mOptionHolder.size != 0) {
+            if (mOptionHolder[position] == OPTION_HOLDER_SECOND) OPTION_HOLDER_SECOND else OPTION_HOLDER_FIRST
+        } else {
+            super.getItemViewType(position)
+        }
+
     }
 
 }

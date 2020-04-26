@@ -3,6 +3,7 @@ package com.frogobox.recycler.boilerplate.adapter
 import android.view.ViewGroup
 import com.frogobox.recycler.base.adapter.FrogoRecyclerViewMultiAdapter
 import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
+import com.frogobox.recycler.boilerplate.holder.FrogoViewHolder
 import com.frogobox.recycler.boilerplate.holder.FrogoViewHolderFirst
 import com.frogobox.recycler.boilerplate.holder.FrogoViewHolderSecond
 import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
@@ -30,6 +31,14 @@ class FrogoViewMultiAdapter<T>(
 ) :
     FrogoRecyclerViewMultiAdapter<T>() {
 
+    private fun firstFrogoViewHolder(parent: ViewGroup): FrogoViewHolderFirst<T> {
+        return FrogoViewHolderFirst(viewLayout(parent, OPTION_HOLDER_FIRST), frogoHolderCallbackFirst)
+    }
+
+    private fun secondFrogoViewHolder(parent: ViewGroup): FrogoViewHolderSecond<T> {
+        return FrogoViewHolderSecond(viewLayout(parent, OPTION_HOLDER_SECOND), frogoHolderCallbackSecond)
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -37,15 +46,15 @@ class FrogoViewMultiAdapter<T>(
 
         return when (viewType) {
             OPTION_HOLDER_FIRST -> {
-                FrogoViewHolderFirst(viewLayout(parent, OPTION_HOLDER_FIRST), frogoHolderCallbackFirst)
+                firstFrogoViewHolder(parent)
             }
 
             OPTION_HOLDER_SECOND -> {
-                FrogoViewHolderSecond(viewLayout(parent, OPTION_HOLDER_SECOND), frogoHolderCallbackSecond)
+                secondFrogoViewHolder(parent)
             }
 
             else -> {
-                FrogoViewHolderFirst(viewLayout(parent, OPTION_HOLDER_FIRST), frogoHolderCallbackFirst)
+                firstFrogoViewHolder(parent)
             }
         }
 

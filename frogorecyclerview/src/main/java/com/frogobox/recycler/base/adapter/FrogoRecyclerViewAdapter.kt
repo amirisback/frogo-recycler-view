@@ -45,6 +45,10 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
         } else {
             mEmptyView
         }
+    }
+
+    private fun emptyViewHandle() {
+        layoutHandle()
         notifyDataSetChanged()
     }
 
@@ -64,7 +68,7 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
         }
 
         mLayoutItem = layoutItem
-        layoutHandle()
+        emptyViewHandle()
     }
 
     override fun setupEmptyView(emptyView: Int?) {
@@ -72,7 +76,7 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
         if (emptyView != null) {
             mEmptyView = emptyView
         }
-        layoutHandle()
+        emptyViewHandle()
     }
 
     override fun viewLayout(parent: ViewGroup): View {
