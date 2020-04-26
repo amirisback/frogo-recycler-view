@@ -6,8 +6,8 @@ import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
 import com.frogobox.recycler.boilerplate.holder.FrogoViewHolderFirst
 import com.frogobox.recycler.boilerplate.holder.FrogoViewHolderSecond
 import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
-import com.frogobox.recycler.util.Constant.OPTION_HOLDER_FIRST
-import com.frogobox.recycler.util.Constant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_FIRST
+import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_SECOND
 
 /*
  * Created by Faisal Amir

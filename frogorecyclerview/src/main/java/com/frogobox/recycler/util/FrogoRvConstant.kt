@@ -15,7 +15,7 @@ package com.frogobox.recycler.util
  * com.frogobox.recycler.util
  * 
  */
-object Constant {
+object FrogoRvConstant {
 
     const val OPTION_HOLDER_FIRST = 0
     const val OPTION_HOLDER_SECOND = 1

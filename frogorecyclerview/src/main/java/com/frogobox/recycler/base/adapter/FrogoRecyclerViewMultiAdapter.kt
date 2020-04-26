@@ -9,8 +9,8 @@ import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
 import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 import com.frogobox.recycler.boilerplate.holder.FrogoViewHolderFirst
 import com.frogobox.recycler.boilerplate.holder.FrogoViewHolderSecond
-import com.frogobox.recycler.util.Constant.OPTION_HOLDER_FIRST
-import com.frogobox.recycler.util.Constant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_FIRST
+import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_SECOND
 
 /*
  * Created by Faisal Amir
@@ -92,7 +92,7 @@ abstract class FrogoRecyclerViewMultiAdapter<T> :
 
     override fun viewLayout(parent: ViewGroup, position: Int): View {
         mLayoutItem = mRecyclerViewLayoutList[position]
-        return LayoutInflater.from(parent.context).inflate(mRecyclerViewLayout, parent, false)
+        return LayoutInflater.from(parent.context).inflate(mLayoutItem, parent, false)
     }
 
     override fun getItemCount(): Int {
