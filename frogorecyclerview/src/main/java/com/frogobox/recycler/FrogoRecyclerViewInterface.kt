@@ -1,6 +1,8 @@
 package com.frogobox.recycler
 
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback
+import com.frogobox.recycler.util.FrogoRvSingleton
 
 /**
  * Created by Faisal Amir
@@ -20,7 +22,7 @@ import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
  *
  */
 
-interface FrogoLayoutView {
+interface FrogoRecyclerViewInterface {
 
     // Setup linear vertical recycler view
     fun isViewLinearVertical(dividerItem: Boolean)
@@ -36,10 +38,22 @@ interface FrogoLayoutView {
 
     // Setup Adapter
     fun <T> injectAdapter(
-        layoutItem: Int,
-        dataList: List<T>?,
+        customView: Int,
+        listData: List<T>?,
         emptyView: Int?,
-        callback: FrogoAdapterCallback<T>
+        frogoAdapterCallback: FrogoAdapterCallback<T>
     )
+
+    // Setup Multi Adapter
+    fun <T> injectMultiAdapter(
+        listData: List<T>?,
+        multiCustomView: List<Int>,
+        multiOptionHolder: List<Int>,
+        emptyView: Int?,
+        callback: FrogoMultiAdapterCallback<T>
+    )
+
+    // Setup Singleton
+    fun <T> injector(): FrogoRvSingleton<T>
 
 }

@@ -10,6 +10,7 @@ import com.frogobox.recycler.boilerplate.adapter.FrogoViewMultiAdapter
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback
 import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
+import com.frogobox.recycler.util.FrogoRvSingleton
 
 
 /**
@@ -29,9 +30,7 @@ import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView,
-    FrogoLayoutView {
-
+class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
 
     constructor(context: Context) : super(context)
 
@@ -68,31 +67,28 @@ class FrogoRecyclerView : RecyclerView,
     }
 
     override fun <T> injectAdapter(
-        layoutItem: Int,
-        dataList: List<T>?,
+        customView: Int,
+        listData: List<T>?,
         emptyView: Int?,
-        callback: FrogoAdapterCallback<T>
+        frogoAdapterCallback: FrogoAdapterCallback<T>
     ) {
 
-        val frogoViewAdapter =
-            FrogoViewAdapter(object :
-                FrogoHolderCallback<T> {
-                override fun setupInitComponent(view: View, data: T) {
-                    callback.setupInitComponent(view, data)
-                }
-            })
+        val frogoViewAdapter = FrogoViewAdapter(object : FrogoHolderCallback<T> {
+            override fun setupInitComponent(view: View, data: T) {
+                frogoAdapterCallback.setupInitComponent(view, data)
+            }
+        })
 
         frogoViewAdapter.setupRequirement(
-            layoutItem,
-            dataList,
-            object :
-                FrogoRecyclerViewListener<T> {
+            customView,
+            listData,
+            object : FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
-                    callback.onItemClicked(data)
+                    frogoAdapterCallback.onItemClicked(data)
                 }
 
                 override fun onItemLongClicked(data: T) {
-                    callback.onItemLongClicked(data)
+                    frogoAdapterCallback.onItemLongClicked(data)
                 }
             })
 
@@ -101,10 +97,10 @@ class FrogoRecyclerView : RecyclerView,
 
     }
 
-    fun <T> injectMultiAdapter(
-        dataList: List<T>?,
-        layoutItemList: List<Int>,
-        optionHolder: List<Int>,
+    override fun <T> injectMultiAdapter(
+        listData: List<T>?,
+        multiCustomView: List<Int>,
+        multiOptionHolder: List<Int>,
         emptyView: Int?,
         callback: FrogoMultiAdapterCallback<T>
     ) {
@@ -120,9 +116,9 @@ class FrogoRecyclerView : RecyclerView,
         })
 
         frogoMultiViewAdapter.setupRequirement(
-            dataList,
-            layoutItemList,
-            optionHolder,
+            listData,
+            multiCustomView,
+            multiOptionHolder,
             object : FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
                     callback.onFirstItemClicked(data)
@@ -146,5 +142,7 @@ class FrogoRecyclerView : RecyclerView,
         adapter = frogoMultiViewAdapter
 
     }
+
+    override fun <T> injector() = FrogoRvSingleton<T>()
 
 }
