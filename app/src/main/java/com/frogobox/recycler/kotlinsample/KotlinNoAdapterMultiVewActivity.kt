@@ -47,9 +47,9 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 
     private fun setupFrogoRecyclerView() {
         frogo_recycler_view.injectMultiAdapter(
-            listData(),
-            listLayout(),
-            listOption(),
+            listData(), // list data
+            listLayout(), // list your custom layout
+            listOption(), // option of view type
             null,
             object : FrogoMultiAdapterCallback<ExampleModel> {
                 override fun setupFirstInitComponent(view: View, data: ExampleModel) {

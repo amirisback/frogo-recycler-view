@@ -16,13 +16,15 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.1.4
+    $version_release = 2.2.0
 
 What's New??
 
-    * add : drawable and colors *
+    * add : resource *
+    * add : fun injectMultiAdapter for Multi-View-Type *
+    * update : stucture code, Pleas re-import code object *
+    * add : new empty view template *
     * New sample code *
-    
     
 
 # Usage (How To Use This Project)
@@ -44,7 +46,7 @@ Just following the step until finish
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.1.4'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.2.0'
     }
     	
 ## Download with Maven (Skip this if you using gradle and continue to Step 3)
@@ -63,7 +65,7 @@ Just following the step until finish
     <dependency>
         <groupId>com.github.amirisback</groupId>
         <artifactId>frogo-recycler-view</artifactId>
-        <version>2.1.4</version>
+        <version>2.2.0</version>
     </dependency>
     
     
@@ -157,6 +159,56 @@ Just following the step until finish
     // Setup empty view for layout
     fun setupEmptyView(emptyView: Int?)
         
+
+# Usage Multi-View-Type
+## Inject Multi Adapter
+
+    private fun setupFrogoRecyclerView() {
+        frogo_recycler_view.injectMultiAdapter(
+            listData(), // list data
+            listLayout(), // list your custom layout
+            listOption(), // option of view type
+            null,
+            object : FrogoMultiAdapterCallback<ExampleModel> {
+                override fun setupFirstInitComponent(view: View, data: ExampleModel) {
+                    // Init component content item recyclerview
+                    view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+                }
+
+                override fun setupSecondInitComponent(view: View, data: ExampleModel) {
+                    // Init component content item recyclerview
+                    view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+                }
+
+                override fun onFirstItemClicked(data: ExampleModel) {
+                    showToast(data.name + " First")
+                }
+
+                override fun onFirstItemLongClicked(data: ExampleModel) {
+                    showToast("LAYOUT TYPE 1")
+                }
+
+                override fun onSecondItemClicked(data: ExampleModel) {
+                    showToast(data.name + " Second")
+                }
+
+                override fun onSecondItemLongClicked(data: ExampleModel) {
+                    showToast("LAYOUT TYPE 2")
+                }
+            }
+        )
+
+        frogo_recycler_view.isViewLinearVertical(false)
+    }
+
+## Description
+### List Value Option 
+    const val OPTION_HOLDER_FIRST = 0
+    const val OPTION_HOLDER_SECOND = 1
+   
+### List Layout
+(Beta Version) only can use 2 layout
+
 
 # Main Function
 ## Special from this library frogo-recycler-view
@@ -561,6 +613,7 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
     frogo_rv_bg_yellow_lime_32dp.xml
     frogo_rv_bg_yellow_lime_4dp.xml
     frogo_rv_bg_yellow_lime_8dp.xml
+    frogo_rv_ic_empty_view.xml
     
 ## values
 ### dimens
@@ -632,6 +685,20 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
     <dimen name="frogo_rv_dimen_126dp">126dp</dimen>
     <dimen name="frogo_rv_dimen_128dp">128dp</dimen>
     <dimen name="frogo_rv_dimen_130dp">130dp</dimen>
+    
+    <dimen name="frogo_rv_dimen_8sp">8sp</dimen>
+    <dimen name="frogo_rv_dimen_9sp">9sp</dimen>
+    <dimen name="frogo_rv_dimen_10sp">10sp</dimen>
+    <dimen name="frogo_rv_dimen_11sp">11sp</dimen>
+    <dimen name="frogo_rv_dimen_12sp">12sp</dimen>
+    <dimen name="frogo_rv_dimen_13sp">13sp</dimen>
+    <dimen name="frogo_rv_dimen_14sp">14sp</dimen>
+    <dimen name="frogo_rv_dimen_15sp">15sp</dimen>
+    <dimen name="frogo_rv_dimen_16sp">16sp</dimen>
+    <dimen name="frogo_rv_dimen_18sp">18sp</dimen>
+    <dimen name="frogo_rv_dimen_20sp">20sp</dimen>
+    <dimen name="frogo_rv_dimen_22sp">22sp</dimen>
+    <dimen name="frogo_rv_dimen_24sp">24sp</dimen>
 
 ### colors
 
@@ -663,6 +730,8 @@ only extending FrogoRecyclerViewAdapter<T> to your adapter and using RecyclerVie
 ## layout
 
     frogo_rv_empty_view.xml
+    frogo_rv_list_type_1.xml
+    frogo_rv_list_type_2.xml
 
 # Android Library Version (build.gradle)
 - ext.kotlin_version = '1.3.72'
