@@ -39,7 +39,7 @@ public class JavaSampleNoAdapterActivity extends BaseActivity {
         recyclerView.injectAdapter(
                 R.layout.frogo_rv_list_type_1,
                 listData(),
-                R.layout.example_empty_view,
+                R.layout.frogo_rv_empty_view,
                 new FrogoAdapterCallback<ExampleModel>() {
                     @Override
                     public void setupInitComponent(@NotNull View view, ExampleModel data) {

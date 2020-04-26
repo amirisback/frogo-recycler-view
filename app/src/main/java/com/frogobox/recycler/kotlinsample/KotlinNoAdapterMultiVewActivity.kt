@@ -33,8 +33,8 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         val listOption = mutableListOf<Int>()
         listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
         return listOption
     }
 
@@ -50,7 +50,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
             listData(),
             listLayout(),
             listOption(),
-            R.layout.example_empty_view,
+            null,
             object : FrogoMultiAdapterCallback<ExampleModel> {
                 override fun setupFirstInitComponent(view: View, data: ExampleModel) {
                     // Init component content item recyclerview
@@ -63,19 +63,19 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
                 }
 
                 override fun onFirstItemClicked(data: ExampleModel) {
-                    showToast(data.name)
+                    showToast(data.name + " First")
                 }
 
                 override fun onFirstItemLongClicked(data: ExampleModel) {
-                    showToast(data.name)
+                    showToast("LAYOUT TYPE 1")
                 }
 
                 override fun onSecondItemClicked(data: ExampleModel) {
-                    showToast(data.name)
+                    showToast(data.name + " Second")
                 }
 
                 override fun onSecondItemLongClicked(data: ExampleModel) {
-                    showToast(data.name)
+                    showToast("LAYOUT TYPE 2")
                 }
             }
         )
