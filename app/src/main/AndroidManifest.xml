@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".kotlinsample.KotlinNoAdapterMultiVewActivity"></activity>
-        <activity android:name=".javasample.JavaSampleNoAdapterActivity" />
-        <activity android:name=".kotlinsample.KotlinSampleNoAdapterActivity" />
-        <activity android:name=".kotlinsample.KotlinSampleActivity" />
-        <activity android:name=".javasample.JavaSampleActivity" />
+        <activity android:name=".kotlinsample.KotlinNoAdapterMultiVewActivity" />
+        <activity android:name=".javasample.JavaNoAdapterActivity" />
+        <activity android:name=".kotlinsample.KotlinNoAdapterActivity" />
+        <activity android:name=".kotlinsample.usingadapter.KotlinSampleActivity" />
+        <activity android:name=".javasample.usingadapter.JavaSampleActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

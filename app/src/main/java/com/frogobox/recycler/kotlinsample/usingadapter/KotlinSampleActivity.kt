@@ -1,13 +1,12 @@
-package com.frogobox.recycler.kotlinsample
+package com.frogobox.recycler.kotlinsample.usingadapter
 
 import android.os.Bundle
 import android.widget.Toast
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 import com.frogobox.recycler.base.BaseActivity
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
-import com.frogobox.recycler.util.FrogoRvConstant
 import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
 
 class KotlinSampleActivity : BaseActivity() {

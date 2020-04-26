@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaSampleNoAdapterActivity extends BaseActivity {
+public class JavaNoAdapterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +51,13 @@ public class JavaSampleNoAdapterActivity extends BaseActivity {
                     @Override
                     public void onItemClicked(ExampleModel data) {
                         // setup item clicked on frogo recycler view
-                        Toast.makeText(JavaSampleNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onItemLongClicked(ExampleModel data) {
                         // setup item long clicked on frogo recycler view
-                        Toast.makeText(JavaSampleNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
                     }
                 });
         recyclerView.isViewLinearVertical(false);

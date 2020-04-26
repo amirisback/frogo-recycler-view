@@ -3,11 +3,11 @@ package com.frogobox.recycler
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.frogobox.recycler.javasample.JavaSampleActivity
-import com.frogobox.recycler.javasample.JavaSampleNoAdapterActivity
+import com.frogobox.recycler.javasample.usingadapter.JavaSampleActivity
+import com.frogobox.recycler.javasample.JavaNoAdapterActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
-import com.frogobox.recycler.kotlinsample.KotlinSampleActivity
-import com.frogobox.recycler.kotlinsample.KotlinSampleNoAdapterActivity
+import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
+import com.frogobox.recycler.kotlinsample.KotlinNoAdapterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +28,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_java_no_adapter.setOnClickListener {
-            startActivity(Intent(this, JavaSampleNoAdapterActivity::class.java))
+            startActivity(Intent(this, JavaNoAdapterActivity::class.java))
         }
 
         btn_kotlin_no_adapter.setOnClickListener {
-            startActivity(Intent(this, KotlinSampleNoAdapterActivity::class.java))
+            startActivity(Intent(this, KotlinNoAdapterActivity::class.java))
         }
 
         btn_kotlin_multiview.setOnClickListener {

@@ -46,12 +46,11 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
     }
 
     private fun setupFrogoRecyclerView() {
-        frogo_recycler_view.injectMultiAdapter(
-            listData(), // list data
-            listLayout(), // list your custom layout
-            listOption(), // option of view type
-            null,
-            object : FrogoMultiAdapterCallback<ExampleModel> {
+        frogo_recycler_view.injector<ExampleModel>()
+            .addData(listData())
+            .addMultiCustomView(listLayout())
+            .addMultiOptionHolder(listOption())
+            .addMultiCallback(object : FrogoMultiAdapterCallback<ExampleModel> {
                 override fun setupFirstInitComponent(view: View, data: ExampleModel) {
                     // Init component content item recyclerview
                     view.findViewById<TextView>(R.id.tv_example_item).text = data.name
@@ -77,10 +76,11 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
                 override fun onSecondItemLongClicked(data: ExampleModel) {
                     showToast("LAYOUT TYPE 2")
                 }
-            }
-        )
-
-        frogo_recycler_view.isViewLinearVertical(false)
+            })
+            .addEmptyView(null)
+            .createLayoutLinearVertical(false)
+            .createMultiAdapter()
+            .build(frogo_recycler_view)
     }
 
 

@@ -1,4 +1,4 @@
-package com.frogobox.recycler.javasample;
+package com.frogobox.recycler.javasample.usingadapter;
 
 import android.view.View;
 import android.view.ViewGroup;
