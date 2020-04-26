@@ -86,5 +86,23 @@
     <dimen name="frogo_rv_dimen_126dp">126dp</dimen>
     <dimen name="frogo_rv_dimen_128dp">128dp</dimen>
     <dimen name="frogo_rv_dimen_130dp">130dp</dimen>
+    <dimen name="frogo_rv_dimen_150dp">150dp</dimen>
+    <dimen name="frogo_rv_dimen_180dp">180dp</dimen>
+    <dimen name="frogo_rv_dimen_200dp">200dp</dimen>
+
+    <dimen name="frogo_rv_dimen_8sp">8sp</dimen>
+    <dimen name="frogo_rv_dimen_9sp">9sp</dimen>
+    <dimen name="frogo_rv_dimen_10sp">10sp</dimen>
+    <dimen name="frogo_rv_dimen_11sp">11sp</dimen>
+    <dimen name="frogo_rv_dimen_12sp">12sp</dimen>
+    <dimen name="frogo_rv_dimen_13sp">13sp</dimen>
+    <dimen name="frogo_rv_dimen_14sp">14sp</dimen>
+    <dimen name="frogo_rv_dimen_15sp">15sp</dimen>
+    <dimen name="frogo_rv_dimen_16sp">16sp</dimen>
+    <dimen name="frogo_rv_dimen_18sp">18sp</dimen>
+    <dimen name="frogo_rv_dimen_20sp">20sp</dimen>
+    <dimen name="frogo_rv_dimen_22sp">22sp</dimen>
+    <dimen name="frogo_rv_dimen_24sp">24sp</dimen>
+
 
 </resources>

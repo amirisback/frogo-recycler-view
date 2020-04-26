@@ -2,5 +2,7 @@
 
     <!--  Frogo Rv Base String  -->
     <string name="frogo_rv_is_empty_data">is Empty Data</string>
+    <string name="frogo_rv_no_data_found">No data found</string>
+    <string name="frogo_rv_please_insert_data">Please insert data here !!!</string>
 
 </resources>
