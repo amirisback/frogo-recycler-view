@@ -8,8 +8,9 @@ FrogoRecyclerView Extends RecyclerView
 - RecyclerView No Adapter (Adapter Has Been Handled)
 
 # Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_apps.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_data.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_no-adapter.png"></span>
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span>
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span>
 
 # Version Release
