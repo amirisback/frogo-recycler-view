@@ -29,25 +29,28 @@ class KotlinNoAdapterActivity : BaseActivity() {
     }
 
     private fun setupFrogoRecyclerView() {
+
+        val adapterCallback = object : FrogoAdapterCallback<ExampleModel> {
+            override fun setupInitComponent(view: View, data: ExampleModel) {
+                // Init component content item recyclerview
+                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+            }
+
+            override fun onItemClicked(data: ExampleModel) {
+                // setup item clicked on frogo recycler view
+                showToast(data.name)
+            }
+
+            override fun onItemLongClicked(data: ExampleModel) {
+                // setup item long clicked on frogo recycler view
+                showToast(data.name)
+            }
+        }
+
         frogo_recycler_view.injector<ExampleModel>()
             .addData(listData())
             .addCustomView(R.layout.frogo_rv_list_type_1)
-            .addCallback(object : FrogoAdapterCallback<ExampleModel> {
-                override fun setupInitComponent(view: View, data: ExampleModel) {
-                    // Init component content item recyclerview
-                    view.findViewById<TextView>(R.id.tv_example_item).text = data.name
-                }
-
-                override fun onItemClicked(data: ExampleModel) {
-                    // setup item clicked on frogo recycler view
-                    showToast(data.name)
-                }
-
-                override fun onItemLongClicked(data: ExampleModel) {
-                    // setup item long clicked on frogo recycler view
-                    showToast(data.name)
-                }
-            })
+            .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .createAdapter()
             .build(frogo_recycler_view)

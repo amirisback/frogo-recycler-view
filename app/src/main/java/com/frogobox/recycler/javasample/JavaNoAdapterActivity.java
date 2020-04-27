@@ -10,6 +10,7 @@ import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
+import com.frogobox.recycler.util.Constant;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -36,31 +37,36 @@ public class JavaNoAdapterActivity extends BaseActivity {
 
     private void setupFrogoRecyclerView() {
         FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
-        recyclerView.injectAdapter(
-                R.layout.frogo_rv_list_type_1,
-                listData(),
-                R.layout.frogo_rv_empty_view,
-                new FrogoAdapterCallback<ExampleModel>() {
-                    @Override
-                    public void setupInitComponent(@NotNull View view, ExampleModel data) {
-                        // Init component content item recyclerview
-                        TextView tvExample = view.findViewById(R.id.tv_example_item);
-                        tvExample.setText(data.getName());
-                    }
 
-                    @Override
-                    public void onItemClicked(ExampleModel data) {
-                        // setup item clicked on frogo recycler view
-                        Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
-                    }
+        FrogoAdapterCallback frogoAdapterCallback = new FrogoAdapterCallback<ExampleModel>() {
+            @Override
+            public void setupInitComponent(@NotNull View view, ExampleModel data) {
+                // Init component content item recyclerview
+                TextView tvExample = view.findViewById(R.id.tv_example_item);
+                tvExample.setText(data.getName());
+            }
 
-                    @Override
-                    public void onItemLongClicked(ExampleModel data) {
-                        // setup item long clicked on frogo recycler view
-                        Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-        recyclerView.isViewLinearVertical(false);
+            @Override
+            public void onItemClicked(ExampleModel data) {
+                // setup item clicked on frogo recycler view
+                Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClicked(ExampleModel data) {
+                // setup item long clicked on frogo recycler view
+                Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        recyclerView.injector()
+                .addData(listData())
+                .addCustomView(R.layout.frogo_rv_list_type_1)
+                .addCallback(frogoAdapterCallback)
+                .createLayoutLinearVertical(false)
+                .createAdapter()
+                .build(recyclerView);
+
     }
 
 }

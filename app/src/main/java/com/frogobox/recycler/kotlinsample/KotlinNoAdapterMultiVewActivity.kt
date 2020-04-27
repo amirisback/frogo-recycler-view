@@ -17,7 +17,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_frogo_rv_sample)
         setupFrogoRecyclerView()
-        setupDetailActivity("Kotlin No Adapter Multi View")
+        setupDetailActivity("Kotlin No Adapter - Multi View")
     }
 
     private fun listData(): MutableList<ExampleModel> {
@@ -46,37 +46,40 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
     }
 
     private fun setupFrogoRecyclerView() {
+
+        val adapterCallback = object : FrogoMultiAdapterCallback<ExampleModel> {
+            override fun setupFirstInitComponent(view: View, data: ExampleModel) {
+                // Init component content item recyclerview
+                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+            }
+
+            override fun setupSecondInitComponent(view: View, data: ExampleModel) {
+                // Init component content item recyclerview
+                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+            }
+
+            override fun onFirstItemClicked(data: ExampleModel) {
+                showToast(data.name + " First")
+            }
+
+            override fun onFirstItemLongClicked(data: ExampleModel) {
+                showToast("LAYOUT TYPE 1")
+            }
+
+            override fun onSecondItemClicked(data: ExampleModel) {
+                showToast(data.name + " Second")
+            }
+
+            override fun onSecondItemLongClicked(data: ExampleModel) {
+                showToast("LAYOUT TYPE 2")
+            }
+        }
+
         frogo_recycler_view.injector<ExampleModel>()
             .addData(listData())
             .addMultiCustomView(listLayout())
             .addMultiOptionHolder(listOption())
-            .addMultiCallback(object : FrogoMultiAdapterCallback<ExampleModel> {
-                override fun setupFirstInitComponent(view: View, data: ExampleModel) {
-                    // Init component content item recyclerview
-                    view.findViewById<TextView>(R.id.tv_example_item).text = data.name
-                }
-
-                override fun setupSecondInitComponent(view: View, data: ExampleModel) {
-                    // Init component content item recyclerview
-                    view.findViewById<TextView>(R.id.tv_example_item).text = data.name
-                }
-
-                override fun onFirstItemClicked(data: ExampleModel) {
-                    showToast(data.name + " First")
-                }
-
-                override fun onFirstItemLongClicked(data: ExampleModel) {
-                    showToast("LAYOUT TYPE 1")
-                }
-
-                override fun onSecondItemClicked(data: ExampleModel) {
-                    showToast(data.name + " Second")
-                }
-
-                override fun onSecondItemLongClicked(data: ExampleModel) {
-                    showToast("LAYOUT TYPE 2")
-                }
-            })
+            .addMultiCallback(adapterCallback)
             .addEmptyView(null)
             .createLayoutLinearVertical(false)
             .createMultiAdapter()
