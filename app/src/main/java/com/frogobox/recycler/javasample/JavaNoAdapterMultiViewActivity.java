@@ -38,9 +38,9 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
 
     private ArrayList<Integer> listOption() {
         ArrayList<Integer> listOption = new ArrayList<>();
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND);
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND);
         listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST);
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND);
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND);
         listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST);
         return listOption;
     }
@@ -53,51 +53,50 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     }
 
     private void setupFrogoRecyclerView() {
-        FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
+        FrogoRecyclerView frogoRecyclerView = findViewById(R.id.frogo_recycler_view);
 
-        FrogoMultiAdapterCallback frogoMultiAdapterCallback = new FrogoMultiAdapterCallback<ExampleModel>() {
+        frogoRecyclerView.injectMultiAdapter(
+                listData(),
+                listLayout(),
+                listOption(),
+                null,
+                new FrogoMultiAdapterCallback<ExampleModel>() {
 
-            @Override
-            public void setupFirstInitComponent(@NotNull View view, ExampleModel data) {
-                TextView tvExampleItem = findViewById(R.id.tv_example_item);
-                tvExampleItem.setText(data.getName());
-            }
+                    @Override
+                    public void setupFirstInitComponent(@NotNull View view, ExampleModel data) {
+                        TextView tvExampleItem = findViewById(R.id.tv_example_item);
+                        tvExampleItem.setText(data.getName());
+                    }
 
-            @Override
-            public void onFirstItemClicked(ExampleModel data) {
-                showToast(data.getName() + " 1");
-            }
+                    @Override
+                    public void onFirstItemClicked(ExampleModel data) {
+                        showToast(data.getName() + " 1");
+                    }
 
-            @Override
-            public void onFirstItemLongClicked(ExampleModel data) {
-                showToast(data.getName() + " First");
-            }
+                    @Override
+                    public void onFirstItemLongClicked(ExampleModel data) {
+                        showToast(data.getName() + " First");
+                    }
 
-            @Override
-            public void setupSecondInitComponent(@NotNull View view, ExampleModel data) {
-                TextView tvExampleItem = findViewById(R.id.tv_example_item);
-                tvExampleItem.setText(data.getName());
-            }
+                    @Override
+                    public void setupSecondInitComponent(@NotNull View view, ExampleModel data) {
+                        TextView tvExampleItem = findViewById(R.id.tv_example_item);
+                        tvExampleItem.setText(data.getName());
+                    }
 
-            @Override
-            public void onSecondItemClicked(ExampleModel data) {
-                showToast(data.getName() + " 2");
-            }
+                    @Override
+                    public void onSecondItemClicked(ExampleModel data) {
+                        showToast(data.getName() + " 2");
+                    }
 
-            @Override
-            public void onSecondItemLongClicked(ExampleModel data) {
-                showToast(data.getName() + " Second");
-            }
-        };
+                    @Override
+                    public void onSecondItemLongClicked(ExampleModel data) {
+                        showToast(data.getName() + " Second");
+                    }
+                }
+        );
+        frogoRecyclerView.isViewLinearVertical(false);
 
-        recyclerView.injector()
-                .addData(listData())
-                .addMultiCustomView(listLayout())
-                .addMultiOptionHolder(listOption())
-                .addMultiCallback(frogoMultiAdapterCallback)
-                .createLayoutLinearVertical(false)
-                .createMultiAdapter()
-                .build(recyclerView);
     }
 
 

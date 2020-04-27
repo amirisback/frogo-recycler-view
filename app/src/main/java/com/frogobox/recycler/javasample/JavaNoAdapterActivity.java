@@ -49,13 +49,13 @@ public class JavaNoAdapterActivity extends BaseActivity {
             @Override
             public void onItemClicked(ExampleModel data) {
                 // setup item clicked on frogo recycler view
-                Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                showToast(data.getName());
             }
 
             @Override
             public void onItemLongClicked(ExampleModel data) {
                 // setup item long clicked on frogo recycler view
-                Toast.makeText(JavaNoAdapterActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+                showToast(data.getName());
             }
         };
 
