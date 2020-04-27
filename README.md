@@ -17,7 +17,7 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.2.1
+    $version_release = 2.2.2
 
 What's New??
 
@@ -27,7 +27,7 @@ What's New??
 
 # Download this project
 
-### Step 1. Add the JitPack repository to your build file
+### Step 1. Add the JitPack repository to your build file (build.gradle : Project)
     
     Add it in your root build.gradle at the end of repositories:
     
@@ -38,11 +38,11 @@ What's New??
     		}
     	}
       
-### Step 2. Add the dependency 
+### Step 2. Add the dependency (build.gradle : Module)
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.2.1'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.2.2'
     }
 
 
