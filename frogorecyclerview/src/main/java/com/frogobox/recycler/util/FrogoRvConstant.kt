@@ -27,4 +27,18 @@ object FrogoRvConstant {
 
     const val FROGO_ADAPTER = "FROGO_ADAPTER"
     const val FROGO_MULTI_ADAPTER = "FROGO_MULTI_ADAPTER"
+
+    object Deprecated {
+
+        private const val BASE_MESSAGE = "We are going to replace with "
+        private const val INSIDE_INJECTOR = "inside injector() singleton"
+
+        const val isViewLinearVertical = "$BASE_MESSAGE createLayoutLinearVertical $INSIDE_INJECTOR"
+        const val isViewLinearHorizontal = "$BASE_MESSAGE createLayoutLinearHorizontal $INSIDE_INJECTOR"
+        const val isViewStaggeredGrid = "$BASE_MESSAGE createLayoutStaggeredGrid $INSIDE_INJECTOR"
+        const val isViewGrid = "$BASE_MESSAGE createLayoutGrid $INSIDE_INJECTOR"
+        const val injectAdapter = "$BASE_MESSAGE injector method"
+
+    }
+
 }

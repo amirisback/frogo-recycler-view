@@ -10,6 +10,7 @@ import com.frogobox.recycler.boilerplate.adapter.FrogoViewMultiAdapter
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback
 import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
+import com.frogobox.recycler.util.FrogoRvConstant
 import com.frogobox.recycler.util.FrogoRvSingleton
 
 
@@ -42,6 +43,7 @@ class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
         defStyleAttr
     )
 
+    @Deprecated(FrogoRvConstant.Deprecated.isViewLinearVertical)
     override fun isViewLinearVertical(dividerItem: Boolean) {
         layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
@@ -50,6 +52,7 @@ class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
         }
     }
 
+    @Deprecated(FrogoRvConstant.Deprecated.isViewLinearHorizontal)
     override fun isViewLinearHorizontal(dividerItem: Boolean) {
         layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
@@ -58,14 +61,17 @@ class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
         }
     }
 
+    @Deprecated(FrogoRvConstant.Deprecated.isViewStaggeredGrid)
     override fun isViewStaggeredGrid(spanCount: Int) {
         layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
     }
 
+    @Deprecated(FrogoRvConstant.Deprecated.isViewGrid)
     override fun isViewGrid(spanCount: Int) {
         layoutManager = GridLayoutManager(context, spanCount)
     }
 
+    @Deprecated(FrogoRvConstant.Deprecated.injectAdapter)
     override fun <T> injectAdapter(
         customView: Int,
         listData: List<T>?,
