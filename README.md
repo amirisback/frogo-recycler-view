@@ -19,11 +19,13 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.2.3
+    $version_release = 2.2.4
 
 What's New??
 
-    * update: injector calling *
+    * add: Template layout *
+    * add: Style *
+    * add: New sample code *
     * please re-import class, because to many refactoring code *
     * fixing bugs *
     
@@ -45,7 +47,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.2.3'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.2.4'
     }
 
 
