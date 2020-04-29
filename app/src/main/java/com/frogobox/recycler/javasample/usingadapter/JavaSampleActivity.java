@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
-import com.frogobox.recycler.base.FrogoRecyclerViewListener;
+import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener;
 import com.frogobox.recycler.model.ExampleModel;
 
 import java.util.ArrayList;

@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
-import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback;
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;
