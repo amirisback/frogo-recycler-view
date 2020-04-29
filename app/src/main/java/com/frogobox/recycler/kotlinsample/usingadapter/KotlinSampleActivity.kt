@@ -7,7 +7,6 @@ import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
-import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
 
 class KotlinSampleActivity : BaseActivity() {
 

@@ -11,6 +11,8 @@ android {
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
     def versionCodeLibrary = (versionMajor*100) + (versionMinor*10) + (versionPatch)
 
+    viewBinding.enabled = true
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 

@@ -48,6 +48,13 @@ class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
     lateinit var frogoMultiAdapterCallback: FrogoMultiAdapterCallback<T>
     lateinit var frogoViewMultiAdapter: FrogoViewMultiAdapter<T>
 
+    lateinit var mFrogoRecyclerView: FrogoRecyclerView
+
+    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingleton<T> {
+        mFrogoRecyclerView = frogoRecyclerView
+        return this
+    }
+
     override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingleton<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
@@ -234,9 +241,9 @@ class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
 
     }
 
-    override fun build(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingleton<T> {
-        setupLayoutManager<T>(frogoRecyclerView)
-        setupInnerAdapter<T>(frogoRecyclerView)
+    override fun build(): FrogoRvSingleton<T> {
+        setupLayoutManager<T>(mFrogoRecyclerView)
+        setupInnerAdapter<T>(mFrogoRecyclerView)
         return this
     }
 

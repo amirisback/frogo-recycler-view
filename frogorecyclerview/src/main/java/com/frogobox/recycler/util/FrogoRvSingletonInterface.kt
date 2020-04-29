@@ -21,6 +21,8 @@ import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallb
  */
 interface FrogoRvSingletonInterface<T> {
 
+    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingleton<T>
+
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingleton<T>
 
     fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingleton<T>
@@ -47,6 +49,6 @@ interface FrogoRvSingletonInterface<T> {
 
     fun createMultiAdapter(): FrogoRvSingleton<T>
 
-    fun build(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingleton<T>
+    fun build(): FrogoRvSingleton<T>
 
 }

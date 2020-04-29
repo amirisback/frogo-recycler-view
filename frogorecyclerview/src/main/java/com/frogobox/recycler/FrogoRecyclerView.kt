@@ -149,6 +149,6 @@ class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
 
     }
 
-    override fun <T> injector() = FrogoRvSingleton<T>()
+    override fun <T> injector() = FrogoRvSingleton<T>().initSingleton(this)
 
 }

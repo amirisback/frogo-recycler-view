@@ -53,7 +53,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .createAdapter()
-            .build(activityFrogoRvSampleBinding.frogoRecyclerView)
+            .build()
     }
 
 }

@@ -82,7 +82,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
             .addEmptyView(null)
             .createLayoutLinearVertical(false)
             .createMultiAdapter()
-            .build(activityFrogoRvSampleBinding.frogoRecyclerView)
+            .build()
     }
 
 

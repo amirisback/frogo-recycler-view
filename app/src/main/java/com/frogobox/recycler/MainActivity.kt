@@ -40,7 +40,7 @@ class MainActivity : BaseActivity() {
             startActivity(Intent(this, KotlinNoAdapterMultiVewActivity::class.java))
         }
 
-        activityMainBinding.btnKotlinMultiview.setOnClickListener {
+        activityMainBinding.btnJavaMultiview.setOnClickListener {
             startActivity(Intent(this, JavaNoAdapterMultiViewActivity::class.java))
         }
 

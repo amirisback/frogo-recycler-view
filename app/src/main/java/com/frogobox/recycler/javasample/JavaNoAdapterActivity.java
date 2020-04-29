@@ -3,14 +3,11 @@ package com.frogobox.recycler.javasample;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
-import com.frogobox.recycler.util.Constant;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -65,7 +62,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
                 .addCallback(frogoAdapterCallback)
                 .createLayoutLinearVertical(false)
                 .createAdapter()
-                .build(activityFrogoRvSampleBinding.frogoRecyclerView);
+                .build();
 
     }
 
