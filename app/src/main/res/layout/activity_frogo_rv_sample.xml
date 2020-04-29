@@ -7,4 +7,4 @@
     android:background="@color/frogoRvColorWhite"
     android:clipToPadding="false"
     android:paddingTop="16dp"
-    tools:listitem="@layout/frogo_rv_list_type_1" />
+    tools:listitem="@layout/frogo_rv_list_type_1"/>

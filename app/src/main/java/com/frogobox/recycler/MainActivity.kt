@@ -15,32 +15,32 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(activityMainBinding.root)
         setupButton()
     }
 
     private fun setupButton() {
-        btn_with_data.setOnClickListener {
+        activityMainBinding.btnWithData.setOnClickListener {
             startActivity(Intent(this, KotlinSampleActivity::class.java))
         }
 
-        btn_empty_data.setOnClickListener {
+        activityMainBinding.btnEmptyData.setOnClickListener {
             startActivity(Intent(this, JavaSampleActivity::class.java))
         }
 
-        btn_java_no_adapter.setOnClickListener {
+        activityMainBinding.btnJavaNoAdapter.setOnClickListener {
             startActivity(Intent(this, JavaNoAdapterActivity::class.java))
         }
 
-        btn_kotlin_no_adapter.setOnClickListener {
+        activityMainBinding.btnKotlinNoAdapter.setOnClickListener {
             startActivity(Intent(this, KotlinNoAdapterActivity::class.java))
         }
 
-        btn_kotlin_multiview.setOnClickListener {
+        activityMainBinding.btnKotlinMultiview.setOnClickListener {
             startActivity(Intent(this, KotlinNoAdapterMultiVewActivity::class.java))
         }
 
-        btn_java_multiview.setOnClickListener {
+        activityMainBinding.btnKotlinMultiview.setOnClickListener {
             startActivity(Intent(this, JavaNoAdapterMultiViewActivity::class.java))
         }
 

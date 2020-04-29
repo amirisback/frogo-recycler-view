@@ -8,13 +8,12 @@ import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
-import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
 
 class KotlinNoAdapterActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_frogo_rv_sample)
+        setContentView(activityFrogoRvSampleBinding.root)
         setupFrogoRecyclerView()
         setupDetailActivity("Kotlin No Adapter")
     }
@@ -47,14 +46,14 @@ class KotlinNoAdapterActivity : BaseActivity() {
             }
         }
 
-        frogo_recycler_view.injector<ExampleModel>()
+        activityFrogoRvSampleBinding.frogoRecyclerView.injector<ExampleModel>()
             .addData(listData())
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .createAdapter()
-            .build(frogo_recycler_view)
+            .build(activityFrogoRvSampleBinding.frogoRecyclerView)
     }
 
 }

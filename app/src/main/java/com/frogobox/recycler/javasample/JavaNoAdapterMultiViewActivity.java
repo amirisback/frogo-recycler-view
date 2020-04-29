@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback;
@@ -21,7 +20,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_frogo_rv_sample);
+        setContentView(activityFrogoRvSampleBinding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter - Multi View");
     }
@@ -53,9 +52,8 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     }
 
     private void setupFrogoRecyclerView() {
-        FrogoRecyclerView frogoRecyclerView = findViewById(R.id.frogo_recycler_view);
 
-        frogoRecyclerView.injectMultiAdapter(
+        activityFrogoRvSampleBinding.frogoRecyclerView.injectMultiAdapter(
                 listData(),
                 listLayout(),
                 listOption(),
@@ -95,7 +93,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
                     }
                 }
         );
-        frogoRecyclerView.isViewLinearVertical(false);
+        activityFrogoRvSampleBinding.frogoRecyclerView.isViewLinearVertical(false);
 
     }
 

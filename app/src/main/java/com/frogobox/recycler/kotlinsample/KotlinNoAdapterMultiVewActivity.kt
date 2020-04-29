@@ -9,13 +9,12 @@ import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallb
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 import com.frogobox.recycler.util.FrogoRvConstant
-import kotlinx.android.synthetic.main.activity_frogo_rv_sample.*
 
 class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_frogo_rv_sample)
+        setContentView(activityFrogoRvSampleBinding.root)
         setupFrogoRecyclerView()
         setupDetailActivity("Kotlin No Adapter - Multi View")
     }
@@ -75,7 +74,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
             }
         }
 
-        frogo_recycler_view.injector<ExampleModel>()
+        activityFrogoRvSampleBinding.frogoRecyclerView.injector<ExampleModel>()
             .addData(listData())
             .addMultiCustomView(listLayout())
             .addMultiOptionHolder(listOption())
@@ -83,7 +82,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
             .addEmptyView(null)
             .createLayoutLinearVertical(false)
             .createMultiAdapter()
-            .build(frogo_recycler_view)
+            .build(activityFrogoRvSampleBinding.frogoRecyclerView)
     }
 
 

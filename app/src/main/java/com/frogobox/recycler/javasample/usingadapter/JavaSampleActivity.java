@@ -3,10 +3,9 @@ package com.frogobox.recycler.javasample.usingadapter;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.R;
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener;
 import com.frogobox.recycler.base.BaseActivity;
+import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener;
 import com.frogobox.recycler.model.ExampleModel;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class JavaSampleActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_frogo_rv_sample);
+        setContentView(activityFrogoRvSampleBinding.getRoot());
         setupAdapter();
         setupDetailActivity("Java With Adapter");
     }
@@ -44,9 +43,9 @@ public class JavaSampleActivity extends BaseActivity {
             }
         });
         adapter.setupEmptyView(null); // Without Custom View
-        FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
-        recyclerView.setAdapter(adapter);
-        recyclerView.isViewLinearVertical(false);
+
+        activityFrogoRvSampleBinding.frogoRecyclerView.setAdapter(adapter);
+        activityFrogoRvSampleBinding.frogoRecyclerView.isViewLinearVertical(false);
     }
 
 }

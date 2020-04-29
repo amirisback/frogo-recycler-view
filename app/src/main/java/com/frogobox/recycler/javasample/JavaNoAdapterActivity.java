@@ -21,7 +21,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_frogo_rv_sample);
+        setContentView(activityFrogoRvSampleBinding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter");
     }
@@ -36,7 +36,6 @@ public class JavaNoAdapterActivity extends BaseActivity {
     }
 
     private void setupFrogoRecyclerView() {
-        FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
 
         FrogoAdapterCallback frogoAdapterCallback = new FrogoAdapterCallback<ExampleModel>() {
             @Override
@@ -59,14 +58,14 @@ public class JavaNoAdapterActivity extends BaseActivity {
             }
         };
 
-        recyclerView.injector()
+        activityFrogoRvSampleBinding.frogoRecyclerView.injector()
                 .addData(listData())
                 .addCustomView(R.layout.frogo_rv_list_type_1)
                 .addEmptyView(null)
                 .addCallback(frogoAdapterCallback)
                 .createLayoutLinearVertical(false)
                 .createAdapter()
-                .build(recyclerView);
+                .build(activityFrogoRvSampleBinding.frogoRecyclerView);
 
     }
 

@@ -1,5 +1,6 @@
 package com.frogobox.recycler.base
 
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -20,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
  * com.frogobox.recycler.base
  * 
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : BaseActivityViewBinding() {
 
     protected fun setupDetailActivity(title: String) {
         supportActionBar?.setTitle(title)
