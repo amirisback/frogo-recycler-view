@@ -6,7 +6,9 @@ FrogoRecyclerView Extends RecyclerView
 
 # About This Project
 - RecyclerView No Adapter (Adapter Has Been Handled)
-- RecyclerView Multi-View-Type (only 2 type - beta version)
+- RecyclerView Multi-View-Type (only 2 type, still bug on java - beta version)
+- Elegant call using injector()
+- ViewBinding (Generic Type) *On Development
 
 # Screen Shoot Apps
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span>
@@ -17,11 +19,12 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.2.2
+    $version_release = 2.2.3
 
 What's New??
 
-    * add : new method for calling with singleton *
+    * update: injector calling *
+    * please re-import class, because to many refactoring code *
     * fixing bugs *
     
 
@@ -42,7 +45,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.2.2'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.2.3'
     }
 
 
@@ -55,15 +58,16 @@ Just following the step until finish, for basic adapter using step 2, for multi 
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    	
+    	 	
     	 	
 ### Step 2. Setup requirement (Basic Adapter)
 
-#### Kotlin 
+#### Kotlin (sample using ViewBinding)
 
     private fun setupFrogoRecyclerView() {
 
-        val adapterCallback = object : FrogoAdapterCallback<ExampleModel> {
+        val adapterCallback = object :
+            FrogoViewAdapterCallback<ExampleModel> {
             override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.tv_example_item).text = data.name
@@ -80,22 +84,21 @@ Just following the step until finish, for basic adapter using step 2, for multi 
             }
         }
 
-        frogo_recycler_view.injector<ExampleModel>()
+        activityFrogoRvSampleBinding.frogoRecyclerView
+            .injector<ExampleModel>()
             .addData(listData())
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
-            .createAdapter()
-            .build(frogo_recycler_view)
+            .build()
     }
 
-#### Java 
+#### Java (sample using ViewBinding)
 
     private void setupFrogoRecyclerView() {
-        FrogoRecyclerView recyclerView = findViewById(R.id.frogo_recycler_view);
 
-        FrogoAdapterCallback frogoAdapterCallback = new FrogoAdapterCallback<ExampleModel>() {
+        FrogoViewAdapterCallback frogoViewAdapterCallback = new FrogoViewAdapterCallback<ExampleModel>() {
             @Override
             public void setupInitComponent(@NotNull View view, ExampleModel data) {
                 // Init component content item recyclerview
@@ -116,16 +119,16 @@ Just following the step until finish, for basic adapter using step 2, for multi 
             }
         };
 
-        recyclerView.injector()
+        activityFrogoRvSampleBinding.frogoRecyclerView
+                .injector()
                 .addData(listData())
                 .addCustomView(R.layout.frogo_rv_list_type_1)
                 .addEmptyView(null)
-                .addCallback(frogoAdapterCallback)
+                .addCallback(frogoViewAdapterCallback)
                 .createLayoutLinearVertical(false)
-                .createAdapter()
-                .build(recyclerView);
+                .build();
 
-    }    	
+    }
     	
     	
 ### Step 3. Setup requirement (Multi Adapter)
@@ -134,10 +137,11 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     const val OPTION_HOLDER_FIRST = 0
     const val OPTION_HOLDER_SECOND = 1
 
-#### Kotlin (using injector singleton)
+#### Kotlin (using injector singleton - sample using ViewBinding)
 
     private fun setupFrogoRecyclerView() {
-        val adapterCallback = object : FrogoMultiAdapterCallback<ExampleModel> {
+
+        val adapterCallback = object : FrogoViewAdapterMultiCallback<ExampleModel> {
             override fun setupFirstInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.tv_example_item).text = data.name
@@ -165,28 +169,28 @@ Just following the step until finish, for basic adapter using step 2, for multi 
             }
         }
 
-        frogo_recycler_view.injector<ExampleModel>()
+        activityFrogoRvSampleBinding.frogoRecyclerView
+            .injectorMulti<ExampleModel>()
             .addData(listData())
-            .addMultiCustomView(listLayout())
-            .addMultiOptionHolder(listOption())
+            .addCustomView(listLayout())
+            .addOptionHolder(listOption())
+            .addCallback(adapterCallback)
             .addEmptyView(null)
-            .addMultiCallback(adapterCallback)
             .createLayoutLinearVertical(false)
-            .createMultiAdapter()
-            .build(frogo_recycler_view)
+            .build()
     }
 
-#### Java 
+#### Java (sample using ViewBinding)
 
     private void setupFrogoRecyclerView() {
-        FrogoRecyclerView frogoRecyclerView = findViewById(R.id.frogo_recycler_view);
+        FrogoRecyclerView frogoRecyclerView = activityFrogoRvSampleBinding.frogoRecyclerView;
 
-        frogoRecyclerView.injectMultiAdapter(
+        frogoRecyclerView.injectAdapterMultiType(
                 listData(),
                 listLayout(),
                 listOption(),
                 null,
-                new FrogoMultiAdapterCallback<ExampleModel>() {
+                new FrogoViewAdapterMultiCallback<ExampleModel>() {
 
                     @Override
                     public void setupFirstInitComponent(@NotNull View view, ExampleModel data) {
