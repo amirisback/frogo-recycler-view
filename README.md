@@ -246,6 +246,8 @@ Just following the step until finish, for basic adapter using step 2, for multi 
 
 ## drawable
 
+![ScreenShoot Apps](docs/image/res_drawable.png?raw=true)
+
     frogo_rv_bg_accent_16dp.xml
     frogo_rv_bg_accent_32dp.xml
     frogo_rv_bg_accent_4dp.xml
@@ -343,6 +345,8 @@ Just following the step until finish, for basic adapter using step 2, for multi 
 ## values
 ### dimens
 
+![ScreenShoot Apps](docs/image/res_dimen.png?raw=true)
+
     <!--  Frogo Rv Base Dimen  -->
     <dimen name="frogo_rv_dimen_1dp">1dp</dimen>
     <dimen name="frogo_rv_dimen_2dp">2dp</dimen>
@@ -426,6 +430,8 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     <dimen name="frogo_rv_dimen_24sp">24sp</dimen>
 
 ### colors
+
+![ScreenShoot Apps](docs/image/res_color.png?raw=true)
 
     <color name="frogoRvColorPrimary">#6200EE</color>
     <color name="frogoRvColorPrimaryDark">#3700B3</color>
