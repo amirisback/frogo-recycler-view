@@ -1,4 +1,7 @@
-package com.frogobox.recycler.base
+package com.frogobox.recycler.base.viewrclass
+
+import android.view.View
+import com.frogobox.recycler.base.parent.ParentFrogoRecyclerViewHolder
 
 /**
  * Created by Faisal Amir
@@ -17,10 +20,6 @@ package com.frogobox.recycler.base
  * com.frogobox.frogoviewadapter
  *
  */
-interface FrogoRecyclerViewListener<T> {
-
-    fun onItemClicked(data: T)
-
-    fun onItemLongClicked(data: T)
+abstract class FrogoRecyclerViewHolder<T>(view: View) : ParentFrogoRecyclerViewHolder<T>(view) {
 
 }

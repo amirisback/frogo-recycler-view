@@ -1,9 +1,8 @@
-package com.frogobox.recycler.boilerplate
+package com.frogobox.recycler.boilerplate.viewrclass
 
 import android.view.ViewGroup
-import com.frogobox.recycler.base.FrogoRecyclerViewAdapter
-import com.frogobox.recycler.base.FrogoRecyclerViewHolder
-import com.frogobox.recycler.boilerplate.callback.FrogoViewHolderCallback
+import com.frogobox.recycler.base.viewrclass.FrogoRecyclerViewAdapter
+import com.frogobox.recycler.base.viewrclass.FrogoRecyclerViewHolder
 
 /*
  * Created by Faisal Amir
@@ -28,8 +27,9 @@ class FrogoViewAdapter<T>(private val frogoViewHolderCallback: FrogoViewHolderCa
         viewType: Int
     ): FrogoRecyclerViewHolder<T> {
         return FrogoViewHolder(
-            viewLayout(parent),
-            frogoViewHolderCallback
+            viewLayout(
+                parent
+            ), frogoViewHolderCallback
         )
     }
 

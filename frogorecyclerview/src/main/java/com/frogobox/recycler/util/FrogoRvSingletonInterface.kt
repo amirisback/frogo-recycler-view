@@ -1,7 +1,7 @@
 package com.frogobox.recycler.util
 
 import com.frogobox.recycler.FrogoRecyclerView
-import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
 
 /*
  * Created by Faisal Amir

@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.FrogoRecyclerView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.FrogoRecyclerViewListener
-import com.frogobox.recycler.boilerplate.FrogoViewAdapter
-import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback
-import com.frogobox.recycler.boilerplate.callback.FrogoViewHolderCallback
+import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapter
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewHolderCallback
 
 /*
  * Created by Faisal Amir
@@ -122,7 +122,8 @@ class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
             })
 
         frogoViewAdapter.setupRequirement(customViewInt, listData,
-            object : FrogoRecyclerViewListener<T> {
+            object :
+                FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
                     frogoAdapterCallback.onItemClicked(data)
                 }

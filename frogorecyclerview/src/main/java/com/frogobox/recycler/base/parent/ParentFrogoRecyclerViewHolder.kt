@@ -1,30 +1,26 @@
-package com.frogobox.recycler.base
+package com.frogobox.recycler.base.parent
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.recycler.base.views.FrogoRecyclerViewHolderInterface
 
-/**
+/*
  * Created by Faisal Amir
- * FrogoBox Inc License
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 20/12/2019.
+ * Copyright (C) 29/04/2020.      
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
- * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
- * FrogoBox Software Industries
- * com.frogobox.frogoviewadapter
- *
+ * FrogoBox Inc
+ * com.frogobox.recycler.base
+ * 
  */
-abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view),
-    FrogoRecyclerViewHolderInterface<T> {
+abstract class ParentFrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
 
-    override fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         if (data != null) {
             onItemViewClicked(data, listener)
         }
@@ -33,7 +29,7 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
         }
     }
 
-    override fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         itemView.setOnClickListener {
             if (data != null) {
                 listener?.onItemClicked(data)
@@ -47,6 +43,6 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
         }
     }
 
-    abstract override fun initComponent(data: T) // component view
+    abstract fun initComponent(data: T) // component view
 
 }

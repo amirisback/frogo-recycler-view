@@ -1,8 +1,7 @@
-package com.frogobox.recycler.boilerplate
+package com.frogobox.recycler.boilerplate.viewrclass
 
 import android.view.View
-import com.frogobox.recycler.base.FrogoRecyclerViewHolder
-import com.frogobox.recycler.boilerplate.callback.FrogoViewHolderCallback
+import com.frogobox.recycler.base.viewrclass.FrogoRecyclerViewHolder
 
 /*
  * Created by Faisal Amir
