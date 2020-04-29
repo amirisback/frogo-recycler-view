@@ -3,7 +3,8 @@ package com.frogobox.recycler.base
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.recycler.databinding.ActivityFrogoRvSampleBinding
+import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
+import com.frogobox.recycler.databinding.ActivityFrogoRvListBinding
 import com.frogobox.recycler.databinding.ActivityMainBinding
 
 /*
@@ -24,13 +25,14 @@ import com.frogobox.recycler.databinding.ActivityMainBinding
 abstract class BaseActivityViewBinding : AppCompatActivity() {
 
     protected lateinit var activityMainBinding: ActivityMainBinding
-    protected lateinit var activityFrogoRvSampleBinding: ActivityFrogoRvSampleBinding
+    protected lateinit var activityFrogoRvGridBinding: ActivityFrogoRvGridBinding
+    protected lateinit var activityFrogoRvListBinding: ActivityFrogoRvListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this))
-        activityFrogoRvSampleBinding =
-            ActivityFrogoRvSampleBinding.inflate(LayoutInflater.from(this))
+        activityFrogoRvGridBinding = ActivityFrogoRvGridBinding.inflate(LayoutInflater.from(this))
+        activityFrogoRvListBinding = ActivityFrogoRvListBinding.inflate(LayoutInflater.from(this))
     }
 
 

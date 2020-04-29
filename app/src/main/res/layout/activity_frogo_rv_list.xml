@@ -6,5 +6,4 @@
     android:layout_height="match_parent"
     android:background="@color/frogoRvColorWhite"
     android:clipToPadding="false"
-    android:paddingTop="16dp"
-    tools:listitem="@layout/frogo_rv_list_type_1"/>
+    android:paddingTop="@dimen/frogo_rv_dimen_16dp"/>

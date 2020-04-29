@@ -24,7 +24,7 @@
     android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/frogo_rv_type_16_iv_poster"
+        android:id="@+id/frogo_rv_type_16_civ_poster"
         android:layout_width="match_parent"
         android:layout_height="@dimen/frogo_rv_dimen_150dp"
         android:layout_marginBottom="8dp"

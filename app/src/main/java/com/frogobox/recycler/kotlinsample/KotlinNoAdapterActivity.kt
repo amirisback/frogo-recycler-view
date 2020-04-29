@@ -13,7 +13,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvSampleBinding.root)
+        setContentView(activityFrogoRvListBinding.root)
         setupFrogoRecyclerView()
         setupDetailActivity("Kotlin No Adapter")
     }
@@ -47,7 +47,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
             }
         }
 
-        activityFrogoRvSampleBinding.frogoRecyclerView.injector<ExampleModel>()
+        activityFrogoRvListBinding.frogoRecyclerView.injector<ExampleModel>()
             .addData(listData())
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)

@@ -12,7 +12,7 @@ class KotlinSampleActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvSampleBinding.root)
+        setContentView(activityFrogoRvListBinding.root)
         setupAdapter()
         setupDetailActivity("Kotlin With Adapter")
     }
@@ -44,8 +44,8 @@ class KotlinSampleActivity : BaseActivity() {
             }
         )
         adapter.setupEmptyView(R.layout.frogo_rv_container_empty_view) // With Custom View
-        activityFrogoRvSampleBinding.frogoRecyclerView.adapter = adapter
-        activityFrogoRvSampleBinding.frogoRecyclerView.isViewLinearVertical(false)
+        activityFrogoRvListBinding.frogoRecyclerView.adapter = adapter
+        activityFrogoRvListBinding.frogoRecyclerView.isViewLinearVertical(false)
     }
 
 }

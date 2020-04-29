@@ -2,7 +2,9 @@ package com.frogobox.recycler.kotlinsample
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
@@ -14,7 +16,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvSampleBinding.root)
+        setContentView(activityFrogoRvGridBinding.root)
         setupFrogoRecyclerView()
         setupDetailActivity("Kotlin No Adapter - Multi View")
     }
@@ -39,8 +41,8 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 
     private fun listLayout(): MutableList<Int> {
         val listLayout = mutableListOf<Int>()
-        listLayout.add(R.layout.frogo_rv_list_type_1)
-        listLayout.add(R.layout.frogo_rv_list_type_2)
+        listLayout.add(R.layout.frogo_rv_grid_type_12)
+        listLayout.add(R.layout.frogo_rv_grid_type_14)
         return listLayout
     }
 
@@ -49,13 +51,20 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         val adapterCallback = object : FrogoViewAdapterMultiCallback<ExampleModel> {
             override fun setupFirstInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.frogo_rv_type_1_tv_title).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_12_tv_title).text = data.name
+                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
+                    .into(view.findViewById<ImageView>(R.id.frogo_rv_type_12_iv_poster))
             }
 
             override fun setupSecondInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.frogo_rv_type_2_tv_title).text = data.name
-                view.findViewById<TextView>(R.id.frogo_rv_type_2_tv_subtitle).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_14_tv_title).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_14_tv_subtitle).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_14_tv_description).text =
+                    FrogoRvConstant.DUMMY_LOREM_IPSUM
+
+                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
+                    .into(view.findViewById<ImageView>(R.id.frogo_rv_type_14_iv_poster))
             }
 
             override fun onFirstItemClicked(data: ExampleModel) {
@@ -75,14 +84,14 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
             }
         }
 
-        activityFrogoRvSampleBinding.frogoRecyclerView
+        activityFrogoRvGridBinding.frogoRecyclerView
             .injectorMulti<ExampleModel>()
             .addData(listData())
             .addCustomView(listLayout())
             .addOptionHolder(listOption())
             .addCallback(adapterCallback)
             .addEmptyView(null)
-            .createLayoutLinearVertical(false)
+            .createLayoutStaggeredGrid(2)
             .build()
     }
 

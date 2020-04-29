@@ -21,7 +21,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activityFrogoRvSampleBinding.getRoot());
+        setContentView(activityFrogoRvListBinding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter - Multi View");
     }
@@ -53,7 +53,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     }
 
     private void setupFrogoRecyclerView() {
-        FrogoRecyclerView frogoRecyclerView = activityFrogoRvSampleBinding.frogoRecyclerView;
+        FrogoRecyclerView frogoRecyclerView = activityFrogoRvListBinding.frogoRecyclerView;
 
         frogoRecyclerView.injectAdapterMultiType(
                 listData(),

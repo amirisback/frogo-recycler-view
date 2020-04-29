@@ -15,7 +15,7 @@ public class JavaSampleActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activityFrogoRvSampleBinding.getRoot());
+        setContentView(activityFrogoRvListBinding.getRoot());
         setupAdapter();
         setupDetailActivity("Java With Adapter");
     }
@@ -44,8 +44,8 @@ public class JavaSampleActivity extends BaseActivity {
         });
         adapter.setupEmptyView(null); // Without Custom View
 
-        activityFrogoRvSampleBinding.frogoRecyclerView.setAdapter(adapter);
-        activityFrogoRvSampleBinding.frogoRecyclerView.isViewLinearVertical(false);
+        activityFrogoRvListBinding.frogoRecyclerView.setAdapter(adapter);
+        activityFrogoRvListBinding.frogoRecyclerView.isViewLinearVertical(false);
     }
 
 }
