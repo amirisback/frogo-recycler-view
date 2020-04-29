@@ -77,7 +77,16 @@
         <item name="android:layout_marginStart">@dimen/frogo_rv_dimen_16dp</item>
         <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
         <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:elevation">@dimen/frogo_rv_dimen_4dp</item>
+        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+    </style>
+
+    <style name="FrogoLayoutListWrap8dp" parent="frogoBaseAreaWrapContent">
+        <item name="android:layout_marginStart">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
         <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
         <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
     </style>
@@ -85,7 +94,7 @@
     <style name="FrogoLayoutGrid8dp" parent="frogoBaseAreaWidthMatchParent">
         <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
         <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:elevation">@dimen/frogo_rv_dimen_4dp</item>
+        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
         <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
         <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
     </style>

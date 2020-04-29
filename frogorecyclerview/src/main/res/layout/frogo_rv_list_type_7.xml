@@ -19,34 +19,22 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frogo_rv_type_5_root"
+    android:id="@+id/frogo_rv_type_7_root"
     style="@style/FrogoLayoutList8dp">
 
-    <ImageView
-        android:id="@+id/frogo_rv_type_5_iv_poster"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/frogo_rv_type_7_civ_poster"
         style="@style/frogoArea48dp"
         android:layout_centerVertical="true"
         android:contentDescription="@string/iv_poster"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/frogo_rv_type_7_tv_title"
+        style="@style/frogoTvListTitle"
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/frogo_rv_dimen_16dp"
-        android:layout_toEndOf="@id/frogo_rv_type_5_iv_poster"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/frogo_rv_type_5_tv_title"
-            style="@style/frogoTvListTitle"
-            tools:text="@tools:sample/lorem/random" />
-
-        <TextView
-            android:id="@+id/frogo_rv_type_5_tv_subtitle"
-            style="@style/FrogoTvListSubTitle"
-            tools:text="@tools:sample/lorem/random" />
-
-    </LinearLayout>
+        android:layout_toEndOf="@id/frogo_rv_type_7_civ_poster"
+        tools:text="@tools:sample/lorem/random" />
 
 </RelativeLayout>

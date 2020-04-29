@@ -17,24 +17,24 @@
  * 
  -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frogo_rv_type_4_root"
-    style="@style/FrogoLayoutList8dp">
+    android:id="@+id/frogo_rv_type_15_root"
+    style="@style/FrogoLayoutGrid8dp"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/frogo_rv_type_4_iv_poster"
-        style="@style/frogoArea48dp"
-        android:layout_centerVertical="true"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/frogo_rv_type_15_civ_poster"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frogo_rv_dimen_150dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@string/iv_poster"
+        android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/frogo_rv_type_4_tv_title"
+        android:id="@+id/frogo_rv_type_15_tv_title"
         style="@style/frogoTvListTitle"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/frogo_rv_dimen_16dp"
-        android:layout_toEndOf="@id/frogo_rv_type_4_iv_poster"
         tools:text="@tools:sample/lorem/random" />
 
-</RelativeLayout>
+</LinearLayout>

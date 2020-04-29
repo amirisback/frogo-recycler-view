@@ -24,10 +24,12 @@
 
     <ImageView
         android:id="@+id/frogo_rv_type_6_iv_poster"
-        android:layout_width="@dimen/frogo_rv_dimen_64dp"
+        android:layout_width="@dimen/frogo_rv_dimen_72dp"
         android:layout_height="@dimen/frogo_rv_dimen_96dp"
         android:layout_centerVertical="true"
-        tools:src="@color/frogoRvColorBlack" />
+        android:contentDescription="@string/iv_poster"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/avatars" />
 
     <LinearLayout
         android:layout_width="match_parent"
