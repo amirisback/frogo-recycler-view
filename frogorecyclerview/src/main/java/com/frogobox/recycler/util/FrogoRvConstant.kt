@@ -25,8 +25,8 @@ object FrogoRvConstant {
     const val LAYOUT_STAGGERED_GRID = "LAYOUT_STAGGERED_GRID"
     const val LAYOUT_GRID = "LAYOUT_GRID"
 
-    const val FROGO_ADAPTER = "FROGO_ADAPTER"
-    const val FROGO_MULTI_ADAPTER = "FROGO_MULTI_ADAPTER"
+    const val FROGO_ADAPTER_R_CLASS = "FROGO_ADAPTER_R_CLASS"
+    const val FROGO_ADAPTER_VIEW_BINDING = "FROGO_ADAPTER_VIEW_BINDING"
 
     object Deprecated {
 

@@ -3,8 +3,9 @@ package com.frogobox.recycler
 import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.*
+import com.frogobox.recycler.boilerplate.FrogoRvSingletonRclass
+import com.frogobox.recycler.boilerplate.FrogoRvSingletonViewBinding
 import com.frogobox.recycler.util.FrogoRvConstant
-import com.frogobox.recycler.util.FrogoRvSingleton
 
 
 /**
@@ -64,6 +65,9 @@ class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
         layoutManager = GridLayoutManager(context, spanCount)
     }
 
-    override fun <T> injector() = FrogoRvSingleton<T>().initSingleton(this)
+    override fun <T> injector(): FrogoRvSingletonRclass<T> =
+        FrogoRvSingletonRclass<T>().initSingleton(this)
 
+    override fun <T> injectorViewBinding(): FrogoRvSingletonViewBinding<T> =
+        FrogoRvSingletonViewBinding<T>().initSingleton(this)
 }

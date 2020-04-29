@@ -1,6 +1,7 @@
 package com.frogobox.recycler
 
-import com.frogobox.recycler.util.FrogoRvSingleton
+import com.frogobox.recycler.boilerplate.FrogoRvSingletonRclass
+import com.frogobox.recycler.boilerplate.FrogoRvSingletonViewBinding
 
 /**
  * Created by Faisal Amir
@@ -34,7 +35,10 @@ interface FrogoRecyclerViewInterface {
     // Setup grid recycler view
     fun isViewGrid(spanCount: Int)
 
-    // Setup Singleton
-    fun <T> injector(): FrogoRvSingleton<T>
+    // Setup SingletonRclass
+    fun <T> injector(): FrogoRvSingletonRclass<T>
+
+    // Setup SingletonViewBinding
+    fun <T> injectorViewBinding(): FrogoRvSingletonViewBinding<T>
 
 }
