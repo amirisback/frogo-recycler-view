@@ -33,7 +33,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
             FrogoViewAdapterCallback<ExampleModel> {
             override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_1_tv_title).text = data.name
             }
 
             override fun onItemClicked(data: ExampleModel) {

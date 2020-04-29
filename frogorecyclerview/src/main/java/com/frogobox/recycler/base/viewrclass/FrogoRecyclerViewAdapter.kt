@@ -28,7 +28,7 @@ abstract class FrogoRecyclerViewAdapter<T> : ParentFrogoRecyclerViewAdapter<T>()
 
     private var mLayoutRecyclerViewInt: Int = 0
     private var mLayoutCustomViewInt: Int = 0
-    private var mLayoutEmptyViewInt: Int = R.layout.frogo_rv_empty_view
+    private var mLayoutEmptyViewInt: Int = R.layout.frogo_rv_container_empty_view
 
     private fun verifyViewInt() {
         if (mListData.isNotEmpty()) {

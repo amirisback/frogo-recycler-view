@@ -39,7 +39,7 @@ public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel
 
     static class JavaSampleViewHolder extends FrogoRecyclerViewHolder<ExampleModel> {
 
-        private TextView tvExample = itemView.findViewById(R.id.tv_example_item);
+        private TextView tvExample = itemView.findViewById(R.id.frogo_rv_type_1_tv_title);
 
         JavaSampleViewHolder(@NotNull View view) {
             super(view);

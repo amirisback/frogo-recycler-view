@@ -18,14 +18,11 @@
  -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frogo_rv_type_1_root"
-    style="@style/FrogoLayoutList8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/frogo_rv_type_1_tv_title"
-        style="@style/frogoTvListTitle"
-        tools:text="@tools:sample/lorem/random" />
+    <include layout="@layout/frogo_rv_empty_view" />
 
 </LinearLayout>

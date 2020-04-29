@@ -43,7 +43,7 @@ class KotlinSampleActivity : BaseActivity() {
                 }
             }
         )
-        adapter.setupEmptyView(R.layout.frogo_rv_empty_view) // With Custom View
+        adapter.setupEmptyView(R.layout.frogo_rv_container_empty_view) // With Custom View
         activityFrogoRvSampleBinding.frogoRecyclerView.adapter = adapter
         activityFrogoRvSampleBinding.frogoRecyclerView.isViewLinearVertical(false)
     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frogo_rv_type_5_root"
+    style="@style/FrogoLayoutList8dp">
+
+    <ImageView
+        android:id="@+id/frogo_rv_type_5_iv_poster"
+        style="@style/frogoArea48dp"
+        android:layout_centerVertical="true"
+        tools:src="@color/frogoRvColorBlack" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/frogo_rv_dimen_16dp"
+        android:layout_toEndOf="@id/frogo_rv_type_5_iv_poster"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/frogo_rv_type_5_tv_title"
+            style="@style/frogoTvListTitle"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/frogo_rv_type_5_tv_subtitle"
+            style="@style/FrogoTvListSubTitle"
+            tools:text="@tools:sample/lorem/random" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -19,23 +19,18 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="16dp"
-    android:background="@drawable/frogo_rv_bg_primary_32dp"
-    android:elevation="@dimen/frogo_rv_dimen_4dp"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:id="@+id/frogo_rv_type_2_root"
+    style="@style/FrogoLayoutList8dp"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_example_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        tools:text="@tools:sample/lorem" />
+        android:id="@+id/frogo_rv_type_2_tv_title"
+        style="@style/frogoTvListTitle"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/frogo_rv_type_2_tv_subtitle"
+        style="@style/FrogoTvListSubTitle"
+        tools:text="@tools:sample/lorem/random" />
 
 </LinearLayout>

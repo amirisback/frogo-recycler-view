@@ -49,12 +49,13 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         val adapterCallback = object : FrogoViewAdapterMultiCallback<ExampleModel> {
             override fun setupFirstInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_1_tv_title).text = data.name
             }
 
             override fun setupSecondInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_2_tv_title).text = data.name
+                view.findViewById<TextView>(R.id.frogo_rv_type_2_tv_subtitle).text = data.name
             }
 
             override fun onFirstItemClicked(data: ExampleModel) {
