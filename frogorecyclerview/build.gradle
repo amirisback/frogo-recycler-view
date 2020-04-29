@@ -8,8 +8,8 @@ android {
     def versionMinor = 2
     def versionPatch = 2
 
-    def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
     def versionCodeLibrary = (versionMajor*100) + (versionMinor*10) + (versionPatch)
+    def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
 
     viewBinding.enabled = true
 
