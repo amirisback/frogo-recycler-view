@@ -27,6 +27,7 @@ object FrogoRvConstant {
 
     const val FROGO_ADAPTER_R_CLASS = "FROGO_ADAPTER_R_CLASS"
     const val FROGO_ADAPTER_VIEW_BINDING = "FROGO_ADAPTER_VIEW_BINDING"
+    const val FROGO_ADAPTER_MULTI = "FROGO_ADAPTER_MULTI"
 
     object Deprecated {
 

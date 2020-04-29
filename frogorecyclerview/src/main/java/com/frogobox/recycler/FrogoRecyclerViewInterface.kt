@@ -1,6 +1,8 @@
 package com.frogobox.recycler
 
 import androidx.viewbinding.ViewBinding
+import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonMulti
 import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonRclass
 import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonViewBinding
 
@@ -36,8 +38,20 @@ interface FrogoRecyclerViewInterface {
     // Setup grid recycler view
     fun isViewGrid(spanCount: Int)
 
+    // Setup Inject Adapter with multi type view holder
+    fun <T> injectAdapterMultiType(
+        listData: List<T>?,
+        multiCustomView: List<Int>,
+        multiOptionHolder: List<Int>,
+        emptyView: Int?,
+        frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>
+    )
+
     // Setup SingletonRclass
     fun <T> injector(): FrogoRvSingletonRclass<T>
+
+    // Setup SingletonRclass
+    fun <T> injectorMulti(): FrogoRvSingletonMulti<T>
 
     // Setup SingletonViewBinding
     fun <T, V : ViewBinding> injectorViewBinding(): FrogoRvSingletonViewBinding<T, V>

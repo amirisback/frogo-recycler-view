@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import com.frogobox.recycler.base.BaseActivity
 import com.frogobox.recycler.javasample.JavaNoAdapterActivity
+import com.frogobox.recycler.javasample.JavaNoAdapterMultiViewActivity
 import com.frogobox.recycler.javasample.usingadapter.JavaSampleActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterActivity
+import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
 import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
 
 class MainActivity : BaseActivity() {
@@ -31,6 +33,14 @@ class MainActivity : BaseActivity() {
 
         activityMainBinding.btnKotlinNoAdapter.setOnClickListener {
             startActivity(Intent(this, KotlinNoAdapterActivity::class.java))
+        }
+
+        activityMainBinding.btnKotlinMultiview.setOnClickListener {
+            startActivity(Intent(this, KotlinNoAdapterMultiVewActivity::class.java))
+        }
+
+        activityMainBinding.btnJavaMultiview.setOnClickListener {
+            startActivity(Intent(this, JavaNoAdapterMultiViewActivity::class.java))
         }
 
     }
