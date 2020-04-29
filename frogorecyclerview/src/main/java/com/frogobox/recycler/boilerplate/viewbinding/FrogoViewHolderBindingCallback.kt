@@ -17,9 +17,9 @@ import androidx.viewbinding.ViewBinding
  * com.frogobox.recycler.boilerplate.callback
  * 
  */
-interface FrogoViewHolderBindingCallback<T> {
+interface FrogoViewHolderBindingCallback<T, V : ViewBinding> {
 
     // Setup Init Component on ViewHolder
-    fun setupInitComponent(viewBinding: ViewBinding, data: T)
+    fun setupInitComponent(viewBinding: V, data: T)
 
 }

@@ -1,7 +1,8 @@
 package com.frogobox.recycler
 
-import com.frogobox.recycler.boilerplate.FrogoRvSingletonRclass
-import com.frogobox.recycler.boilerplate.FrogoRvSingletonViewBinding
+import androidx.viewbinding.ViewBinding
+import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonRclass
+import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonViewBinding
 
 /**
  * Created by Faisal Amir
@@ -39,6 +40,6 @@ interface FrogoRecyclerViewInterface {
     fun <T> injector(): FrogoRvSingletonRclass<T>
 
     // Setup SingletonViewBinding
-    fun <T> injectorViewBinding(): FrogoRvSingletonViewBinding<T>
+    fun <T, V : ViewBinding> injectorViewBinding(): FrogoRvSingletonViewBinding<T, V>
 
 }

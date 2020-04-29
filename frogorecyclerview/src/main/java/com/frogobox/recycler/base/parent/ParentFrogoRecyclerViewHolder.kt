@@ -29,7 +29,7 @@ abstract class ParentFrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewH
         }
     }
 
-    fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    private fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         itemView.setOnClickListener {
             if (data != null) {
                 listener?.onItemClicked(data)

@@ -1,10 +1,11 @@
 package com.frogobox.recycler.base.viewbinding
 
-import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
 import com.frogobox.recycler.base.parent.ParentFrogoRecyclerViewAdapter
-import com.frogobox.recycler.util.FrogoRvViewBinding
 
 /*
  * Created by Faisal Amir
@@ -21,43 +22,20 @@ import com.frogobox.recycler.util.FrogoRvViewBinding
  * com.frogobox.recycler.base
  * 
  */
-abstract class FrogoRecylcerViewAdapterBinding<T> : ParentFrogoRecyclerViewAdapter<T>() {
+abstract class FrogoRecyclerViewAdapterBinding<T, V : ViewBinding> :
+    ParentFrogoRecyclerViewAdapter<T>() {
 
-    private var mLayoutRecyclerViewBinding: ViewBinding? = null
-    private var mLayoutCustomViewBinding: ViewBinding? = null
-    private var mLayoutEmptyViewBinding: ViewBinding? = null
+    private lateinit var mLayoutRecyclerViewBinding: V
+    private lateinit var mLayoutCustomViewBinding: V
 
     private fun verifyViewBinding() {
         if (mListData.isNotEmpty()) {
             mLayoutRecyclerViewBinding = mLayoutCustomViewBinding
-        } else {
-            mLayoutRecyclerViewBinding = mLayoutEmptyViewBinding
         }
-    }
-
-    private fun layoutHandle() {
-        if (mLayoutCustomViewBinding != null) {
-            verifyViewBinding()
-        }
-    }
-
-    private fun emptyViewHandle() {
-        layoutHandle()
-        notifyDataSetChanged()
-    }
-
-    fun setupEmptyView(emptyView: ViewBinding?, context: Context) {
-        hasEmptyView = true
-        if (emptyView != null) {
-            mLayoutEmptyViewBinding = emptyView
-        } else {
-            mLayoutEmptyViewBinding = FrogoRvViewBinding.frogoRvEmptyView(context)
-        }
-        emptyViewHandle()
     }
 
     fun setupRequirement(
-        customViewBinding: ViewBinding,
+        customViewBinding: V,
         listData: List<T>?,
         listener: FrogoRecyclerViewListener<T>?
     ) {
@@ -71,11 +49,12 @@ abstract class FrogoRecylcerViewAdapterBinding<T> : ParentFrogoRecyclerViewAdapt
         }
 
         mLayoutCustomViewBinding = customViewBinding
-        emptyViewHandle()
+        verifyViewBinding()
+        notifyDataSetChanged()
     }
 
-    fun viewLayout(): ViewBinding {
-        return mLayoutRecyclerViewBinding!!
+    fun viewLayout(parent: ViewGroup): V {
+        return mLayoutRecyclerViewBinding
     }
 
 

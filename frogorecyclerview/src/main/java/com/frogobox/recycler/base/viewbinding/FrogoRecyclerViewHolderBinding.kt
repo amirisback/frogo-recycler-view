@@ -18,7 +18,7 @@ import com.frogobox.recycler.base.parent.ParentFrogoRecyclerViewHolder
  * com.frogobox.recycler.base
  * 
  */
-abstract class FrogoRecylcerViewHolderBinding<T>(viewBinding: ViewBinding) :
+abstract class FrogoRecyclerViewHolderBinding<T, V : ViewBinding>(viewBinding: V) :
     ParentFrogoRecyclerViewHolder<T>(viewBinding.root) {
 
 }

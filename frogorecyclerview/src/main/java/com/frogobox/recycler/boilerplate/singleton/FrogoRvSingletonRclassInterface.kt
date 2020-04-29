@@ -1,7 +1,6 @@
-package com.frogobox.recycler.boilerplate.views
+package com.frogobox.recycler.boilerplate.singleton
 
 import com.frogobox.recycler.FrogoRecyclerView
-import com.frogobox.recycler.boilerplate.FrogoRvSingletonRclass
 import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
 
 /*
@@ -31,7 +30,7 @@ interface FrogoRvSingletonRclassInterface<T> {
 
     fun createLayoutGrid(spanCount: Int): FrogoRvSingletonRclass<T>
 
-    fun <T> setupLayoutManager()
+    fun setupLayoutManager()
 
     fun addData(listData: List<T>): FrogoRvSingletonRclass<T>
 

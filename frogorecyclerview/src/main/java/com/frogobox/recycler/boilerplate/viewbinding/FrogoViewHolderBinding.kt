@@ -1,7 +1,7 @@
 package com.frogobox.recycler.boilerplate.viewbinding
 
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.base.viewbinding.FrogoRecylcerViewHolderBinding
+import com.frogobox.recycler.base.viewbinding.FrogoRecyclerViewHolderBinding
 
 /*
  * Created by Faisal Amir
@@ -18,11 +18,8 @@ import com.frogobox.recycler.base.viewbinding.FrogoRecylcerViewHolderBinding
  * com.frogobox.recycler.boilerplate
  * 
  */
-class FrogoViewHolderBinding<T>(
-    private val viewBinding: ViewBinding,
-    private val frogoViewHolderBindingCallback: FrogoViewHolderBindingCallback<T>
-) :
-    FrogoRecylcerViewHolderBinding<T>(viewBinding) {
+class FrogoViewHolderBinding<T, V : ViewBinding>(private val viewBinding: V, private val frogoViewHolderBindingCallback: FrogoViewHolderBindingCallback<T, V>
+) : FrogoRecyclerViewHolderBinding<T, V>(viewBinding) {
 
     override fun initComponent(data: T) {
         frogoViewHolderBindingCallback.setupInitComponent(viewBinding, data)
