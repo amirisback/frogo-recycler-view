@@ -458,11 +458,119 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     <color name="frogoRvColorAmber">#FF9800</color>
     <color name="frogoRvColorOrange">#FF5722</color>
 
+### styles
+
+    <!-- Util -->
+
+    <style name="frogoBaseAreaWrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="frogoBaseAreaMatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="frogoBaseAreaWidthMatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="frogoBaseAreaHeightMatchParent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="frogoArea64dp">
+        <item name="android:layout_width">@dimen/frogo_rv_dimen_64dp</item>
+        <item name="android:layout_height">@dimen/frogo_rv_dimen_64dp</item>
+    </style>
+
+    <style name="frogoArea48dp">
+        <item name="android:layout_width">@dimen/frogo_rv_dimen_48dp</item>
+        <item name="android:layout_height">@dimen/frogo_rv_dimen_48dp</item>
+    </style>
+
+    <!-- TextView -->
+
+    <style name="frogoTvListTitle" parent="frogoBaseAreaWrapContent">
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/frogoRvColorPrimaryDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/frogo_rv_dimen_16sp</item>
+    </style>
+
+    <style name="FrogoTvListSubTitle" parent="frogoBaseAreaWrapContent">
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/frogo_rv_dimen_12sp</item>
+    </style>
+
+    <style name="FrogoTvListDescription" parent="frogoBaseAreaWrapContent">
+        <item name="android:maxLines">3</item>
+        <item name="android:textColor">@color/frogoRvColorBlack</item>
+        <item name="android:textSize">@dimen/frogo_rv_dimen_11sp</item>
+    </style>
+
+    <!-- Layout Container -->
+
+    <style name="FrogoLayoutList8dp" parent="frogoBaseAreaWidthMatchParent">
+        <item name="android:layout_marginStart">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+    </style>
+
+    <style name="FrogoLayoutListWrap8dp" parent="frogoBaseAreaWrapContent">
+        <item name="android:layout_marginStart">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+    </style>
+
+    <style name="FrogoLayoutGrid8dp" parent="frogoBaseAreaWidthMatchParent">
+        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+    </style>
+    
+
+### string
+
+    <!--  Frogo Rv Base String  -->
+    <string name="frogo_rv_is_empty_data">is Empty Data</string>
+    <string name="frogo_rv_no_data_found">No data found</string>
+    <string name="frogo_rv_please_insert_data">Please insert data here !!!</string>
+    <string name="iv_poster">iv_poster</string>
+
 ## layout
 
+    frogo_rv_container_empty_view.xml
     frogo_rv_empty_view.xml
     frogo_rv_list_type_1.xml
     frogo_rv_list_type_2.xml
+    frogo_rv_list_type_3.xml
+    frogo_rv_list_type_4.xml
+    frogo_rv_list_type_5.xml
+    frogo_rv_list_type_6.xml
+    frogo_rv_list_type_7.xml
+    frogo_rv_list_type_8.xml
+    frogo_rv_list_type_9.xml
+    frogo_rv_list_type_10.xml
+    frogo_rv_list_type_11.xml
+    frogo_rv_list_type_18.xml
+    frogo_rv_grid_type_12.xml
+    frogo_rv_grid_type_13.xml
+    frogo_rv_grid_type_14.xml
+    frogo_rv_grid_type_15.xml
+    frogo_rv_grid_type_16.xml
+    frogo_rv_grid_type_17.xml
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
