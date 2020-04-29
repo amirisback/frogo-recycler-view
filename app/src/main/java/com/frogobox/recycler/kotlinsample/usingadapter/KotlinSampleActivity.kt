@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.BaseActivity
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.FrogoRecyclerViewListener
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 

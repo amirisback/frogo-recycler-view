@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback;
+import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -34,7 +34,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
 
     private void setupFrogoRecyclerView() {
 
-        FrogoAdapterCallback frogoAdapterCallback = new FrogoAdapterCallback<ExampleModel>() {
+        FrogoViewAdapterCallback frogoViewAdapterCallback = new FrogoViewAdapterCallback<ExampleModel>() {
             @Override
             public void setupInitComponent(@NotNull View view, ExampleModel data) {
                 // Init component content item recyclerview
@@ -59,9 +59,8 @@ public class JavaNoAdapterActivity extends BaseActivity {
                 .addData(listData())
                 .addCustomView(R.layout.frogo_rv_list_type_1)
                 .addEmptyView(null)
-                .addCallback(frogoAdapterCallback)
+                .addCallback(frogoViewAdapterCallback)
                 .createLayoutLinearVertical(false)
-                .createAdapter()
                 .build();
 
     }

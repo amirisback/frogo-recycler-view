@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.BaseActivity
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
+import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
@@ -29,7 +29,8 @@ class KotlinNoAdapterActivity : BaseActivity() {
 
     private fun setupFrogoRecyclerView() {
 
-        val adapterCallback = object : FrogoAdapterCallback<ExampleModel> {
+        val adapterCallback = object :
+            FrogoViewAdapterCallback<ExampleModel> {
             override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.tv_example_item).text = data.name
@@ -52,7 +53,6 @@ class KotlinNoAdapterActivity : BaseActivity() {
             .addEmptyView(null)
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
-            .createAdapter()
             .build()
     }
 
