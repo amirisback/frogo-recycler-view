@@ -1,8 +1,7 @@
 package com.frogobox.recycler.util
 
 import com.frogobox.recycler.FrogoRecyclerView
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback
+import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback
 
 /*
  * Created by Faisal Amir
@@ -37,17 +36,7 @@ interface FrogoRvSingletonInterface<T> {
 
     fun addCustomView(layoutId: Int): FrogoRvSingleton<T>
 
-    fun addCallback(callback: FrogoAdapterCallback<T>): FrogoRvSingleton<T>
-
-    fun createAdapter(): FrogoRvSingleton<T>
-
-    fun addMultiCustomView(multiLayoutId: List<Int>): FrogoRvSingleton<T>
-
-    fun addMultiOptionHolder(optionHolder: List<Int>): FrogoRvSingleton<T>
-
-    fun addMultiCallback(callback: FrogoMultiAdapterCallback<T>): FrogoRvSingleton<T>
-
-    fun createMultiAdapter(): FrogoRvSingleton<T>
+    fun addCallback(callback: FrogoViewAdapterCallback<T>): FrogoRvSingleton<T>
 
     fun build(): FrogoRvSingleton<T>
 

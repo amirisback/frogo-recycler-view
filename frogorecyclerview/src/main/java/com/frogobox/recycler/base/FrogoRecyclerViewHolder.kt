@@ -1,8 +1,8 @@
-package com.frogobox.recycler.base.holder
+package com.frogobox.recycler.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.views.FrogoRecyclerViewHolderInterface
 
 /**
  * Created by Faisal Amir
@@ -22,7 +22,7 @@ import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
  *
  */
 abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view),
-    FrogoHolderView<T> {
+    FrogoRecyclerViewHolderInterface<T> {
 
     override fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         if (data != null) {

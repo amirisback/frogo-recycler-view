@@ -1,12 +1,11 @@
-package com.frogobox.recycler.base.adapter
+package com.frogobox.recycler.base
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.views.FrogoRecyclerViewAdapterInterface
 
 /**
  * Created by Faisal Amir
@@ -26,24 +25,27 @@ import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
  *
  */
 abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>(),
-    FrogoAdapterView<T> {
+    FrogoRecyclerViewAdapterInterface<T> {
 
     private val mRecyclerViewDataList = mutableListOf<T>()
 
     private var mViewListener: FrogoRecyclerViewListener<T>? = null
     private var mRecyclerViewLayout: Int = 0
 
-    private var mLayoutItem: Int = 0
-    private var mEmptyView: Int = R.layout.frogo_rv_empty_view
+    private var mCustomViewInt: Int = 0
+    private var mEmptyViewInt: Int = R.layout.frogo_rv_empty_view
+
+    private lateinit var mCustomView: View
+    private lateinit var mEmptyView: View
 
     private var hasEmptyView = false
     private var listCount = 0
 
     private fun layoutHandle() {
         mRecyclerViewLayout = if (mRecyclerViewDataList.isNotEmpty()) {
-            mLayoutItem
+            mCustomViewInt
         } else {
-            mEmptyView
+            mEmptyViewInt
         }
     }
 
@@ -67,14 +69,14 @@ abstract class FrogoRecyclerViewAdapter<T> : RecyclerView.Adapter<FrogoRecyclerV
             mRecyclerViewDataList.addAll(dataList)
         }
 
-        mLayoutItem = layoutItem
+        mCustomViewInt = layoutItem
         emptyViewHandle()
     }
 
     override fun setupEmptyView(emptyView: Int?) {
         hasEmptyView = true
         if (emptyView != null) {
-            mEmptyView = emptyView
+            mEmptyViewInt = emptyView
         }
         emptyViewHandle()
     }

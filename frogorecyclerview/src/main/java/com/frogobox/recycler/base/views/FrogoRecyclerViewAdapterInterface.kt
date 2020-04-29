@@ -1,8 +1,8 @@
-package com.frogobox.recycler.base.adapter
+package com.frogobox.recycler.base.views
 
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.FrogoRecyclerViewListener
 
 /**
  * Created by Faisal Amir
@@ -21,21 +21,19 @@ import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
  * com.frogobox.recycler.view
  *
  */
-interface FrogoMultiAdapterView<T> {
+interface FrogoRecyclerViewAdapterInterface<T> {
 
     // Setup adapter requirement
     fun setupRequirement(
+        layoutItem: Int,
         dataList: List<T>?,
-        layoutItemList: List<Int>,
-        optionHolder: List<Int>,
-        firstViewListener: FrogoRecyclerViewListener<T>?,
-        secondViewListener: FrogoRecyclerViewListener<T>?
+        viewListener: FrogoRecyclerViewListener<T>?
     )
 
     // Setup empty view for layout
     fun setupEmptyView(emptyView: Int?)
 
     // Setup view layout
-    fun viewLayout(parent: ViewGroup, position: Int): View
+    fun viewLayout(parent: ViewGroup): View
 
 }

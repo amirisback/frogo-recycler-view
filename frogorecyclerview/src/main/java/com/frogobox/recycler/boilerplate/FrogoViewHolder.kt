@@ -1,8 +1,8 @@
-package com.frogobox.recycler.boilerplate.holder
+package com.frogobox.recycler.boilerplate
 
 import android.view.View
-import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
-import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
+import com.frogobox.recycler.base.FrogoRecyclerViewHolder
+import com.frogobox.recycler.boilerplate.callback.FrogoViewHolderCallback
 
 /*
  * Created by Faisal Amir
@@ -16,14 +16,14 @@ import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
  * Github   : github.com/amirisback
  * -----------------------------------------
  * FrogoBox Inc
- * com.frogobox.recycler.boilerplate.holder
+ * com.frogobox.recycler
  * 
  */
-class FrogoViewHolderFirst<T>(view: View, private val frogoHolderCallback: FrogoHolderCallback<T>) :
+class FrogoViewHolder<T>(view: View, private val frogoViewHolderCallback: FrogoViewHolderCallback<T>) :
     FrogoRecyclerViewHolder<T>(view) {
 
     override fun initComponent(data: T) {
-        frogoHolderCallback.setupInitComponent(itemView, data)
+        frogoViewHolderCallback.setupInitComponent(itemView, data)
     }
 
 }

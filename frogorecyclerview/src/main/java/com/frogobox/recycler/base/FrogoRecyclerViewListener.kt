@@ -1,4 +1,4 @@
-package com.frogobox.recycler.base.listener
+package com.frogobox.recycler.base
 
 /**
  * Created by Faisal Amir

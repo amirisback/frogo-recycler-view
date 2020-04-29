@@ -1,6 +1,6 @@
-package com.frogobox.recycler.base.holder
+package com.frogobox.recycler.base.views
 
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
+import com.frogobox.recycler.base.FrogoRecyclerViewListener
 
 /**
  * Created by Faisal Amir
@@ -19,7 +19,7 @@ import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
  * com.frogobox.recycler.view
  *
  */
-interface FrogoHolderView<T> {
+interface FrogoRecyclerViewHolderInterface<T> {
 
     // bind item data
     fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?)

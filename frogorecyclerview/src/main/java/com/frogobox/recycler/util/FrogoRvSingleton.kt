@@ -8,12 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.FrogoRecyclerView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.listener.FrogoRecyclerViewListener
-import com.frogobox.recycler.boilerplate.adapter.FrogoViewAdapter
-import com.frogobox.recycler.boilerplate.adapter.FrogoViewMultiAdapter
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoAdapterCallback
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoMultiAdapterCallback
-import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
+import com.frogobox.recycler.base.FrogoRecyclerViewListener
+import com.frogobox.recycler.boilerplate.FrogoViewAdapter
+import com.frogobox.recycler.boilerplate.callback.FrogoViewAdapterCallback
+import com.frogobox.recycler.boilerplate.callback.FrogoViewHolderCallback
 
 /*
  * Created by Faisal Amir
@@ -32,23 +30,20 @@ import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
  */
 class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
 
-    var emptyView: Int = R.layout.frogo_rv_empty_view
-    var listData: List<T>? = null
-    var layoutSpanCount = 0
-    var optionLayoutManager = ""
-    var optionDividerItem = false
-    var optionAdapter = ""
+    private var emptyView: Int = R.layout.frogo_rv_empty_view
+    private var listData: List<T>? = null
+    private var layoutSpanCount = 0
+    private var optionLayoutManager = ""
+    private var optionDividerItem = false
+    private var optionAdapter = ""
 
-    var customView: Int = 0
-    lateinit var frogoAdapterCallback: FrogoAdapterCallback<T>
-    lateinit var frogoViewAdapter: FrogoViewAdapter<T>
+    private var customViewInt: Int = 0
+    private lateinit var customView: View
 
-    lateinit var multiCustomView: List<Int>
-    lateinit var multiOptionHolder: List<Int>
-    lateinit var frogoMultiAdapterCallback: FrogoMultiAdapterCallback<T>
-    lateinit var frogoViewMultiAdapter: FrogoViewMultiAdapter<T>
+    private lateinit var frogoAdapterCallback: FrogoViewAdapterCallback<T>
+    private lateinit var frogoViewAdapter: FrogoViewAdapter<T>
 
-    lateinit var mFrogoRecyclerView: FrogoRecyclerView
+    private lateinit var mFrogoRecyclerView: FrogoRecyclerView
 
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingleton<T> {
         mFrogoRecyclerView = frogoRecyclerView
@@ -100,25 +95,33 @@ class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
     }
 
     override fun addCustomView(layoutId: Int): FrogoRvSingleton<T> {
-        customView = layoutId
+        customViewInt = layoutId
+        Log.d("injector-customView", customViewInt.toString())
+        return this
+    }
+
+    fun addCustomView(view: View): FrogoRvSingleton<T> {
+        customView = view
         Log.d("injector-customView", customView.toString())
         return this
     }
 
-    override fun addCallback(callback: FrogoAdapterCallback<T>): FrogoRvSingleton<T> {
+    override fun addCallback(callback: FrogoViewAdapterCallback<T>): FrogoRvSingleton<T> {
         frogoAdapterCallback = callback
         return this
     }
 
-    override fun createAdapter(): FrogoRvSingleton<T> {
+    private fun createAdapter(): FrogoRvSingleton<T> {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER
-        frogoViewAdapter = FrogoViewAdapter(object : FrogoHolderCallback<T> {
-            override fun setupInitComponent(view: View, data: T) {
-                frogoAdapterCallback.setupInitComponent(view, data)
-            }
-        })
+        frogoViewAdapter =
+            FrogoViewAdapter(object :
+                FrogoViewHolderCallback<T> {
+                override fun setupInitComponent(view: View, data: T) {
+                    frogoAdapterCallback.setupInitComponent(view, data)
+                }
+            })
 
-        frogoViewAdapter.setupRequirement(customView, listData,
+        frogoViewAdapter.setupRequirement(customViewInt, listData,
             object : FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
                     frogoAdapterCallback.onItemClicked(data)
@@ -130,61 +133,6 @@ class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
             })
 
         frogoViewAdapter.setupEmptyView(emptyView)
-
-        return this
-    }
-
-    override fun addMultiCustomView(multiLayoutId: List<Int>): FrogoRvSingleton<T> {
-        multiCustomView = multiLayoutId
-        return this
-    }
-
-    override fun addMultiOptionHolder(optionHolder: List<Int>): FrogoRvSingleton<T> {
-        multiOptionHolder = optionHolder
-        return this
-    }
-
-    override fun addMultiCallback(callback: FrogoMultiAdapterCallback<T>): FrogoRvSingleton<T> {
-        frogoMultiAdapterCallback = callback
-        return this
-    }
-
-    override fun createMultiAdapter(): FrogoRvSingleton<T> {
-        optionAdapter = FrogoRvConstant.FROGO_MULTI_ADAPTER
-        frogoViewMultiAdapter = FrogoViewMultiAdapter(object : FrogoHolderCallback<T> {
-            override fun setupInitComponent(view: View, data: T) {
-                frogoMultiAdapterCallback.setupFirstInitComponent(view, data)
-            }
-        }, object : FrogoHolderCallback<T> {
-            override fun setupInitComponent(view: View, data: T) {
-                frogoMultiAdapterCallback.setupSecondInitComponent(view, data)
-            }
-        })
-
-        frogoViewMultiAdapter.setupRequirement(
-            listData,
-            multiCustomView,
-            multiOptionHolder,
-            object : FrogoRecyclerViewListener<T> {
-                override fun onItemClicked(data: T) {
-                    frogoMultiAdapterCallback.onFirstItemClicked(data)
-                }
-
-                override fun onItemLongClicked(data: T) {
-                    frogoMultiAdapterCallback.onFirstItemLongClicked(data)
-                }
-            },
-            object : FrogoRecyclerViewListener<T> {
-                override fun onItemClicked(data: T) {
-                    frogoMultiAdapterCallback.onSecondItemClicked(data)
-                }
-
-                override fun onItemLongClicked(data: T) {
-                    frogoMultiAdapterCallback.onSecondItemLongClicked(data)
-                }
-            }
-        )
-        frogoViewMultiAdapter.setupEmptyView(emptyView)
 
         return this
     }
@@ -232,16 +180,11 @@ class FrogoRvSingleton<T> : FrogoRvSingletonInterface<T> {
 
     private fun <T> setupInnerAdapter(frogoRecyclerView: FrogoRecyclerView) {
         Log.d("injector-optionAdapter", optionAdapter)
-
-        if (optionAdapter.equals(FrogoRvConstant.FROGO_ADAPTER)) {
-            frogoRecyclerView.adapter = frogoViewAdapter
-        } else if (optionAdapter.equals(FrogoRvConstant.FROGO_MULTI_ADAPTER)) {
-            frogoRecyclerView.adapter = frogoViewMultiAdapter
-        }
-
+        frogoRecyclerView.adapter = frogoViewAdapter
     }
 
     override fun build(): FrogoRvSingleton<T> {
+        createAdapter()
         setupLayoutManager<T>(mFrogoRecyclerView)
         setupInnerAdapter<T>(mFrogoRecyclerView)
         return this

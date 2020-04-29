@@ -1,4 +1,4 @@
-package com.frogobox.recycler.boilerplate.adapter.callback
+package com.frogobox.recycler.boilerplate.callback
 
 import android.view.View
 
@@ -17,15 +17,9 @@ import android.view.View
  * com.frogobox.recycler.callback
  * 
  */
-interface FrogoAdapterCallback<T> {
+interface FrogoViewHolderCallback<T> {
 
     // Setup Init Component on ViewHolder
     fun setupInitComponent(view: View, data: T)
-
-    // Setup item clicked
-    fun onItemClicked(data: T)
-
-    // Setup item long clicked
-    fun onItemLongClicked(data: T)
 
 }

@@ -1,10 +1,9 @@
-package com.frogobox.recycler.boilerplate.adapter
+package com.frogobox.recycler.boilerplate
 
 import android.view.ViewGroup
-import com.frogobox.recycler.boilerplate.holder.FrogoViewHolder
-import com.frogobox.recycler.base.adapter.FrogoRecyclerViewAdapter
-import com.frogobox.recycler.base.holder.FrogoRecyclerViewHolder
-import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
+import com.frogobox.recycler.base.FrogoRecyclerViewAdapter
+import com.frogobox.recycler.base.FrogoRecyclerViewHolder
+import com.frogobox.recycler.boilerplate.callback.FrogoViewHolderCallback
 
 /*
  * Created by Faisal Amir
@@ -21,7 +20,7 @@ import com.frogobox.recycler.boilerplate.holder.callback.FrogoHolderCallback
  * com.frogobox.recycler.content
  * 
  */
-class FrogoViewAdapter<T>(private val frogoHolderCallback: FrogoHolderCallback<T>) :
+class FrogoViewAdapter<T>(private val frogoViewHolderCallback: FrogoViewHolderCallback<T>) :
     FrogoRecyclerViewAdapter<T>() {
 
     override fun onCreateViewHolder(
@@ -30,7 +29,7 @@ class FrogoViewAdapter<T>(private val frogoHolderCallback: FrogoHolderCallback<T
     ): FrogoRecyclerViewHolder<T> {
         return FrogoViewHolder(
             viewLayout(parent),
-            frogoHolderCallback
+            frogoViewHolderCallback
         )
     }
 
