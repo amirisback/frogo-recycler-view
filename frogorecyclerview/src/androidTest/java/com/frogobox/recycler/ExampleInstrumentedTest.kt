@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.frogobox.frogoviewadapter.test", appContext.packageName)
+        assertEquals("com.frogobox.frogoRecyclerView.test", appContext.packageName)
     }
 }
