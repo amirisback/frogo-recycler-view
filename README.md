@@ -21,16 +21,15 @@ FrogoRecyclerView Extends RecyclerView
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.2.4
+    $version_release = 2.2.5
 
 What's New??
 
     * add: Template layout *
-    * add: Style *
     * add: New sample code *
+    * update: renaming ids list layout code *
     * please re-import class, because to many refactoring code *
     * fixing bugs *
-    
 
 # Download this project
 
@@ -49,7 +48,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.2.4'
+            implementation 'com.github.amirisback:frogo-recycler-view:2.2.5'
     }
 
 
@@ -545,7 +544,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     </style>
     
 
-### string
+### strings
 
     <!--  Frogo Rv Base String  -->
     <string name="frogo_rv_is_empty_data">is Empty Data</string>
@@ -553,10 +552,156 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     <string name="frogo_rv_please_insert_data">Please insert data here !!!</string>
     <string name="iv_poster">iv_poster</string>
 
+### ids
+
+    <resources>
+    
+    <!-- frogo_rv_list_type_1.xml -->
+    <item type="id" name="frogo_rv_list_type_1_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_1_tv_title"/>
+
+    <!-- frogo_rv_list_type_2.xml -->
+    <item type="id" name="frogo_rv_list_type_2_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_2_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_2_tv_subtitle"/>
+
+    <!-- frogo_rv_list_type_3.xml -->
+    <item type="id" name="frogo_rv_list_type_3_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_3_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_3_tv_subtitle"/>
+    <item type="id" name="frogo_rv_list_type_3_tv_desc"/>
+
+    <!-- frogo_rv_list_type_4.xml -->
+    <item type="id" name="frogo_rv_list_type_4_root_relative_layout"/>
+    <item type="id" name="frogo_rv_list_type_4_iv_poster"/>
+    <item type="id" name="frogo_rv_list_type_4_tv_title"/>
+
+    <!-- frogo_rv_list_type_5.xml -->
+    <item type="id" name="frogo_rv_list_type_5_root_relative_layout"/>
+    <item type="id" name="frogo_rv_list_type_5_container_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_5_iv_poster"/>
+    <item type="id" name="frogo_rv_list_type_5_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_5_tv_subtitle"/>
+
+    <!-- frogo_rv_list_type_6.xml -->
+    <item type="id" name="frogo_rv_list_type_6_root_relative_layout"/>
+    <item type="id" name="frogo_rv_list_type_6_container_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_6_iv_poster"/>
+    <item type="id" name="frogo_rv_list_type_6_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_6_tv_subtitle"/>
+    <item type="id" name="frogo_rv_list_type_6_tv_desc"/>
+
+    <!-- frogo_rv_list_type_7.xml -->
+    <item type="id" name="frogo_rv_list_type_7_root_relative_layout"/>
+    <item type="id" name="frogo_rv_list_type_7_civ_poster"/>
+    <item type="id" name="frogo_rv_list_type_7_tv_title"/>
+
+    <!-- frogo_rv_list_type_8.xml -->
+    <item type="id" name="frogo_rv_list_type_8_root_relative_layout"/>
+    <item type="id" name="frogo_rv_list_type_8_container_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_8_civ_poster"/>
+    <item type="id" name="frogo_rv_list_type_8_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_8_tv_subtitle"/>
+
+    <!-- frogo_rv_list_type_9.xml -->
+    <item type="id" name="frogo_rv_list_type_9_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_9_iv_poster"/>
+    <item type="id" name="frogo_rv_list_type_9_tv_title"/>
+
+    <!-- frogo_rv_list_type_10.xml -->
+    <item type="id" name="frogo_rv_list_type_10_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_10_iv_poster"/>
+    <item type="id" name="frogo_rv_list_type_10_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_10_tv_subtitle"/>
+
+    <!-- frogo_rv_list_type_11.xml -->
+    <item type="id" name="frogo_rv_list_type_11_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_11_iv_poster"/>
+    <item type="id" name="frogo_rv_list_type_11_tv_title"/>
+    <item type="id" name="frogo_rv_list_type_11_tv_subtitle"/>
+    <item type="id" name="frogo_rv_list_type_11_tv_desc"/>
+
+    <!-- frogo_rv_list_type_12.xml -->
+    <item type="id" name="frogo_rv_list_type_12_root_linear_layout"/>
+    <item type="id" name="frogo_rv_list_type_12_tv_title"/>
+
+    <!--  =====================================================================================  -->
+
+    <!-- frogo_rv_grid_type_1.xml -->
+    <item type="id" name="frogo_rv_grid_type_1_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_1_iv_poster"/>
+    <item type="id" name="frogo_rv_grid_type_1_tv_title"/>
+
+    <!-- frogo_rv_grid_type_2.xml -->
+    <item type="id" name="frogo_rv_grid_type_2_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_2_iv_poster"/>
+    <item type="id" name="frogo_rv_grid_type_2_tv_title"/>
+    <item type="id" name="frogo_rv_grid_type_2_tv_subtitle"/>
+
+    <!-- frogo_rv_grid_type_3.xml -->
+    <item type="id" name="frogo_rv_grid_type_3_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_3_iv_poster"/>
+    <item type="id" name="frogo_rv_grid_type_3_tv_title"/>
+    <item type="id" name="frogo_rv_grid_type_3_tv_subtitle"/>
+    <item type="id" name="frogo_rv_grid_type_3_tv_desc"/>
+
+    <!-- frogo_rv_grid_type_4.xml -->
+    <item type="id" name="frogo_rv_grid_type_4_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_4_civ_poster"/>
+    <item type="id" name="frogo_rv_grid_type_4_tv_title"/>
+
+    <!-- frogo_rv_grid_type_5.xml -->
+    <item type="id" name="frogo_rv_grid_type_5_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_5_civ_poster"/>
+    <item type="id" name="frogo_rv_grid_type_5_tv_title"/>
+    <item type="id" name="frogo_rv_grid_type_5_tv_subtitle"/>
+
+    <!-- frogo_rv_grid_type_6.xml -->
+    <item type="id" name="frogo_rv_grid_type_6_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_6_civ_poster"/>
+    <item type="id" name="frogo_rv_grid_type_6_tv_title"/>
+    <item type="id" name="frogo_rv_grid_type_6_tv_subtitle"/>
+    <item type="id" name="frogo_rv_grid_type_6_tv_desc"/>
+
+    <!-- frogo_rv_grid_type_7.xml -->
+    <item type="id" name="frogo_rv_grid_type_7_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_7_iv_poster"/>
+
+    <!--  =====================================================================================  -->
+
+    <!-- frogo_rv_empty_view.xml -->
+    <item type="id" name="frogo_rv_empty_root_linear_layout"/>
+    <item type="id" name="frogo_rv_empty_iv_poster"/>
+    <item type="id" name="frogo_rv_empty_tv_title"/>
+    <item type="id" name="frogo_rv_empty_tv_subtitle"/>
+
+    <!--  =====================================================================================  -->
+
+    <!-- frogo_rv_root_grid_type.xml -->
+    <item type="id" name="frogo_rv_grid_root"/>
+    <item type="id" name="frogo_rv_grid_view"/>
+    <item type="id" name="frogo_rv_grid_progress_view"/>
+
+    <!--  =====================================================================================  -->
+
+    <!-- frogo_rv_root_list_type.xml -->
+    <item type="id" name="frogo_rv_list_root"/>
+    <item type="id" name="frogo_rv_list_view"/>
+    <item type="id" name="frogo_rv_list_progress_view"/>
+    
+    </resources>
+
 ## layout
 
     frogo_rv_container_empty_view.xml
     frogo_rv_empty_view.xml
+    frogo_rv_grid_type_1.xml
+    frogo_rv_grid_type_2.xml
+    frogo_rv_grid_type_3.xml
+    frogo_rv_grid_type_4.xml
+    frogo_rv_grid_type_5.xml
+    frogo_rv_grid_type_6.xml
+    frogo_rv_grid_type_7.xml
     frogo_rv_list_type_1.xml
     frogo_rv_list_type_2.xml
     frogo_rv_list_type_3.xml
@@ -568,13 +713,9 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     frogo_rv_list_type_9.xml
     frogo_rv_list_type_10.xml
     frogo_rv_list_type_11.xml
-    frogo_rv_list_type_18.xml
-    frogo_rv_grid_type_12.xml
-    frogo_rv_grid_type_13.xml
-    frogo_rv_grid_type_14.xml
-    frogo_rv_grid_type_15.xml
-    frogo_rv_grid_type_16.xml
-    frogo_rv_grid_type_17.xml
+    frogo_rv_list_type_12.xml
+    frogo_rv_root_grid_type.xml
+    frogo_rv_root_list_type.xml
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
