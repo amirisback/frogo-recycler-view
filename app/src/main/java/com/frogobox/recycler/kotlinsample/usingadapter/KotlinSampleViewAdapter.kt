@@ -36,7 +36,7 @@ class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
 
     inner class KotlinSampleViewHolder(view: View) : FrogoRecyclerViewHolder<ExampleModel>(view) {
 
-        private val tvExampleItem = view.findViewById<TextView>(R.id.frogo_rv_type_1_tv_title)
+        private val tvExampleItem = view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title)
 
         override fun initComponent(data: ExampleModel) {
             tvExampleItem.text = data.name

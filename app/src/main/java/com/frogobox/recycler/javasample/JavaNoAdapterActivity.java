@@ -38,7 +38,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
             @Override
             public void setupInitComponent(@NotNull View view, ExampleModel data) {
                 // Init component content item recyclerview
-                TextView tvExample = view.findViewById(R.id.frogo_rv_type_1_tv_title);
+                TextView tvExample = view.findViewById(R.id.frogo_rv_list_type_1_tv_title);
                 tvExample.setText(data.getName());
             }
 

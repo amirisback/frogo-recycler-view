@@ -19,12 +19,12 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frogo_rv_type_15_root"
+    android:id="@+id/frogo_rv_grid_type_3_root_linear_layout"
     style="@style/FrogoLayoutGrid8dp"
     android:orientation="vertical">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/frogo_rv_type_15_civ_poster"
+    <ImageView
+        android:id="@+id/frogo_rv_grid_type_3_iv_poster"
         android:layout_width="match_parent"
         android:layout_height="@dimen/frogo_rv_dimen_150dp"
         android:layout_marginBottom="8dp"
@@ -33,8 +33,19 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/frogo_rv_type_15_tv_title"
+        android:id="@+id/frogo_rv_grid_type_3_tv_title"
         style="@style/frogoTvListTitle"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/frogo_rv_grid_type_3_tv_subtitle"
+        style="@style/FrogoTvListSubTitle"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/frogo_rv_grid_type_3_tv_desc"
+        style="@style/FrogoTvListDescription"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
         tools:text="@tools:sample/lorem/random" />
 
 </LinearLayout>
