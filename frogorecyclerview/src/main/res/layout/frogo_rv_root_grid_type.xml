@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by Muhammad Faisal Amir
+ * Project Source Code
+ * =========================================
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * =========================================
+ * Copyright (C) FrogoBox Inc.      
+ * All rights reserved
+ *
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frogo_rv_grid_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.frogobox.recycler.FrogoRecyclerView
+        android:id="@+id/frogo_rv_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/frogo_rv_dimen_16dp" 
+        android:paddingStart="@dimen/frogo_rv_dimen_16dp"/>
+
+    <ProgressBar
+        android:id="@+id/frogo_rv_grid_progress_view"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

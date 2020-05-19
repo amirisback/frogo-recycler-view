@@ -18,9 +18,7 @@
  -->
 
 <resources>
-
-    <!--  =====================================================================================  -->
-
+    
     <!-- frogo_rv_list_type_1.xml -->
     <item type="id" name="frogo_rv_list_type_1_root_linear_layout"/>
     <item type="id" name="frogo_rv_list_type_1_tv_title"/>
@@ -136,6 +134,18 @@
     <item type="id" name="frogo_rv_empty_tv_title"/>
     <item type="id" name="frogo_rv_empty_tv_subtitle"/>
 
+    <!--  =====================================================================================  -->
 
+    <!-- frogo_rv_root_grid_type.xml -->
+    <item type="id" name="frogo_rv_grid_root"/>
+    <item type="id" name="frogo_rv_grid_view"/>
+    <item type="id" name="frogo_rv_grid_progress_view"/>
+
+    <!--  =====================================================================================  -->
+
+    <!-- frogo_rv_root_list_type.xml -->
+    <item type="id" name="frogo_rv_list_root"/>
+    <item type="id" name="frogo_rv_list_view"/>
+    <item type="id" name="frogo_rv_list_progress_view"/>
 
 </resources>
