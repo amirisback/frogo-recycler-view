@@ -18,7 +18,7 @@
  -->
 
 <resources>
-    
+
     <!-- frogo_rv_list_type_1.xml -->
     <item type="id" name="frogo_rv_list_type_1_root_linear_layout"/>
     <item type="id" name="frogo_rv_list_type_1_tv_title"/>
@@ -125,6 +125,10 @@
     <item type="id" name="frogo_rv_grid_type_6_tv_title"/>
     <item type="id" name="frogo_rv_grid_type_6_tv_subtitle"/>
     <item type="id" name="frogo_rv_grid_type_6_tv_desc"/>
+
+    <!-- frogo_rv_grid_type_7.xml -->
+    <item type="id" name="frogo_rv_grid_type_7_root_linear_layout"/>
+    <item type="id" name="frogo_rv_grid_type_7_iv_poster"/>
 
     <!--  =====================================================================================  -->
 
