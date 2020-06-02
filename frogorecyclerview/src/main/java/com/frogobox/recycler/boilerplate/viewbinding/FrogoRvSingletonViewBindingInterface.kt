@@ -1,8 +1,7 @@
-package com.frogobox.recycler.boilerplate.singleton
+package com.frogobox.recycler.boilerplate.viewbinding
 
 import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.widget.FrogoRecyclerView
-import com.frogobox.recycler.boilerplate.viewbinding.FrogoViewAdapterBindingCallback
 
 /*
  * Created by Faisal Amir

@@ -1,4 +1,4 @@
-package com.frogobox.recycler.boilerplate.singleton
+package com.frogobox.recycler.boilerplate.viewmulti
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback

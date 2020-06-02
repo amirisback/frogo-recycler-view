@@ -1,4 +1,4 @@
-package com.frogobox.recycler.boilerplate.singleton
+package com.frogobox.recycler.boilerplate.viewrclass
 
 import android.util.Log
 import android.view.View
@@ -9,9 +9,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapter
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewHolderCallback
 import com.frogobox.recycler.util.FrogoRvConstant
 
 /*
@@ -29,7 +26,8 @@ import com.frogobox.recycler.util.FrogoRvConstant
  * com.frogobox.recycler
  *
  */
-class FrogoRvSingletonRclass<T> : FrogoRvSingletonRclassInterface<T> {
+class FrogoRvSingletonRclass<T> :
+    FrogoRvSingletonRclassInterface<T> {
 
     private var emptyViewInt: Int = R.layout.frogo_rv_container_empty_view
     private var customViewInt: Int = 0

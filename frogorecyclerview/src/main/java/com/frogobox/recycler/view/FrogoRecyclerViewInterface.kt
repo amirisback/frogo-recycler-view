@@ -2,9 +2,9 @@ package com.frogobox.recycler.view
 
 import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
-import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonMulti
-import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonRclass
-import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonViewBinding
+import com.frogobox.recycler.boilerplate.viewmulti.FrogoRvSingletonMulti
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoRvSingletonRclass
+import com.frogobox.recycler.boilerplate.viewbinding.FrogoRvSingletonViewBinding
 
 /**
  * Created by Faisal Amir

@@ -1,7 +1,6 @@
-package com.frogobox.recycler.boilerplate.singleton
+package com.frogobox.recycler.boilerplate.viewrclass
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
 
 /*
  * Created by Faisal Amir
