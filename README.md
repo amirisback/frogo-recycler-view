@@ -3,7 +3,8 @@
 - It is under heavy development
 - previous versions can still be used
 
-<center><h1>frogo-recycler-view</h1></center>
+# frogo-recycler-view
+
 ![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
 # Description
