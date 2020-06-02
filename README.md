@@ -1,3 +1,5 @@
+![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
+
 # Attention !!!
 - Get Ready for frogo-recycler-view 3.0.0
 - It is under heavy development
@@ -9,10 +11,6 @@
 - Tidy up code
 - Elegant method calling
 - Bug Fixed
-
-# frogo-recycler-view
-
-![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
 # Description
 FrogoRecyclerView Extends RecyclerView
