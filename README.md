@@ -1,7 +1,14 @@
 # Attention !!!
 - Get Ready for frogo-recycler-view 3.0.0
 - It is under heavy development
-- previous versions can still be used
+- Previous versions can still be used
+
+# Being Developed
+- Adding Shimmer Progress
+- Adding ProgressBar
+- Tidy up code
+- Elegant method calling
+- Bug Fixed
 
 # frogo-recycler-view
 
@@ -64,7 +71,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     
 ### Step 1. Create xml view
     
-    <com.frogobox.recycler.widget.FrogoRecyclerView 
+    <com.frogobox.recycler.FrogoRecyclerView 
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
