@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by Muhammad Faisal Amir
+ * Project Source Code
+ * =========================================
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * =========================================
+ * Copyright (C) FrogoBox Inc.      
+ * All rights reserved
+ *
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.frogobox.recycler.widget.FrogoRecyclerView
+        android:id="@+id/widget_fsrv_frogo_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/widget_fsrv_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.frogobox.recycler.widget.FrogoRecyclerView
+            android:id="@+id/widget_fsrv_shimmer_place_holder_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</RelativeLayout>

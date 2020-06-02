@@ -7,5 +7,8 @@ class MainDevActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activityMainDevBinding.root)
+
+        activityMainDevBinding.rvShimmer.startShimmer()
+
     }
 }

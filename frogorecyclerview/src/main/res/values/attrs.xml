@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by Muhammad Faisal Amir
+ * Project Source Code
+ * =========================================
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * =========================================
+ * Copyright (C) FrogoBox Inc.      
+ * All rights reserved
+ *
+ -->
+
+<resources>
+
+    <!-- frogo_shimmer_recycler_view attrs -->
+    <declare-styleable name="frogo_shimmer_recycler_view">
+
+        <attr name="rvPaddingTop" format="dimension" />
+        <attr name="rvPaddingRight" format="dimension" />
+        <attr name="rvPaddingBottom" format="dimension" />
+        <attr name="rvPaddingLeft" format="dimension" />
+
+        <attr name="clipToPadding" format="boolean" />
+
+    </declare-styleable>
+
+</resources>
