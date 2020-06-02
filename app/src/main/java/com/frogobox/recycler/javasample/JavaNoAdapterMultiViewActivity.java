@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.frogobox.recycler.FrogoRecyclerView;
+import com.frogobox.recycler.widget.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.base.BaseActivity;
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback;

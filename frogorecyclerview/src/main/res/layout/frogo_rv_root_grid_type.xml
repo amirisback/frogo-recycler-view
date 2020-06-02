@@ -18,7 +18,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.frogobox.recycler.FrogoRecyclerView
+    <com.frogobox.recycler.widget.FrogoRecyclerView
         android:id="@+id/frogo_rv_grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

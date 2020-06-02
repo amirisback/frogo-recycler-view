@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.frogobox.recycler.FrogoRecyclerView
+import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
 import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapter

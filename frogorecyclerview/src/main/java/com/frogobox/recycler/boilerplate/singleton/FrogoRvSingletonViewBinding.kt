@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.FrogoRecyclerView
+import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
 import com.frogobox.recycler.boilerplate.viewbinding.FrogoViewAdapterBinding
 import com.frogobox.recycler.boilerplate.viewbinding.FrogoViewAdapterBindingCallback

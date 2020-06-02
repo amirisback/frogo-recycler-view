@@ -64,7 +64,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     
 ### Step 1. Create xml view
     
-    <com.frogobox.recycler.FrogoRecyclerView 
+    <com.frogobox.recycler.widget.FrogoRecyclerView 
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

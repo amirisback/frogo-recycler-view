@@ -1,4 +1,4 @@
-package com.frogobox.recycler
+package com.frogobox.recycler.view
 
 import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback

@@ -1,4 +1,4 @@
-package com.frogobox.recycler
+package com.frogobox.recycler.widget
 
 import android.content.Context
 import android.util.AttributeSet
@@ -13,6 +13,7 @@ import com.frogobox.recycler.boilerplate.singleton.FrogoRvSingletonViewBinding
 import com.frogobox.recycler.boilerplate.viewmulti.FrogoViewAdapterMulti
 import com.frogobox.recycler.boilerplate.viewmulti.FrogoViewHolderMultiCallback
 import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.view.FrogoRecyclerViewInterface
 
 
 /**
@@ -32,7 +33,8 @@ import com.frogobox.recycler.util.FrogoRvConstant
  * com.frogobox.frogoviewadapter.view
  *
  */
-class FrogoRecyclerView : RecyclerView, FrogoRecyclerViewInterface {
+class FrogoRecyclerView : RecyclerView,
+    FrogoRecyclerViewInterface {
 
     constructor(context: Context) : super(context)
 
