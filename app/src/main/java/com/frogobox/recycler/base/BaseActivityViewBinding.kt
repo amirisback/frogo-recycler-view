@@ -3,9 +3,7 @@ package com.frogobox.recycler.base
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
-import com.frogobox.recycler.databinding.ActivityFrogoRvListBinding
-import com.frogobox.recycler.databinding.ActivityMainBinding
+import com.frogobox.recycler.databinding.*
 
 /*
  * Created by Faisal Amir
@@ -27,13 +25,23 @@ abstract class BaseActivityViewBinding : AppCompatActivity() {
     protected lateinit var activityMainBinding: ActivityMainBinding
     protected lateinit var activityFrogoRvGridBinding: ActivityFrogoRvGridBinding
     protected lateinit var activityFrogoRvListBinding: ActivityFrogoRvListBinding
+    protected lateinit var activityMainDevBinding: ActivityMainDevBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this))
-        activityFrogoRvGridBinding = ActivityFrogoRvGridBinding.inflate(LayoutInflater.from(this))
-        activityFrogoRvListBinding = ActivityFrogoRvListBinding.inflate(LayoutInflater.from(this))
+        setupViewBinding()
     }
 
+    private fun setupViewBinding(){
+        // genereate view binding
+        activityMainBinding = ActivityMainBinding.inflate(baseLayoutInflater())
+        activityFrogoRvGridBinding = ActivityFrogoRvGridBinding.inflate(baseLayoutInflater())
+        activityFrogoRvListBinding = ActivityFrogoRvListBinding.inflate(baseLayoutInflater())
+        activityMainDevBinding = ActivityMainDevBinding.inflate(baseLayoutInflater())
+    }
+
+    private fun baseLayoutInflater() : LayoutInflater {
+        return LayoutInflater.from(this)
+    }
 
 }
