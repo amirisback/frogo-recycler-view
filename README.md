@@ -1,6 +1,12 @@
+# Attention !!!
+- Get Ready for frogo-recycler-view 3.0.0
+- It is under heavy development
+- previous versions can still be used
+
+<center><h1>frogo-recycler-view</h1></center>
 ![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
-# frogo-recycler-view
+# Description
 FrogoRecyclerView Extends RecyclerView
 - Created by amirisback (Muhammad Faisal Amir)
 - Development
