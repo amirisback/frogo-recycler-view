@@ -46,11 +46,12 @@ class FrogoSrvSingleton<T> : FrogoSrvSingletonInterface<T> {
     private var rvCustomViewInt: Int = 0
     private var rvListData: List<T>? = null
 
+    private var srvSumListItem: Int = 2
     private var srvCustomViewInt: Int = 0
 
     private fun srvListData(): MutableList<String> {
         val listdata = mutableListOf<String>()
-        for (i in 0..4) {
+        for (i in 1..srvSumListItem) {
             listdata.add("place-holder-shimmer")
         }
         return listdata
@@ -124,6 +125,12 @@ class FrogoSrvSingleton<T> : FrogoSrvSingletonInterface<T> {
     override fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSrvSingleton<T> {
         srvCustomViewInt = customViewInt
         Log.d("injector-shimmerView", srvCustomViewInt.toString())
+        return this
+    }
+
+    override fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSrvSingleton<T> {
+        srvSumListItem = sumItem
+        Log.d("injector-sumItem", srvSumListItem.toString())
         return this
     }
 

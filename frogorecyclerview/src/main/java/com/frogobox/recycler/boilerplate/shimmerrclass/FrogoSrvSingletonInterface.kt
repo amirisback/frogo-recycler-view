@@ -38,6 +38,8 @@ interface FrogoSrvSingletonInterface<T> {
 
     fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSrvSingleton<T>
 
+    fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSrvSingleton<T>
+
     fun build(): FrogoSrvSingleton<T>
     
 }

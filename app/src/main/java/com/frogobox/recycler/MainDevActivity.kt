@@ -51,6 +51,7 @@ class MainDevActivity : BaseActivity() {
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
             .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
+            .addShimmerSumOfItemLoading(listData().size)
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .build()
