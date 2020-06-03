@@ -25,7 +25,8 @@
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/widget_fsrv_shimmer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <com.frogobox.recycler.widget.FrogoRecyclerView
             android:id="@+id/widget_fsrv_shimmer_place_holder_rv"

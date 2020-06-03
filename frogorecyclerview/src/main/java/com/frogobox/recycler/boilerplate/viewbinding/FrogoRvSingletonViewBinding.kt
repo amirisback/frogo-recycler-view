@@ -81,7 +81,27 @@ class FrogoRvSingletonViewBinding<T, V : ViewBinding> :
         return this
     }
 
-    override fun setupLayoutManager() {
+    override fun addData(listData: List<T>): FrogoRvSingletonViewBinding<T, V> {
+        this.listData = listData
+        Log.d("injector-listData", this.listData.toString())
+        return this
+    }
+
+    override fun addCustomView(customViewBinding: V): FrogoRvSingletonViewBinding<T, V> {
+        this.customViewBinding = customViewBinding
+        Log.d("injector-customView", this.customViewBinding.toString())
+        return this
+    }
+
+    override fun addCallback(
+        frogoViewAdapterBindingCallback: FrogoViewAdapterBindingCallback<T, V>
+    ): FrogoRvSingletonViewBinding<T, V> {
+        this.frogoViewAdapterBindingCallback = frogoViewAdapterBindingCallback
+        Log.d("injector-adaptCallback", this.frogoViewAdapterBindingCallback.toString())
+        return this
+    }
+
+    private fun setupLayoutManager() {
 
         Log.d("injector-option", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
@@ -122,27 +142,7 @@ class FrogoRvSingletonViewBinding<T, V : ViewBinding> :
 
     }
 
-    override fun addData(listData: List<T>): FrogoRvSingletonViewBinding<T, V> {
-        this.listData = listData
-        Log.d("injector-listData", this.listData.toString())
-        return this
-    }
-
-    override fun addCustomView(customViewBinding: V): FrogoRvSingletonViewBinding<T, V> {
-        this.customViewBinding = customViewBinding
-        Log.d("injector-customView", this.customViewBinding.toString())
-        return this
-    }
-
-    override fun addCallback(
-        frogoViewAdapterBindingCallback: FrogoViewAdapterBindingCallback<T, V>
-    ): FrogoRvSingletonViewBinding<T, V> {
-        this.frogoViewAdapterBindingCallback = frogoViewAdapterBindingCallback
-        Log.d("injector-adaptCallback", this.frogoViewAdapterBindingCallback.toString())
-        return this
-    }
-
-    private fun createAdapter(): FrogoRvSingletonViewBinding<T, V> {
+    private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_VIEW_BINDING
         frogoViewAdapterBinding =
             FrogoViewAdapterBinding(object :
@@ -164,7 +164,6 @@ class FrogoRvSingletonViewBinding<T, V : ViewBinding> :
                 }
             })
 
-        return this
     }
 
     private fun <T> setupInnerAdapter() {

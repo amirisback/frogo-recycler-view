@@ -5,9 +5,10 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.frogobox.recycler.R
+import com.frogobox.recycler.boilerplate.shimmerrclass.FrogoSrvSingleton
+import com.frogobox.recycler.view.FrogoShimmerRecyclerViewInterface
 import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
 
 /*
@@ -28,7 +29,7 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyle: Int = 0,
     defStyleRes: Int = 0
-) : RelativeLayout(context, attrs, defStyle, defStyleRes) {
+) : RelativeLayout(context, attrs, defStyle, defStyleRes), FrogoShimmerRecyclerViewInterface {
 
     init {
         setupViewEditor()
@@ -46,7 +47,7 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
 
             // setup inner component
             typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_frogo_rv) }
-//            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_shimmer_place_holder_rv) }
+            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_shimmer_place_holder_rv) }
 
             typedArray?.recycle()
         }
@@ -62,7 +63,7 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
         val attributePaddingLeft =
             typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_rvPaddingLeft, 0F)
         val attributeClipToPadding =
-            typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_clipToPadding, true)
+            typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_rvClipToPadding, true)
 
         frogoRecyclerView.clipToPadding = attributeClipToPadding
         frogoRecyclerView.setPadding(
@@ -74,14 +75,20 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
 
     }
 
-    fun startShimmer() {
+    override fun startShimmer() {
         widget_fsrv_shimmer.visibility = View.VISIBLE
         widget_fsrv_shimmer.startShimmer()
     }
 
-    fun stopShimmer() {
+    override fun stopShimmer() {
         widget_fsrv_shimmer.visibility = View.GONE
         widget_fsrv_shimmer.stopShimmer()
     }
 
+    override fun <T> injector(): FrogoSrvSingleton<T> {
+        return FrogoSrvSingleton<T>().initSingleton(
+            widget_fsrv_frogo_rv,
+            widget_fsrv_shimmer_place_holder_rv
+        )
+    }
 }

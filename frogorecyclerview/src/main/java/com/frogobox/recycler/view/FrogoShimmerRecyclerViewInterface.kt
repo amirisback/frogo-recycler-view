@@ -1,5 +1,8 @@
 package com.frogobox.recycler.view
 
+import com.frogobox.recycler.boilerplate.shimmerrclass.FrogoSrvSingleton
+import com.frogobox.recycler.boilerplate.viewrclass.FrogoRvSingletonRclass
+
 /*
  * Created by Faisal Amir on 02/06/2020
  * FrogoRecyclerView Source Code
@@ -14,5 +17,14 @@ package com.frogobox.recycler.view
  */
  
 interface FrogoShimmerRecyclerViewInterface {
+
+    // Setup SingletonSrv
+    fun <T> injector(): FrogoSrvSingleton<T>
+
+    // Start Shimmer Animation
+    fun startShimmer()
+
+    // Stop Shimmer Animation
+    fun stopShimmer()
 
 }

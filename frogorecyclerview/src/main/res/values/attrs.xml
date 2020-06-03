@@ -23,7 +23,7 @@
         <attr name="rvPaddingBottom" format="dimension" />
         <attr name="rvPaddingLeft" format="dimension" />
 
-        <attr name="clipToPadding" format="boolean" />
+        <attr name="rvClipToPadding" format="boolean" />
 
     </declare-styleable>
 

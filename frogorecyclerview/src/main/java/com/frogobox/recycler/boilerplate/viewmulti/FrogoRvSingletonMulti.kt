@@ -86,7 +86,37 @@ class FrogoRvSingletonMulti<T> :
         return this
     }
 
-    override fun setupLayoutManager() {
+    override fun addData(listData: List<T>): FrogoRvSingletonMulti<T> {
+        this.listData = listData
+        Log.d("injector-listData", this.listData.toString())
+        return this
+    }
+
+    override fun addCustomView(listCustomViewInt: List<Int>): FrogoRvSingletonMulti<T> {
+        multiCustomView = listCustomViewInt
+        Log.d("injector-listLayout", this.multiCustomView.toString())
+        return this
+    }
+
+    override fun addOptionHolder(listOptionHolder: List<Int>): FrogoRvSingletonMulti<T> {
+        multiOptionHolder = listOptionHolder
+        Log.d("injector-listOptHolder", this.multiOptionHolder.toString())
+        return this
+    }
+
+    override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonMulti<T> {
+        if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
+        Log.d("injector-emptyView", this.emptyViewInt.toString())
+        return this
+    }
+
+    override fun addCallback(frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>): FrogoRvSingletonMulti<T> {
+        this.frogoViewAdapterMultiCallback = frogoViewAdapterMultiCallback
+        Log.d("injector-adaptCallback", this.frogoViewAdapterMultiCallback.toString())
+        return this
+    }
+
+    private fun setupLayoutManager() {
 
         Log.d("injector-option", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
@@ -127,37 +157,7 @@ class FrogoRvSingletonMulti<T> :
 
     }
 
-    override fun addData(listData: List<T>): FrogoRvSingletonMulti<T> {
-        this.listData = listData
-        Log.d("injector-listData", this.listData.toString())
-        return this
-    }
-
-    override fun addCustomView(listCustomViewInt: List<Int>): FrogoRvSingletonMulti<T> {
-        multiCustomView = listCustomViewInt
-        Log.d("injector-listLayout", this.multiCustomView.toString())
-        return this
-    }
-
-    override fun addOptionHolder(listOptionHolder: List<Int>): FrogoRvSingletonMulti<T> {
-        multiOptionHolder = listOptionHolder
-        Log.d("injector-listOptHolder", this.multiOptionHolder.toString())
-        return this
-    }
-
-    override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonMulti<T> {
-        if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
-        Log.d("injector-emptyView", this.emptyViewInt.toString())
-        return this
-    }
-
-    override fun addCallback(frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>): FrogoRvSingletonMulti<T> {
-        this.frogoViewAdapterMultiCallback = frogoViewAdapterMultiCallback
-        Log.d("injector-adaptCallback", this.frogoViewAdapterMultiCallback.toString())
-        return this
-    }
-
-    private fun createAdapter(): FrogoRvSingletonMulti<T> {
+    private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_MULTI
         frogoViewAdapterMulti = FrogoViewAdapterMulti(object : FrogoViewHolderMultiCallback<T> {
             override fun setupInitComponent(view: View, data: T) {
@@ -193,8 +193,6 @@ class FrogoRvSingletonMulti<T> :
             }
         )
         frogoViewAdapterMulti.setupEmptyView(emptyViewInt)
-
-        return this
     }
 
     private fun setupInnerAdapter() {

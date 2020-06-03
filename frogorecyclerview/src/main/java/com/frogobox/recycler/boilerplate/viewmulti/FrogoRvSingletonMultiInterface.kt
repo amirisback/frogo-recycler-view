@@ -30,8 +30,6 @@ interface FrogoRvSingletonMultiInterface<T> {
 
     fun createLayoutGrid(spanCount: Int): FrogoRvSingletonMulti<T>
 
-    fun setupLayoutManager()
-
     fun addData(listData: List<T>): FrogoRvSingletonMulti<T>
 
     fun addCustomView(listCustomViewInt: List<Int>): FrogoRvSingletonMulti<T>

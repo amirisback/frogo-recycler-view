@@ -30,12 +30,9 @@ interface FrogoRvSingletonViewBindingInterface<T, V: ViewBinding> {
 
     fun createLayoutGrid(spanCount: Int): FrogoRvSingletonViewBinding<T, V>
 
-    fun setupLayoutManager()
-
     fun addData(listData: List<T>): FrogoRvSingletonViewBinding<T, V>
 
     fun addCustomView(customViewBinding: V): FrogoRvSingletonViewBinding<T, V>
-
 
     fun addCallback(frogoViewAdapterBindingCallback: FrogoViewAdapterBindingCallback<T, V>): FrogoRvSingletonViewBinding<T, V>
 

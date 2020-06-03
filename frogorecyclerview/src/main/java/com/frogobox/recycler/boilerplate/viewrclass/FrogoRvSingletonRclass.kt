@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
 import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
  * Created by Faisal Amir
@@ -48,8 +48,7 @@ class FrogoRvSingletonRclass<T> :
     }
 
     override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingletonRclass<T> {
-        optionLayoutManager =
-            FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
+        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
         Log.d("injector-layoutManager", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
@@ -57,8 +56,7 @@ class FrogoRvSingletonRclass<T> :
     }
 
     override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingletonRclass<T> {
-        optionLayoutManager =
-            FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
+        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
         Log.d("injector-layoutManager", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
@@ -66,8 +64,7 @@ class FrogoRvSingletonRclass<T> :
     }
 
     override fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvSingletonRclass<T> {
-        optionLayoutManager =
-            FrogoRvConstant.LAYOUT_STAGGERED_GRID
+        optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
         Log.d("injector-layoutManager", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
@@ -75,15 +72,38 @@ class FrogoRvSingletonRclass<T> :
     }
 
     override fun createLayoutGrid(spanCount: Int): FrogoRvSingletonRclass<T> {
-        optionLayoutManager =
-            FrogoRvConstant.LAYOUT_GRID
+        optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
         Log.d("injector-layoutManager", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
         return this
     }
 
-    override fun setupLayoutManager() {
+    override fun addData(listData: List<T>): FrogoRvSingletonRclass<T> {
+        this.listData = listData
+        Log.d("injector-listData", this.listData.toString())
+        return this
+    }
+
+    override fun addCustomView(customViewInt: Int): FrogoRvSingletonRclass<T> {
+        this.customViewInt = customViewInt
+        Log.d("injector-customView", this.customViewInt.toString())
+        return this
+    }
+
+    override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonRclass<T> {
+        if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
+        Log.d("injector-emptyView", this.emptyViewInt.toString())
+        return this
+    }
+
+    override fun addCallback(frogoViewAdapterCallback: FrogoViewAdapterCallback<T>): FrogoRvSingletonRclass<T> {
+        this.frogoAdapterCallback = frogoViewAdapterCallback
+        Log.d("injector-adaptCallback", this.frogoAdapterCallback.toString())
+        return this
+    }
+
+    private fun setupLayoutManager() {
 
         Log.d("injector-option", optionLayoutManager)
         Log.d("injector-divider", optionDividerItem.toString())
@@ -124,31 +144,7 @@ class FrogoRvSingletonRclass<T> :
 
     }
 
-    override fun addData(listData: List<T>): FrogoRvSingletonRclass<T> {
-        this.listData = listData
-        Log.d("injector-listData", this.listData.toString())
-        return this
-    }
-
-    override fun addCustomView(customViewInt: Int): FrogoRvSingletonRclass<T> {
-        this.customViewInt = customViewInt
-        Log.d("injector-customView", this.customViewInt.toString())
-        return this
-    }
-
-    override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonRclass<T> {
-        if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
-        Log.d("injector-emptyView", this.emptyViewInt.toString())
-        return this
-    }
-
-    override fun addCallback(frogoViewAdapterCallback: FrogoViewAdapterCallback<T>): FrogoRvSingletonRclass<T> {
-        this.frogoAdapterCallback = frogoViewAdapterCallback
-        Log.d("injector-adaptCallback", this.frogoAdapterCallback.toString())
-        return this
-    }
-
-    private fun createAdapter(): FrogoRvSingletonRclass<T> {
+    private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
         frogoViewAdapter =
             FrogoViewAdapter(object :
@@ -172,7 +168,6 @@ class FrogoRvSingletonRclass<T> :
 
         frogoViewAdapter.setupEmptyView(emptyViewInt)
 
-        return this
     }
 
     private fun setupInnerAdapter() {

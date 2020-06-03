@@ -29,8 +29,6 @@ interface FrogoRvSingletonRclassInterface<T> {
 
     fun createLayoutGrid(spanCount: Int): FrogoRvSingletonRclass<T>
 
-    fun setupLayoutManager()
-
     fun addData(listData: List<T>): FrogoRvSingletonRclass<T>
 
     fun addCustomView(customViewInt: Int): FrogoRvSingletonRclass<T>
