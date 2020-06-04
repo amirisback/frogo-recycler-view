@@ -8,6 +8,7 @@ import com.frogobox.recycler.javasample.JavaNoAdapterMultiViewActivity
 import com.frogobox.recycler.javasample.usingadapter.JavaSampleActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
+import com.frogobox.recycler.kotlinsample.KotlinShimmerActivity
 import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
 
 class MainActivity : BaseActivity() {
@@ -41,6 +42,10 @@ class MainActivity : BaseActivity() {
 
         activityMainBinding.btnJavaMultiview.setOnClickListener {
             startActivity(Intent(this, JavaNoAdapterMultiViewActivity::class.java))
+        }
+
+        activityMainBinding.btnKotlinShimmer.setOnClickListener {
+            startActivity(Intent(this, KotlinShimmerActivity::class.java))
         }
 
     }

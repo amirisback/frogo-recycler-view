@@ -26,6 +26,7 @@ abstract class BaseActivityViewBinding : AppCompatActivity() {
     protected lateinit var activityFrogoRvGridBinding: ActivityFrogoRvGridBinding
     protected lateinit var activityFrogoRvListBinding: ActivityFrogoRvListBinding
     protected lateinit var activityMainDevBinding: ActivityMainDevBinding
+    protected lateinit var activityKotlinShimmerBinding: ActivityKotlinShimmerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +39,7 @@ abstract class BaseActivityViewBinding : AppCompatActivity() {
         activityFrogoRvGridBinding = ActivityFrogoRvGridBinding.inflate(baseLayoutInflater())
         activityFrogoRvListBinding = ActivityFrogoRvListBinding.inflate(baseLayoutInflater())
         activityMainDevBinding = ActivityMainDevBinding.inflate(baseLayoutInflater())
+        activityKotlinShimmerBinding = ActivityKotlinShimmerBinding.inflate(baseLayoutInflater())
     }
 
     private fun baseLayoutInflater() : LayoutInflater {
