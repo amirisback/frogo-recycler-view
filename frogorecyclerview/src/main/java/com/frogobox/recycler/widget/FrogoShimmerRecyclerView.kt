@@ -48,8 +48,8 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
                 context?.obtainStyledAttributes(it, R.styleable.frogo_shimmer_recycler_view, 0, 0)
 
             // setup inner component
-            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_frogo_rv) }
-            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_shimmer_place_holder_rv) }
+            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_recyclerview) }
+            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_shimmer_recyclerview) }
 
             typedArray?.recycle()
         }
@@ -89,17 +89,17 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
 
     override fun <T> injector(): FrogoSrvSingleton<T> {
         return FrogoSrvSingleton<T>().initSingleton(
-            widget_fsrv_frogo_rv,
-            widget_fsrv_shimmer_place_holder_rv
+            widget_fsrv_recyclerview,
+            widget_fsrv_shimmer_recyclerview
         )
     }
 
     override fun defineShimmerView(): FrogoSrvSingletonShimmer {
-        return FrogoSrvSingletonShimmer().initSingleton(widget_fsrv_shimmer_place_holder_rv)
+        return FrogoSrvSingletonShimmer().initSingleton(widget_fsrv_shimmer_recyclerview)
     }
 
     override fun <T> defineRecyclerView(): FrogoSrvSingletonRecycler<T> {
-        return FrogoSrvSingletonRecycler<T>().initSingleton(widget_fsrv_frogo_rv)
+        return FrogoSrvSingletonRecycler<T>().initSingleton(widget_fsrv_recyclerview)
     }
 
 }

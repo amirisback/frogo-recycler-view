@@ -21,6 +21,8 @@
     android:id="@+id/frogo_rv_empty_root_linear_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center"
     android:orientation="vertical">
 
     <ImageView

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by Muhammad Faisal Amir
+ * Project Source Code
+ * =========================================
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * =========================================
+ * Copyright (C) FrogoBox Inc.      
+ * All rights reserved
+ *
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/widget_frv_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/frogo_rv_list_type_1" />
+
+    <LinearLayout
+        android:id="@+id/widget_frv_emptyview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/widget_frv_emptyview_image"
+            android:layout_width="@dimen/frogo_rv_dimen_150dp"
+            android:layout_height="@dimen/frogo_rv_dimen_150dp"
+            android:contentDescription="Image Empty View"
+            android:src="@drawable/frogo_rv_ic_empty_view" />
+
+        <TextView
+            android:id="@+id/widget_frv_emptyview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+            android:text="@string/frogo_rv_no_data_found"
+            android:textAllCaps="true"
+            android:textColor="@color/frogoRvColorBlack"
+            android:textSize="@dimen/frogo_rv_dimen_20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/widget_frv_emptyview_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frogo_rv_please_insert_data" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/widget_frv_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>
