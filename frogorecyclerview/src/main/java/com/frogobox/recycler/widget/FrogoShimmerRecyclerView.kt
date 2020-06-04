@@ -57,15 +57,15 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
 
     private fun setupComponentView(typedArray: TypedArray, frogoRecyclerView: FrogoRecyclerView) {
         val attributePaddingTop =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_rvPaddingTop, 0F)
+            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingTop, 0F)
         val attributePaddingRight =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_rvPaddingRight, 0F)
+            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingRight, 0F)
         val attributePaddingBottom =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_rvPaddingBottom, 0F)
+            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingBottom, 0F)
         val attributePaddingLeft =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_rvPaddingLeft, 0F)
+            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingLeft, 0F)
         val attributeClipToPadding =
-            typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_rvClipToPadding, true)
+            typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_frvClipToPadding, true)
 
         frogoRecyclerView.clipToPadding = attributeClipToPadding
         frogoRecyclerView.setPadding(

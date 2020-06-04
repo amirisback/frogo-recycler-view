@@ -15,15 +15,40 @@
 
 <resources>
 
+    <!-- frogo_recycler_view attrs -->
+    <declare-styleable name="frogo_recycler_view">
+
+        <attr name="frvPaddingTop" format="dimension" />
+        <attr name="frvPaddingRight" format="dimension" />
+        <attr name="frvPaddingBottom" format="dimension" />
+        <attr name="frvPaddingLeft" format="dimension" />
+
+        <attr name="frvClipToPadding" format="boolean" />
+
+        <attr name="frv_empty_image_width" format="dimension" />
+        <attr name="frv_empty_image_height" format="dimension" />
+        <attr name="frv_empty_image_src" format="reference|color" />
+
+        <attr name="frv_empty_title_text" format="string" />
+        <attr name="frv_empty_title_color" format="reference|color" />
+
+        <attr name="frv_empty_subtitle_text" format="string" />
+        <attr name="frv_empty_subtitle_color" format="reference|color" />
+
+        <attr name="frv_progress_bar_width" format="dimension" />
+        <attr name="frv_progress_bar_height" format="dimension" />
+
+    </declare-styleable>
+
     <!-- frogo_shimmer_recycler_view attrs -->
     <declare-styleable name="frogo_shimmer_recycler_view">
 
-        <attr name="rvPaddingTop" format="dimension" />
-        <attr name="rvPaddingRight" format="dimension" />
-        <attr name="rvPaddingBottom" format="dimension" />
-        <attr name="rvPaddingLeft" format="dimension" />
+        <attr name="frvPaddingTop" format="dimension" />
+        <attr name="frvPaddingRight" format="dimension" />
+        <attr name="frvPaddingBottom" format="dimension" />
+        <attr name="frvPaddingLeft" format="dimension" />
 
-        <attr name="rvClipToPadding" format="boolean" />
+        <attr name="frvClipToPadding" format="boolean" />
 
     </declare-styleable>
 
