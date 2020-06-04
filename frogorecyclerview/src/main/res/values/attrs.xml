@@ -18,13 +18,6 @@
     <!-- frogo_recycler_view attrs -->
     <declare-styleable name="frogo_recycler_view">
 
-        <attr name="frvPaddingTop" format="dimension" />
-        <attr name="frvPaddingRight" format="dimension" />
-        <attr name="frvPaddingBottom" format="dimension" />
-        <attr name="frvPaddingLeft" format="dimension" />
-
-        <attr name="frvClipToPadding" format="boolean" />
-
         <attr name="frv_empty_image_width" format="dimension" />
         <attr name="frv_empty_image_height" format="dimension" />
         <attr name="frv_empty_image_src" format="reference|color" />
