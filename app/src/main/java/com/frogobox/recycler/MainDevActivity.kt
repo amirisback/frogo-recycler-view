@@ -20,6 +20,7 @@ class MainDevActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activityMainDevBinding.root)
+        setupShimmerLoading()
         setupNewsApi()
         setupButtonShimmer()
     }
@@ -53,12 +54,10 @@ class MainDevActivity : BaseActivity() {
             }
         }
 
-        activityMainDevBinding.rvShimmer.injector<Article>()
+        activityMainDevBinding.rvShimmer.defineRecyclerView<Article>()
             .addData(data)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
-            .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
-            .addShimmerSumOfItemLoading(data.size)
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .build()
@@ -80,7 +79,7 @@ class MainDevActivity : BaseActivity() {
         }
     }
 
-    private fun setupNewsApi(){
+    private fun setupNewsApi() {
         val consumeNewsApi = ConsumeNewsApi(NewsUrl.NEWS_API_KEY)
         consumeNewsApi.usingChuckInterceptor(this)
         consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
@@ -121,6 +120,14 @@ class MainDevActivity : BaseActivity() {
                 }
 
             })
+    }
+
+    private fun setupShimmerLoading() {
+        activityMainDevBinding.rvShimmer.defineShimmerView()
+            .addShimmerSumOfItemLoading(5)
+            .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
+            .createLayoutLinearVertical(false)
+            .build()
     }
 
 }

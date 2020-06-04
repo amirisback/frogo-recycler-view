@@ -9,6 +9,10 @@
 
     <Button
         android:id="@+id/button_shimmer"
+        android:layout_marginTop="@dimen/frogo_rv_dimen_16dp"
+        android:layout_marginLeft="@dimen/frogo_rv_dimen_16dp"
+        android:layout_marginRight="@dimen/frogo_rv_dimen_16dp"
+        android:background="@drawable/frogo_rv_bg_amber_4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CLICK ME FOR HANDLE SHIMMER" />
