@@ -49,6 +49,9 @@ What's New??
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
 - FrogoShimmerRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoShimmerRecyclerView.md)
 
+# Wiki
+- Extension Resource [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Extension-Resource)
+- Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
