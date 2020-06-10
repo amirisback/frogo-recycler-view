@@ -11,9 +11,9 @@ android {
     // Declaration apk / aab name
     def nameLibrarySub = nameLibrary.toLowerCase().replace(" ", "-")
 
-    def versionMajor = 2
-    def versionMinor = 2
-    def versionPatch = 5
+    def versionMajor = 3
+    def versionMinor = 0
+    def versionPatch = 0
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"

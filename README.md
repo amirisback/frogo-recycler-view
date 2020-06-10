@@ -16,15 +16,14 @@
 # Version Release
 This Is Latest Release
 
-    $version_release = 2.2.5
+    $version_release = 3.0.0
 
 What's New??
 
-    * add: Template layout *
-    * add: New sample code *
-    * update: renaming ids list layout code *
-    * please re-import class, because to many refactoring code *
-    * fixing bugs *
+    * FrogoShimmerRecyclerView *
+    * Add: New sample code *
+    * Please re-import class, because to many refactoring code *
+    * Fixing bugs *
 
 # Download this project
 
@@ -43,7 +42,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:2.2.5'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.0.0'
     }
 
 # Tutorial
