@@ -1,5 +1,12 @@
 ![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
 
+# About This Project
+- RecyclerView No Adapter (Adapter Has Been Handled)
+- RecyclerView Multi-View-Type (only 2 type, still bug on java - beta version)
+- Elegant call using injector()
+- ViewBinding (Generic Type) *On Development
+- Shimmer Effect
+
 # Screen Shoot Apps
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span>
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_no-adapter.png"></span>
@@ -38,6 +45,10 @@ What's New??
             // library frogo-recycler-view
             implementation 'com.github.amirisback:frogo-recycler-view:2.2.5'
     }
+
+# Tutorial
+- FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
+- FrogoShimmerRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoShimmerRecyclerView.md)
 
 
 # Colaborator
