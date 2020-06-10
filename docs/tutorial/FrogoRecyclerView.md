@@ -2,10 +2,10 @@
 This is the procedure for using frogo-shimmer-recycler-view
 
 # Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_no-adapter.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span>
+<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_main.png"></span>
+<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_no-adapter.png"></span>
+<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_multi-view.png"></span>
+<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_empty.png"></span>
 
 # Usage (How to use this project)
 Just following the step until finish
