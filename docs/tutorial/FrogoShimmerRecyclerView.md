@@ -10,11 +10,15 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     
 ### Step 1. Create xml view
     
-    <com.frogobox.recycler.widget.FrogoRecyclerView
-        android:id="@+id/recycler_view"
+    <com.frogobox.recycler.widget.FrogoShimmerRecyclerView
+        android:id="@+id/rv_shimmer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    	 	
+        android:layout_height="match_parent"
+        app:frvClipToPadding="false"
+        app:frvPaddingTop="@dimen/frogo_rv_dimen_16dp" 
+        app:frvPaddingRight="@dimen/frogo_rv_dimen_16dp" 
+        app:frvPaddingBottom="@dimen/frogo_rv_dimen_16dp"
+        app:frvPaddingLeft="@dimen/frogo_rv_dimen_16dp" />
     	 	
 ### Step 2. Setup shimmer-recycler-view
 

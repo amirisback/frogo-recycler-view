@@ -12,16 +12,11 @@ Just following the step until finish
     
 ### Step 1. Create xml view
     
-    <com.frogobox.recycler.widget.FrogoShimmerRecyclerView
-        android:id="@+id/rv_shimmer"
+    <com.frogobox.recycler.widget.FrogoRecyclerView
+        android:id="@+id/frogo_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:frvClipToPadding="false"
-        app:frvPaddingTop="@dimen/frogo_rv_dimen_16dp" 
-        app:frvPaddingRight="@dimen/frogo_rv_dimen_16dp" 
-        app:frvPaddingBottom="@dimen/frogo_rv_dimen_16dp"
-        app:frvPaddingLeft="@dimen/frogo_rv_dimen_16dp" />
-    	 	
+        android:layout_height="match_parent"/>
+    
     	 	
 ### Step 2. Setup requirement (Basic Adapter)
 
