@@ -4,6 +4,6 @@
     android:id="@+id/frogo_recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/frogoRvColorWhite"
+    android:background="@color/frogoColorWhite"
     android:clipToPadding="false"
     android:paddingTop="@dimen/frogo_dimen_16dp"/>

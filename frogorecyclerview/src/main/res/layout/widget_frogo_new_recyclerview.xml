@@ -38,16 +38,16 @@
             android:layout_width="@dimen/frogo_dimen_150dp"
             android:layout_height="@dimen/frogo_dimen_150dp"
             android:contentDescription="Image Empty View"
-            android:src="@drawable/frogo_rv_ic_empty_view" />
+            android:src="@drawable/frogo_ic_empty_view" />
 
         <TextView
             android:id="@+id/widget_frv_emptyview_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
-            android:text="@string/frogo_rv_no_data_found"
+            android:text="@string/frogo_no_data_found"
             android:textAllCaps="true"
-            android:textColor="@color/frogoRvColorBlack"
+            android:textColor="@color/frogoColorBlack"
             android:textSize="@dimen/frogo_dimen_font_20sp"
             android:textStyle="bold" />
 
@@ -55,7 +55,7 @@
             android:id="@+id/widget_frv_emptyview_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/frogo_rv_please_insert_data" />
+            android:text="@string/frogo_please_insert_data" />
 
     </LinearLayout>
 

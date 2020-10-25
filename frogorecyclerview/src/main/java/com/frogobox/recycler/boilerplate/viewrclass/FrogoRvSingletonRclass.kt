@@ -29,7 +29,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
 class FrogoRvSingletonRclass<T> :
     FrogoRvSingletonRclassInterface<T> {
 
-    private var emptyViewInt: Int = R.layout.frogo_rv_container_empty_view
+    private var emptyViewInt: Int = R.layout.frogo_container_empty_view
     private var customViewInt: Int = 0
 
     private lateinit var frogoAdapterCallback: FrogoViewAdapterCallback<T>

@@ -2,9 +2,9 @@ package com.frogobox.recycler.util
 
 import android.content.Context
 import android.view.LayoutInflater
-import com.frogobox.recycler.databinding.FrogoRvEmptyViewBinding
-import com.frogobox.recycler.databinding.FrogoRvListType1Binding
-import com.frogobox.recycler.databinding.FrogoRvListType2Binding
+import com.frogobox.frogodesignkit.databinding.FrogoEmptyViewBinding
+import com.frogobox.frogodesignkit.databinding.FrogoRvListType1Binding
+import com.frogobox.frogodesignkit.databinding.FrogoRvListType2Binding
 
 /*
  * Created by Faisal Amir
@@ -31,7 +31,7 @@ object FrogoRvViewBinding : FrogoRvViewBindingInterface {
     override fun frogoRvListType2(context: Context): FrogoRvListType2Binding =
         FrogoRvListType2Binding.inflate(frogoLayoutInflater(context))
 
-    override fun frogoRvEmptyView(context: Context): FrogoRvEmptyViewBinding =
-        FrogoRvEmptyViewBinding.inflate(frogoLayoutInflater(context))
+    override fun frogoRvEmptyView(context: Context): FrogoEmptyViewBinding =
+        FrogoEmptyViewBinding.inflate(frogoLayoutInflater(context))
 
 }

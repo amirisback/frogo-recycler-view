@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/frogoRvColorWhite"
+    android:layout_height="match_parent"
+    android:background="@color/frogoColorWhite"
     tools:context="com.frogobox.recycler.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/frogoColorWhite"
         android:padding="@dimen/frogo_dimen_16dp">
 
         <Button
@@ -19,7 +20,7 @@
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
             android:background="@drawable/frogo_bg_primary_dark_32dp"
             android:text="With Data (Kotlin Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -31,7 +32,7 @@
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
             android:background="@drawable/frogo_bg_primary_dark_32dp"
             android:text="Empty Data (Java Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_with_data" />
@@ -43,7 +44,7 @@
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
             android:background="@drawable/frogo_bg_green_32dp"
             android:text="With Data (Kotlin Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -55,7 +56,7 @@
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
             android:background="@drawable/frogo_bg_green_32dp"
             android:text="Empty Data (Java Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_kotlin_no_adapter" />
@@ -65,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="With Adapter"
-            android:textColor="@color/frogoRvColorBlack"
+            android:textColor="@color/frogoColorBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="No Adapter"
-            android:textColor="@color/frogoRvColorBlack"
+            android:textColor="@color/frogoColorBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_empty_data" />
 
@@ -85,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="No Adapter (Multi-View)"
-            android:textColor="@color/frogoRvColorBlack"
+            android:textColor="@color/frogoColorBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_java_no_adapter" />
 
@@ -96,7 +97,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/frogo_bg_orange_32dp"
             android:text="Multi View (Kotlin Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -108,7 +109,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/frogo_bg_orange_32dp"
             android:text="Multi View (Java Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_kotlin_multiview" />
@@ -119,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="Shimmer Recycler View"
-            android:textColor="@color/frogoRvColorBlack"
+            android:textColor="@color/frogoColorBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_java_multiview" />
 
@@ -130,7 +131,7 @@
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
             android:background="@drawable/frogo_bg_pink_32dp"
             android:text="Shimmer Recyclerview (Kotlin Sample)"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -142,7 +143,7 @@
             android:layout_marginTop="@dimen/frogo_dimen_8dp"
             android:background="@drawable/frogo_bg_pink_32dp"
             android:text="Shimmer Recyclerview (Java Sample) Dev"
-            android:textColor="@color/frogoRvColorWhite"
+            android:textColor="@color/frogoColorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_kotlin_shimmer" />

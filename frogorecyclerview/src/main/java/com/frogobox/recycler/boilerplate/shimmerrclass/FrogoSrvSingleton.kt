@@ -37,7 +37,7 @@ class FrogoSrvSingleton<T> : FrogoSrvSingletonInterface<T> {
     private lateinit var srvFrogoAdapterCallback: FrogoViewAdapterCallback<String>
     private lateinit var srvFrogoViewAdapter: FrogoViewAdapter<String>
 
-    private var emptyViewInt: Int = R.layout.frogo_rv_container_empty_view
+    private var emptyViewInt: Int = R.layout.frogo_container_empty_view
     private var layoutSpanCount = 0
     private var optionLayoutManager = ""
     private var optionDividerItem = false

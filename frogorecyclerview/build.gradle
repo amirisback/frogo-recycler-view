@@ -13,7 +13,7 @@ android {
 
     def versionMajor = 3
     def versionMinor = 0
-    def versionPatch = 0
+    def versionPatch = 1
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
@@ -75,7 +75,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:1.0.0'
+    implementation 'com.github.amirisback:frogo-ui-kit:1.0.2'
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
