@@ -26,7 +26,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/frogo_rv_grid_type_6_civ_poster"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/frogo_rv_dimen_150dp"
+        android:layout_height="@dimen/frogo_dimen_150dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/iv_poster"
         android:scaleType="centerCrop"
@@ -45,7 +45,7 @@
     <TextView
         android:id="@+id/frogo_rv_grid_type_6_tv_desc"
         style="@style/FrogoTvListDescription"
-        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:layout_marginTop="@dimen/frogo_dimen_8dp"
         tools:text="@tools:sample/lorem/random" />
 
 </LinearLayout>

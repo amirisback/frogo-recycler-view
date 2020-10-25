@@ -33,7 +33,7 @@
         android:id="@+id/frogo_rv_list_type_4_tv_title"
         style="@style/frogoTvListTitle"
         android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/frogo_rv_dimen_16dp"
+        android:layout_marginStart="@dimen/frogo_dimen_16dp"
         android:layout_toEndOf="@id/frogo_rv_list_type_4_iv_poster"
         tools:text="@tools:sample/lorem/random" />
 

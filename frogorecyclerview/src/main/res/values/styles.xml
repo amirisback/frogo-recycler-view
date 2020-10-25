@@ -42,13 +42,13 @@
     </style>
 
     <style name="frogoArea64dp">
-        <item name="android:layout_width">@dimen/frogo_rv_dimen_64dp</item>
-        <item name="android:layout_height">@dimen/frogo_rv_dimen_64dp</item>
+        <item name="android:layout_width">@dimen/frogo_dimen_64dp</item>
+        <item name="android:layout_height">@dimen/frogo_dimen_64dp</item>
     </style>
 
     <style name="frogoArea48dp">
-        <item name="android:layout_width">@dimen/frogo_rv_dimen_48dp</item>
-        <item name="android:layout_height">@dimen/frogo_rv_dimen_48dp</item>
+        <item name="android:layout_width">@dimen/frogo_dimen_48dp</item>
+        <item name="android:layout_height">@dimen/frogo_dimen_48dp</item>
     </style>
 
     <!-- TextView -->
@@ -57,46 +57,46 @@
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/frogoRvColorPrimaryDark</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/frogo_rv_dimen_16sp</item>
+        <item name="android:textSize">@dimen/frogo_dimen_font_16sp</item>
     </style>
 
     <style name="FrogoTvListSubTitle" parent="frogoBaseAreaWrapContent">
         <item name="android:maxLines">1</item>
-        <item name="android:textSize">@dimen/frogo_rv_dimen_12sp</item>
+        <item name="android:textSize">@dimen/frogo_dimen_font_12sp</item>
     </style>
 
     <style name="FrogoTvListDescription" parent="frogoBaseAreaWrapContent">
         <item name="android:maxLines">3</item>
         <item name="android:textColor">@color/frogoRvColorBlack</item>
-        <item name="android:textSize">@dimen/frogo_rv_dimen_11sp</item>
+        <item name="android:textSize">@dimen/frogo_dimen_font_11sp</item>
     </style>
 
     <!-- Layout Container -->
 
     <style name="FrogoLayoutList8dp" parent="frogoBaseAreaWidthMatchParent">
-        <item name="android:layout_marginStart">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
-        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+        <item name="android:layout_marginStart">@dimen/frogo_dimen_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/frogo_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_bg_card_8dp</item>
     </style>
 
     <style name="FrogoLayoutListWrap8dp" parent="frogoBaseAreaWrapContent">
-        <item name="android:layout_marginStart">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
-        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+        <item name="android:layout_marginStart">@dimen/frogo_dimen_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/frogo_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_bg_card_8dp</item>
     </style>
 
     <style name="FrogoLayoutGrid8dp" parent="frogoBaseAreaWidthMatchParent">
-        <item name="android:layout_marginEnd">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:layout_marginBottom">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:elevation">@dimen/frogo_rv_dimen_2dp</item>
-        <item name="android:padding">@dimen/frogo_rv_dimen_16dp</item>
-        <item name="android:background">@drawable/frogo_rv_bg_card_8dp</item>
+        <item name="android:layout_marginEnd">@dimen/frogo_dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/frogo_dimen_16dp</item>
+        <item name="android:elevation">@dimen/frogo_dimen_2dp</item>
+        <item name="android:padding">@dimen/frogo_dimen_16dp</item>
+        <item name="android:background">@drawable/frogo_bg_card_8dp</item>
     </style>
 
     <!-- Image -->

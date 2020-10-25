@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingTop="@dimen/frogo_rv_dimen_16dp" />
+        android:paddingTop="@dimen/frogo_dimen_16dp" />
 
     <ProgressBar
         android:id="@+id/frogo_rv_list_progress_view"

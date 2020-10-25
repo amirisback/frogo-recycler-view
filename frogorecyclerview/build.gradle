@@ -18,14 +18,25 @@ android {
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
 
-    viewBinding.enabled = true
+    buildFeatures {
+         viewBinding = true
+    }
 
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode versionCodeLibrary
         versionName versionNameLibrary
 
@@ -51,7 +62,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // google recycler-view
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
@@ -62,7 +74,10 @@ dependencies {
     // github lib circle-image-view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    testImplementation 'junit:junit:4.13'
+    // library frogo-ui-kit
+    implementation 'com.github.amirisback:frogo-ui-kit:1.0.0'
+
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 

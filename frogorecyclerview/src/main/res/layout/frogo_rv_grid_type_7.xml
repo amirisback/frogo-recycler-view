@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/frogo_rv_grid_type_7_iv_poster"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/frogo_rv_dimen_150dp"
+        android:layout_height="@dimen/frogo_dimen_150dp"
         android:contentDescription="@string/iv_poster"
         android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />

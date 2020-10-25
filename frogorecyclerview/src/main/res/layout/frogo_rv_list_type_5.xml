@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/frogo_rv_dimen_16dp"
+        android:layout_marginStart="@dimen/frogo_dimen_16dp"
         android:layout_toEndOf="@id/frogo_rv_list_type_5_iv_poster"
         android:orientation="vertical">
 

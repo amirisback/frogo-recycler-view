@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/frogo_rv_list_type_3_tv_desc"
         style="@style/FrogoTvListDescription"
-        android:layout_marginTop="@dimen/frogo_rv_dimen_8dp"
+        android:layout_marginTop="@dimen/frogo_dimen_8dp"
         tools:text="@tools:sample/lorem/random" />
 
 </LinearLayout>
