@@ -16,14 +16,16 @@
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.0.0
+    $version_release = 3.0.1
 
 What's New??
 
-    * FrogoShimmerRecyclerView *
-    * Add: New sample code *
-    * Please re-import class, because to many refactoring code *
     * Fixing bugs *
+    * Cleaning Unused Resource *
+    * Refactoring Code *
+    * Enhance Performance *
+    * Update Build.gradle *
+    * Separating into different sources (Frogo-UI-Kit) *
 
 # Download this project
 
@@ -42,7 +44,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.0.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.0.1'
     }
 
 # Tutorial
@@ -50,7 +52,7 @@ What's New??
 - FrogoShimmerRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoShimmerRecyclerView.md)
 
 # Wiki
-- Extension Resource [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Extension-Resource)
+- Frogo-UI-Kit Library [Click Here](https://github.com/amirisback/frogo-ui-kit)
 - Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
 
 # Colaborator
