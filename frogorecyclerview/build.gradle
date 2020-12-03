@@ -43,11 +43,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
 
-//        buildConfigField "String", "LIBRARY_NAME", nameLibrary
-//        buildConfigField "String", "LIBRARY_SUB_NAME", nameLibrarySub
-//        buildConfigField "String", "LIBRARY_VERSION_CODE", versionCode
-//        buildConfigField "String", "LIBRARY_VERSION_NAME", versionName
-
     }
 
     buildTypes {
