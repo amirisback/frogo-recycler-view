@@ -27,11 +27,19 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         listString.add(ExampleModel(Constant.FULL_NAME))
         listString.add(ExampleModel(Constant.FULL_NAME))
         listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
         return listString
     }
 
     private fun listOption(): MutableList<Int> {
         val listOption = mutableListOf<Int>()
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
+        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
         listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
