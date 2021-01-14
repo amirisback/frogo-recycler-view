@@ -53,7 +53,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_1_tv_title).text = data.name
                 Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
-                    .into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_1_iv_poster))
+                    .into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_1_frogo_dummy_content_description))
             }
 
             override fun setupSecondInitComponent(view: View, data: ExampleModel) {
@@ -64,7 +64,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
                     FrogoRvConstant.DUMMY_LOREM_IPSUM
 
                 Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
-                    .into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_iv_poster))
+                    .into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description))
             }
 
             override fun onFirstItemClicked(data: ExampleModel) {
