@@ -1,9 +1,13 @@
 name: 'Frogo-Recycler-View'
 description: 'Library Easy FrogoRecyclerView Based on RecyclerView, Full and Clear Documentation, Have Empty View :books:'
 author: 'Muhammad Faisal Amir'
+branding:
+  icon: archive
+  color: green
 inputs:
   myInput:
     description: 'Input to use'
+    required: false
     default: 'world'
 runs:
   using: 'docker'
