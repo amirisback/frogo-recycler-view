@@ -18,7 +18,7 @@
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.0.1
+    $version_release = 3.1.0
 
 What's New??
 
@@ -26,8 +26,7 @@ What's New??
     * Cleaning Unused Resource *
     * Refactoring Code *
     * Enhance Performance *
-    * Update Build.gradle *
-    * Separating into different sources (Frogo-UI-Kit) *
+    * Update build.gradle *
 
 # Download this project
 
@@ -46,7 +45,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.0.1'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.1.0'
     }
 
 # Tutorial
