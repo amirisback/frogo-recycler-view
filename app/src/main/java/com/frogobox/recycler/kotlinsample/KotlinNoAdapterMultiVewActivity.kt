@@ -6,8 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.BaseActivity
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.core.BaseActivity
+import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 import com.frogobox.recycler.util.FrogoRvConstant

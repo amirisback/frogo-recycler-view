@@ -5,15 +5,14 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.recyclerview.widget.*
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.base.parent.FrogoRecyclerViewListener
-import com.frogobox.recycler.boilerplate.adapter.callback.FrogoViewAdapterMultiCallback
-import com.frogobox.recycler.boilerplate.viewmulti.FrogoRvSingletonMulti
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoRvSingletonRclass
-import com.frogobox.recycler.boilerplate.viewbinding.FrogoRvSingletonViewBinding
-import com.frogobox.recycler.boilerplate.viewmulti.FrogoViewAdapterMulti
-import com.frogobox.recycler.boilerplate.viewmulti.FrogoViewHolderMultiCallback
+import com.frogobox.recycler.core.FrogoRecyclerViewListener
+import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.core.viewmulti.FrogoRvSingletonMulti
+import com.frogobox.recycler.core.viewrclass.FrogoRvSingletonRclass
+import com.frogobox.recycler.core.viewbinding.FrogoRvSingletonViewBinding
+import com.frogobox.recycler.core.viewmulti.FrogoViewAdapterMulti
+import com.frogobox.recycler.core.viewmulti.FrogoViewHolderMultiCallback
 import com.frogobox.recycler.util.FrogoRvConstant
-import com.frogobox.recycler.view.FrogoRecyclerViewInterface
 
 
 /**
@@ -34,7 +33,7 @@ import com.frogobox.recycler.view.FrogoRecyclerViewInterface
  *
  */
 class FrogoRecyclerView : RecyclerView,
-    FrogoRecyclerViewInterface {
+    IFrogoRecyclerView {
 
     constructor(context: Context) : super(context)
 

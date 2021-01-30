@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import com.frogobox.recycler.R
-import com.frogobox.recycler.boilerplate.shimmerrclass.FrogoSrvSingleton
-import com.frogobox.recycler.boilerplate.shimmerrclass.FrogoSrvSingletonRecycler
-import com.frogobox.recycler.boilerplate.shimmerrclass.FrogoSrvSingletonShimmer
-import com.frogobox.recycler.view.FrogoShimmerRecyclerViewInterface
+import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingleton
+import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingletonRecycler
+import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingletonShimmer
 import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
 
 /*
@@ -31,7 +30,7 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyle: Int = 0,
     defStyleRes: Int = 0
-) : RelativeLayout(context, attrs, defStyle, defStyleRes), FrogoShimmerRecyclerViewInterface {
+) : RelativeLayout(context, attrs, defStyle, defStyleRes), IFrogoShimmerRecyclerView {
 
     init {
         setupViewEditor()

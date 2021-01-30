@@ -11,8 +11,8 @@ import com.frogobox.frogonewsapi.data.response.ArticleResponse
 import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.BaseActivity
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
+import com.frogobox.recycler.core.BaseActivity
+import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 

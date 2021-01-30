@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.base.BaseActivity
-import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
+import com.frogobox.recycler.core.BaseActivity
+import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 

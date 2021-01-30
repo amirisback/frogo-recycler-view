@@ -21,17 +21,14 @@ import com.frogobox.frogodesignkit.databinding.FrogoRvListType2Binding
  * com.frogobox.recycler.util
  * 
  */
-object FrogoRvViewBinding : IFrogoRvViewBinding {
+interface IFrogoRvViewBinding {
 
-    override fun frogoLayoutInflater(context: Context): LayoutInflater = LayoutInflater.from(context)
+    fun frogoLayoutInflater(context: Context): LayoutInflater
 
-    override fun frogoRvListType1(context: Context): FrogoRvListType1Binding =
-        FrogoRvListType1Binding.inflate(LayoutInflater.from(context))
+    fun frogoRvListType1(context: Context): FrogoRvListType1Binding
 
-    override fun frogoRvListType2(context: Context): FrogoRvListType2Binding =
-        FrogoRvListType2Binding.inflate(frogoLayoutInflater(context))
+    fun frogoRvListType2(context: Context): FrogoRvListType2Binding
 
-    override fun frogoRvEmptyView(context: Context): FrogoEmptyViewBinding =
-        FrogoEmptyViewBinding.inflate(frogoLayoutInflater(context))
+    fun frogoRvEmptyView(context: Context): FrogoEmptyViewBinding
 
 }
