@@ -8,25 +8,36 @@
 - Elegant call using injector()
 - ViewBinding (Generic Type) *On Development
 - Shimmer Effect
+- Empty View Effect
 
 # Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span>
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span>
+
+List Function |   Frogo Shimmer RecyclerView |   Frogo Multi View | Simple Empty View |
+:------------------:|:---------------------:|:---------------------:|
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
 
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.1.0
+    $version_release = 3.2.0
 
 What's New??
 
-    * Fixing bugs *
-    * Cleaning Unused Resource *
+    * Fixing Empty View bugs *
     * Refactoring Code *
     * Enhance Performance *
     * Update build.gradle *
+    * Update package name *
+
+    Cautions :
+    - If you use version under 3.2.0 you must pay attenttion to package import
+    - Please re-import package
+    - Package name [base, parent, boilerplate] updated to core
+
+    Update :
+    from -> import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
+    to -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+
 
 # Download this project
 
@@ -45,7 +56,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.1.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.2.0'
     }
 
 # Tutorial
