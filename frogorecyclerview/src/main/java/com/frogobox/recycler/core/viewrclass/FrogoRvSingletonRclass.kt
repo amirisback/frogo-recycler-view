@@ -37,9 +37,9 @@ class FrogoRvSingletonRclass<T> :
 
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
     private var layoutSpanCount = 0
+    private var listData: List<T>? = null
     private var optionLayoutManager = ""
     private var optionDividerItem = false
-    private var listData: List<T>? = null
     private var optionAdapter = ""
 
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonRclass<T> {
@@ -109,7 +109,43 @@ class FrogoRvSingletonRclass<T> :
         Log.d("injector-divider", optionDividerItem.toString())
         Log.d("injector-spanCount", layoutSpanCount.toString())
 
-        if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_VERTICAL)) {
+        if (listData!!.isNotEmpty()) {
+            if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_VERTICAL) {
+                mFrogoRecyclerView.layoutManager = LinearLayoutManager(
+                    mFrogoRecyclerView.context,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
+                if (optionDividerItem) {
+                    mFrogoRecyclerView.addItemDecoration(
+                        DividerItemDecoration(
+                            mFrogoRecyclerView.context,
+                            LinearLayoutManager.VERTICAL
+                        )
+                    )
+                }
+            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL) {
+                mFrogoRecyclerView.layoutManager = LinearLayoutManager(
+                    mFrogoRecyclerView.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+                if (optionDividerItem) {
+                    mFrogoRecyclerView.addItemDecoration(
+                        DividerItemDecoration(
+                            mFrogoRecyclerView.context,
+                            LinearLayoutManager.HORIZONTAL
+                        )
+                    )
+                }
+            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_STAGGERED_GRID) {
+                mFrogoRecyclerView.layoutManager =
+                    StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
+            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_GRID) {
+                mFrogoRecyclerView.layoutManager =
+                    GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
+            }
+        } else {
             mFrogoRecyclerView.layoutManager =
                 LinearLayoutManager(mFrogoRecyclerView.context, LinearLayoutManager.VERTICAL, false)
             if (optionDividerItem) {
@@ -120,39 +156,17 @@ class FrogoRvSingletonRclass<T> :
                     )
                 )
             }
-        } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL)) {
-            mFrogoRecyclerView.layoutManager = LinearLayoutManager(
-                mFrogoRecyclerView.context,
-                LinearLayoutManager.HORIZONTAL,
-                false
-            )
-            if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
-                    DividerItemDecoration(
-                        mFrogoRecyclerView.context,
-                        LinearLayoutManager.HORIZONTAL
-                    )
-                )
-            }
-        } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_STAGGERED_GRID)) {
-            mFrogoRecyclerView.layoutManager =
-                StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
-        } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_GRID)) {
-            mFrogoRecyclerView.layoutManager =
-                GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
         }
 
     }
 
     private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        frogoViewAdapter =
-            FrogoViewAdapter(object :
-                FrogoViewHolderCallback<T> {
-                override fun setupInitComponent(view: View, data: T) {
-                    frogoAdapterCallback.setupInitComponent(view, data)
-                }
-            })
+        frogoViewAdapter = FrogoViewAdapter(object : FrogoViewHolderCallback<T> {
+            override fun setupInitComponent(view: View, data: T) {
+                frogoAdapterCallback.setupInitComponent(view, data)
+            }
+        })
 
         frogoViewAdapter.setupRequirement(customViewInt, listData,
             object :

@@ -8,6 +8,7 @@ import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
 import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback;
 import com.frogobox.recycler.model.ExampleModel;
+import com.frogobox.recycler.util.Constant;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -60,7 +61,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
                 .addCustomView(R.layout.frogo_rv_list_type_1)
                 .addEmptyView(null)
                 .addCallback(frogoViewAdapterCallback)
-                .createLayoutLinearVertical(false)
+                .createLayoutStaggeredGrid(2)
                 .build();
 
     }

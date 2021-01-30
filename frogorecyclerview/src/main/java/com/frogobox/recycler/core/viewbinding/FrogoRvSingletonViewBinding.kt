@@ -107,7 +107,43 @@ class FrogoRvSingletonViewBinding<T, V : ViewBinding> :
         Log.d("injector-divider", optionDividerItem.toString())
         Log.d("injector-spanCount", layoutSpanCount.toString())
 
-        if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_VERTICAL)) {
+        if (listData!!.isNotEmpty()) {
+            if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_VERTICAL) {
+                mFrogoRecyclerView.layoutManager = LinearLayoutManager(
+                    mFrogoRecyclerView.context,
+                    LinearLayoutManager.VERTICAL,
+                    false
+                )
+                if (optionDividerItem) {
+                    mFrogoRecyclerView.addItemDecoration(
+                        DividerItemDecoration(
+                            mFrogoRecyclerView.context,
+                            LinearLayoutManager.VERTICAL
+                        )
+                    )
+                }
+            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL) {
+                mFrogoRecyclerView.layoutManager = LinearLayoutManager(
+                    mFrogoRecyclerView.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+                if (optionDividerItem) {
+                    mFrogoRecyclerView.addItemDecoration(
+                        DividerItemDecoration(
+                            mFrogoRecyclerView.context,
+                            LinearLayoutManager.HORIZONTAL
+                        )
+                    )
+                }
+            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_STAGGERED_GRID) {
+                mFrogoRecyclerView.layoutManager =
+                    StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
+            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_GRID) {
+                mFrogoRecyclerView.layoutManager =
+                    GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
+            }
+        } else {
             mFrogoRecyclerView.layoutManager =
                 LinearLayoutManager(mFrogoRecyclerView.context, LinearLayoutManager.VERTICAL, false)
             if (optionDividerItem) {
@@ -118,26 +154,6 @@ class FrogoRvSingletonViewBinding<T, V : ViewBinding> :
                     )
                 )
             }
-        } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL)) {
-            mFrogoRecyclerView.layoutManager = LinearLayoutManager(
-                mFrogoRecyclerView.context,
-                LinearLayoutManager.HORIZONTAL,
-                false
-            )
-            if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
-                    DividerItemDecoration(
-                        mFrogoRecyclerView.context,
-                        LinearLayoutManager.HORIZONTAL
-                    )
-                )
-            }
-        } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_STAGGERED_GRID)) {
-            mFrogoRecyclerView.layoutManager =
-                StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
-        } else if (optionLayoutManager.equals(FrogoRvConstant.LAYOUT_GRID)) {
-            mFrogoRecyclerView.layoutManager =
-                GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
         }
 
     }
