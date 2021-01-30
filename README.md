@@ -55,6 +55,8 @@ What's New??
 # Wiki
 - Frogo-UI-Kit Library [Click Here](https://github.com/amirisback/frogo-ui-kit)
 - Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
+##  Alert
+If you using frogo-recycler-view under v3.0.1 and you want update this library to your project please implement library [frogo-ui-kit](https://github.com/amirisback/frogo-ui-kit) in your project, because we separating resource ui for better maintenance
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
