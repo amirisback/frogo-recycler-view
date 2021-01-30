@@ -12,8 +12,8 @@
 
 # Screen Shoot Apps
 
-List Function |   Frogo Shimmer RecyclerView |   Frogo Multi View | Simple Empty View |
-:------------------:|:---------------------:|:---------------------:|
+List Function        |   Frogo Shimmer RecyclerView |   Frogo Multi View   | Simple Empty View |
+:------------------:|:----------------------------:|:---------------------:|:-----------------:|
 <span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
 
 # Version Release
