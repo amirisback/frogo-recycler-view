@@ -1,11 +1,9 @@
-package com.frogobox.recycler.core.viewrclass
+package com.frogobox.recycler.core
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.CoreFrogoRecyclerViewAdapter
 
 /**
  * Created by Faisal Amir

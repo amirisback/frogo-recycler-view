@@ -11,6 +11,7 @@ import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.core.FrogoRvConstant
+import com.frogobox.recycler.core.IFrogoViewHolder
 
 /*
  * Created by Faisal Amir
@@ -159,11 +160,11 @@ class FrogoRvMultiSingle<T> :
 
     private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_MULTI
-        frogoViewAdapterMulti = FrogoViewAdapterMulti(object : IFrogoViewHolderMulti<T> {
+        frogoViewAdapterMulti = FrogoViewAdapterMulti(object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupFirstInitComponent(view, data)
             }
-        }, object : IFrogoViewHolderMulti<T> {
+        }, object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupSecondInitComponent(view, data)
             }

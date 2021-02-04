@@ -1,25 +1,24 @@
-package com.frogobox.recycler.core.viewrclass
+package com.frogobox.recycler.core
 
 import android.view.View
 
-/*
+/**
  * Created by Faisal Amir
+ * FrogoBox Inc License
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 14/04/2020.      
+ * Copyright (C) 20/12/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
  * -----------------------------------------
- * FrogoBox Inc
- * com.frogobox.recycler.callback
- * 
+ * FrogoBox Software Industries
+ * com.frogobox.frogoviewadapter
+ *
  */
-interface IFrogoViewHolder<T> {
-
-    // Setup Init Component on ViewHolder
-    fun setupInitComponent(view: View, data: T)
+abstract class FrogoRecyclerViewHolder<T>(view: View) : CoreFrogoRecyclerViewHolder<T>(view) {
 
 }

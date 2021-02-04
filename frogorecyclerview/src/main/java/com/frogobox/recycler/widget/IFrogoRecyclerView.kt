@@ -2,7 +2,7 @@ package com.frogobox.recycler.widget
 
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.core.viewmulti.FrogoRvMultiSingle
-import com.frogobox.recycler.core.viewrclass.FrogoRvSingle
+import com.frogobox.recycler.core.FrogoRvSingle
 
 /**
  * Created by Faisal Amir

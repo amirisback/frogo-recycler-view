@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewrclass
+package com.frogobox.recycler.core
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
 

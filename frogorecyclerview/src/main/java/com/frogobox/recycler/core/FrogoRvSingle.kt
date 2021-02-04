@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewrclass
+package com.frogobox.recycler.core
 
 import android.util.Log
 import android.view.View
@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.FrogoRvConstant
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*

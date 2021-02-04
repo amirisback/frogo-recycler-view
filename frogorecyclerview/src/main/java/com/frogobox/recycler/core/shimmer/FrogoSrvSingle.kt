@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewshimmer
+package com.frogobox.recycler.core.shimmer
 
 import android.util.Log
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapter
-import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
-import com.frogobox.recycler.core.viewrclass.IFrogoViewHolder
+import com.frogobox.recycler.core.FrogoViewAdapter
+import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.recycler.core.IFrogoViewHolder
 import com.frogobox.recycler.core.FrogoRvConstant
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
@@ -191,7 +191,7 @@ class FrogoSrvSingle<T> :
     private fun createShimmerRvAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
 
-        srvFrogoAdapterCallback = object : IFrogoViewAdapter<String>{
+        srvFrogoAdapterCallback = object : IFrogoViewAdapter<String> {
             override fun setupInitComponent(view: View, data: String) {}
             override fun onItemClicked(data: String) {}
             override fun onItemLongClicked(data: String) {}

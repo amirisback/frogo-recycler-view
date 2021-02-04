@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewshimmer
+package com.frogobox.recycler.core.shimmer
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
 

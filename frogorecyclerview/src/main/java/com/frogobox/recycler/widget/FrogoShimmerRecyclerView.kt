@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingle
-import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingleRecycler
-import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingleShimmer
+import com.frogobox.recycler.core.shimmer.FrogoSrvSingle
+import com.frogobox.recycler.core.shimmer.FrogoSrvSingleRecycler
+import com.frogobox.recycler.core.shimmer.FrogoSrvSingleShimmer
 import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
 
 /*

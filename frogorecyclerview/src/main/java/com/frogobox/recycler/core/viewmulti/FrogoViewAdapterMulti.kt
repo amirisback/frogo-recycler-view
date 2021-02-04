@@ -1,8 +1,10 @@
 package com.frogobox.recycler.core.viewmulti
 
 import android.view.ViewGroup
+import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.core.IFrogoViewHolder
 
 /*
  * Created by Faisal Amir
@@ -20,29 +22,29 @@ import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
  * 
  */
 class FrogoViewAdapterMulti<T>(
-    private val frogoViewHolderMultiCallbackFirst: IFrogoViewHolderMulti<T>,
-    private val frogoViewHolderMultiCallbackSecond: IFrogoViewHolderMulti<T>
+    private val frogoViewHolderCallbackFirst: IFrogoViewHolder<T>,
+    private val frogoViewHolderCallbackSecond: IFrogoViewHolder<T>
 ) :
     FrogoRecyclerViewAdapterMulti<T>() {
 
     private fun firstFrogoViewHolder(parent: ViewGroup): FrogoViewHolderFirst<T> {
         return FrogoViewHolderFirst(
             viewLayout(parent, OPTION_HOLDER_FIRST),
-            frogoViewHolderMultiCallbackFirst
+            frogoViewHolderCallbackFirst
         )
     }
 
     private fun secondFrogoViewHolder(parent: ViewGroup): FrogoViewHolderSecond<T> {
         return FrogoViewHolderSecond(
             viewLayout(parent, OPTION_HOLDER_SECOND),
-            frogoViewHolderMultiCallbackSecond
+            frogoViewHolderCallbackSecond
         )
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FrogoRecyclerViewHolderMulti<T> {
+    ): FrogoRecyclerViewHolder<T> {
 
         return when (viewType) {
             OPTION_HOLDER_FIRST -> {

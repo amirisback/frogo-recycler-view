@@ -1,8 +1,8 @@
 package com.frogobox.recycler.widget
 
-import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingle
-import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingleRecycler
-import com.frogobox.recycler.core.viewshimmer.FrogoSrvSingleShimmer
+import com.frogobox.recycler.core.shimmer.FrogoSrvSingle
+import com.frogobox.recycler.core.shimmer.FrogoSrvSingleRecycler
+import com.frogobox.recycler.core.shimmer.FrogoSrvSingleShimmer
 
 /*
  * Created by Faisal Amir on 02/06/2020

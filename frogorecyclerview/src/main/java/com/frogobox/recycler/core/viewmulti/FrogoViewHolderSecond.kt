@@ -1,6 +1,8 @@
 package com.frogobox.recycler.core.viewmulti
 
 import android.view.View
+import com.frogobox.recycler.core.FrogoRecyclerViewHolder
+import com.frogobox.recycler.core.IFrogoViewHolder
 
 /*
  * Created by Faisal Amir
@@ -19,12 +21,12 @@ import android.view.View
  */
 class FrogoViewHolderSecond<T>(
     view: View,
-    private val frogoViewHolderMultiCallback: IFrogoViewHolderMulti<T>
+    private val frogoViewHolderCallback: IFrogoViewHolder<T>
 ) :
-    FrogoRecyclerViewHolderMulti<T>(view) {
+    FrogoRecyclerViewHolder<T>(view) {
 
     override fun initComponent(data: T) {
-        frogoViewHolderMultiCallback.setupInitComponent(itemView, data)
+        frogoViewHolderCallback.setupInitComponent(itemView, data)
     }
 
 }

@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
-import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
+import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 

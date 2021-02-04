@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.*
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.core.viewmulti.FrogoRvMultiSingle
-import com.frogobox.recycler.core.viewrclass.FrogoRvSingle
+import com.frogobox.recycler.core.FrogoRvSingle
 import com.frogobox.recycler.core.viewmulti.FrogoViewAdapterMulti
-import com.frogobox.recycler.core.viewmulti.IFrogoViewHolderMulti
 import com.frogobox.recycler.core.FrogoRvConstant
+import com.frogobox.recycler.core.IFrogoViewHolder
 
 
 /**
@@ -80,11 +80,11 @@ class FrogoRecyclerView : RecyclerView,
         frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>
     ) {
 
-        val frogoMultiViewAdapter = FrogoViewAdapterMulti(object : IFrogoViewHolderMulti<T> {
+        val frogoMultiViewAdapter = FrogoViewAdapterMulti(object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupFirstInitComponent(view, data)
             }
-        }, object : IFrogoViewHolderMulti<T> {
+        }, object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupSecondInitComponent(view, data)
             }

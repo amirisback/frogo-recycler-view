@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewshimmer
+package com.frogobox.recycler.core.shimmer
 
 import android.util.Log
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapter
-import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
-import com.frogobox.recycler.core.viewrclass.IFrogoViewHolder
+import com.frogobox.recycler.core.FrogoViewAdapter
+import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.recycler.core.IFrogoViewHolder
 import com.frogobox.recycler.core.FrogoRvConstant
 import com.frogobox.recycler.widget.FrogoRecyclerView
 

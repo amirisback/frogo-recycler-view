@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.frogobox.recycler.R;
-import com.frogobox.recycler.core.viewrclass.FrogoRecyclerViewAdapter;
-import com.frogobox.recycler.core.viewrclass.FrogoRecyclerViewHolder;
+import com.frogobox.recycler.core.FrogoRecyclerViewAdapter;
+import com.frogobox.recycler.core.FrogoRecyclerViewHolder;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;

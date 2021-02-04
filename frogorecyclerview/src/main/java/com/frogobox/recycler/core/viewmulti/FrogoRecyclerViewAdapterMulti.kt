@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
+import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
@@ -25,9 +26,9 @@ import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
  * 
  */
 abstract class FrogoRecyclerViewAdapterMulti<T> :
-    RecyclerView.Adapter<FrogoRecyclerViewHolderMulti<T>>() {
+    RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
 
-    private val mFrogoViewHolderList = mutableListOf<FrogoRecyclerViewHolderMulti<T>>()
+    private val mFrogoViewHolderList = mutableListOf<FrogoRecyclerViewHolder<T>>()
     private val mRecyclerViewDataList = mutableListOf<T>()
     private val mRecyclerViewLayoutList = mutableListOf<Int>()
 
@@ -108,7 +109,7 @@ abstract class FrogoRecyclerViewAdapterMulti<T> :
         }
     }
 
-    override fun onBindViewHolder(holder: FrogoRecyclerViewHolderMulti<T>, position: Int) {
+    override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
         if (hasEmptyView) {
             if (mRecyclerViewDataList.size != 0) {
                 when (holder) {
