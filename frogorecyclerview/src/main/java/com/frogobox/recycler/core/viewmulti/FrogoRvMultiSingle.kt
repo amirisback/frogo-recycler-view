@@ -27,8 +27,8 @@ import com.frogobox.recycler.core.FrogoRvConstant
  * com.frogobox.recycler.singleton
  * 
  */
-class FrogoRvSingletonMulti<T> :
-    IFrogoRvSingletonMulti<T> {
+class FrogoRvMultiSingle<T> :
+    IFrogoRvMultiSingle<T> {
 
     private var emptyViewInt: Int = R.layout.frogo_container_empty_view
     
@@ -45,12 +45,12 @@ class FrogoRvSingletonMulti<T> :
     private var optionAdapter = ""
 
 
-    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingletonMulti<T> {
+    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvMultiSingle<T> {
         mFrogoRecyclerView = frogoRecyclerView
         return this
     }
 
-    override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingletonMulti<T> {
+    override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvMultiSingle<T> {
         optionLayoutManager =
             FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
@@ -59,7 +59,7 @@ class FrogoRvSingletonMulti<T> :
         return this
     }
 
-    override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingletonMulti<T> {
+    override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvMultiSingle<T> {
         optionLayoutManager =
             FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
@@ -68,7 +68,7 @@ class FrogoRvSingletonMulti<T> :
         return this
     }
 
-    override fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvSingletonMulti<T> {
+    override fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvMultiSingle<T> {
         optionLayoutManager =
             FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
@@ -77,7 +77,7 @@ class FrogoRvSingletonMulti<T> :
         return this
     }
 
-    override fun createLayoutGrid(spanCount: Int): FrogoRvSingletonMulti<T> {
+    override fun createLayoutGrid(spanCount: Int): FrogoRvMultiSingle<T> {
         optionLayoutManager =
             FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
@@ -86,31 +86,31 @@ class FrogoRvSingletonMulti<T> :
         return this
     }
 
-    override fun addData(listData: List<T>): FrogoRvSingletonMulti<T> {
+    override fun addData(listData: List<T>): FrogoRvMultiSingle<T> {
         this.listData = listData
         Log.d("injector-listData", this.listData.toString())
         return this
     }
 
-    override fun addCustomView(listCustomViewInt: List<Int>): FrogoRvSingletonMulti<T> {
+    override fun addCustomView(listCustomViewInt: List<Int>): FrogoRvMultiSingle<T> {
         multiCustomView = listCustomViewInt
         Log.d("injector-listLayout", this.multiCustomView.toString())
         return this
     }
 
-    override fun addOptionHolder(listOptionHolder: List<Int>): FrogoRvSingletonMulti<T> {
+    override fun addOptionHolder(listOptionHolder: List<Int>): FrogoRvMultiSingle<T> {
         multiOptionHolder = listOptionHolder
         Log.d("injector-listOptHolder", this.multiOptionHolder.toString())
         return this
     }
 
-    override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonMulti<T> {
+    override fun addEmptyView(emptyViewInt: Int?): FrogoRvMultiSingle<T> {
         if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
         Log.d("injector-emptyView", this.emptyViewInt.toString())
         return this
     }
 
-    override fun addCallback(frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>): FrogoRvSingletonMulti<T> {
+    override fun addCallback(frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>): FrogoRvMultiSingle<T> {
         this.frogoViewAdapterMultiCallback = frogoViewAdapterMultiCallback
         Log.d("injector-adaptCallback", this.frogoViewAdapterMultiCallback.toString())
         return this
@@ -200,7 +200,7 @@ class FrogoRvSingletonMulti<T> :
         mFrogoRecyclerView.adapter = frogoViewAdapterMulti
     }
 
-    override fun build(): FrogoRvSingletonMulti<T> {
+    override fun build(): FrogoRvMultiSingle<T> {
         createAdapter()
         setupLayoutManager()
         setupInnerAdapter()

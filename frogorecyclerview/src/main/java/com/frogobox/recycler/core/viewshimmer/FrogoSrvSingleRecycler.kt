@@ -27,7 +27,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  *
  */
 
-class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
+class FrogoSrvSingleRecycler<T> : IFrogoSrvSingleRecycler<T> {
 
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
     private lateinit var rvFrogoAdapterCallback: IFrogoViewAdapter<T>
@@ -42,12 +42,12 @@ class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
     private var rvCustomViewInt: Int = 0
     private var rvListData: List<T>? = null
 
-    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSrvSingletonRecycler<T> {
+    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSrvSingleRecycler<T> {
         mFrogoRecyclerView = frogoRecyclerView
         return this
     }
 
-    override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSrvSingletonRecycler<T> {
+    override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSrvSingleRecycler<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -55,7 +55,7 @@ class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
         return this
     }
 
-    override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSrvSingletonRecycler<T> {
+    override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSrvSingleRecycler<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -63,7 +63,7 @@ class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
         return this
     }
 
-    override fun createLayoutStaggeredGrid(spanCount: Int): FrogoSrvSingletonRecycler<T> {
+    override fun createLayoutStaggeredGrid(spanCount: Int): FrogoSrvSingleRecycler<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -71,7 +71,7 @@ class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
         return this
     }
 
-    override fun createLayoutGrid(spanCount: Int): FrogoSrvSingletonRecycler<T> {
+    override fun createLayoutGrid(spanCount: Int): FrogoSrvSingleRecycler<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -79,25 +79,25 @@ class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
         return this
     }
 
-    override fun addData(listData: List<T>): FrogoSrvSingletonRecycler<T> {
+    override fun addData(listData: List<T>): FrogoSrvSingleRecycler<T> {
         rvListData = listData
         Log.d("injector-listData", rvListData.toString())
         return this
     }
 
-    override fun addCustomView(customViewInt: Int): FrogoSrvSingletonRecycler<T> {
+    override fun addCustomView(customViewInt: Int): FrogoSrvSingleRecycler<T> {
         rvCustomViewInt = customViewInt
         Log.d("injector-customView", rvCustomViewInt.toString())
         return this
     }
 
-    override fun addEmptyView(emptyViewInt: Int?): FrogoSrvSingletonRecycler<T> {
+    override fun addEmptyView(emptyViewInt: Int?): FrogoSrvSingleRecycler<T> {
         if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
         Log.d("injector-emptyView", this.emptyViewInt.toString())
         return this
     }
 
-    override fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSrvSingletonRecycler<T> {
+    override fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSrvSingleRecycler<T> {
         rvFrogoAdapterCallback = frogoViewAdapterCallback
         Log.d("injector-adaptCallback", rvFrogoAdapterCallback.toString())
         return this
@@ -155,7 +155,7 @@ class FrogoSrvSingletonRecycler<T> : IFrogoSrvSingletonRecycler<T> {
         mFrogoRecyclerView.adapter = rvFrogoViewAdapter
     }
 
-    override fun build(): FrogoSrvSingletonRecycler<T> {
+    override fun build(): FrogoSrvSingleRecycler<T> {
         createRvAdapter()
         setupLayoutManager()
         setupInnerAdapter()

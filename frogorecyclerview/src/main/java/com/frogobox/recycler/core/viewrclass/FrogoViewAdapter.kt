@@ -24,11 +24,7 @@ class FrogoViewAdapter<T>(private val frogoViewHolderCallback: IFrogoViewHolder<
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerViewHolder<T> {
-        return FrogoViewHolder(
-            viewLayout(
-                parent
-            ), frogoViewHolderCallback
-        )
+        return FrogoViewHolder(viewLayout(parent), frogoViewHolderCallback)
     }
 
 }

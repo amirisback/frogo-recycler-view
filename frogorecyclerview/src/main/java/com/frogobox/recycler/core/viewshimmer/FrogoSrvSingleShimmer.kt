@@ -27,7 +27,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  *
  */
 
-class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
+class FrogoSrvSingleShimmer : IFrogoSrvSingleShimmer {
 
     private lateinit var mFrogoShimmerRecyclerView: FrogoRecyclerView
     private lateinit var srvFrogoAdapterCallback: IFrogoViewAdapter<String>
@@ -42,12 +42,12 @@ class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
     private var srvSumListItem: Int = 2
     private var srvCustomViewInt: Int = 0
 
-    override fun initSingleton(frogoShimmerRecyclerView: FrogoRecyclerView): FrogoSrvSingletonShimmer {
+    override fun initSingleton(frogoShimmerRecyclerView: FrogoRecyclerView): FrogoSrvSingleShimmer {
         mFrogoShimmerRecyclerView = frogoShimmerRecyclerView
         return this
     }
 
-    override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSrvSingletonShimmer {
+    override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSrvSingleShimmer {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -55,7 +55,7 @@ class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
         return this
     }
 
-    override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSrvSingletonShimmer {
+    override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSrvSingleShimmer {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -63,7 +63,7 @@ class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
         return this
     }
 
-    override fun createLayoutStaggeredGrid(spanCount: Int): FrogoSrvSingletonShimmer {
+    override fun createLayoutStaggeredGrid(spanCount: Int): FrogoSrvSingleShimmer {
         optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -71,7 +71,7 @@ class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
         return this
     }
 
-    override fun createLayoutGrid(spanCount: Int): FrogoSrvSingletonShimmer {
+    override fun createLayoutGrid(spanCount: Int): FrogoSrvSingleShimmer {
         optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
         Log.d("injector-layoutManager", optionLayoutManager)
@@ -79,13 +79,13 @@ class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
         return this
     }
 
-    override fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSrvSingletonShimmer {
+    override fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSrvSingleShimmer {
         srvCustomViewInt = customViewInt
         Log.d("injector-shimmerView", srvCustomViewInt.toString())
         return this
     }
 
-    override fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSrvSingletonShimmer {
+    override fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSrvSingleShimmer {
         srvSumListItem = sumItem
         Log.d("injector-sumItem", srvSumListItem.toString())
         return this
@@ -157,7 +157,7 @@ class FrogoSrvSingletonShimmer : IFrogoSrvSingletonShimmer {
         mFrogoShimmerRecyclerView.adapter = srvFrogoViewAdapter
     }
 
-    override fun build(): FrogoSrvSingletonShimmer {
+    override fun build(): FrogoSrvSingleShimmer {
         createShimmerRvAdapter()
         setupLayoutManager()
         setupInnerAdapter()

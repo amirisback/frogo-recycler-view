@@ -1,8 +1,8 @@
 package com.frogobox.recycler.widget
 
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
-import com.frogobox.recycler.core.viewmulti.FrogoRvSingletonMulti
-import com.frogobox.recycler.core.viewrclass.FrogoRvSingletonRclass
+import com.frogobox.recycler.core.viewmulti.FrogoRvMultiSingle
+import com.frogobox.recycler.core.viewrclass.FrogoRvSingle
 
 /**
  * Created by Faisal Amir
@@ -46,9 +46,9 @@ interface IFrogoRecyclerView {
     )
 
     // Setup SingletonRclass
-    fun <T> injector(): FrogoRvSingletonRclass<T>
+    fun <T> injector(): FrogoRvSingle<T>
 
     // Setup SingletonRclass
-    fun <T> injectorMulti(): FrogoRvSingletonMulti<T>
+    fun <T> injectorMulti(): FrogoRvMultiSingle<T>
 
 }
