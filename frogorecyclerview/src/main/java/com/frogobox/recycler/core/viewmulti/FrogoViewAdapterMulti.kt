@@ -20,8 +20,8 @@ import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_SECOND
  * 
  */
 class FrogoViewAdapterMulti<T>(
-    private val frogoViewHolderMultiCallbackFirst: FrogoViewHolderMultiCallback<T>,
-    private val frogoViewHolderMultiCallbackSecond: FrogoViewHolderMultiCallback<T>
+    private val frogoViewHolderMultiCallbackFirst: IFrogoViewHolderMulti<T>,
+    private val frogoViewHolderMultiCallbackSecond: IFrogoViewHolderMulti<T>
 ) :
     FrogoRecyclerViewAdapterMulti<T>() {
 

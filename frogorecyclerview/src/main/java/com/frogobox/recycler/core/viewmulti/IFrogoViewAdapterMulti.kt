@@ -17,7 +17,7 @@ import android.view.View
  * com.frogobox.recycler.callback
  * 
  */
-interface FrogoViewAdapterMultiCallback<T> {
+interface IFrogoViewAdapterMulti<T> {
 
     // Setup First Init Component on ViewHolder
     fun setupFirstInitComponent(view: View, data: T)

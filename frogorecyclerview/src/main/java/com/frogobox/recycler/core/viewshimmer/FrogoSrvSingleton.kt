@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.core.viewrclass.FrogoViewAdapter
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
-import com.frogobox.recycler.core.viewrclass.FrogoViewHolderCallback
+import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
+import com.frogobox.recycler.core.viewrclass.IFrogoViewHolder
 import com.frogobox.recycler.util.FrogoRvConstant
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
@@ -31,11 +31,11 @@ class FrogoSrvSingleton<T> :
     IFrogoSrvSingleton<T> {
 
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
-    private lateinit var rvFrogoAdapterCallback: FrogoViewAdapterCallback<T>
+    private lateinit var rvFrogoAdapterCallback: IFrogoViewAdapter<T>
     private lateinit var rvFrogoViewAdapter: FrogoViewAdapter<T>
 
     private lateinit var mFrogoShimmerRecyclerView: FrogoRecyclerView
-    private lateinit var srvFrogoAdapterCallback: FrogoViewAdapterCallback<String>
+    private lateinit var srvFrogoAdapterCallback: IFrogoViewAdapter<String>
     private lateinit var srvFrogoViewAdapter: FrogoViewAdapter<String>
 
     private var emptyViewInt: Int = R.layout.frogo_container_empty_view
@@ -117,7 +117,7 @@ class FrogoSrvSingleton<T> :
         return this
     }
 
-    override fun addCallback(frogoViewAdapterCallback: FrogoViewAdapterCallback<T>): FrogoSrvSingleton<T> {
+    override fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSrvSingleton<T> {
         rvFrogoAdapterCallback = frogoViewAdapterCallback
         Log.d("injector-adaptCallback", rvFrogoAdapterCallback.toString())
         return this
@@ -166,7 +166,7 @@ class FrogoSrvSingleton<T> :
 
     private fun createRvAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        rvFrogoViewAdapter = FrogoViewAdapter(object : FrogoViewHolderCallback<T> {
+        rvFrogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<T> {
                 override fun setupInitComponent(view: View, data: T) {
                     rvFrogoAdapterCallback.setupInitComponent(view, data)
                 }
@@ -191,13 +191,13 @@ class FrogoSrvSingleton<T> :
     private fun createShimmerRvAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
 
-        srvFrogoAdapterCallback = object : FrogoViewAdapterCallback<String>{
+        srvFrogoAdapterCallback = object : IFrogoViewAdapter<String>{
             override fun setupInitComponent(view: View, data: String) {}
             override fun onItemClicked(data: String) {}
             override fun onItemLongClicked(data: String) {}
         }
 
-        srvFrogoViewAdapter = FrogoViewAdapter(object : FrogoViewHolderCallback<String> {
+        srvFrogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<String> {
             override fun setupInitComponent(view: View, data: String) {
                 srvFrogoAdapterCallback.setupInitComponent(view, data)
             }

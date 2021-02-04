@@ -12,7 +12,7 @@ import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
@@ -39,7 +39,7 @@ class KotlinShimmerActivity : BaseActivity() {
     private fun setupFrogoShimmerRecyclerView(data: List<Article>) {
 
         val adapterCallback = object :
-            FrogoViewAdapterCallback<Article> {
+            IFrogoViewAdapter<Article> {
             override fun setupInitComponent(view: View, data: Article) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.title

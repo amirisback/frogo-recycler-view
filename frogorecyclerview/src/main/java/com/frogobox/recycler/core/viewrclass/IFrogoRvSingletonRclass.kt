@@ -35,7 +35,7 @@ interface IFrogoRvSingletonRclass<T> {
 
     fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonRclass<T>
 
-    fun addCallback(frogoViewAdapterCallback: FrogoViewAdapterCallback<T>): FrogoRvSingletonRclass<T>
+    fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoRvSingletonRclass<T>
 
     fun build(): FrogoRvSingletonRclass<T>
 

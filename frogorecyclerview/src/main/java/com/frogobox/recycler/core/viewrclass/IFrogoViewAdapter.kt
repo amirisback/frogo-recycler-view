@@ -1,7 +1,6 @@
-package com.frogobox.recycler.core.viewbinding
+package com.frogobox.recycler.core.viewrclass
 
 import android.view.View
-import androidx.viewbinding.ViewBinding
 
 /*
  * Created by Faisal Amir
@@ -18,10 +17,10 @@ import androidx.viewbinding.ViewBinding
  * com.frogobox.recycler.callback
  * 
  */
-interface FrogoViewAdapterBindingCallback<T, V: ViewBinding> {
+interface IFrogoViewAdapter<T> {
 
     // Setup Init Component on ViewHolder
-    fun setupInitComponent(viewBinding: V, data: T)
+    fun setupInitComponent(view: View, data: T)
 
     // Setup item clicked
     fun onItemClicked(data: T)

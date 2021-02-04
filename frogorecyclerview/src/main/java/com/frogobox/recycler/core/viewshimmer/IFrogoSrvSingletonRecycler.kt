@@ -1,6 +1,6 @@
 package com.frogobox.recycler.core.viewshimmer
 
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
@@ -34,7 +34,7 @@ interface IFrogoSrvSingletonRecycler<T> {
 
     fun addEmptyView(emptyViewInt: Int?): FrogoSrvSingletonRecycler<T>
 
-    fun addCallback(frogoViewAdapterCallback: FrogoViewAdapterCallback<T>): FrogoSrvSingletonRecycler<T>
+    fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSrvSingletonRecycler<T>
 
     fun build(): FrogoSrvSingletonRecycler<T>
     

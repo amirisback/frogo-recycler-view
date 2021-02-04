@@ -31,7 +31,7 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
     private var mLayoutEmptyViewInt: Int = R.layout.frogo_container_empty_view
 
     private fun verifyViewInt() {
-        if (mListData.isNotEmpty()) {
+        if (listData.isNotEmpty()) {
             mLayoutRecyclerViewInt = mLayoutCustomViewInt
         } else {
             mLayoutRecyclerViewInt = mLayoutEmptyViewInt
@@ -64,12 +64,12 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
     ) {
 
         if (listener != null) {
-            mFrogoRecyclerViewListener = listener
+            viewListener = listener
         }
 
-        mListData.clear()
+        this.listData.clear()
         if (listData != null) {
-            mListData.addAll(listData)
+            this.listData.addAll(listData)
         }
 
         mLayoutCustomViewInt = customViewInt

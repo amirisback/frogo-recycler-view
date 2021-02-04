@@ -20,32 +20,32 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class CoreFrogoRecyclerViewAdapter<T> :
     RecyclerView.Adapter<CoreFrogoRecyclerViewHolder<T>>() {
 
-    protected var mFrogoRecyclerViewListener: FrogoRecyclerViewListener<T>? = null
+    protected var viewListener: FrogoRecyclerViewListener<T>? = null
     protected var hasEmptyView = false
 
-    protected val mListData = mutableListOf<T>()
+    protected val listData = mutableListOf<T>()
     protected var listCount = 0
 
     override fun getItemCount(): Int {
         return if (hasEmptyView) {
-            listCount = if (mListData.size == 0) {
+            listCount = if (listData.size == 0) {
                 1
             } else {
-                mListData.size
+                listData.size
             }
             listCount
         } else {
-            mListData.size
+            listData.size
         }
     }
 
     override fun onBindViewHolder(holder: CoreFrogoRecyclerViewHolder<T>, position: Int) {
         if (hasEmptyView) {
-            if (mListData.size != 0) {
-                holder.bindItem(mListData[position], mFrogoRecyclerViewListener)
+            if (listData.size != 0) {
+                holder.bindItem(listData[position], viewListener)
             }
         } else {
-            holder.bindItem(mListData[position], mFrogoRecyclerViewListener)
+            holder.bindItem(listData[position], viewListener)
         }
     }
 

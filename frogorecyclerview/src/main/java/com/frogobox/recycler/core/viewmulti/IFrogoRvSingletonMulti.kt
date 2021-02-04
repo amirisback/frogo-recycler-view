@@ -1,7 +1,7 @@
 package com.frogobox.recycler.core.viewmulti
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
-import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 
 /*
  * Created by Faisal Amir
@@ -38,7 +38,7 @@ interface IFrogoRvSingletonMulti<T> {
     
     fun addEmptyView(emptyViewInt: Int?): FrogoRvSingletonMulti<T>
 
-    fun addCallback(frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>): FrogoRvSingletonMulti<T>
+    fun addCallback(frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>): FrogoRvSingletonMulti<T>
 
     fun build(): FrogoRvSingletonMulti<T>
     

@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
-import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 import com.frogobox.recycler.util.FrogoRvConstant
@@ -56,7 +56,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 
     private fun setupFrogoRecyclerView() {
 
-        val adapterCallback = object : FrogoViewAdapterMultiCallback<ExampleModel> {
+        val adapterCallback = object : IFrogoViewAdapterMulti<ExampleModel> {
             override fun setupFirstInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_1_tv_title).text = data.name

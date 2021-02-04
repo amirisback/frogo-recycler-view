@@ -32,7 +32,7 @@ class FrogoRvSingletonRclass<T> :
     private var emptyViewInt: Int = R.layout.frogo_container_empty_view
     private var customViewInt: Int = 0
 
-    private lateinit var frogoAdapterCallback: FrogoViewAdapterCallback<T>
+    private lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
     private lateinit var frogoViewAdapter: FrogoViewAdapter<T>
 
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
@@ -97,7 +97,7 @@ class FrogoRvSingletonRclass<T> :
         return this
     }
 
-    override fun addCallback(frogoViewAdapterCallback: FrogoViewAdapterCallback<T>): FrogoRvSingletonRclass<T> {
+    override fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoRvSingletonRclass<T> {
         this.frogoAdapterCallback = frogoViewAdapterCallback
         Log.d("injector-adaptCallback", this.frogoAdapterCallback.toString())
         return this
@@ -162,7 +162,7 @@ class FrogoRvSingletonRclass<T> :
 
     private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        frogoViewAdapter = FrogoViewAdapter(object : FrogoViewHolderCallback<T> {
+        frogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoAdapterCallback.setupInitComponent(view, data)
             }

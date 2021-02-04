@@ -6,9 +6,8 @@ import android.widget.TextView;
 
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback;
+import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter;
 import com.frogobox.recycler.model.ExampleModel;
-import com.frogobox.recycler.util.Constant;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -35,7 +34,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
 
     private void setupFrogoRecyclerView() {
 
-        FrogoViewAdapterCallback frogoViewAdapterCallback = new FrogoViewAdapterCallback<ExampleModel>() {
+        IFrogoViewAdapter frogoViewAdapterCallback = new IFrogoViewAdapter<ExampleModel>() {
             @Override
             public void setupInitComponent(@NotNull View view, ExampleModel data) {
                 // Init component content item recyclerview

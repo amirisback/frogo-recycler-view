@@ -1,10 +1,8 @@
 package com.frogobox.recycler.widget
 
-import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.core.viewmulti.FrogoRvSingletonMulti
 import com.frogobox.recycler.core.viewrclass.FrogoRvSingletonRclass
-import com.frogobox.recycler.core.viewbinding.FrogoRvSingletonViewBinding
 
 /**
  * Created by Faisal Amir
@@ -44,7 +42,7 @@ interface IFrogoRecyclerView {
         multiCustomView: List<Int>,
         multiOptionHolder: List<Int>,
         emptyView: Int?,
-        frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>
+        frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>
     )
 
     // Setup SingletonRclass
@@ -52,8 +50,5 @@ interface IFrogoRecyclerView {
 
     // Setup SingletonRclass
     fun <T> injectorMulti(): FrogoRvSingletonMulti<T>
-
-    // Setup SingletonViewBinding
-    fun <T, V : ViewBinding> injectorViewBinding(): FrogoRvSingletonViewBinding<T, V>
 
 }

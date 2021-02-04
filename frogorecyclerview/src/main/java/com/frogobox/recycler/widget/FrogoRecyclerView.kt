@@ -4,14 +4,12 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.recyclerview.widget.*
-import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.core.viewmulti.FrogoRvSingletonMulti
 import com.frogobox.recycler.core.viewrclass.FrogoRvSingletonRclass
-import com.frogobox.recycler.core.viewbinding.FrogoRvSingletonViewBinding
 import com.frogobox.recycler.core.viewmulti.FrogoViewAdapterMulti
-import com.frogobox.recycler.core.viewmulti.FrogoViewHolderMultiCallback
+import com.frogobox.recycler.core.viewmulti.IFrogoViewHolderMulti
 import com.frogobox.recycler.util.FrogoRvConstant
 
 
@@ -79,14 +77,14 @@ class FrogoRecyclerView : RecyclerView,
         multiCustomView: List<Int>,
         multiOptionHolder: List<Int>,
         emptyView: Int?,
-        frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>
+        frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>
     ) {
 
-        val frogoMultiViewAdapter = FrogoViewAdapterMulti(object : FrogoViewHolderMultiCallback<T> {
+        val frogoMultiViewAdapter = FrogoViewAdapterMulti(object : IFrogoViewHolderMulti<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupFirstInitComponent(view, data)
             }
-        }, object : FrogoViewHolderMultiCallback<T> {
+        }, object : IFrogoViewHolderMulti<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupSecondInitComponent(view, data)
             }
@@ -126,7 +124,4 @@ class FrogoRecyclerView : RecyclerView,
     override fun <T> injectorMulti(): FrogoRvSingletonMulti<T> =
         FrogoRvSingletonMulti<T>().initSingleton(this)
 
-    override fun <T, V : ViewBinding> injectorViewBinding(): FrogoRvSingletonViewBinding<T, V> =
-        FrogoRvSingletonViewBinding<T, V>()
-            .initSingleton(this)
 }

@@ -19,7 +19,7 @@ import android.view.View
  */
 class FrogoViewHolderSecond<T>(
     view: View,
-    private val frogoViewHolderMultiCallback: FrogoViewHolderMultiCallback<T>
+    private val frogoViewHolderMultiCallback: IFrogoViewHolderMulti<T>
 ) :
     FrogoRecyclerViewHolderMulti<T>(view) {
 

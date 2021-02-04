@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewmulti
+package com.frogobox.recycler.core.viewrclass
 
 import android.view.View
 
@@ -6,7 +6,7 @@ import android.view.View
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 29/04/2020.      
+ * Copyright (C) 14/04/2020.      
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,10 +14,10 @@ import android.view.View
  * Github   : github.com/amirisback
  * -----------------------------------------
  * FrogoBox Inc
- * com.frogobox.recycler.multiview
+ * com.frogobox.recycler.callback
  * 
  */
-interface FrogoViewHolderMultiCallback<T> {
+interface IFrogoViewHolder<T> {
 
     // Setup Init Component on ViewHolder
     fun setupInitComponent(view: View, data: T)

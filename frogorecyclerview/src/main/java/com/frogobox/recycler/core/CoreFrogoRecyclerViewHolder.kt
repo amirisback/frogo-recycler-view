@@ -23,8 +23,6 @@ abstract class CoreFrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHol
     fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         if (data != null) {
             onItemViewClicked(data, listener)
-        }
-        if (data != null) {
             initComponent(data)
         }
     }

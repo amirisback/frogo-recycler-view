@@ -17,7 +17,7 @@ import android.view.ViewGroup
  * com.frogobox.recycler.content
  * 
  */
-class FrogoViewAdapter<T>(private val frogoViewHolderCallback: FrogoViewHolderCallback<T>) :
+class FrogoViewAdapter<T>(private val frogoViewHolderCallback: IFrogoViewHolder<T>) :
     FrogoRecyclerViewAdapter<T>() {
 
     override fun onCreateViewHolder(

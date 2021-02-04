@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback
+import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.util.FrogoRvConstant
 
 /*
@@ -34,7 +34,7 @@ class FrogoRvSingletonMulti<T> :
     
     private lateinit var multiCustomView: List<Int>
     private lateinit var multiOptionHolder: List<Int>
-    private lateinit var frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>
+    private lateinit var frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>
     private lateinit var frogoViewAdapterMulti: FrogoViewAdapterMulti<T>
 
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
@@ -110,7 +110,7 @@ class FrogoRvSingletonMulti<T> :
         return this
     }
 
-    override fun addCallback(frogoViewAdapterMultiCallback: FrogoViewAdapterMultiCallback<T>): FrogoRvSingletonMulti<T> {
+    override fun addCallback(frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>): FrogoRvSingletonMulti<T> {
         this.frogoViewAdapterMultiCallback = frogoViewAdapterMultiCallback
         Log.d("injector-adaptCallback", this.frogoViewAdapterMultiCallback.toString())
         return this
@@ -159,11 +159,11 @@ class FrogoRvSingletonMulti<T> :
 
     private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_MULTI
-        frogoViewAdapterMulti = FrogoViewAdapterMulti(object : FrogoViewHolderMultiCallback<T> {
+        frogoViewAdapterMulti = FrogoViewAdapterMulti(object : IFrogoViewHolderMulti<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupFirstInitComponent(view, data)
             }
-        }, object : FrogoViewHolderMultiCallback<T> {
+        }, object : IFrogoViewHolderMulti<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoViewAdapterMultiCallback.setupSecondInitComponent(view, data)
             }

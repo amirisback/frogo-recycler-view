@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
-import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
@@ -30,7 +30,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
     private fun setupFrogoRecyclerView() {
 
         val adapterCallback = object :
-            FrogoViewAdapterCallback<ExampleModel> {
+            IFrogoViewAdapter<ExampleModel> {
             override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name

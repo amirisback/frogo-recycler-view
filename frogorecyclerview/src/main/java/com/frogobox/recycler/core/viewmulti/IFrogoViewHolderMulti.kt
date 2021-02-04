@@ -1,7 +1,6 @@
-package com.frogobox.recycler.core.viewbinding
+package com.frogobox.recycler.core.viewmulti
 
-import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.core.CoreFrogoRecyclerViewHolder
+import android.view.View
 
 /*
  * Created by Faisal Amir
@@ -15,10 +14,12 @@ import com.frogobox.recycler.core.CoreFrogoRecyclerViewHolder
  * Github   : github.com/amirisback
  * -----------------------------------------
  * FrogoBox Inc
- * com.frogobox.recycler.base
+ * com.frogobox.recycler.multiview
  * 
  */
-abstract class FrogoRecyclerViewHolderBinding<T, V : ViewBinding>(viewBinding: V) :
-    CoreFrogoRecyclerViewHolder<T>(viewBinding.root) {
+interface IFrogoViewHolderMulti<T> {
+
+    // Setup Init Component on ViewHolder
+    fun setupInitComponent(view: View, data: T)
 
 }

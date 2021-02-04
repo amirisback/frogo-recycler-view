@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.frogobox.recycler.widget.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
-import com.frogobox.recycler.adapter.callback.FrogoViewAdapterMultiCallback;
+import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti;
 import com.frogobox.recycler.model.ExampleModel;
 import com.frogobox.recycler.util.Constant;
 import com.frogobox.recycler.util.FrogoRvConstant;
@@ -60,7 +60,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
                 listLayout(),
                 listOption(),
                 null,
-                new FrogoViewAdapterMultiCallback<ExampleModel>() {
+                new IFrogoViewAdapterMulti<ExampleModel>() {
 
                     @Override
                     public void setupFirstInitComponent(@NotNull View view, ExampleModel data) {
