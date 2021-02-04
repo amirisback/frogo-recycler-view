@@ -158,7 +158,9 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
 
     private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        frogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<T> {
+        frogoViewAdapter = FrogoViewAdapter()
+
+        frogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 frogoAdapterCallback.setupInitComponent(view, data)
             }

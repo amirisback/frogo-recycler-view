@@ -1,5 +1,6 @@
 package com.frogobox.recycler.core.multi
 
+import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*

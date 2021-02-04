@@ -131,12 +131,12 @@ class FrogoSrvSingleShimmer : IFrogoSrvSingleShimmer {
             override fun onItemLongClicked(data: String) {}
         }
 
-        srvFrogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<String> {
+        srvFrogoViewAdapter = FrogoViewAdapter()
+        srvFrogoViewAdapter.setCallback(object : IFrogoViewHolder<String> {
             override fun setupInitComponent(view: View, data: String) {
                 srvFrogoAdapterCallback.setupInitComponent(view, data)
             }
         })
-
         srvFrogoViewAdapter.setupRequirement(srvCustomViewInt, srvListData(),
             object :
                 FrogoRecyclerViewListener<String> {

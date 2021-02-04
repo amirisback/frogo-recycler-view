@@ -1,5 +1,6 @@
 package com.frogobox.recycler.core
 
+import android.util.Log
 import android.view.ViewGroup
 
 /*
@@ -17,14 +18,28 @@ import android.view.ViewGroup
  * com.frogobox.recycler.content
  * 
  */
-class FrogoViewAdapter<T>(private val frogoViewHolderCallback: IFrogoViewHolder<T>) :
-    FrogoRecyclerViewAdapter<T>() {
+class FrogoViewAdapter<T> : FrogoRecyclerViewAdapter<T>() {
+
+    private var frogoViewHolderCallback: IFrogoViewHolder<T>? = null
+
+    fun setCallback(callback: IFrogoViewHolder<T>) {
+        frogoViewHolderCallback = callback
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerViewHolder<T> {
-        return FrogoViewHolder(viewLayout(parent), frogoViewHolderCallback)
+
+        return if (hasMultiHolder) {
+            FrogoViewHolder(
+                viewLayout(parent, frogoHolder[viewType].layoutResId),
+                frogoHolder[viewType].callback
+            )
+        } else {
+            FrogoViewHolder(viewLayout(parent), frogoViewHolderCallback)
+        }
+
     }
 
 }

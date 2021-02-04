@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
-import com.frogobox.recycler.core.multi.FrogoHolder
+import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 

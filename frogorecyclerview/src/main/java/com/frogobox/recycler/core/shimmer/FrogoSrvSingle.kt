@@ -166,11 +166,12 @@ class FrogoSrvSingle<T> :
 
     private fun createRvAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        rvFrogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<T> {
-                override fun setupInitComponent(view: View, data: T) {
-                    rvFrogoAdapterCallback.setupInitComponent(view, data)
-                }
-            })
+        rvFrogoViewAdapter = FrogoViewAdapter()
+        rvFrogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
+            override fun setupInitComponent(view: View, data: T) {
+                rvFrogoAdapterCallback.setupInitComponent(view, data)
+            }
+        })
 
         rvFrogoViewAdapter.setupRequirement(rvCustomViewInt, rvListData,
             object :
@@ -197,12 +198,12 @@ class FrogoSrvSingle<T> :
             override fun onItemLongClicked(data: String) {}
         }
 
-        srvFrogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<String> {
+        srvFrogoViewAdapter = FrogoViewAdapter()
+        srvFrogoViewAdapter.setCallback(object : IFrogoViewHolder<String> {
             override fun setupInitComponent(view: View, data: String) {
                 srvFrogoAdapterCallback.setupInitComponent(view, data)
             }
         })
-
         srvFrogoViewAdapter.setupRequirement(srvCustomViewInt, srvListData(),
             object :
                 FrogoRecyclerViewListener<String> {

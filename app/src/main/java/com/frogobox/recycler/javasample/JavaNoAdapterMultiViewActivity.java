@@ -1,18 +1,13 @@
 package com.frogobox.recycler.javasample;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import com.frogobox.recycler.widget.FrogoRecyclerView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
-import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti;
 import com.frogobox.recycler.model.ExampleModel;
 import com.frogobox.recycler.util.Constant;
 import com.frogobox.recycler.core.FrogoRvConstant;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 

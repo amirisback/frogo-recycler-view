@@ -1,7 +1,4 @@
-package com.frogobox.recycler.core.multi
-
-import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.IFrogoViewHolder
+package com.frogobox.recycler.core
 
 /*
  * Created by Faisal Amir on 04/02/2021

@@ -128,7 +128,8 @@ class FrogoSrvSingleRecycler<T> : IFrogoSrvSingleRecycler<T> {
 
     private fun createRvAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        rvFrogoViewAdapter = FrogoViewAdapter(object : IFrogoViewHolder<T> {
+        rvFrogoViewAdapter = FrogoViewAdapter()
+        rvFrogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 rvFrogoAdapterCallback.setupInitComponent(view, data)
             }

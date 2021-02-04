@@ -17,11 +17,11 @@ import android.view.View
  * com.frogobox.recycler
  * 
  */
-class FrogoViewHolder<T>(view: View, private val frogoViewHolderCallback: IFrogoViewHolder<T>) :
+class FrogoViewHolder<T>(view: View, private val frogoViewHolderCallback: IFrogoViewHolder<T>?) :
     FrogoRecyclerViewHolder<T>(view) {
 
     override fun initComponent(data: T) {
-        frogoViewHolderCallback.setupInitComponent(itemView, data)
+        frogoViewHolderCallback?.setupInitComponent(itemView, data)
     }
 
 }

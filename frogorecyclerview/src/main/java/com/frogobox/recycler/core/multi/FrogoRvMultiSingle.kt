@@ -1,17 +1,15 @@
 package com.frogobox.recycler.core.multi
 
 import android.util.Log
-import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
+import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.core.FrogoRvConstant
-import com.frogobox.recycler.core.IFrogoViewHolder
+import com.frogobox.recycler.core.FrogoViewAdapter
 
 /*
  * Created by Faisal Amir
@@ -33,7 +31,7 @@ class FrogoRvMultiSingle<T> :
 
     private var emptyViewInt: Int = R.layout.frogo_container_empty_view
 
-    private lateinit var frogoViewAdapterMulti: FrogoViewAdapterMulti<T>
+    private lateinit var frogoViewAdapter: FrogoViewAdapter<T>
     private lateinit var listFrogoHolder: List<FrogoHolder<T>>
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
 
@@ -139,14 +137,15 @@ class FrogoRvMultiSingle<T> :
 
     private fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_MULTI
-        frogoViewAdapterMulti = FrogoViewAdapterMulti()
-        frogoViewAdapterMulti.setupRequirement(listFrogoHolder)
-        frogoViewAdapterMulti.setupEmptyView(emptyViewInt)
+        frogoViewAdapter = FrogoViewAdapter()
+        frogoViewAdapter.setupMultiHolder()
+        frogoViewAdapter.setupRequirement(listFrogoHolder)
+        frogoViewAdapter.setupEmptyView(emptyViewInt)
     }
 
     private fun setupInnerAdapter() {
         Log.d("injector-optionAdapter", optionAdapter)
-        mFrogoRecyclerView.adapter = frogoViewAdapterMulti
+        mFrogoRecyclerView.adapter = frogoViewAdapter
     }
 
     override fun build(): FrogoRvMultiSingle<T> {

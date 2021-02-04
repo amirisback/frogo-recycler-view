@@ -1,6 +1,5 @@
 package com.frogobox.recycler.widget
 
-import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.core.multi.FrogoRvMultiSingle
 import com.frogobox.recycler.core.FrogoRvSingle
 
