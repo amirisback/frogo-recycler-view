@@ -1,6 +1,8 @@
 package com.frogobox.recycler.core
 
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.recycler.R
 
 /*
  * Created by Faisal Amir
@@ -25,6 +27,29 @@ abstract class CoreFrogoRecyclerViewAdapter<T> :
 
     protected val listData = mutableListOf<T>()
     protected var listCount = 0
+
+    protected var layoutRv: Int = 0
+    protected var customLayoutRestId: Int = 0
+    protected var emptyLayoutResId: Int = R.layout.frogo_container_empty_view
+
+    protected fun layoutHandling() {
+        if (customLayoutRestId != 0) {
+            layoutRv = if (listData.isNotEmpty()) {
+                customLayoutRestId
+            } else {
+                emptyLayoutResId
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun setupEmptyView(emptyView: Int?) {
+        hasEmptyView = true
+        if (emptyView != null) {
+            emptyLayoutResId = emptyView
+        }
+        layoutHandling()
+    }
 
     override fun getItemCount(): Int {
         return if (hasEmptyView) {

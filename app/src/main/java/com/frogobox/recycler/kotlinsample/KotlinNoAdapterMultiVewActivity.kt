@@ -6,11 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.BaseActivity
-import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
+import com.frogobox.recycler.core.*
+import com.frogobox.recycler.core.multi.FrogoHolder
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
-import com.frogobox.recycler.core.FrogoRvConstant
 
 class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 
@@ -21,87 +20,74 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
         setupDetailActivity("Kotlin No Adapter - Multi View")
     }
 
-    private fun listData(): MutableList<ExampleModel> {
-        val listString = mutableListOf<ExampleModel>()
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        return listString
-    }
-
-    private fun listOption(): MutableList<Int> {
-        val listOption = mutableListOf<Int>()
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_SECOND)
-        listOption.add(FrogoRvConstant.OPTION_HOLDER_FIRST)
-        return listOption
-    }
-
-    private fun listLayout(): MutableList<Int> {
-        val listLayout = mutableListOf<Int>()
-        listLayout.add(R.layout.frogo_rv_grid_type_1)
-        listLayout.add(R.layout.frogo_rv_grid_type_3)
-        return listLayout
-    }
-
-    private fun setupFrogoRecyclerView() {
-
-        val adapterCallback = object : IFrogoViewAdapterMulti<ExampleModel> {
-            override fun setupFirstInitComponent(view: View, data: ExampleModel) {
+    private fun firstCallback(): IFrogoViewHolder<ExampleModel> {
+        return object : IFrogoViewHolder<ExampleModel> {
+            override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_1_tv_title).text = data.name
-                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
-                    .into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_1_frogo_dummy_content_description))
+                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById(R.id.frogo_rv_grid_type_1_frogo_dummy_content_description))
             }
+        }
+    }
 
-            override fun setupSecondInitComponent(view: View, data: ExampleModel) {
+    private fun secondCallback(): IFrogoViewHolder<ExampleModel> {
+        return object : IFrogoViewHolder<ExampleModel>{
+            override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title).text = data.name
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle).text = data.name
-                view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc).text =
-                    FrogoRvConstant.DUMMY_LOREM_IPSUM
+                view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc).text = FrogoRvConstant.DUMMY_LOREM_IPSUM
 
-                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
-                    .into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description))
+                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description))
             }
+        }
+    }
 
-            override fun onFirstItemClicked(data: ExampleModel) {
+    private fun firstListenerType(): FrogoRecyclerViewListener<ExampleModel>{
+        return object : FrogoRecyclerViewListener<ExampleModel>{
+            override fun onItemClicked(data: ExampleModel) {
                 showToast(data.name + " First")
             }
 
-            override fun onFirstItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(data: ExampleModel) {
                 showToast("LAYOUT TYPE 1")
             }
+        }
+    }
 
-            override fun onSecondItemClicked(data: ExampleModel) {
+    private fun secondListenerType() : FrogoRecyclerViewListener<ExampleModel>{
+        return object : FrogoRecyclerViewListener<ExampleModel>{
+            override fun onItemClicked(data: ExampleModel) {
                 showToast(data.name + " Second")
             }
 
-            override fun onSecondItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(data: ExampleModel) {
                 showToast("LAYOUT TYPE 2")
             }
         }
+    }
 
+    private fun data() : MutableList<FrogoHolder<ExampleModel>> {
+        val data =  mutableListOf<FrogoHolder<ExampleModel>>()
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_1, FrogoRvConstant.OPTION_HOLDER_FIRST, firstCallback(), firstListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_3, FrogoRvConstant.OPTION_HOLDER_SECOND, secondCallback(), secondListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_3, FrogoRvConstant.OPTION_HOLDER_SECOND, secondCallback(), secondListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_3, FrogoRvConstant.OPTION_HOLDER_SECOND, secondCallback(), secondListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_3, FrogoRvConstant.OPTION_HOLDER_SECOND, secondCallback(), secondListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_1, FrogoRvConstant.OPTION_HOLDER_FIRST, firstCallback(), firstListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_1, FrogoRvConstant.OPTION_HOLDER_FIRST, firstCallback(), firstListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_3, FrogoRvConstant.OPTION_HOLDER_SECOND, secondCallback(), secondListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_3, FrogoRvConstant.OPTION_HOLDER_SECOND, secondCallback(), secondListenerType()))
+        data.add(FrogoHolder(ExampleModel(Constant.FULL_NAME), R.layout.frogo_rv_grid_type_1, FrogoRvConstant.OPTION_HOLDER_FIRST, firstCallback(), firstListenerType()))
+        return data
+    }
+
+    private fun setupFrogoRecyclerView() {
         activityFrogoRvGridBinding.frogoRecyclerView
-            .injectorMulti<ExampleModel>()
-            .addData(listData())
-            .addCustomView(listLayout())
-            .addOptionHolder(listOption())
-            .addCallback(adapterCallback)
-            .addEmptyView(null)
+            .injectors<ExampleModel>()
+            .addData(data())
             .createLayoutStaggeredGrid(2)
             .build()
     }
-
 
 }

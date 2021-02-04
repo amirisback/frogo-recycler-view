@@ -3,13 +3,8 @@ package com.frogobox.recycler.core.multi
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.recycler.R
+import com.frogobox.recycler.core.CoreFrogoRecyclerViewAdapter
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
-import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
-import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
-import com.frogobox.recycler.core.FrogoViewHolder
 
 /*
  * Created by Faisal Amir
@@ -27,125 +22,60 @@ import com.frogobox.recycler.core.FrogoViewHolder
  * 
  */
 abstract class FrogoRecyclerViewAdapterMulti<T> :
-    RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
+    CoreFrogoRecyclerViewAdapter<T>() {
 
-    private val mFrogoViewHolderList = mutableListOf<FrogoRecyclerViewHolder<T>>()
-    private val mRecyclerViewDataList = mutableListOf<T>()
-    private val mRecyclerViewLayoutList = mutableListOf<Int>()
+    protected val frogoHolder = mutableListOf<FrogoHolder<T>>()
 
-    private var mLayoutRecyclerViewInt: Int = 0
-    private var mLayoutCustomViewInt: Int = 0
-    private var mLayoutEmptyViewInt: Int = R.layout.frogo_container_empty_view
-
-    private val mOptionHolder = mutableListOf<Int>()
-
-    private var mFirstViewListener: FrogoRecyclerViewListener<T>? = null
-    private var mSecondViewListener: FrogoRecyclerViewListener<T>? = null
-
-    private var hasEmptyView = false
-    private var listCount = 0
-
-    private fun layoutHandle() {
-        mLayoutRecyclerViewInt = if (mRecyclerViewDataList.isNotEmpty()) {
-            mLayoutCustomViewInt
-        } else {
-            mLayoutEmptyViewInt
-        }
-    }
-
-    private fun emptyViewHandle() {
-        layoutHandle()
+    fun setupRequirement(viewHolder: List<FrogoHolder<T>>) {
+        frogoHolder.addAll(viewHolder)
         notifyDataSetChanged()
     }
 
-    fun setupRequirement(
-        dataList: List<T>?,
-        layoutItemList: List<Int>,
-        optionHolder: List<Int>,
-        firstViewListener: FrogoRecyclerViewListener<T>?,
-        secondViewListener: FrogoRecyclerViewListener<T>?
-    ) {
-        mRecyclerViewLayoutList.addAll(layoutItemList)
-        mOptionHolder.addAll(optionHolder)
-
-        if (firstViewListener != null) {
-            mFirstViewListener = firstViewListener
+    private fun multiLayoutHandling() {
+        if (customLayoutRestId != 0) {
+            layoutRv = if (frogoHolder.isNotEmpty()) {
+                customLayoutRestId
+            } else {
+                emptyLayoutResId
+            }
         }
-
-        if (secondViewListener != null) {
-            mSecondViewListener = secondViewListener
-        }
-
-        mRecyclerViewDataList.clear()
-        if (dataList != null) {
-            mRecyclerViewDataList.addAll(dataList)
-        }
-
     }
 
-    fun setupEmptyView(emptyView: Int?) {
-        hasEmptyView = true
-        if (emptyView != null) {
-            mLayoutEmptyViewInt = emptyView
-        }
-        emptyViewHandle()
-    }
-
-    fun viewLayout(parent: ViewGroup, position: Int): View {
-        mLayoutCustomViewInt = mRecyclerViewLayoutList[position]
-        layoutHandle()
-        return LayoutInflater.from(parent.context).inflate(mLayoutRecyclerViewInt, parent, false)
+    fun viewLayout(parent: ViewGroup, layoutResId: Int): View {
+        customLayoutRestId = layoutResId
+        multiLayoutHandling()
+        return LayoutInflater.from(parent.context).inflate(layoutRv, parent, false)
     }
 
     override fun getItemCount(): Int {
         return if (hasEmptyView) {
-            listCount = if (mRecyclerViewDataList.size == 0) {
+            listCount = if (frogoHolder.size == 0) {
                 1
             } else {
-                mRecyclerViewDataList.size
+                frogoHolder.size
             }
             listCount
         } else {
-            mRecyclerViewDataList.size
+            frogoHolder.size
         }
     }
 
     override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
         if (hasEmptyView) {
-            if (mRecyclerViewDataList.size != 0) {
-                when (holder) {
-                    is FrogoViewHolder -> holder.bindItem(
-                        mRecyclerViewDataList[position],
-                        mFirstViewListener
-                    )
-                    is FrogoViewHolder -> holder.bindItem(
-                        mRecyclerViewDataList[position],
-                        mSecondViewListener
-                    )
-                }
+            if (frogoHolder.size != 0) {
+                holder.bindItem(frogoHolder[position].data, frogoHolder[position].listener)
             }
         } else {
-            when (holder) {
-                is FrogoViewHolder -> holder.bindItem(
-                    mRecyclerViewDataList[position],
-                    mFirstViewListener
-                )
-                is FrogoViewHolder -> holder.bindItem(
-                    mRecyclerViewDataList[position],
-                    mSecondViewListener
-                )
-            }
+            holder.bindItem(frogoHolder[position].data, frogoHolder[position].listener)
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-
-        return if (mOptionHolder.size != 0) {
-            if (mOptionHolder[position] == OPTION_HOLDER_SECOND) OPTION_HOLDER_SECOND else OPTION_HOLDER_FIRST
+        return if (frogoHolder.size != 0) {
+            frogoHolder[position].option
         } else {
             super.getItemViewType(position)
         }
-
     }
 
 }

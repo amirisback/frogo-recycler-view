@@ -3,7 +3,6 @@ package com.frogobox.recycler.core
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.frogobox.recycler.R
 
 /**
  * Created by Faisal Amir
@@ -24,36 +23,9 @@ import com.frogobox.recycler.R
  */
 abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
 
-    private var layoutRv: Int = 0
-    private var customLayoutRestId: Int = 0
-    private var emptyLayoutResId: Int = R.layout.frogo_container_empty_view
-
-    private fun layoutHandle() {
-        if (customLayoutRestId != 0) {
-            layoutRv = if (listData.isNotEmpty()) {
-                customLayoutRestId
-            } else {
-                emptyLayoutResId
-            }
-        }
-    }
-
-    private fun emptyViewHandle() {
-        layoutHandle()
-        notifyDataSetChanged()
-    }
-
-    fun setupEmptyView(emptyView: Int?) {
-        hasEmptyView = true
-        if (emptyView != null) {
-            emptyLayoutResId = emptyView
-        }
-        emptyViewHandle()
-    }
-
     fun setupRequirement(
         customViewId: Int,
-        listData: List<T>?,
+        data: List<T>?,
         listener: FrogoRecyclerViewListener<T>?
     ) {
 
@@ -63,12 +35,12 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
 
         this.listData.clear()
 
-        if (listData != null) {
-            this.listData.addAll(listData)
+        if (data != null) {
+            this.listData.addAll(data)
         }
 
         customLayoutRestId = customViewId
-        emptyViewHandle()
+        layoutHandling()
     }
 
     fun viewLayout(parent: ViewGroup): View {

@@ -1,5 +1,6 @@
 package com.frogobox.recycler.core.multi
 
+import android.util.Log
 import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
@@ -22,45 +23,23 @@ import com.frogobox.recycler.core.IFrogoViewHolder
  * com.frogobox.recycler.adapter
  * 
  */
-class FrogoViewAdapterMulti<T>(
-    private val frogoViewHolderCallbackFirst: IFrogoViewHolder<T>,
-    private val frogoViewHolderCallbackSecond: IFrogoViewHolder<T>
-) :
-    FrogoRecyclerViewAdapterMulti<T>() {
-
-    private fun firstFrogoViewHolder(parent: ViewGroup): FrogoViewHolder<T> {
-        return FrogoViewHolder(
-            viewLayout(parent, OPTION_HOLDER_FIRST),
-            frogoViewHolderCallbackFirst
-        )
-    }
-
-    private fun secondFrogoViewHolder(parent: ViewGroup): FrogoViewHolder<T> {
-        return FrogoViewHolder(
-            viewLayout(parent, OPTION_HOLDER_SECOND),
-            frogoViewHolderCallbackSecond
-        )
-    }
+class FrogoViewAdapterMulti<T> : FrogoRecyclerViewAdapterMulti<T>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerViewHolder<T> {
 
-        return when (viewType) {
-            OPTION_HOLDER_FIRST -> {
-                firstFrogoViewHolder(parent)
-            }
+        Log.d("adapterMulti", "data : ${frogoHolder[viewType].data}")
+        Log.d("adapterMulti", "layout id : ${frogoHolder[viewType].layoutResId}")
+        Log.d("adapterMulti", "callback  : ${frogoHolder[viewType].callback}")
+        Log.d("adapterMulti", "option  : ${frogoHolder[viewType].option}")
+        Log.d("adapterMulti", "listener  : ${frogoHolder[viewType].listener}")
 
-            OPTION_HOLDER_SECOND -> {
-                secondFrogoViewHolder(parent)
-            }
-
-            else -> {
-                firstFrogoViewHolder(parent)
-            }
-        }
-
+        return FrogoViewHolder(
+            viewLayout(parent, frogoHolder[viewType].layoutResId),
+            frogoHolder[viewType].callback
+        )
     }
 
 }

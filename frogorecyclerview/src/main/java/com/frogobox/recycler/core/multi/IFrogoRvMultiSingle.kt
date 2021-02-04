@@ -1,7 +1,6 @@
 package com.frogobox.recycler.core.multi
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
-import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 
 /*
  * Created by Faisal Amir
@@ -30,15 +29,9 @@ interface IFrogoRvMultiSingle<T> {
 
     fun createLayoutGrid(spanCount: Int): FrogoRvMultiSingle<T>
 
-    fun addData(listData: List<T>): FrogoRvMultiSingle<T>
-
-    fun addCustomView(listCustomViewInt: List<Int>): FrogoRvMultiSingle<T>
-
-    fun addOptionHolder(listOptionHolder: List<Int>): FrogoRvMultiSingle<T>
+    fun addData(data: List<FrogoHolder<T>>): FrogoRvMultiSingle<T>
     
     fun addEmptyView(emptyViewInt: Int?): FrogoRvMultiSingle<T>
-
-    fun addCallback(frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>): FrogoRvMultiSingle<T>
 
     fun build(): FrogoRvMultiSingle<T>
     

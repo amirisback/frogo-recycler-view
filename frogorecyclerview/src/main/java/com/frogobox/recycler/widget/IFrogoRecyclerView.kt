@@ -36,19 +36,10 @@ interface IFrogoRecyclerView {
     // Setup grid recycler view
     fun isViewGrid(spanCount: Int)
 
-    // Setup Inject Adapter with multi type view holder
-    fun <T> injectAdapterMultiType(
-        listData: List<T>?,
-        multiCustomView: List<Int>,
-        multiOptionHolder: List<Int>,
-        emptyView: Int?,
-        frogoViewAdapterMultiCallback: IFrogoViewAdapterMulti<T>
-    )
-
     // Setup SingletonRclass
     fun <T> injector(): FrogoRvSingle<T>
 
     // Setup SingletonRclass
-    fun <T> injectorMulti(): FrogoRvMultiSingle<T>
+    fun <T> injectors(): FrogoRvMultiSingle<T>
 
 }

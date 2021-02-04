@@ -55,48 +55,6 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     private void setupFrogoRecyclerView() {
         FrogoRecyclerView frogoRecyclerView = activityFrogoRvListBinding.frogoRecyclerView;
 
-        frogoRecyclerView.injectAdapterMultiType(
-                listData(),
-                listLayout(),
-                listOption(),
-                null,
-                new IFrogoViewAdapterMulti<ExampleModel>() {
-
-                    @Override
-                    public void setupFirstInitComponent(@NotNull View view, ExampleModel data) {
-                        TextView tvExampleItem = findViewById(R.id.frogo_rv_list_type_1_tv_title);
-                        tvExampleItem.setText(data.getName());
-                    }
-
-                    @Override
-                    public void onFirstItemClicked(ExampleModel data) {
-                        showToast(data.getName() + " 1");
-                    }
-
-                    @Override
-                    public void onFirstItemLongClicked(ExampleModel data) {
-                        showToast(data.getName() + " First");
-                    }
-
-                    @Override
-                    public void setupSecondInitComponent(@NotNull View view, ExampleModel data) {
-                        TextView tvExampleItem = findViewById(R.id.frogo_rv_list_type_1_tv_title);
-                        tvExampleItem.setText(data.getName());
-                    }
-
-                    @Override
-                    public void onSecondItemClicked(ExampleModel data) {
-                        showToast(data.getName() + " 2");
-                    }
-
-                    @Override
-                    public void onSecondItemLongClicked(ExampleModel data) {
-                        showToast(data.getName() + " Second");
-                    }
-                }
-        );
-        frogoRecyclerView.isViewLinearVertical(false);
-
     }
 
 
