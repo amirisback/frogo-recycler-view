@@ -6,9 +6,9 @@ import android.view.View
 import androidx.recyclerview.widget.*
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
-import com.frogobox.recycler.core.viewmulti.FrogoRvMultiSingle
+import com.frogobox.recycler.core.multi.FrogoRvMultiSingle
 import com.frogobox.recycler.core.FrogoRvSingle
-import com.frogobox.recycler.core.viewmulti.FrogoViewAdapterMulti
+import com.frogobox.recycler.core.multi.FrogoViewAdapterMulti
 import com.frogobox.recycler.core.FrogoRvConstant
 import com.frogobox.recycler.core.IFrogoViewHolder
 

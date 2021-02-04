@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
  * 
  */
 abstract class CoreFrogoRecyclerViewAdapter<T> :
-    RecyclerView.Adapter<CoreFrogoRecyclerViewHolder<T>>() {
+    RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
 
     protected var viewListener: FrogoRecyclerViewListener<T>? = null
     protected var hasEmptyView = false
@@ -39,7 +39,7 @@ abstract class CoreFrogoRecyclerViewAdapter<T> :
         }
     }
 
-    override fun onBindViewHolder(holder: CoreFrogoRecyclerViewHolder<T>, position: Int) {
+    override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
         if (hasEmptyView) {
             if (listData.size != 0) {
                 holder.bindItem(listData[position], viewListener)

@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewmulti
+package com.frogobox.recycler.core.multi
 
 import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti

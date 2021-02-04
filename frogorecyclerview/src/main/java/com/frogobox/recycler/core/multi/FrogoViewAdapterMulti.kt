@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core.viewmulti
+package com.frogobox.recycler.core.multi
 
 import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
