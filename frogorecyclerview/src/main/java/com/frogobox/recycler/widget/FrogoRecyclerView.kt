@@ -10,7 +10,7 @@ import com.frogobox.recycler.core.viewmulti.FrogoRvSingletonMulti
 import com.frogobox.recycler.core.viewrclass.FrogoRvSingletonRclass
 import com.frogobox.recycler.core.viewmulti.FrogoViewAdapterMulti
 import com.frogobox.recycler.core.viewmulti.IFrogoViewHolderMulti
-import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.core.FrogoRvConstant
 
 
 /**

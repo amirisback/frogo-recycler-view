@@ -1,8 +1,8 @@
 package com.frogobox.recycler.core.viewmulti
 
 import android.view.ViewGroup
-import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_FIRST
-import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
+import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
 
 /*
  * Created by Faisal Amir

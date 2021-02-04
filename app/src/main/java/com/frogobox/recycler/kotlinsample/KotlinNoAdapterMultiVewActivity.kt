@@ -10,7 +10,7 @@ import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
-import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.core.FrogoRvConstant
 
 class KotlinNoAdapterMultiVewActivity : BaseActivity() {
 

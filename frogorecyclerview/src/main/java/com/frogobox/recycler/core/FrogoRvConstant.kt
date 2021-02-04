@@ -1,4 +1,4 @@
-package com.frogobox.recycler.util
+package com.frogobox.recycler.core
 
 /*
  * Created by Faisal Amir

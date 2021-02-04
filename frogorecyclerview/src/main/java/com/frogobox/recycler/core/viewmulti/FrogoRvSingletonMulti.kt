@@ -10,7 +10,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.adapter.callback.IFrogoViewAdapterMulti
-import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.core.FrogoRvConstant
 
 /*
  * Created by Faisal Amir

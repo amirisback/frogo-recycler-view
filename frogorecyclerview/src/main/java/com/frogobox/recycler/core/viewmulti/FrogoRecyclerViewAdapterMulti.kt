@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_FIRST
-import com.frogobox.recycler.util.FrogoRvConstant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
+import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
 
 /*
  * Created by Faisal Amir

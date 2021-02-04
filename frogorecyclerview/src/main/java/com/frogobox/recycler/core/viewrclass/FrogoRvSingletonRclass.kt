@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.core.FrogoRvConstant
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*

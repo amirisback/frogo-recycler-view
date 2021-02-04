@@ -11,7 +11,7 @@ import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.core.viewrclass.FrogoViewAdapter
 import com.frogobox.recycler.core.viewrclass.IFrogoViewAdapter
 import com.frogobox.recycler.core.viewrclass.IFrogoViewHolder
-import com.frogobox.recycler.util.FrogoRvConstant
+import com.frogobox.recycler.core.FrogoRvConstant
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
