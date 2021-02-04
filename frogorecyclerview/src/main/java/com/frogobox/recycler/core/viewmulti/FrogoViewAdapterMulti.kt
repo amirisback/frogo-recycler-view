@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.core.FrogoViewHolder
 import com.frogobox.recycler.core.IFrogoViewHolder
 
 /*
@@ -27,15 +28,15 @@ class FrogoViewAdapterMulti<T>(
 ) :
     FrogoRecyclerViewAdapterMulti<T>() {
 
-    private fun firstFrogoViewHolder(parent: ViewGroup): FrogoViewHolderFirst<T> {
-        return FrogoViewHolderFirst(
+    private fun firstFrogoViewHolder(parent: ViewGroup): FrogoViewHolder<T> {
+        return FrogoViewHolder(
             viewLayout(parent, OPTION_HOLDER_FIRST),
             frogoViewHolderCallbackFirst
         )
     }
 
-    private fun secondFrogoViewHolder(parent: ViewGroup): FrogoViewHolderSecond<T> {
-        return FrogoViewHolderSecond(
+    private fun secondFrogoViewHolder(parent: ViewGroup): FrogoViewHolder<T> {
+        return FrogoViewHolder(
             viewLayout(parent, OPTION_HOLDER_SECOND),
             frogoViewHolderCallbackSecond
         )

@@ -9,6 +9,7 @@ import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_FIRST
 import com.frogobox.recycler.core.FrogoRvConstant.OPTION_HOLDER_SECOND
+import com.frogobox.recycler.core.FrogoViewHolder
 
 /*
  * Created by Faisal Amir
@@ -113,11 +114,11 @@ abstract class FrogoRecyclerViewAdapterMulti<T> :
         if (hasEmptyView) {
             if (mRecyclerViewDataList.size != 0) {
                 when (holder) {
-                    is FrogoViewHolderFirst -> holder.bindItem(
+                    is FrogoViewHolder -> holder.bindItem(
                         mRecyclerViewDataList[position],
                         mFirstViewListener
                     )
-                    is FrogoViewHolderSecond -> holder.bindItem(
+                    is FrogoViewHolder -> holder.bindItem(
                         mRecyclerViewDataList[position],
                         mSecondViewListener
                     )
@@ -125,11 +126,11 @@ abstract class FrogoRecyclerViewAdapterMulti<T> :
             }
         } else {
             when (holder) {
-                is FrogoViewHolderFirst -> holder.bindItem(
+                is FrogoViewHolder -> holder.bindItem(
                     mRecyclerViewDataList[position],
                     mFirstViewListener
                 )
-                is FrogoViewHolderSecond -> holder.bindItem(
+                is FrogoViewHolder -> holder.bindItem(
                     mRecyclerViewDataList[position],
                     mSecondViewListener
                 )
