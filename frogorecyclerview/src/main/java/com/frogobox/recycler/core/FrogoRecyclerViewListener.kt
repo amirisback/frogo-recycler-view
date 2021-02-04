@@ -19,8 +19,10 @@ package com.frogobox.recycler.core
  */
 interface FrogoRecyclerViewListener<T> {
 
+    // on itemview set on click listener
     fun onItemClicked(data: T)
 
+    // on itemview set on long click listener
     fun onItemLongClicked(data: T)
 
 }
