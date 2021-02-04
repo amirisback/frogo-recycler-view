@@ -26,16 +26,16 @@ import com.frogobox.recycler.core.CoreFrogoRecyclerViewAdapter
  */
 abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
 
-    private var mLayoutRecyclerViewInt: Int = 0
-    private var mLayoutCustomViewInt: Int = 0
-    private var mLayoutEmptyViewInt: Int = R.layout.frogo_container_empty_view
+    private var layoutRv: Int = 0
+    private var customLayoutRestId: Int = 0
+    private var emptyLayoutResId: Int = R.layout.frogo_container_empty_view
 
     private fun layoutHandle() {
-        if (mLayoutCustomViewInt != 0) {
-            if (listData.isNotEmpty()) {
-                mLayoutRecyclerViewInt = mLayoutCustomViewInt
+        if (customLayoutRestId != 0) {
+            layoutRv = if (listData.isNotEmpty()) {
+                customLayoutRestId
             } else {
-                mLayoutRecyclerViewInt = mLayoutEmptyViewInt
+                emptyLayoutResId
             }
         }
     }
@@ -48,13 +48,13 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
     fun setupEmptyView(emptyView: Int?) {
         hasEmptyView = true
         if (emptyView != null) {
-            mLayoutEmptyViewInt = emptyView
+            emptyLayoutResId = emptyView
         }
         emptyViewHandle()
     }
 
     fun setupRequirement(
-        customViewInt: Int,
+        customViewId: Int,
         listData: List<T>?,
         listener: FrogoRecyclerViewListener<T>?
     ) {
@@ -64,16 +64,17 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T>() {
         }
 
         this.listData.clear()
+
         if (listData != null) {
             this.listData.addAll(listData)
         }
 
-        mLayoutCustomViewInt = customViewInt
+        customLayoutRestId = customViewId
         emptyViewHandle()
     }
 
     fun viewLayout(parent: ViewGroup): View {
-        return LayoutInflater.from(parent.context).inflate(mLayoutRecyclerViewInt, parent, false)
+        return LayoutInflater.from(parent.context).inflate(layoutRv, parent, false)
     }
 
 }

@@ -26,16 +26,14 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * com.frogobox.recycler
  *
  */
-class FrogoRvSingle<T> :
-    IFrogoRvSingle<T> {
-
-    private var emptyViewInt: Int = R.layout.frogo_container_empty_view
-    private var customViewInt: Int = 0
+class FrogoRvSingle<T> : IFrogoRvSingle<T> {
 
     private lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
     private lateinit var frogoViewAdapter: FrogoViewAdapter<T>
-
     private lateinit var mFrogoRecyclerView: FrogoRecyclerView
+
+    private var emptyViewId: Int = R.layout.frogo_container_empty_view
+    private var customViewId: Int = 0
     private var layoutSpanCount = 0
     private var listData: List<T>? = null
     private var optionLayoutManager = ""
@@ -86,14 +84,14 @@ class FrogoRvSingle<T> :
     }
 
     override fun addCustomView(customViewInt: Int): FrogoRvSingle<T> {
-        this.customViewInt = customViewInt
-        Log.d("injector-customView", this.customViewInt.toString())
+        this.customViewId = customViewInt
+        Log.d("injector-customView", this.customViewId.toString())
         return this
     }
 
     override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingle<T> {
-        if (emptyViewInt != null) this.emptyViewInt = emptyViewInt
-        Log.d("injector-emptyView", this.emptyViewInt.toString())
+        if (emptyViewInt != null) this.emptyViewId = emptyViewInt
+        Log.d("injector-emptyView", this.emptyViewId.toString())
         return this
     }
 
@@ -168,7 +166,7 @@ class FrogoRvSingle<T> :
             }
         })
 
-        frogoViewAdapter.setupRequirement(customViewInt, listData,
+        frogoViewAdapter.setupRequirement(customViewId, listData,
             object :
                 FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
@@ -180,7 +178,7 @@ class FrogoRvSingle<T> :
                 }
             })
 
-        frogoViewAdapter.setupEmptyView(emptyViewInt)
+        frogoViewAdapter.setupEmptyView(emptyViewId)
 
     }
 
