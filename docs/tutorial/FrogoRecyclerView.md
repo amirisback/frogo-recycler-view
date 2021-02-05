@@ -24,8 +24,7 @@ Just following the step until finish
 
     private fun setupFrogoRecyclerView() {
 
-        val adapterCallback = object :
-            FrogoViewAdapterCallback<ExampleModel> {
+        val adapterCallback = object : IFrogoViewAdapter<ExampleModel> {
             override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.tv_example_item).text = data.name
@@ -56,7 +55,7 @@ Just following the step until finish
 
     private void setupFrogoRecyclerView() {
 
-        FrogoViewAdapterCallback frogoViewAdapterCallback = new FrogoViewAdapterCallback<ExampleModel>() {
+        IFrogoViewAdapter frogoViewAdapterCallback = new IFrogoViewAdapter<ExampleModel>() {
             @Override
             public void setupInitComponent(@NotNull View view, ExampleModel data) {
                 // Init component content item recyclerview
@@ -242,8 +241,8 @@ Just following the step until finish
                 .createLayoutStaggeredGrid(2)
                 .build();
     }
-    
-    
+
+
 # Sample Code 
 ## No Adapter
 - Kotlin - [KotlinNoAdapterActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/KotlinNoAdapterActivity.kt)
