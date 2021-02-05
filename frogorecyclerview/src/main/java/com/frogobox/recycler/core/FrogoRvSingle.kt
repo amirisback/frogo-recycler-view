@@ -26,20 +26,25 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  */
 class FrogoRvSingle<T> : IFrogoRvSingle<T> {
 
+    private var emptyViewId: Int = R.layout.frogo_container_empty_view
+
+    private lateinit var mFrogoRecyclerView: FrogoRecyclerView
     private lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
     private lateinit var frogoViewAdapter: FrogoViewAdapter<T>
-    private lateinit var mFrogoRecyclerView: FrogoRecyclerView
 
-    private var emptyViewId: Int = R.layout.frogo_container_empty_view
+    private val listDataFH = mutableListOf<FrogoHolder<T>>()
+    private val listData = mutableListOf<T>()
+
     private var customViewId: Int = 0
     private var layoutSpanCount = 0
-    private var listData: List<T>? = null
+
     private var optionLayoutManager = ""
     private var optionDividerItem = false
     private var optionAdapter = ""
 
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingle<T> {
         mFrogoRecyclerView = frogoRecyclerView
+        frogoViewAdapter = FrogoViewAdapter()
         return this
     }
 
@@ -76,8 +81,15 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
     }
 
     override fun addData(listData: List<T>): FrogoRvSingle<T> {
-        this.listData = listData
+        this.listData.addAll(listData)
         Log.d("injector-listData", this.listData.toString())
+        return this
+    }
+
+    override fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoRvSingle<T> {
+        this.listDataFH.addAll(listDataFH)
+        frogoViewAdapter.setupMultiHolder()
+        Log.d("injector-listData", this.listDataFH.toString())
         return this
     }
 
@@ -105,7 +117,7 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         Log.d("injector-divider", optionDividerItem.toString())
         Log.d("injector-spanCount", layoutSpanCount.toString())
 
-        if (listData!!.isNotEmpty()) {
+        if (listData.isNotEmpty() || listDataFH.isNotEmpty()) {
             if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_VERTICAL) {
                 mFrogoRecyclerView.layoutManager = LinearLayoutManager(
                     mFrogoRecyclerView.context,
@@ -157,29 +169,34 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
     }
 
     private fun createAdapter() {
-        optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        frogoViewAdapter = FrogoViewAdapter()
 
-        frogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
-            override fun setupInitComponent(view: View, data: T) {
-                frogoAdapterCallback.setupInitComponent(view, data)
-            }
-        })
+        if (frogoViewAdapter.hasMultiHolder){
+            optionAdapter = FrogoRvConstant.FROGO_ADAPTER_MULTI
+            frogoViewAdapter.setupRequirement(listDataFH)
+            frogoViewAdapter.setupEmptyView(emptyViewId)
 
-        frogoViewAdapter.setupRequirement(customViewId, listData,
-            object :
-                FrogoRecyclerViewListener<T> {
-                override fun onItemClicked(data: T) {
-                    frogoAdapterCallback.onItemClicked(data)
-                }
-
-                override fun onItemLongClicked(data: T) {
-                    frogoAdapterCallback.onItemLongClicked(data)
+        } else {
+            optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
+            frogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
+                override fun setupInitComponent(view: View, data: T) {
+                    frogoAdapterCallback.setupInitComponent(view, data)
                 }
             })
 
-        frogoViewAdapter.setupEmptyView(emptyViewId)
+            frogoViewAdapter.setupRequirement(customViewId, listData,
+                object :
+                    FrogoRecyclerViewListener<T> {
+                    override fun onItemClicked(data: T) {
+                        frogoAdapterCallback.onItemClicked(data)
+                    }
 
+                    override fun onItemLongClicked(data: T) {
+                        frogoAdapterCallback.onItemLongClicked(data)
+                    }
+                })
+            frogoViewAdapter.setupEmptyView(emptyViewId)
+
+        }
     }
 
     private fun setupInnerAdapter() {

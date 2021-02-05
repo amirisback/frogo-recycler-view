@@ -1,6 +1,5 @@
 package com.frogobox.recycler.widget
 
-import com.frogobox.recycler.core.multi.FrogoRvMultiSingle
 import com.frogobox.recycler.core.FrogoRvSingle
 
 /**
@@ -37,8 +36,5 @@ interface IFrogoRecyclerView {
 
     // Setup SingletonRclass
     fun <T> injector(): FrogoRvSingle<T>
-
-    // Setup SingletonRclass
-    fun <T> injectors(): FrogoRvMultiSingle<T>
 
 }

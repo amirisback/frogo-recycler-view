@@ -32,6 +32,7 @@ class FrogoViewAdapter<T> : FrogoRecyclerViewAdapter<T>() {
     ): FrogoRecyclerViewHolder<T> {
 
         return if (hasMultiHolder) {
+            // STIL BUG IF EMPTY
             FrogoViewHolder(
                 viewLayout(parent, frogoHolder[viewType].layoutResId),
                 frogoHolder[viewType].callback

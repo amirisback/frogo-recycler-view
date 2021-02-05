@@ -18,5 +18,4 @@ data class FrogoHolder<T>(
     val option: Int,
     val callback: IFrogoViewHolder<T>,
     val listener: FrogoRecyclerViewListener<T>
-
 )

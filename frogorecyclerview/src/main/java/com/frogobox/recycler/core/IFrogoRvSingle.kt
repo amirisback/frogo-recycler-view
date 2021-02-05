@@ -31,6 +31,8 @@ interface IFrogoRvSingle<T> {
 
     fun addData(listData: List<T>): FrogoRvSingle<T>
 
+    fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoRvSingle<T>
+
     fun addCustomView(customViewInt: Int): FrogoRvSingle<T>
 
     fun addEmptyView(emptyViewInt: Int?): FrogoRvSingle<T>

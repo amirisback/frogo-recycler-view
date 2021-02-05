@@ -62,7 +62,6 @@ public class JavaNoAdapterActivity extends BaseActivity {
                 .addCallback(frogoViewAdapterCallback)
                 .createLayoutStaggeredGrid(2)
                 .build();
-
     }
 
 }
