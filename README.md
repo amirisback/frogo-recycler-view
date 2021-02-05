@@ -4,9 +4,8 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--recycler--view-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8205)
 [![JitPack](https://jitpack.io/v/amirisback/frogo-recycler-view.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-recycler-view)
 - RecyclerView No Adapter (Adapter Has Been Handled)
-- RecyclerView Multi-View-Type (only 2 type, still bug on java - beta version)
+- RecyclerView Multi-View-Type (Stable - Multi ViewHolder)
 - Elegant call using injector()
-- ViewBinding (Generic Type) *On Development
 - Shimmer Effect
 - Empty View Effect
 
@@ -19,7 +18,7 @@ List Function        |   Frogo Shimmer RecyclerView |   Frogo Multi View   | Sim
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.2.0
+    $version_release = 3.3.0
 
 What's New??
 
@@ -28,15 +27,34 @@ What's New??
     * Enhance Performance *
     * Update build.gradle *
     * Update package name *
+    * Update class name *
+    * Single Injector *
+    * Add: MultiViewHolder *
+
 
     Cautions :
+    - >> on Version 3.2.0
     - If you use version under 3.2.0 you must pay attenttion to package import
     - Please re-import package
     - Package name [base, parent, boilerplate] updated to core
 
+    - >> on Version 3.3.0
+    - If you use version under 3.3.0 you must pay attenttion to package import
+    - Please re-import package
+    - Package name [base, parent, boilerplate] updated to core
+    - No more package name [viewrclass, viewbinding, viewshimmer] all in core
+
     Update :
+    >> on Version 3.2.0
     from -> import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
     to -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+
+    >> on Version 3.3.0
+    from -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+    to -> import com.frogobox.recycler.core.IFrogoViewAdapter
+
+    from -> FrogoViewAdapterCallback
+    to -> IFrogoViewAdapter
 
 
 # Download this project
@@ -56,7 +74,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.2.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.3.0'
     }
 
 # Tutorial
