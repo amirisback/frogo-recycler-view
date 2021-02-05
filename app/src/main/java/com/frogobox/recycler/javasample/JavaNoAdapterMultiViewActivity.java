@@ -21,7 +21,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activityFrogoRvListBinding.getRoot());
+        setContentView(activityFrogoRvGridBinding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter - Multi View");
     }
@@ -94,7 +94,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     }
 
     private void setupFrogoRecyclerView() {
-        activityFrogoRvListBinding.frogoRecyclerView.injector()
+        activityFrogoRvGridBinding.frogoRecyclerView.injector()
                 .addDataFH(data())
                 .createLayoutStaggeredGrid(2)
                 .build();

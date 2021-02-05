@@ -1,6 +1,7 @@
 package com.frogobox.recycler.core
 
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 
 /*
@@ -30,17 +31,16 @@ class FrogoViewAdapter<T> : FrogoRecyclerViewAdapter<T>() {
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerViewHolder<T> {
-
         return if (hasMultiHolder) {
-            // STIL BUG IF EMPTY
-            FrogoViewHolder(
-                viewLayout(parent, frogoHolder[viewType].layoutResId),
-                frogoHolder[viewType].callback
-            )
+            if (frogoHolder.isNotEmpty()) {
+                FrogoViewHolder(viewLayout(parent, frogoHolder[viewType].layoutResId), frogoHolder[viewType].callback)
+            } else {
+                FrogoViewHolder(viewLayout(parent, emptyLayoutResId), object : IFrogoViewHolder<T>{
+                    override fun setupInitComponent(view: View, data: T) {}
+                })
+            }
         } else {
             FrogoViewHolder(viewLayout(parent), frogoViewHolderCallback)
         }
-
     }
-
 }

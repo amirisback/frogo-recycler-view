@@ -25,4 +25,4 @@
     android:background="@color/frogoColorWhite"
     android:clipToPadding="false"
     android:paddingTop="@dimen/frogo_dimen_16dp"
-    android:paddingStart="@dimen/frogo_dimen_16dp"/>
+    android:paddingLeft="@dimen/frogo_dimen_16dp"/>
