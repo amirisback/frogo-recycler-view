@@ -70,4 +70,7 @@ dependencies {
     // library frogo-ui-kit
     implementation 'com.github.amirisback:frogo-ui-kit:1.0.3'
 
+    // library frogo-log
+    implementation 'com.github.amirisback:frogo-log:1.0.0'
+
 }
