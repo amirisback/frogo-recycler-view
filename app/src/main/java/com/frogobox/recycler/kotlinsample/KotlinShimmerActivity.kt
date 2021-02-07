@@ -126,7 +126,7 @@ class KotlinShimmerActivity : BaseActivity() {
 
     private fun setupShimmerLoading() {
         activityKotlinShimmerBinding.rvShimmer.defineShimmerView()
-            .addShimmerSumOfItemLoading(5)
+            .addShimmerSumOfItemLoading(7)
             .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
             .createLayoutLinearVertical(false)
             .build()

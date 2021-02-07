@@ -20,10 +20,10 @@ class KotlinNoAdapterActivity : BaseActivity() {
 
     private fun listData(): MutableList<ExampleModel> {
         val listString = mutableListOf<ExampleModel>()
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
         return listString
     }
 

@@ -24,7 +24,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * com.frogobox.recycler
  *
  */
-class FrogoRvSingle<T> : IFrogoRvSingle<T> {
+open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
 
     protected lateinit var mFrogoRecyclerView: FrogoRecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
@@ -64,27 +64,27 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
 
         FrogoLog.d("injector-layoutManager : $optionLayoutManager")
         FrogoLog.d("injector-divider : $optionDividerItem")
-        
+
         return this
     }
 
     override fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
-        
+
         FrogoLog.d("injector-layoutManager : $optionLayoutManager")
         FrogoLog.d("injector-spanCount : $layoutSpanCount")
-        
+
         return this
     }
 
     override fun createLayoutGrid(spanCount: Int): FrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
-        
+
         FrogoLog.d("injector-layoutManager : $optionLayoutManager")
         FrogoLog.d("injector-spanCount : $layoutSpanCount")
-        
+
         return this
     }
 
@@ -119,51 +119,51 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         return this
     }
 
-    protected fun setupLayoutManager() {
+    protected fun setupLayoutManager(frogoRV: FrogoRecyclerView) {
 
         if (listData.isNotEmpty() || listDataFH.isNotEmpty()) {
             if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_VERTICAL) {
-                mFrogoRecyclerView.layoutManager = LinearLayoutManager(
-                    mFrogoRecyclerView.context,
+                frogoRV.layoutManager = LinearLayoutManager(
+                    frogoRV.context,
                     LinearLayoutManager.VERTICAL,
                     false
                 )
                 if (optionDividerItem) {
-                    mFrogoRecyclerView.addItemDecoration(
+                    frogoRV.addItemDecoration(
                         DividerItemDecoration(
-                            mFrogoRecyclerView.context,
+                            frogoRV.context,
                             LinearLayoutManager.VERTICAL
                         )
                     )
                 }
             } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL) {
-                mFrogoRecyclerView.layoutManager = LinearLayoutManager(
-                    mFrogoRecyclerView.context,
+                frogoRV.layoutManager = LinearLayoutManager(
+                    frogoRV.context,
                     LinearLayoutManager.HORIZONTAL,
                     false
                 )
                 if (optionDividerItem) {
-                    mFrogoRecyclerView.addItemDecoration(
+                    frogoRV.addItemDecoration(
                         DividerItemDecoration(
-                            mFrogoRecyclerView.context,
+                            frogoRV.context,
                             LinearLayoutManager.HORIZONTAL
                         )
                     )
                 }
             } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_STAGGERED_GRID) {
-                mFrogoRecyclerView.layoutManager =
+                frogoRV.layoutManager =
                     StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
             } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_GRID) {
-                mFrogoRecyclerView.layoutManager =
-                    GridLayoutManager(mFrogoRecyclerView.context, layoutSpanCount)
+                frogoRV.layoutManager =
+                    GridLayoutManager(frogoRV.context, layoutSpanCount)
             }
         } else {
-            mFrogoRecyclerView.layoutManager =
-                LinearLayoutManager(mFrogoRecyclerView.context, LinearLayoutManager.VERTICAL, false)
+            frogoRV.layoutManager =
+                LinearLayoutManager(frogoRV.context, LinearLayoutManager.VERTICAL, false)
             if (optionDividerItem) {
-                mFrogoRecyclerView.addItemDecoration(
+                frogoRV.addItemDecoration(
                     DividerItemDecoration(
-                        mFrogoRecyclerView.context,
+                        frogoRV.context,
                         LinearLayoutManager.VERTICAL
                     )
                 )
@@ -172,9 +172,9 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
 
     }
 
-    protected fun createAdapter() {
+    protected open fun createAdapter() {
 
-        if (frogoViewAdapter.hasMultiHolder){
+        if (frogoViewAdapter.hasMultiHolder) {
             optionAdapter = FrogoRvConstant.FROGO_ADAPTER_MULTI
             frogoViewAdapter.setupRequirement(listDataFH)
             frogoViewAdapter.setupEmptyView(emptyViewId)
@@ -203,14 +203,14 @@ class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         }
     }
 
-    protected fun setupInnerAdapter() {
+    protected open fun setupInnerAdapter() {
         FrogoLog.d("injector-optionAdapter : $optionAdapter")
         mFrogoRecyclerView.adapter = frogoViewAdapter
     }
 
     override fun build(): FrogoRvSingle<T> {
         createAdapter()
-        setupLayoutManager()
+        setupLayoutManager(mFrogoRecyclerView)
         setupInnerAdapter()
         return this
     }

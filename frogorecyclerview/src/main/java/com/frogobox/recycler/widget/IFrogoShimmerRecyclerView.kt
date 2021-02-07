@@ -1,8 +1,7 @@
 package com.frogobox.recycler.widget
 
-import com.frogobox.recycler.core.shimmer.FrogoSrvSingle
-import com.frogobox.recycler.core.shimmer.FrogoSrvSingleRecycler
-import com.frogobox.recycler.core.shimmer.FrogoSrvSingleShimmer
+import com.frogobox.recycler.core.FrogoRvSingle
+import com.frogobox.recycler.core.FrogoSrvSingle
 
 /*
  * Created by Faisal Amir on 02/06/2020
@@ -19,14 +18,11 @@ import com.frogobox.recycler.core.shimmer.FrogoSrvSingleShimmer
  
 interface IFrogoShimmerRecyclerView {
 
-    // Setup SrvSingleton
-    fun <T> injector(): FrogoSrvSingle<T>
-
     // Setup SrvSingletonShimmer
-    fun defineShimmerView(): FrogoSrvSingleShimmer
+    fun defineShimmerView(): FrogoSrvSingle
 
     // Setup SrvSingletonRecycler
-    fun <T> defineRecyclerView(): FrogoSrvSingleRecycler<T>
+    fun <T> defineRecyclerView(): FrogoRvSingle<T>
 
     // Start Shimmer Animation
     fun startShimmer()

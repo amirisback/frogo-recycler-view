@@ -7,9 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.shimmer.FrogoSrvSingle
-import com.frogobox.recycler.core.shimmer.FrogoSrvSingleRecycler
-import com.frogobox.recycler.core.shimmer.FrogoSrvSingleShimmer
+import com.frogobox.recycler.core.FrogoRvSingle
+import com.frogobox.recycler.core.FrogoSrvSingle
 import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
 
 /*
@@ -86,19 +85,12 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
         widget_fsrv_shimmer.stopShimmer()
     }
 
-    override fun <T> injector(): FrogoSrvSingle<T> {
-        return FrogoSrvSingle<T>().initSingleton(
-            widget_fsrv_recyclerview,
-            widget_fsrv_shimmer_recyclerview
-        )
+    override fun defineShimmerView(): FrogoSrvSingle {
+        return FrogoSrvSingle().initSingleton(widget_fsrv_shimmer_recyclerview) as FrogoSrvSingle
     }
 
-    override fun defineShimmerView(): FrogoSrvSingleShimmer {
-        return FrogoSrvSingleShimmer().initSingleton(widget_fsrv_shimmer_recyclerview)
-    }
-
-    override fun <T> defineRecyclerView(): FrogoSrvSingleRecycler<T> {
-        return FrogoSrvSingleRecycler<T>().initSingleton(widget_fsrv_recyclerview)
+    override fun <T> defineRecyclerView(): FrogoRvSingle<T> {
+        return FrogoRvSingle<T>().initSingleton(widget_fsrv_recyclerview)
     }
 
 }
