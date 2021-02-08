@@ -18,44 +18,15 @@ List Function        |   Frogo Shimmer RecyclerView |   Frogo Multi View   | Sim
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.3.0
+    $version_release = 3.3.1
 
 What's New??
 
-    * Fixing Empty View bugs *
     * Refactoring Code *
     * Enhance Performance *
     * Update build.gradle *
-    * Update package name *
     * Update class name *
-    * Single Injector *
-    * Add: MultiViewHolder *
-
-
-    Cautions :
-    - >> on Version 3.2.0
-    - If you use version under 3.2.0 you must pay attenttion to package import
-    - Please re-import package
-    - Package name [base, parent, boilerplate] updated to core
-
-    - >> on Version 3.3.0
-    - If you use version under 3.3.0 you must pay attenttion to package import
-    - Please re-import package
-    - Package name [base, parent, boilerplate] updated to core
-    - No more package name [viewrclass, viewbinding, viewshimmer] all in core
-
-    Update :
-    >> on Version 3.2.0
-    from -> import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
-    to -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
-
-    >> on Version 3.3.0
-    from -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
-    to -> import com.frogobox.recycler.core.IFrogoViewAdapter
-
-    from -> FrogoViewAdapterCallback
-    to -> IFrogoViewAdapter
-
+    * Simplify Shimmer Core *
 
 # Download this project
 
@@ -74,7 +45,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.3.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.3.1'
     }
 
 # Tutorial
@@ -84,8 +55,38 @@ What's New??
 # Wiki
 - Frogo-UI-Kit Library [Click Here](https://github.com/amirisback/frogo-ui-kit)
 - Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
+
 ##  Alert
-If you using frogo-recycler-view under v3.0.1 and you want update this library to your project please implement library [frogo-ui-kit](https://github.com/amirisback/frogo-ui-kit) in your project, because we separating resource ui for better maintenance
+
+    Cautions :
+    >> under Version 3.0.1
+    - Please implement library [frogo-ui-kit](https://github.com/amirisback/frogo-ui-kit) in your project
+    - We separating resource ui for better maintenance
+
+    >> on Version 3.2.0
+    - If you use version under 3.2.0 you must pay attenttion to package import
+    - Please re-import package
+    - Package name [base, parent, boilerplate] updated to core
+
+    >> on Version 3.3.0 up
+    - If you use version under 3.3.0 you must pay attenttion to package import
+    - Please re-import package
+    - Package name [base, parent, boilerplate] updated to core
+    - No more package name [viewrclass, viewbinding, viewshimmer] all in core
+
+    Update :
+    >> on Version 3.2.0
+    from -> import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
+    to -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+
+    >> on Version 3.3.0 up
+    from -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
+    to -> import com.frogobox.recycler.core.IFrogoViewAdapter
+
+    >> on Version 3.3.0 up
+    from -> FrogoViewAdapterCallback
+    to -> IFrogoViewAdapter
+
 
 # Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
