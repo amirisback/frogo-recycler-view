@@ -1,7 +1,7 @@
 package com.frogobox.recycler.core
 
 import android.view.View
-import com.frogobox.frogolog.FrogoLog
+import com.frogobox.frogolog.FLog
 
 /*
  * Created by Faisal Amir on 04/06/2020
@@ -26,13 +26,13 @@ class FrogoSrvSingle : FrogoRvSingle<String>() {
 
     fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSrvSingle {
         srvCustomViewInt = customViewInt
-        FrogoLog.d("injector-shimmerView : $srvCustomViewInt")
+        FLog.d("injector-shimmerView : $srvCustomViewInt")
         return this
     }
 
     fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSrvSingle {
         srvSumListItem = sumItem
-        FrogoLog.d("injector-sumItem : $srvSumListItem")
+        FLog.d("injector-sumItem : $srvSumListItem")
         return this
     }
 
@@ -74,7 +74,7 @@ class FrogoSrvSingle : FrogoRvSingle<String>() {
     }
 
     override fun setupInnerAdapter() {
-        FrogoLog.d("injector-optionAdapter : $optionAdapter")
+        FLog.d("injector-optionAdapter : $optionAdapter")
         mFrogoRecyclerView.adapter = srvFrogoViewAdapter
     }
 

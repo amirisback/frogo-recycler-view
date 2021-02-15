@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.frogolog.FrogoLog
+import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
 
 /*
@@ -67,11 +67,11 @@ abstract class FrogoRecyclerViewAdapter<T> :
 
     override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
 
-        FrogoLog.d("hasMultiHolder : $hasMultiHolder")
-        FrogoLog.d("hasEmptyView : $hasEmptyView")
-        FrogoLog.d("listCount : $listCount")
-        FrogoLog.d("frogoHolder : ${frogoHolder.size}")
-        FrogoLog.d("listData : ${listData.size}")
+        FLog.d("hasMultiHolder : $hasMultiHolder")
+        FLog.d("hasEmptyView : $hasEmptyView")
+        FLog.d("listCount : $listCount")
+        FLog.d("frogoHolder : ${frogoHolder.size}")
+        FLog.d("listData : ${listData.size}")
         
         if (hasMultiHolder) {
             if (hasEmptyView) {

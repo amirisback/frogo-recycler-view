@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.frogobox.frogolog.FrogoLog
+import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
@@ -52,8 +52,8 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
 
-        FrogoLog.d("injector-layoutManager : $optionLayoutManager")
-        FrogoLog.d("injector-divider : $optionDividerItem")
+        FLog.d("injector-layoutManager : $optionLayoutManager")
+        FLog.d("injector-divider : $optionDividerItem")
 
         return this
     }
@@ -62,8 +62,8 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
 
-        FrogoLog.d("injector-layoutManager : $optionLayoutManager")
-        FrogoLog.d("injector-divider : $optionDividerItem")
+        FLog.d("injector-layoutManager : $optionLayoutManager")
+        FLog.d("injector-divider : $optionDividerItem")
 
         return this
     }
@@ -72,8 +72,8 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
 
-        FrogoLog.d("injector-layoutManager : $optionLayoutManager")
-        FrogoLog.d("injector-spanCount : $layoutSpanCount")
+        FLog.d("injector-layoutManager : $optionLayoutManager")
+        FLog.d("injector-spanCount : $layoutSpanCount")
 
         return this
     }
@@ -82,40 +82,40 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
 
-        FrogoLog.d("injector-layoutManager : $optionLayoutManager")
-        FrogoLog.d("injector-spanCount : $layoutSpanCount")
+        FLog.d("injector-layoutManager : $optionLayoutManager")
+        FLog.d("injector-spanCount : $layoutSpanCount")
 
         return this
     }
 
     override fun addData(listData: List<T>): FrogoRvSingle<T> {
         this.listData.addAll(listData)
-        FrogoLog.d("injector-listData : ${this.listData.size}")
+        FLog.d("injector-listData : ${this.listData.size}")
         return this
     }
 
     override fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoRvSingle<T> {
         this.listDataFH.addAll(listDataFH)
         frogoViewAdapter.setupMultiHolder()
-        FrogoLog.d("injector-listData : ${this.listDataFH.size}")
+        FLog.d("injector-listData : ${this.listDataFH.size}")
         return this
     }
 
     override fun addCustomView(customViewInt: Int): FrogoRvSingle<T> {
         this.customViewId = customViewInt
-        FrogoLog.d("injector-customView : $customViewId")
+        FLog.d("injector-customView : $customViewId")
         return this
     }
 
     override fun addEmptyView(emptyViewInt: Int?): FrogoRvSingle<T> {
         if (emptyViewInt != null) this.emptyViewId = emptyViewInt
-        FrogoLog.d("injector-emptyView : $emptyViewId")
+        FLog.d("injector-emptyView : $emptyViewId")
         return this
     }
 
     override fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoRvSingle<T> {
         this.frogoAdapterCallback = frogoViewAdapterCallback
-        FrogoLog.d("injector-adaptCallback : $frogoAdapterCallback")
+        FLog.d("injector-adaptCallback : $frogoAdapterCallback")
         return this
     }
 
@@ -204,7 +204,7 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
     }
 
     protected open fun setupInnerAdapter() {
-        FrogoLog.d("injector-optionAdapter : $optionAdapter")
+        FLog.d("injector-optionAdapter : $optionAdapter")
         mFrogoRecyclerView.adapter = frogoViewAdapter
     }
 
