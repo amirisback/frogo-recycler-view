@@ -18,15 +18,13 @@ List Function        |   Frogo Shimmer RecyclerView |   Frogo Multi View   | Sim
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.3.1
+    $version_release = 3.3.2
 
 What's New??
 
     * Refactoring Code *
     * Enhance Performance *
     * Update build.gradle *
-    * Update class name *
-    * Simplify Shimmer Core *
 
 # Download this project
 
@@ -45,7 +43,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.3.1'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.3.2'
     }
 
 # Tutorial

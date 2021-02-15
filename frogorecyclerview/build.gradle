@@ -13,7 +13,7 @@ android {
 
     def versionMajor = 3
     def versionMinor = 3
-    def versionPatch = 1
+    def versionPatch = 2
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
