@@ -22,6 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:frvClipToPadding="false"
-        app:frvPaddingTop="@dimen/frogo_dimen_16dp" />
+        app:frvPaddingTop="@dimen/frogo_dimen_16dp"/>
 
 </LinearLayout>

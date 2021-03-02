@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:targetSandboxVersion="1"
     package="com.frogobox.recycler"
+    android:targetSandboxVersion="1"
     tools:targetApi="o">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,13 +25,14 @@
         <activity android:name=".kotlinsample.KotlinNoAdapterActivity" />
         <activity android:name=".kotlinsample.usingadapter.KotlinSampleActivity" />
         <activity android:name=".javasample.usingadapter.JavaSampleActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainNestedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

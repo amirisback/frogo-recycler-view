@@ -45,4 +45,22 @@
 
     </declare-styleable>
 
+    <!-- frogo_shimmer_recycler_view attrs -->
+    <declare-styleable name="frogo_progress_recycler_view">
+
+        <attr name="fprvPaddingTop" format="dimension" />
+        <attr name="fprvPaddingRight" format="dimension" />
+        <attr name="fprvPaddingBottom" format="dimension" />
+        <attr name="fprvPaddingLeft" format="dimension" />
+
+        <attr name="fprvClipToPadding" format="boolean" />
+
+        <attr name="fprvProgressWidth" format="dimension"/>
+        <attr name="fprvProgressHeight" format="dimension"/>
+        <attr name="fprvProgressVisibility" format="integer"/>
+
+    </declare-styleable>
+
+
+
 </resources>
