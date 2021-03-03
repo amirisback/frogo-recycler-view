@@ -31,6 +31,9 @@ abstract class FrogoRecyclerViewAdapter<T> :
 
     protected var viewListener: FrogoRecyclerViewListener<T>? = null
 
+    protected val listPosition = HashMap<Int, Int>()
+    protected val sharedPool = RecyclerView.RecycledViewPool()
+
     protected val frogoHolder = mutableListOf<FrogoHolder<T>>()
     protected val listData = mutableListOf<T>()
     protected val listDataNested = mutableListOf<MutableList<T>>()

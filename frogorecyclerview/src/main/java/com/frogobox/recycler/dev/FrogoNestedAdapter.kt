@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
+import com.frogobox.recycler.core.IFrogoNestedHolder
 import com.frogobox.recycler.core.IFrogoViewHolder
 
 /*
@@ -21,14 +22,20 @@ import com.frogobox.recycler.core.IFrogoViewHolder
  * All rights reserved
  *
  */
-class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListener<Int>) :
+class FrogoNestedAdapter<T>(private val mItemClickListener: FrogoRecyclerViewListener<T>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val mList = mutableListOf<MutableList<Int>>()
-    private val listPosition = HashMap<Int, Int>()
-    private var sharedPool = RecyclerView.RecycledViewPool()
+    private var frogoNestedHolderCallback: IFrogoNestedHolder<T>? = null
+    private val sharedPool = RecyclerView.RecycledViewPool()
 
-    fun setupData(list: MutableList<MutableList<Int>>) {
+    private val mList = mutableListOf<MutableList<T>>()
+    private val listPosition = HashMap<Int, Int>()
+
+    fun setCallback(callback: IFrogoNestedHolder<T>) {
+        frogoNestedHolderCallback = callback
+    }
+
+    fun setupData(list: MutableList<MutableList<T>>) {
         mList.addAll(list)
     }
 
@@ -43,20 +50,20 @@ class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListene
             layoutManager = innerLLM
             setRecycledViewPool(sharedPool)
         }
-        return FrogoOuterHolder(innerRv)
+        return FrogoNestedHolder(innerRv, frogoNestedHolderCallback)
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         when (viewHolder.itemViewType) {
             else -> {
-                val holder = viewHolder as FrogoOuterHolder
+                val holder = viewHolder as FrogoNestedHolder<T>
 
                 // attibute inner element nested recyclerview
                 holder.bindView(R.layout.cell_nested_list, mList[position], mItemClickListener,
-                    object : IFrogoViewHolder<Int> {
-                        override fun setupInitComponent(view: View, data: Int) {
+                    object : IFrogoViewHolder<T> {
+                        override fun setupInitComponent(view: View, data: T) {
                             val tv = view.findViewById<TextView>(R.id.text)
-                            tv.text = data.toString()
+                            tv.text = "Amir"
                         }
                     })
 
@@ -72,9 +79,8 @@ class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListene
 
     override fun onViewRecycled(viewHolder: RecyclerView.ViewHolder) {
         val position = viewHolder.adapterPosition
-        val cellViewHolder = viewHolder as FrogoOuterHolder
-        val firstVisiblePosition =
-            cellViewHolder.getLinearLayoutManager().findFirstVisibleItemPosition()
+        val cellViewHolder = viewHolder as FrogoNestedHolder<T>
+        val firstVisiblePosition = cellViewHolder.getLinearLayoutManager().findFirstVisibleItemPosition()
         listPosition[position] = firstVisiblePosition
         super.onViewRecycled(viewHolder)
     }
