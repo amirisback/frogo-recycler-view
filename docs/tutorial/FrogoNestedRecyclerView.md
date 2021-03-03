@@ -4,7 +4,7 @@ This is the procedure for using frogo-shimmer-recycler-view
 # Screen Shoot Apps
 <span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_nested_menu.png"></span>
 <span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_nested_simple.png"></span>
-<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_nested_simple.gif"></span>
+<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_nested.gif"></span>
 
 # Usage (How to use this project)
 Just following the step until finish
