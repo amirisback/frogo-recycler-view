@@ -8,23 +8,25 @@
 - Elegant call using injector()
 - Shimmer Effect
 - Empty View Effect
+- Nested Recycler View
 
 # Screen Shoot Apps
 
-List Function        |   Frogo Shimmer RecyclerView |   Frogo Multi View   | Simple Empty View |
+Nested RecyclerView       |   Frogo Shimmer  |   Frogo Multi View   | Simple Empty View |
 :------------------:|:----------------------------:|:---------------------:|:-----------------:|
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
+<span align="center"><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
 
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.3.2
+    $version_release = 3.4.0
 
 What's New??
 
     * Refactoring Code *
     * Enhance Performance *
     * Update build.gradle *
+    * Frogo Nested Adapter *
 
 # Download this project
 
@@ -43,12 +45,13 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.3.2'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.4.0'
     }
 
 # Tutorial
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
 - FrogoShimmerRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoShimmerRecyclerView.md)
+- FrogoNestedRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoNestedRecyclerView.md)
 
 # Wiki
 - Frogo-UI-Kit Library [Click Here](https://github.com/amirisback/frogo-ui-kit)
