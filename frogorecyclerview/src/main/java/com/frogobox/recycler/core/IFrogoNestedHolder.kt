@@ -17,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
  */
 interface IFrogoNestedHolder<T> {
 
-    // Setup Init Component on ViewHolder
-    fun setupInitComponent(view: RecyclerView, data: T)
+    fun nestedCustomView() : Int
+
+    fun nestedListener() : FrogoRecyclerViewListener<T>
+
+    fun nestedCallback() : IFrogoViewHolder<T>
 
 }

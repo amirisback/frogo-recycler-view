@@ -10,6 +10,7 @@ import com.frogobox.recycler.kotlinsample.KotlinNoAdapterActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
 import com.frogobox.recycler.kotlinsample.KotlinShimmerActivity
 import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
+import com.frogobox.recycler.kotlinsample.usingadapter.KotlinNestedActivity
 
 class MainActivity : BaseActivity() {
 
@@ -20,33 +21,42 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupButton() {
-        activityMainBinding.btnWithData.setOnClickListener {
-            startActivity(Intent(this, KotlinSampleActivity::class.java))
+
+        activityMainBinding.apply {
+            btnWithData.setOnClickListener {
+                startActivity(Intent(this@MainActivity, KotlinSampleActivity::class.java))
+            }
+
+            btnEmptyData.setOnClickListener {
+                startActivity(Intent(this@MainActivity, JavaSampleActivity::class.java))
+            }
+
+            btnJavaNoAdapter.setOnClickListener {
+                startActivity(Intent(this@MainActivity, JavaNoAdapterActivity::class.java))
+            }
+
+            btnKotlinNoAdapter.setOnClickListener {
+                startActivity(Intent(this@MainActivity, KotlinNoAdapterActivity::class.java))
+            }
+
+            btnKotlinMultiview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, KotlinNoAdapterMultiVewActivity::class.java))
+            }
+
+            btnJavaMultiview.setOnClickListener {
+                startActivity(Intent(this@MainActivity, JavaNoAdapterMultiViewActivity::class.java))
+            }
+
+            btnKotlinShimmer.setOnClickListener {
+                startActivity(Intent(this@MainActivity, KotlinShimmerActivity::class.java))
+            }
+
+            btnNested.setOnClickListener {
+                startActivity(Intent(this@MainActivity, KotlinNestedActivity::class.java))
+            }
         }
 
-        activityMainBinding.btnEmptyData.setOnClickListener {
-            startActivity(Intent(this, JavaSampleActivity::class.java))
-        }
 
-        activityMainBinding.btnJavaNoAdapter.setOnClickListener {
-            startActivity(Intent(this, JavaNoAdapterActivity::class.java))
-        }
-
-        activityMainBinding.btnKotlinNoAdapter.setOnClickListener {
-            startActivity(Intent(this, KotlinNoAdapterActivity::class.java))
-        }
-
-        activityMainBinding.btnKotlinMultiview.setOnClickListener {
-            startActivity(Intent(this, KotlinNoAdapterMultiVewActivity::class.java))
-        }
-
-        activityMainBinding.btnJavaMultiview.setOnClickListener {
-            startActivity(Intent(this, JavaNoAdapterMultiViewActivity::class.java))
-        }
-
-        activityMainBinding.btnKotlinShimmer.setOnClickListener {
-            startActivity(Intent(this, KotlinShimmerActivity::class.java))
-        }
 
     }
 

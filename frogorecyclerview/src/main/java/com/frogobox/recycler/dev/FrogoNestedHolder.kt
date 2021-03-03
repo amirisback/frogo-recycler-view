@@ -25,24 +25,19 @@ class FrogoNestedHolder<T>(
         return recyclerView.layoutManager as LinearLayoutManager
     }
 
-    fun bindView(
-        customViewId: Int,
-        list: MutableList<T>,
-        listener: FrogoRecyclerViewListener<T>,
-        callback: IFrogoViewHolder<T>
-    ) {
+    fun bindNestedItem(data: MutableList<T>) {
         val mAdapter = FrogoViewAdapter<T>()
-        mAdapter.setCallback(callback)
-        mAdapter.setupRequirement(customViewId, list, listener)
+        mAdapter.setCallback(frogoNestedHolderCallback!!.nestedCallback())
+        mAdapter.setupRequirement(
+            frogoNestedHolderCallback.nestedCustomView(),
+            data,
+            frogoNestedHolderCallback.nestedListener()
+        )
         recyclerView.adapter = mAdapter
         recyclerView.isNestedScrollingEnabled = false
-
-        //optional
         FrogoStartSnapHelper().attachToRecyclerView(recyclerView)
     }
 
-    override fun initComponent(data: T) {
-        frogoNestedHolderCallback?.setupInitComponent(recyclerView, data)
-    }
+    override fun initComponent(data: T) {}
 }
 

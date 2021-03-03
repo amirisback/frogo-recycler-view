@@ -148,6 +148,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_kotlin_shimmer" />
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Shimmer Recycler View"
+            android:textColor="@color/frogoColorBlack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_java_shimmer" />
+
+        <Button
+            android:id="@+id/btn_nested"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/frogo_dimen_8dp"
+            android:background="@drawable/frogo_bg_amber_32dp"
+            android:text="Nested Recycler View"
+            android:textColor="@color/frogoColorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

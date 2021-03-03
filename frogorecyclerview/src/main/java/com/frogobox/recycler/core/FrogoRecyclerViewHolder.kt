@@ -1,6 +1,7 @@
 package com.frogobox.recycler.core
 
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -22,6 +23,12 @@ import androidx.recyclerview.widget.RecyclerView
  */
 abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
 
+    abstract fun initComponent(data: T) // component view
+
+    fun getLinearLayoutManager(recyclerView: RecyclerView): LinearLayoutManager {
+        return recyclerView.layoutManager as LinearLayoutManager
+    }
+
     fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
         if (data != null) {
             onItemViewClicked(data, listener)
@@ -42,7 +49,5 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
             true
         }
     }
-
-    abstract fun initComponent(data: T) // component view
 
 }

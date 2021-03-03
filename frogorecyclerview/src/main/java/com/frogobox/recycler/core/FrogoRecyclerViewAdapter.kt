@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
+import com.frogobox.recycler.dev.FrogoNestedHolder
 
 /*
  * Created by Faisal Amir
@@ -43,29 +44,37 @@ abstract class FrogoRecyclerViewAdapter<T> :
     protected var customLayoutRestId: Int = 0
     protected var emptyLayoutResId: Int = R.layout.frogo_container_empty_view
 
+    fun bindNestedHolder(){
+
+    } // component view
+
     override fun getItemCount(): Int {
 
-        return if (hasMultiHolder) {
-            if (hasEmptyView) {
-                listCount = if (frogoHolder.size == 0) {
-                    1
+        return if (hasNestedView) {
+            listDataNested.size
+        } else {
+            if (hasMultiHolder) {
+                if (hasEmptyView) {
+                    listCount = if (frogoHolder.size == 0) {
+                        1
+                    } else {
+                        frogoHolder.size
+                    }
+                    listCount
                 } else {
                     frogoHolder.size
                 }
-                listCount
             } else {
-                frogoHolder.size
-            }
-        } else {
-            if (hasEmptyView) {
-                listCount = if (listData.size == 0) {
-                    1
+                if (hasEmptyView) {
+                    listCount = if (listData.size == 0) {
+                        1
+                    } else {
+                        listData.size
+                    }
+                    listCount
                 } else {
                     listData.size
                 }
-                listCount
-            } else {
-                listData.size
             }
         }
     }
@@ -77,22 +86,26 @@ abstract class FrogoRecyclerViewAdapter<T> :
         FLog.d("listCount : $listCount")
         FLog.d("frogoHolder : ${frogoHolder.size}")
         FLog.d("listData : ${listData.size}")
-        
-        if (hasMultiHolder) {
-            if (hasEmptyView) {
-                if (frogoHolder.size != 0) {
+
+        if (hasNestedView) {
+            bindNestedHolder()
+        } else {
+            if (hasMultiHolder) {
+                if (hasEmptyView) {
+                    if (frogoHolder.size != 0) {
+                        holder.bindItem(frogoHolder[position].data, frogoHolder[position].listener)
+                    }
+                } else {
                     holder.bindItem(frogoHolder[position].data, frogoHolder[position].listener)
                 }
             } else {
-                holder.bindItem(frogoHolder[position].data, frogoHolder[position].listener)
-            }
-        } else {
-            if (hasEmptyView) {
-                if (listData.size != 0) {
+                if (hasEmptyView) {
+                    if (listData.size != 0) {
+                        holder.bindItem(listData[position], viewListener)
+                    }
+                } else {
                     holder.bindItem(listData[position], viewListener)
                 }
-            } else {
-                holder.bindItem(listData[position], viewListener)
             }
         }
     }
@@ -107,6 +120,15 @@ abstract class FrogoRecyclerViewAdapter<T> :
         } else {
             super.getItemViewType(position)
         }
+    }
+
+    override fun onViewRecycled(holder: FrogoRecyclerViewHolder<T>) {
+        if (hasNestedView) {
+            val position = holder.adapterPosition
+            val nestedHolder = holder as FrogoNestedHolder<T>
+            listPosition[position] = nestedHolder.getLinearLayoutManager().findFirstVisibleItemPosition()
+        }
+        super.onViewRecycled(holder)
     }
 
     fun layoutHandling() {
@@ -137,6 +159,10 @@ abstract class FrogoRecyclerViewAdapter<T> :
         customLayoutRestId = layoutResId
         layoutHandling()
         return LayoutInflater.from(parent.context).inflate(layoutRv, parent, false)
+    }
+
+    fun setupNestedView() {
+        hasNestedView = true
     }
 
     fun setupMultiHolder() {
