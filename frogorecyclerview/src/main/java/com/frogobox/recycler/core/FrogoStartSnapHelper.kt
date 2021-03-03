@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 
-class StartSnapHelper : LinearSnapHelper() {
+class FrogoStartSnapHelper : LinearSnapHelper() {
     private var mVerticalHelper: OrientationHelper? = null
     private var mHorizontalHelper: OrientationHelper? = null
 

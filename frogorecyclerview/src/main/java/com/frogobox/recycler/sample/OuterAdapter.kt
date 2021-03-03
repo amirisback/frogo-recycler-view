@@ -1,9 +1,10 @@
-package com.frogobox.recycler.core
+package com.frogobox.recycler.sample
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.RecycledViewPool
+import com.frogobox.recycler.core.FrogoStartSnapHelper
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -41,7 +42,7 @@ class OuterAdapter(private val mItemClickListener: InnerAdapter.OnItemClickListe
             }
 
             //optional
-            StartSnapHelper().attachToRecyclerView(rv)
+            FrogoStartSnapHelper().attachToRecyclerView(rv)
         }
     }
 

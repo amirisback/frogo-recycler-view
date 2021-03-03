@@ -1,4 +1,4 @@
-package com.frogobox.recycler.core
+package com.frogobox.recycler.sample
 
 import android.view.LayoutInflater
 import android.view.View

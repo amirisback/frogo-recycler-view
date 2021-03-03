@@ -27,13 +27,11 @@ class KotlinSampleActivity : BaseActivity() {
     }
 
     private fun setupAdapter() {
-        val adapter =
-            KotlinSampleViewAdapter()
+        val adapter = KotlinSampleViewAdapter()
         adapter.setupRequirement(
             R.layout.frogo_rv_list_type_1,
             listData(),
-            object :
-                FrogoRecyclerViewListener<ExampleModel> {
+            object : FrogoRecyclerViewListener<ExampleModel> {
                 override fun onItemClicked(data: ExampleModel) {
                     Toast.makeText(this@KotlinSampleActivity, data.name, Toast.LENGTH_SHORT).show()
                 }

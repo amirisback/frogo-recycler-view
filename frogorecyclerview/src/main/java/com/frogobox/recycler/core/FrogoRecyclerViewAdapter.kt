@@ -27,11 +27,13 @@ abstract class FrogoRecyclerViewAdapter<T> :
 
     var hasEmptyView = false
     var hasMultiHolder = false
+    var hasNestedView = false
 
     protected var viewListener: FrogoRecyclerViewListener<T>? = null
 
     protected val frogoHolder = mutableListOf<FrogoHolder<T>>()
     protected val listData = mutableListOf<T>()
+    protected val listDataNested = mutableListOf<MutableList<T>>()
     protected var listCount = 0
 
     protected var layoutRv: Int = 0
@@ -144,6 +146,32 @@ abstract class FrogoRecyclerViewAdapter<T> :
             emptyLayoutResId = emptyView
         }
         layoutHandling()
+    }
+
+    fun setupDataNested(data: List<MutableList<T>>?) {
+        this.listDataNested.clear()
+
+        if (data != null) {
+            this.listDataNested.addAll(data)
+        }
+    }
+
+    fun setupData(data: List<T>?) {
+        this.listData.clear()
+
+        if (data != null) {
+            this.listData.addAll(data)
+        }
+    }
+
+    fun setupListener(listener: FrogoRecyclerViewListener<T>?) {
+        if (listener != null) {
+            viewListener = listener
+        }
+    }
+
+    fun setupCustomLayout(customViewId: Int) {
+        customLayoutRestId = customViewId
     }
 
     fun setupRequirement(

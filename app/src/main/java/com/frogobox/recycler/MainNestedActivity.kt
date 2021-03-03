@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frogobox.recycler.core.InnerAdapter
-import com.frogobox.recycler.core.OuterAdapter
+import com.frogobox.recycler.sample.InnerAdapter
+import com.frogobox.recycler.sample.OuterAdapter
 import kotlinx.android.synthetic.main.activity_main_nested.*
 import java.util.*
 
