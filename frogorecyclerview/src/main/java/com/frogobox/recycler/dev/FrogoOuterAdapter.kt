@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.sample.OuterHolder
 
 /*
  * Created by Amir on 03/03/2021
@@ -39,7 +38,7 @@ class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListene
             layoutManager = innerLLM
             setRecycledViewPool(sharedPool)
         }
-        return OuterHolder(innerRv, mItemClickListener)
+        return FrogoOuterHolder(innerRv, mItemClickListener)
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
