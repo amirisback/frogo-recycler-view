@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
+import com.frogobox.recycler.dev.FrogoOuterAdapter
 import com.frogobox.recycler.sample.OuterAdapter
 import kotlinx.android.synthetic.main.activity_main_nested.*
 import java.util.*
@@ -39,7 +40,7 @@ class MainNestedActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
 
         val layoutManager = LinearLayoutManager(this)
-        val adapter = OuterAdapter(object : FrogoRecyclerViewListener<Int> {
+        val adapter = FrogoOuterAdapter(object : FrogoRecyclerViewListener<Int> {
             override fun onItemClicked(data: Int) {
                 Toast.makeText(this@MainNestedActivity, "click $data", Toast.LENGTH_SHORT).show()
             }

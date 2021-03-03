@@ -45,7 +45,7 @@ class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListene
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         when (viewHolder.itemViewType) {
             else -> {
-                val cellViewHolder = viewHolder as OuterHolder
+                val cellViewHolder = viewHolder as FrogoOuterHolder
                 cellViewHolder.setData(mList[position])
                 val p = if (listPosition.containsKey(position) && listPosition[position]!! >= 0) {
                     listPosition[position]!!
@@ -59,7 +59,7 @@ class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListene
 
     override fun onViewRecycled(viewHolder: RecyclerView.ViewHolder) {
         val position = viewHolder.adapterPosition
-        val cellViewHolder = viewHolder as OuterHolder
+        val cellViewHolder = viewHolder as FrogoOuterHolder
         val firstVisiblePosition =
             cellViewHolder.getLinearLayoutManager().findFirstVisibleItemPosition()
         listPosition[position] = firstVisiblePosition

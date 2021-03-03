@@ -3,7 +3,6 @@ package com.frogobox.recycler.dev
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.core.*
-import com.frogobox.recycler.sample.InnerAdapter
 
 /*
  * Created by Amir on 03/03/2021
@@ -19,7 +18,7 @@ import com.frogobox.recycler.sample.InnerAdapter
  */
 class FrogoOuterHolder (val rv: RecyclerView, listener: FrogoRecyclerViewListener<Int>) : RecyclerView.ViewHolder(rv) {
 
-    private var mAdapter = InnerAdapter(listener)
+    private var mAdapter = FrogoInnerAdapter(listener)
 
     fun getLinearLayoutManager(): LinearLayoutManager {
         return rv.layoutManager as LinearLayoutManager

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.sample.InnerHolder
 
 /*
  * Created by Amir on 03/03/2021
@@ -29,14 +28,14 @@ class FrogoInnerAdapter<T>(private val listener: FrogoRecyclerViewListener<T>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return InnerHolder<T>(
+        return FrogoInnerHolder<T>(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.detail_list_item_type_title, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val holders = holder as InnerHolder<T>
+        val holders = holder as FrogoInnerHolder<T>
         holders.bindViews(mList[position], listener)
     }
 
