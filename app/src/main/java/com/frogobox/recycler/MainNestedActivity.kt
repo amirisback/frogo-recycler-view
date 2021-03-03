@@ -40,7 +40,7 @@ class MainNestedActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
 
         val layoutManager = LinearLayoutManager(this)
-        val adapter = FrogoOuterAdapter(object : FrogoRecyclerViewListener<Int> {
+        val adapter = OuterAdapter(object : FrogoRecyclerViewListener<Int> {
             override fun onItemClicked(data: Int) {
                 Toast.makeText(this@MainNestedActivity, "click $data", Toast.LENGTH_SHORT).show()
             }

@@ -17,27 +17,22 @@ import com.frogobox.recycler.core.FrogoStartSnapHelper
  * All rights reserved
  *
  */
-class OuterHolder (val rv: RecyclerView, listener: FrogoRecyclerViewListener<Int>) : RecyclerView.ViewHolder(rv) {
-
-    private var mAdapter = InnerAdapter(listener)
+class OuterHolder(
+    private val rv: RecyclerView,
+    private val listener: FrogoRecyclerViewListener<Int>
+) : RecyclerView.ViewHolder(rv) {
 
     fun getLinearLayoutManager(): LinearLayoutManager {
         return rv.layoutManager as LinearLayoutManager
     }
 
-    fun setData(list: MutableList<Int>) {
+    fun bindItem(list: MutableList<Int>) {
+        val mAdapter = InnerAdapter(listener)
         mAdapter.setupData(list)
-    }
 
-    init {
-        rv.apply {
-            adapter = mAdapter
-
-            // this is needed if you are working with CollapsingToolbarLayout, I am adding this here just in case I forget.
-            isNestedScrollingEnabled = false
-        }
-
-        //optional
+        rv.adapter = mAdapter
+        rv.isNestedScrollingEnabled = false
         FrogoStartSnapHelper().attachToRecyclerView(rv)
     }
+
 }

@@ -1,9 +1,13 @@
 package com.frogobox.recycler.dev
 
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
+import com.frogobox.recycler.core.IFrogoViewHolder
 
 /*
  * Created by Amir on 03/03/2021
@@ -17,7 +21,8 @@ import com.frogobox.recycler.core.FrogoRecyclerViewListener
  * All rights reserved
  *
  */
-class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListener<Int>)  : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListener<Int>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val mList = mutableListOf<MutableList<Int>>()
     private val listPosition = HashMap<Int, Int>()
@@ -38,20 +43,29 @@ class FrogoOuterAdapter(private val mItemClickListener: FrogoRecyclerViewListene
             layoutManager = innerLLM
             setRecycledViewPool(sharedPool)
         }
-        return FrogoOuterHolder(innerRv, mItemClickListener)
+        return FrogoOuterHolder(innerRv)
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         when (viewHolder.itemViewType) {
             else -> {
-                val cellViewHolder = viewHolder as FrogoOuterHolder
-                cellViewHolder.setData(mList[position])
+                val holder = viewHolder as FrogoOuterHolder
+
+                // attibute inner element nested recyclerview
+                holder.bindView(R.layout.cell_nested_list, mList[position], mItemClickListener,
+                    object : IFrogoViewHolder<Int> {
+                        override fun setupInitComponent(view: View, data: Int) {
+                            val tv = view.findViewById<TextView>(R.id.text)
+                            tv.text = data.toString()
+                        }
+                    })
+
                 val p = if (listPosition.containsKey(position) && listPosition[position]!! >= 0) {
                     listPosition[position]!!
                 } else {
                     0
                 }
-                cellViewHolder.getLinearLayoutManager().scrollToPositionWithOffset(p, 0)
+                holder.getLinearLayoutManager().scrollToPositionWithOffset(p, 0)
             }
         }
     }

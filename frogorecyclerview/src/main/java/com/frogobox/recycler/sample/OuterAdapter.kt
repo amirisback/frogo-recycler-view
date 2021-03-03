@@ -36,7 +36,7 @@ class OuterAdapter(private val mItemClickListener: FrogoRecyclerViewListener<Int
         when (viewHolder.itemViewType) {
             else -> {
                 val cellViewHolder = viewHolder as OuterHolder
-                cellViewHolder.setData(mList[position])
+                cellViewHolder.bindItem(mList[position])
                 val p = if (listPosition.containsKey(position) && listPosition[position]!! >= 0) {
                     listPosition[position]!!
                 } else {

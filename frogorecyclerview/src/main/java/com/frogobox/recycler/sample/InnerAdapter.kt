@@ -18,7 +18,7 @@ class InnerAdapter<T>(private val listener: FrogoRecyclerViewListener<T>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return InnerHolder<T>(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.detail_list_item_type_title, parent, false)
+                .inflate(R.layout.cell_nested_list, parent, false)
         )
     }
 

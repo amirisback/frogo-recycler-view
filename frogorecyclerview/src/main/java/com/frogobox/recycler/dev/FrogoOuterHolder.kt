@@ -16,28 +16,22 @@ import com.frogobox.recycler.core.*
  * All rights reserved
  *
  */
-class FrogoOuterHolder (val rv: RecyclerView, listener: FrogoRecyclerViewListener<Int>) : RecyclerView.ViewHolder(rv) {
-
-    private var mAdapter = FrogoInnerAdapter(listener)
+class FrogoOuterHolder (val rv: RecyclerView) : RecyclerView.ViewHolder(rv) {
 
     fun getLinearLayoutManager(): LinearLayoutManager {
         return rv.layoutManager as LinearLayoutManager
     }
 
-    fun setData(list: MutableList<Int>) {
-        mAdapter.setupData(list)
-    }
-
-    init {
-        rv.apply {
-            adapter = mAdapter
-
-            // this is needed if you are working with CollapsingToolbarLayout, I am adding this here just in case I forget.
-            isNestedScrollingEnabled = false
-        }
+    fun bindView(customViewId: Int, list: MutableList<Int>, listener: FrogoRecyclerViewListener<Int>, callback: IFrogoViewHolder<Int>) {
+        val mAdapter = FrogoViewAdapter<Int>()
+        mAdapter.setCallback(callback)
+        mAdapter.setupRequirement(customViewId, list, listener)
+        rv.adapter = mAdapter
+        rv.isNestedScrollingEnabled = false
 
         //optional
         FrogoStartSnapHelper().attachToRecyclerView(rv)
     }
+
 }
 
