@@ -1,4 +1,4 @@
-package com.frogobox.recycler.sample
+package com.frogobox.recycler.dev
 
 import android.view.View
 import android.widget.TextView

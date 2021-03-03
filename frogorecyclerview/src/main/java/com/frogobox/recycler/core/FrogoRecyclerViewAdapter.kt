@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
-import com.frogobox.recycler.dev.FrogoNestedHolder
 
 /*
  * Created by Faisal Amir

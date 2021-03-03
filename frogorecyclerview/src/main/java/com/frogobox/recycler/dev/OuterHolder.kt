@@ -1,4 +1,4 @@
-package com.frogobox.recycler.sample
+package com.frogobox.recycler.dev
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

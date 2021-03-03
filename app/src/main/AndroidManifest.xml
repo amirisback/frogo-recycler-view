@@ -17,6 +17,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
+        <activity android:name=".kotlinsample.usingadapter.KotlinNestedActivity"></activity>
         <activity android:name=".javasample.JavaNoAdapterMultiViewActivity" />
         <activity android:name=".javasample.JavaNoAdapterActivity" />
         <activity android:name=".javasample.usingadapter.JavaSampleActivity" />
@@ -24,11 +25,12 @@
         <activity android:name=".kotlinsample.KotlinNoAdapterMultiVewActivity" />
         <activity android:name=".kotlinsample.KotlinNoAdapterActivity" />
         <activity android:name=".kotlinsample.usingadapter.KotlinSampleActivity" />
-        <activity android:name=".kotlinsample.usingadapter.KotlinNestedActivity" />
+        <activity android:name=".kotlinsample.usingadapter.KotlinSimpleNestedActivity" />
         <activity android:name=".MainDevActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

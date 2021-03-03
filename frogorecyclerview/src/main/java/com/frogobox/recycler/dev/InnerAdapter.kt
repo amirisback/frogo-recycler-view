@@ -1,4 +1,4 @@
-package com.frogobox.recycler.sample
+package com.frogobox.recycler.dev
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ class InnerAdapter<T>(private val listener: FrogoRecyclerViewListener<T>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return InnerHolder<T>(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.cell_nested_list, parent, false)
+                .inflate(R.layout.frogo_list_nested_item, parent, false)
         )
     }
 

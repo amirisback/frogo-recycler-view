@@ -9,8 +9,9 @@ import com.frogobox.recycler.javasample.usingadapter.JavaSampleActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterActivity
 import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
 import com.frogobox.recycler.kotlinsample.KotlinShimmerActivity
-import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
 import com.frogobox.recycler.kotlinsample.usingadapter.KotlinNestedActivity
+import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
+import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSimpleNestedActivity
 
 class MainActivity : BaseActivity() {
 
@@ -49,6 +50,10 @@ class MainActivity : BaseActivity() {
 
             btnKotlinShimmer.setOnClickListener {
                 startActivity(Intent(this@MainActivity, KotlinShimmerActivity::class.java))
+            }
+
+            btnNestedSimple.setOnClickListener {
+                startActivity(Intent(this@MainActivity, KotlinSimpleNestedActivity::class.java))
             }
 
             btnNested.setOnClickListener {

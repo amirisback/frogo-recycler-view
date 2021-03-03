@@ -1,10 +1,9 @@
-package com.frogobox.recycler.dev
+package com.frogobox.recycler.core
 
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.recycler.core.*
 
 /*
  * Created by Amir on 03/03/2021

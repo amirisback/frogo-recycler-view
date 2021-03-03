@@ -1,76 +1,122 @@
 package com.frogobox.recycler.kotlinsample.usingadapter
 
 import android.os.Bundle
-import android.os.StrictMode
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.frogobox.frogonewsapi.ConsumeNewsApi
+import com.frogobox.frogonewsapi.callback.NewsResultCallback
+import com.frogobox.frogonewsapi.data.model.Article
+import com.frogobox.frogonewsapi.data.response.ArticleResponse
+import com.frogobox.frogonewsapi.util.NewsConstant
+import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.BaseActivity
-import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.core.IFrogoNestedHolder
-import com.frogobox.recycler.core.IFrogoViewHolder
-import com.frogobox.recycler.dev.FrogoNestedAdapter
+import com.frogobox.recycler.core.*
 
 class KotlinNestedActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activityFrogoRvGridBinding.root)
-
-        turnOnStrictMode()
-        setupRecyclerView()
+        setupDetailActivity("Nested RecyclerView")
+        setupNewsApi()
     }
 
-    private fun setupData(): MutableList<Int> {
-        val subList1 = mutableListOf<Int>()
-        for (i in 0..49) {
-            subList1.add(i)
-        }
-        return subList1
+    private fun setupNewsApi() {
+        val consumeNewsApi = ConsumeNewsApi(NewsUrl.NEWS_API_KEY)
+        consumeNewsApi.usingChuckInterceptor(this)
+        consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
+            null,
+            null,
+            null,
+            NewsConstant.COUNTRY_ID,
+            null,
+            null,
+            object : NewsResultCallback<ArticleResponse> {
+                override fun getResultData(data: ArticleResponse) {
+                    // Your Ui or data
+                    val listData = mutableListOf<Article>()
+                    data.articles?.let { listData.addAll(it) }
+                    setupRecyclerView(setupDataNested(listData))
+                }
+
+                override fun failedResult(statusCode: Int, errorMessage: String?) {
+                    // Your failed to do
+                    errorMessage?.let { showToast(it) }
+                }
+
+                override fun onShowProgress() {
+                    // Your Progress Show
+                    Log.d("RxJavaShow", "Show Progress")
+                    runOnUiThread {
+                        // Stuff that updates the UI
+                        activityKotlinShimmerBinding.rvShimmer.startShimmer()
+                    }
+                }
+
+                override fun onHideProgress() {
+                    // Your Progress Hide
+                    Log.d("RxJavaHide", "Hide Progress")
+                    runOnUiThread {
+                        // Stuff that updates the UI
+                        activityKotlinShimmerBinding.rvShimmer.stopShimmer()
+                    }
+
+                }
+
+            })
     }
 
-    private fun setupDataNested(): MutableList<MutableList<Int>> {
-        val list = mutableListOf<MutableList<Int>>()
+    private fun setupDataNested(data: MutableList<Article>): MutableList<MutableList<Article>> {
+        val list = mutableListOf<MutableList<Article>>()
         for (i in 0..10) {
-            list.add(setupData())
+            list.add(data)
         }
         return list
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerView(data: MutableList<MutableList<Article>>) {
 
         val mLinearLayoutManager = LinearLayoutManager(this)
-        val mAdapter = FrogoNestedAdapter<Int>()
-        mAdapter.setCallback(object : IFrogoNestedHolder<Int>{
+        val mAdapter = FrogoNestedAdapter<Article>()
+        mAdapter.setCallback(object : IFrogoNestedHolder<Article> {
             override fun nestedCustomView(): Int {
-                return R.layout.cell_nested_list
+                return R.layout.frogo_rv_grid_type_3
             }
 
-            override fun nestedListener(): FrogoRecyclerViewListener<Int> {
-                return object : FrogoRecyclerViewListener<Int> {
-                    override fun onItemClicked(data: Int) {
-                        Toast.makeText(this@KotlinNestedActivity, "click $data", Toast.LENGTH_SHORT).show()
+            override fun nestedListener(): FrogoRecyclerViewListener<Article> {
+                return object : FrogoRecyclerViewListener<Article> {
+                    override fun onItemClicked(data: Article) {
+                        showToast("Click : $data")
                     }
 
-                    override fun onItemLongClicked(data: Int) {
-                        Toast.makeText(this@KotlinNestedActivity, "long click $data", Toast.LENGTH_SHORT).show()
+                    override fun onItemLongClicked(data: Article) {
+                        showToast("Long Click : $data")
                     }
                 }
             }
 
-            override fun nestedCallback(): IFrogoViewHolder<Int> {
-                return object : IFrogoViewHolder<Int> {
-                    override fun setupInitComponent(view: View, data: Int) {
-                        val tv = view.findViewById<TextView>(R.id.text)
-                        tv.text = data.toString()
+            override fun nestedCallback(): IFrogoViewHolder<Article> {
+                return object : IFrogoViewHolder<Article> {
+                    override fun setupInitComponent(view: View, data: Article) {
+                        val iv = view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description)
+                        val tv_title = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title)
+                        val tv_sub = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle)
+                        val tv_desc = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc)
+
+                        Glide.with(view.context).load(data.urlToImage).into(iv)
+                        tv_title.text = data.title
+                        tv_sub.text = data.author
+                        tv_desc.text = data.description
                     }
                 }
             }
         })
         mAdapter.setupNestedView()
-        mAdapter.setupDataNested(setupDataNested())
+        mAdapter.setupDataNested(data)
         activityFrogoRvGridBinding.frogoRecyclerView.apply {
             layoutManager = mLinearLayoutManager
             setHasFixedSize(true)
@@ -78,15 +124,4 @@ class KotlinNestedActivity : BaseActivity() {
         }
     }
 
-
-    private fun turnOnStrictMode() {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().detectAll()
-                .penaltyLog().penaltyFlashScreen().build()
-        )
-        StrictMode.setVmPolicy(
-            StrictMode.VmPolicy.Builder().detectAll()
-                .penaltyLog().build()
-        )
-    }
 }
