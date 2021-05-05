@@ -30,7 +30,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
         return (view, data) -> {
             // Init component content item recyclerview
             TextView title = view.findViewById(R.id.frogo_rv_grid_type_1_tv_title);
-            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_1_frogo_dummy_content_description);
+            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_1_iv_poster);
             title.setText(data.getName());
             Glide.with(view.getContext()).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(photo);
         };
@@ -42,7 +42,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
             TextView title = view.findViewById(R.id.frogo_rv_grid_type_3_tv_title);
             TextView subTitle = view.findViewById(R.id.frogo_rv_grid_type_3_tv_subtitle);
             TextView desc = view.findViewById(R.id.frogo_rv_grid_type_3_tv_desc);
-            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description);
+            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_3_iv_poster);
             title.setText(data.getName());
             subTitle.setText(data.getName());
             desc.setText(FrogoRvConstant.DUMMY_LOREM_IPSUM);

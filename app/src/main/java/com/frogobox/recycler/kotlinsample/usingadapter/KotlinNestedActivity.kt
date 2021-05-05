@@ -102,7 +102,7 @@ class KotlinNestedActivity : BaseActivity() {
             override fun nestedCallback(): IFrogoViewHolder<Article> {
                 return object : IFrogoViewHolder<Article> {
                     override fun setupInitComponent(view: View, data: Article) {
-                        val iv = view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description)
+                        val iv = view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_iv_poster)
                         val tv_title = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title)
                         val tv_sub = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle)
                         val tv_desc = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc)
