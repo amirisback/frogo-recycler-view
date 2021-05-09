@@ -24,7 +24,7 @@ class KotlinProgressActivity : BaseActivity() {
         setupButtonProgress()
     }
 
-    private fun setupFrogoShimmerRecyclerView(data: List<Article>) {
+    private fun setupFrogoProgressRecyclerView(data: List<Article>) {
 
         val adapterCallback = object :
             IFrogoViewAdapter<Article> {
@@ -53,7 +53,7 @@ class KotlinProgressActivity : BaseActivity() {
             .build()
     }
 
-    private fun setupShimmer(state: Boolean) {
+    private fun setupProgress(state: Boolean) {
         activityKotlinProgressBinding.apply {
             if (state) {
                 rvProgress.showProgress()
@@ -67,7 +67,7 @@ class KotlinProgressActivity : BaseActivity() {
         var bool = false
         activityKotlinProgressBinding.buttonProgress.setOnClickListener {
             bool = !bool
-            setupShimmer(bool)
+            setupProgress(bool)
         }
     }
 
@@ -84,7 +84,7 @@ class KotlinProgressActivity : BaseActivity() {
             object : NewsResultCallback<ArticleResponse> {
                 override fun getResultData(data: ArticleResponse) {
                     // Your Ui or data
-                    data.articles?.let { setupFrogoShimmerRecyclerView(it) }
+                    data.articles?.let { setupFrogoProgressRecyclerView(it) }
                 }
 
                 override fun failedResult(statusCode: Int, errorMessage: String?) {

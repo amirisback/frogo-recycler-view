@@ -1,9 +1,10 @@
 # Tutorial How To Use FrogoShimmerRecyclerView
-This is the procedure for using frogo-recyclerview
+This is the procedure for using frogo-shimmer-recycler-view
 
 # Screen Shoot Apps
-<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_main.png"></span>
-<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/sample_shimmer.gif"></span>
+         Menu       |             Sample Shimmer   |
+:------------------:|:----------------------------:|
+<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/sample_shimmer.gif"></span> |
 
 # Usage (How to use this project)
 Just following the step until finish, for basic adapter using step 2, for multi adapter using step 3
@@ -30,7 +31,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
             .build()
     }
 
-### Step 3. Setup shimmer-recycler-view data
+### Step 3. Setup frogo-shimmer-recycler-view data
 
     private fun setupFrogoShimmerRecyclerView(data: List<Article>) {
 
