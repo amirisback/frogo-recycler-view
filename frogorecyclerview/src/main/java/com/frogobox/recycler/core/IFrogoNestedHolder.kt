@@ -17,10 +17,13 @@ import androidx.recyclerview.widget.RecyclerView
  */
 interface IFrogoNestedHolder<T> {
 
+    // Setup Nested Custom View
     fun nestedCustomView() : Int
 
+    // Setup Nested Listener
     fun nestedListener() : FrogoRecyclerViewListener<T>
 
+    // Setup Nested Callback
     fun nestedCallback() : IFrogoViewHolder<T>
 
 }
