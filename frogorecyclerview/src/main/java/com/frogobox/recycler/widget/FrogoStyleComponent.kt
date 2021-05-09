@@ -1,12 +1,9 @@
 package com.frogobox.recycler.widget
 
-import android.content.Context
 import android.content.res.TypedArray
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.frogobox.recycler.R
-import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
  * Created by faisalamir on 09/05/21

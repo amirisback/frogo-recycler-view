@@ -101,7 +101,7 @@ Just following the step until finish
             override fun setupInitComponent(view: View, data: ExampleModel) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_1_tv_title).text = data.name
-                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById(R.id.frogo_rv_grid_type_1_frogo_dummy_content_description))
+                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById(R.id.frogo_rv_grid_type_1_iv_poster))
             }
         }
     }
@@ -114,7 +114,7 @@ Just following the step until finish
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle).text = data.name
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc).text = FrogoRvConstant.DUMMY_LOREM_IPSUM
 
-                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description))
+                Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_iv_poster))
             }
         }
     }
@@ -172,7 +172,7 @@ Just following the step until finish
         return (view, data) -> {
             // Init component content item recyclerview
             TextView title = view.findViewById(R.id.frogo_rv_grid_type_1_tv_title);
-            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_1_frogo_dummy_content_description);
+            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_1_iv_poster);
             title.setText(data.getName());
             Glide.with(view.getContext()).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(photo);
         };
@@ -184,7 +184,7 @@ Just following the step until finish
             TextView title = view.findViewById(R.id.frogo_rv_grid_type_3_tv_title);
             TextView subTitle = view.findViewById(R.id.frogo_rv_grid_type_3_tv_subtitle);
             TextView desc = view.findViewById(R.id.frogo_rv_grid_type_3_tv_desc);
-            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_3_frogo_dummy_content_description);
+            ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_3_iv_poster);
             title.setText(data.getName());
             subTitle.setText(data.getName());
             desc.setText(FrogoRvConstant.DUMMY_LOREM_IPSUM);

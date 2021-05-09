@@ -22,6 +22,7 @@
         <attr name="frvPaddingBottom" format="dimension" />
         <attr name="frvPaddingLeft" format="dimension" />
         <attr name="frvClipToPadding" format="boolean" />
+        <attr name="frvlayoutManager" format="string"/>
     </declare-styleable>
 
     <!-- frogo_recycler_view attrs -->

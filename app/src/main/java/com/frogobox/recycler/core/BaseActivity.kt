@@ -30,6 +30,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected lateinit var activityFrogoRvListBinding: ActivityFrogoRvListBinding
     protected lateinit var activityMainDevBinding: ActivityMainDevBinding
     protected lateinit var activityKotlinShimmerBinding: ActivityKotlinShimmerBinding
+    protected lateinit var activityKotlinProgressBinding: ActivityKotlinProgressBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +67,7 @@ abstract class BaseActivity : AppCompatActivity() {
         activityFrogoRvListBinding = ActivityFrogoRvListBinding.inflate(baseLayoutInflater())
         activityMainDevBinding = ActivityMainDevBinding.inflate(baseLayoutInflater())
         activityKotlinShimmerBinding = ActivityKotlinShimmerBinding.inflate(baseLayoutInflater())
+        activityKotlinProgressBinding = ActivityKotlinProgressBinding.inflate(baseLayoutInflater())
     }
 
     private fun baseLayoutInflater() : LayoutInflater {

@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".kotlinsample.usingadapter.KotlinNestedActivity"></activity>
+        <activity android:name=".kotlinsample.KotlinProgressActivity"></activity>
+        <activity android:name=".kotlinsample.usingadapter.KotlinNestedActivity" />
         <activity android:name=".javasample.JavaNoAdapterMultiViewActivity" />
         <activity android:name=".javasample.JavaNoAdapterActivity" />
         <activity android:name=".javasample.usingadapter.JavaSampleActivity" />
