@@ -2,6 +2,7 @@
 This is the procedure for using frogo-shimmer-recycler-view
 
 # Screen Shoot Apps
+
          Menu       |             Sample Shimmer   |
 :------------------:|:----------------------------:|
 <span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/sample_shimmer.gif"></span> |
