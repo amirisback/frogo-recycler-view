@@ -1,12 +1,15 @@
 package com.frogobox.recycler.widget
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.RelativeLayout
 import com.frogobox.recycler.R
-import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
+import com.frogobox.recycler.core.FrogoRvSingle
+import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentFrogoRecyclerView
+import com.frogobox.recycler.databinding.WidgetFrogoProgressRecyclerviewBinding
+import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentProgressBar
 
 /*
  * Created by Faisal Amir on 17/02/2021
@@ -25,7 +28,9 @@ class FrogoProgressRecyclerView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyle: Int = 0,
     defStyleRes: Int = 0
-)  : RelativeLayout(context, attrs, defStyle, defStyleRes) {
+) : RelativeLayout(context, attrs, defStyle, defStyleRes), IFrogoProgressRecyclerView {
+
+    private lateinit var binding: WidgetFrogoProgressRecyclerviewBinding
 
     init {
         setupViewEditor()
@@ -33,43 +38,46 @@ class FrogoProgressRecyclerView @JvmOverloads constructor(
     }
 
     private fun setupViewEditor() {
-        LayoutInflater.from(context).inflate(R.layout.widget_frogo_progress_recyclerview, this, true)
+        binding =
+            WidgetFrogoProgressRecyclerviewBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun setupAttribute(attrs: AttributeSet?) {
         attrs?.let {
-            val typedArray =
-                context?.obtainStyledAttributes(it, R.styleable.frogo_shimmer_recycler_view, 0, 0)
+            val styleArrayRecyclerView =
+                context?.obtainStyledAttributes(it, R.styleable.frogo_recycler_view, 0, 0)
+            val styleArrayProgressBar =
+                context?.obtainStyledAttributes(it, R.styleable.frogo_progress_bar, 0, 0)
 
             // setup inner component
-            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_recyclerview) }
-            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_shimmer_recyclerview) }
+            binding.apply {
+                styleArrayRecyclerView?.let { it1 ->
+                    setupComponentFrogoRecyclerView(
+                        it1,
+                        widgetFprvRecyclerview
+                    )
+                }
+                styleArrayProgressBar?.let { it1 ->
+                    setupComponentProgressBar(
+                        it1,
+                        widgetFprvProgressbar
+                    )
+                }
+            }
 
-            typedArray?.recycle()
+            styleArrayRecyclerView?.recycle()
         }
     }
 
-    private fun setupComponentView(typedArray: TypedArray, frogoRecyclerView: FrogoRecyclerView) {
-        val attributePaddingTop =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingTop, 0F)
-        val attributePaddingRight =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingRight, 0F)
-        val attributePaddingBottom =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingBottom, 0F)
-        val attributePaddingLeft =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingLeft, 0F)
-        val attributeClipToPadding =
-            typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_frvClipToPadding, true)
-
-        frogoRecyclerView.clipToPadding = attributeClipToPadding
-        frogoRecyclerView.setPadding(
-            attributePaddingLeft.toInt(),
-            attributePaddingTop.toInt(),
-            attributePaddingRight.toInt(),
-            attributePaddingBottom.toInt()
-        )
-
+    override fun <T> defineRecyclerView(): FrogoRvSingle<T> {
+        return FrogoRvSingle<T>().initSingleton(binding.widgetFprvRecyclerview)
     }
 
+    override fun showProgress() {
+        binding.widgetFprvProgressbar.visibility = View.VISIBLE
+    }
 
+    override fun hideProgress() {
+        binding.widgetFprvProgressbar.visibility = View.GONE
+    }
 }
