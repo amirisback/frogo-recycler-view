@@ -1,7 +1,6 @@
 package com.frogobox.recycler.widget
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,8 @@ import android.widget.RelativeLayout
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRvSingle
 import com.frogobox.recycler.core.FrogoSrvSingle
-import kotlinx.android.synthetic.main.widget_frogo_shimmer_recyclerview.view.*
+import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentFrogoRecyclerView
+import com.frogobox.recycler.databinding.WidgetFrogoShimmerRecyclerviewBinding
 
 /*
  * Created by Faisal Amir on 02/06/2020
@@ -31,66 +31,63 @@ class FrogoShimmerRecyclerView @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : RelativeLayout(context, attrs, defStyle, defStyleRes), IFrogoShimmerRecyclerView {
 
+    private lateinit var binding: WidgetFrogoShimmerRecyclerviewBinding
+
     init {
         setupViewEditor()
         setupAttribute(attrs)
     }
 
     private fun setupViewEditor() {
-        LayoutInflater.from(context).inflate(R.layout.widget_frogo_shimmer_recyclerview, this, true)
+        binding =
+            WidgetFrogoShimmerRecyclerviewBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun setupAttribute(attrs: AttributeSet?) {
         attrs?.let {
-            val typedArray =
-                context?.obtainStyledAttributes(it, R.styleable.frogo_shimmer_recycler_view, 0, 0)
+            val styleArrayRecyclerView =
+                context?.obtainStyledAttributes(it, R.styleable.frogo_recycler_view, 0, 0)
 
             // setup inner component
-            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_recyclerview) }
-            typedArray?.let { it1 -> setupComponentView(it1, widget_fsrv_shimmer_recyclerview) }
+            binding.apply {
+                styleArrayRecyclerView?.let { it1 ->
+                    setupComponentFrogoRecyclerView(
+                        it1,
+                        widgetFsrvRecyclerview
+                    )
+                }
+                styleArrayRecyclerView?.let { it1 ->
+                    setupComponentFrogoRecyclerView(
+                        it1,
+                        widgetFsrvShimmerRecyclerview
+                    )
+                }
+            }
 
-            typedArray?.recycle()
+            styleArrayRecyclerView?.recycle()
         }
     }
 
-    private fun setupComponentView(typedArray: TypedArray, frogoRecyclerView: FrogoRecyclerView) {
-        val attributePaddingTop =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingTop, 0F)
-        val attributePaddingRight =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingRight, 0F)
-        val attributePaddingBottom =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingBottom, 0F)
-        val attributePaddingLeft =
-            typedArray.getDimension(R.styleable.frogo_shimmer_recycler_view_frvPaddingLeft, 0F)
-        val attributeClipToPadding =
-            typedArray.getBoolean(R.styleable.frogo_shimmer_recycler_view_frvClipToPadding, true)
-
-        frogoRecyclerView.clipToPadding = attributeClipToPadding
-        frogoRecyclerView.setPadding(
-            attributePaddingLeft.toInt(),
-            attributePaddingTop.toInt(),
-            attributePaddingRight.toInt(),
-            attributePaddingBottom.toInt()
-        )
-
-    }
-
     override fun startShimmer() {
-        widget_fsrv_shimmer.visibility = View.VISIBLE
-        widget_fsrv_shimmer.startShimmer()
+        binding.apply {
+            widgetFsrvShimmer.visibility = View.VISIBLE
+            widgetFsrvShimmer.startShimmer()
+        }
     }
 
     override fun stopShimmer() {
-        widget_fsrv_shimmer.visibility = View.GONE
-        widget_fsrv_shimmer.stopShimmer()
+        binding.apply {
+            widgetFsrvShimmer.visibility = View.GONE
+            widgetFsrvShimmer.stopShimmer()
+        }
     }
 
     override fun defineShimmerView(): FrogoSrvSingle {
-        return FrogoSrvSingle().initSingleton(widget_fsrv_shimmer_recyclerview) as FrogoSrvSingle
+        return FrogoSrvSingle().initSingleton(binding.widgetFsrvShimmerRecyclerview) as FrogoSrvSingle
     }
 
     override fun <T> defineRecyclerView(): FrogoRvSingle<T> {
-        return FrogoRvSingle<T>().initSingleton(widget_fsrv_recyclerview)
+        return FrogoRvSingle<T>().initSingleton(binding.widgetFsrvRecyclerview)
     }
 
 }
