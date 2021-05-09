@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -59,7 +58,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // google recycler-view
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
     // facebook shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
@@ -68,7 +67,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:1.0.3'
+    implementation 'com.github.amirisback:frogo-ui-kit:1.0.5'
 
     // library frogo-log
     implementation 'com.github.amirisback:frogo-log:1.0.1'
