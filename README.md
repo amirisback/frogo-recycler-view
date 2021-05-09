@@ -9,24 +9,28 @@
 - Shimmer Effect
 - Empty View Effect
 - Nested Recycler View
+- Progress Recycler View
 
 # Screen Shoot Apps
 
-Nested RecyclerView       |   Frogo Shimmer  |   Frogo Multi View   | Simple Empty View |
-:------------------:|:----------------------------:|:---------------------:|:-----------------:|
-<span align="center"><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
+|Nested RecyclerView |   Frogo Shimmer              |   Frogo Multi View    | Simple Empty View |
+|:------------------:|:----------------------------:|:---------------------:|:-----------------:|
+|<span align="center"><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
 
 # Version Release
 This Is Latest Release
 
-    $version_release = 3.4.0
+    $version_release = 3.5.0
 
 What's New??
 
     * Refactoring Code *
     * Enhance Performance *
     * Update build.gradle *
-    * Frogo Nested Adapter *
+    * Fixing Bug *
+    * Update Documentation *
+    * New Feature : FrogoProgressRecycerView *
+    * New Sample : FrogoProgressRecyclerView *
 
 # Download this project
 
@@ -45,13 +49,14 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.4.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.5.0'
     }
 
 # Tutorial
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
 - FrogoShimmerRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoShimmerRecyclerView.md)
 - FrogoNestedRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoNestedRecyclerView.md)
+- FrogoProgressRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoProgressRecyclerView.md)
 
 # Wiki
 - Frogo-UI-Kit Library [Click Here](https://github.com/amirisback/frogo-ui-kit)

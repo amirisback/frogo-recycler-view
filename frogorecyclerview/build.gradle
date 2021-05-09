@@ -11,7 +11,7 @@ android {
     def nameLibrarySub = nameLibrary.toLowerCase().replace(" ", "-")
 
     def versionMajor = 3
-    def versionMinor = 4
+    def versionMinor = 5
     def versionPatch = 0
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
@@ -70,6 +70,6 @@ dependencies {
     implementation 'com.github.amirisback:frogo-ui-kit:1.0.5'
 
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:1.0.1'
+    implementation 'com.github.amirisback:frogo-log:2.0.0'
 
 }
