@@ -60,7 +60,8 @@ What's New??
 - FrogoRecyclerView Multi Holder [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerViewMultiHolder.md)
 
 ## Library Helper
-- Frogo-UI-Kit Library [Click Here](https://github.com/amirisback/frogo-ui-kit)
+- frogo-ui-kit [Click Here](https://github.com/amirisback/frogo-ui-kit)
+- consumable-code-news-api [Click Here](https://github.com/amirisback/consumable-code-news-api)
 
 ## Wiki
 - Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
