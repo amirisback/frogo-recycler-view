@@ -1,13 +1,13 @@
-# Tutorial How To Use FrogoProgressRecyclerView
+## Tutorial How To Use FrogoProgressRecyclerView
 This is the procedure for using frogo-progress-recycler-view
 
-# Screen Shoot Apps
+## Screen Shoot Apps
 
 |        Menu       |             Sample Progress  |
 |:------------------:|:----------------------------:|
 |<span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_main.png"></span> | <span align="center"><img width="200px" height="360px" src="https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/sample_progress.gif"></span> |
 
-# Usage (How to use this project)
+## Usage (How to use this project)
 Just following the step until finish, for basic adapter using step 2, for multi adapter using step 3
 
 ### Step 1. Create xml view
@@ -63,6 +63,6 @@ Just following the step until finish, for basic adapter using step 2, for multi 
         }
     }
 
-# Sample Code
+## Sample Code
 - Kotlin - [KotlinShimmerActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/KotlinProgressActivity.kt)
 - Java - being developed
