@@ -3,6 +3,7 @@
 ## About This Project
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--recycler--view-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8205)
 [![JitPack](https://jitpack.io/v/amirisback/frogo-recycler-view.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-recycler-view)
+[![Medium Badge](https://img.shields.io/badge/-medium story-black?style=flat-square&logo=Medium&logoColor=white&link=https://medium.com/@fiqryq)](https://faisalamircs.medium.com/tutorial-recyclerview-cuman-15-detik-dengan-frogorecyclerview-cocok-buat-prototype-untuk-client-ad03b1af907e)
 - RecyclerView No Adapter (Adapter Has Been Handled)
 - RecyclerView Multi-View-Type (Stable - Multi ViewHolder)
 - Elegant call using injector()
