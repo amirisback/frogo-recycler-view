@@ -64,12 +64,9 @@ What's New??
 - frogo-ui-kit [Click Here](https://github.com/amirisback/frogo-ui-kit)
 - consumable-code-news-api [Click Here](https://github.com/amirisback/consumable-code-news-api)
 
-## Wiki
-- Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
-
 ##  Alert
 
-    Cautions :
+### Cautions :
     >> under Version 3.0.1
     - Please implement library [frogo-ui-kit](https://github.com/amirisback/frogo-ui-kit) in your project
     - We separating resource ui for better maintenance
@@ -85,7 +82,7 @@ What's New??
     - Package name [base, parent, boilerplate] updated to core
     - No more package name [viewrclass, viewbinding, viewshimmer] all in core
 
-    Update :
+### Update :
     >> on Version 3.2.0
     from -> import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback
     to -> import com.frogobox.recycler.core.viewrclass.FrogoViewAdapterCallback
@@ -97,6 +94,10 @@ What's New??
     >> on Version 3.3.0 up
     from -> FrogoViewAdapterCallback
     to -> IFrogoViewAdapter
+
+### Wiki
+- Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
+
 
 
 ## Colaborator
