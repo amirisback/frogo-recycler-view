@@ -51,42 +51,6 @@ Just following the step until finish
             .build()
     }
 
-#### Java (sample using ViewBinding)
-
-    private void setupFrogoRecyclerView() {
-
-        IFrogoViewAdapter frogoViewAdapterCallback = new IFrogoViewAdapter<ExampleModel>() {
-            @Override
-            public void setupInitComponent(@NotNull View view, ExampleModel data) {
-                // Init component content item recyclerview
-                TextView tvExample = view.findViewById(R.id.tv_example_item);
-                tvExample.setText(data.getName());
-            }
-
-            @Override
-            public void onItemClicked(ExampleModel data) {
-                // setup item clicked on frogo recycler view
-                showToast(data.getName());
-            }
-
-            @Override
-            public void onItemLongClicked(ExampleModel data) {
-                // setup item long clicked on frogo recycler view
-                showToast(data.getName());
-            }
-        };
-
-        activityFrogoRvSampleBinding.frogoRecyclerView
-                .injector()
-                .addData(listData())
-                .addCustomView(R.layout.frogo_rv_list_type_1)
-                .addEmptyView(null)
-                .addCallback(frogoViewAdapterCallback)
-                .createLayoutLinearVertical(false)
-                .build();
-
-    }
-
 ## Sample Code
 ### No Adapter
 - Kotlin - [KotlinNoAdapterActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/KotlinNoAdapterActivity.kt)
