@@ -52,7 +52,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
             .addCallback(adapterCallback)
-            .createLayoutLinearVertical(false)
+            .createLayoutLinearVertical(false,false,true)
             .build()
     }
 

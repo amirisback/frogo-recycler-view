@@ -25,8 +25,22 @@ interface IFrogoRvSingle<T> {
     // Create Linear Vertical Layout Manager
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingle<T>
 
+    // Create Linear Vertical Layout Manager From End
+    fun createLayoutLinearVertical(
+        dividerItem: Boolean,
+        reverseLayout: Boolean,
+        stackFromEnd: Boolean
+    ): FrogoRvSingle<T>
+
     // Create Linear Horizontal Layout Manager
     fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingle<T>
+
+    // Create Linear Horizontal Layout Manager From End
+    fun createLayoutLinearHorizontal(
+        dividerItem: Boolean,
+        reverseLayout: Boolean,
+        stackFromEnd: Boolean
+    ): FrogoRvSingle<T>
 
     // Create Staggered Grid Layout Manager
     fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvSingle<T>

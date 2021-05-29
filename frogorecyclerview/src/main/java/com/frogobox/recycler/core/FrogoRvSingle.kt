@@ -41,6 +41,8 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
     protected var optionLayoutManager = ""
     protected var optionDividerItem = false
     protected var optionAdapter = ""
+    protected var optionReverseLayout = false
+    protected var optionStackFromEnd = false
 
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingle<T> {
         mFrogoRecyclerView = frogoRecyclerView
@@ -58,12 +60,50 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         return this
     }
 
+    override fun createLayoutLinearVertical(
+        dividerItem: Boolean,
+        reverseLayout: Boolean,
+        stackFromEnd: Boolean
+    ): FrogoRvSingle<T> {
+
+        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL_REVERSE
+        optionDividerItem = dividerItem
+        optionReverseLayout = reverseLayout
+        optionStackFromEnd = stackFromEnd
+
+        FLog.d("injector-layoutManager : $optionLayoutManager")
+        FLog.d("injector-divider : $optionDividerItem")
+        FLog.d("injector-reverseLayout : $optionReverseLayout")
+        FLog.d("injector-stackFromEnd : $optionStackFromEnd")
+
+        return this
+    }
+
     override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingle<T> {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
 
         FLog.d("injector-layoutManager : $optionLayoutManager")
         FLog.d("injector-divider : $optionDividerItem")
+
+        return this
+    }
+
+    override fun createLayoutLinearHorizontal(
+        dividerItem: Boolean,
+        reverseLayout: Boolean,
+        stackFromEnd: Boolean
+    ): FrogoRvSingle<T> {
+
+        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL_REVERSE
+        optionDividerItem = dividerItem
+        optionReverseLayout = reverseLayout
+        optionStackFromEnd = stackFromEnd
+
+        FLog.d("injector-layoutManager : $optionLayoutManager")
+        FLog.d("injector-divider : $optionDividerItem")
+        FLog.d("injector-reverseLayout : $optionReverseLayout")
+        FLog.d("injector-stackFromEnd : $optionStackFromEnd")
 
         return this
     }
@@ -119,57 +159,106 @@ open class FrogoRvSingle<T> : IFrogoRvSingle<T> {
         return this
     }
 
-    protected fun setupLayoutManager(frogoRV: FrogoRecyclerView) {
+    private fun setupLayoutManager(frogoRV: FrogoRecyclerView) {
 
         if (listData.isNotEmpty() || listDataFH.isNotEmpty()) {
-            if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_VERTICAL) {
-                frogoRV.layoutManager = LinearLayoutManager(
-                    frogoRV.context,
-                    LinearLayoutManager.VERTICAL,
-                    false
-                )
-                if (optionDividerItem) {
-                    frogoRV.addItemDecoration(
-                        DividerItemDecoration(
-                            frogoRV.context,
-                            LinearLayoutManager.VERTICAL
-                        )
-                    )
-                }
-            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL) {
-                frogoRV.layoutManager = LinearLayoutManager(
-                    frogoRV.context,
-                    LinearLayoutManager.HORIZONTAL,
-                    false
-                )
-                if (optionDividerItem) {
-                    frogoRV.addItemDecoration(
-                        DividerItemDecoration(
-                            frogoRV.context,
-                            LinearLayoutManager.HORIZONTAL
-                        )
-                    )
-                }
-            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_STAGGERED_GRID) {
-                frogoRV.layoutManager =
-                    StaggeredGridLayoutManager(layoutSpanCount, StaggeredGridLayoutManager.VERTICAL)
-            } else if (optionLayoutManager == FrogoRvConstant.LAYOUT_GRID) {
-                frogoRV.layoutManager =
-                    GridLayoutManager(frogoRV.context, layoutSpanCount)
-            }
-        } else {
-            frogoRV.layoutManager =
-                LinearLayoutManager(frogoRV.context, LinearLayoutManager.VERTICAL, false)
-            if (optionDividerItem) {
-                frogoRV.addItemDecoration(
-                    DividerItemDecoration(
+
+            when (optionLayoutManager) {
+                FrogoRvConstant.LAYOUT_LINEAR_VERTICAL -> {
+                    frogoRV.layoutManager = LinearLayoutManager(
                         frogoRV.context,
-                        LinearLayoutManager.VERTICAL
+                        LinearLayoutManager.VERTICAL,
+                        false
                     )
-                )
+                    if (optionDividerItem) {
+                        frogoRV.addItemDecoration(
+                            DividerItemDecoration(
+                                frogoRV.context,
+                                LinearLayoutManager.VERTICAL
+                            )
+                        )
+                    }
+                }
+
+                FrogoRvConstant.LAYOUT_LINEAR_VERTICAL_REVERSE -> {
+                    frogoRV.layoutManager = LinearLayoutManager(
+                        frogoRV.context
+                    ).apply {
+                        orientation = LinearLayoutManager.VERTICAL
+                        stackFromEnd = optionStackFromEnd
+                        reverseLayout = optionReverseLayout
+                    }
+                    if (optionDividerItem) {
+                        frogoRV.addItemDecoration(
+                            DividerItemDecoration(
+                                frogoRV.context,
+                                LinearLayoutManager.HORIZONTAL
+                            )
+                        )
+                    }
+                }
+
+                FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL -> {
+                    frogoRV.layoutManager = LinearLayoutManager(
+                        frogoRV.context,
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    )
+                    if (optionDividerItem) {
+                        frogoRV.addItemDecoration(
+                            DividerItemDecoration(
+                                frogoRV.context,
+                                LinearLayoutManager.HORIZONTAL
+                            )
+                        )
+                    }
+                }
+
+                FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL_REVERSE -> {
+                    frogoRV.layoutManager = LinearLayoutManager(
+                        frogoRV.context
+                    ).apply {
+                        orientation = LinearLayoutManager.HORIZONTAL
+                        stackFromEnd = optionStackFromEnd
+                        reverseLayout = optionReverseLayout
+                    }
+                    if (optionDividerItem) {
+                        frogoRV.addItemDecoration(
+                            DividerItemDecoration(
+                                frogoRV.context,
+                                LinearLayoutManager.HORIZONTAL
+                            )
+                        )
+                    }
+                }
+
+                FrogoRvConstant.LAYOUT_GRID -> {
+                    frogoRV.layoutManager =
+                        GridLayoutManager(frogoRV.context, layoutSpanCount)
+                }
+
+                FrogoRvConstant.LAYOUT_STAGGERED_GRID -> {
+                    frogoRV.layoutManager =
+                        StaggeredGridLayoutManager(
+                            layoutSpanCount,
+                            StaggeredGridLayoutManager.VERTICAL
+                        )
+                }
+
+                else -> {
+                    frogoRV.layoutManager =
+                        LinearLayoutManager(frogoRV.context, LinearLayoutManager.VERTICAL, false)
+                    if (optionDividerItem) {
+                        frogoRV.addItemDecoration(
+                            DividerItemDecoration(
+                                frogoRV.context,
+                                LinearLayoutManager.VERTICAL
+                            )
+                        )
+                    }
+                }
             }
         }
-
     }
 
     protected open fun createAdapter() {
