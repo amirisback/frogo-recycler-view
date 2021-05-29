@@ -21,7 +21,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.5.0
+    $version_release = 3.6.0
 
 What's New??
 
@@ -30,8 +30,7 @@ What's New??
     * Update build.gradle *
     * Fixing Bug *
     * Update Documentation *
-    * New Feature : FrogoProgressRecycerView *
-    * New Sample : FrogoProgressRecyclerView *
+    * New Function : Linear Layout Reverse Stack From End *
 
 ## Download this project
 
@@ -50,7 +49,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.5.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.6.0'
     }
 
 ## Tutorial
