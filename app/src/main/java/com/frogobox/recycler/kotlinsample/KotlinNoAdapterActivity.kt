@@ -10,25 +10,55 @@ import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoBindingAdapter
 import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.recycler.databinding.ActivityBaseBinding
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
 class KotlinNoAdapterActivity : BaseActivity() {
 
+    private lateinit var binding : ActivityBaseBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvListBinding.root)
-//        setupFrogoRecyclerView()
-        setupFrogoRecyclerBinding()
+        binding = ActivityBaseBinding.inflate(baseLayoutInflater())
+        setContentView(binding.root)
         setupDetailActivity("Kotlin No Adapter")
+        setupUI()
+    }
+
+    private fun setupUI (){
+        binding.apply {
+            btnBinding.setOnClickListener {
+                setupFrogoRecyclerBinding()
+            }
+            btnR.setOnClickListener {
+                setupFrogoRecyclerView()
+            }
+        }
+        setupFrogoRecyclerView()
+    }
+
+    private fun listDataBinding(): MutableList<ExampleModel> {
+        val listString = mutableListOf<ExampleModel>()
+        listString.add(ExampleModel("View Binding"))
+        listString.add(ExampleModel("View Binding"))
+        listString.add(ExampleModel("View Binding"))
+        listString.add(ExampleModel("View Binding"))
+        listString.add(ExampleModel("View Binding"))
+        listString.add(ExampleModel("View Binding"))
+        return listString
     }
 
     private fun listData(): MutableList<ExampleModel> {
         val listString = mutableListOf<ExampleModel>()
-//        listString.add(ExampleModel("VIEWBINDING ANJING"))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
-//        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
+        listString.add(ExampleModel(Constant.FULL_NAME))
         return listString
     }
 
@@ -52,7 +82,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
             }
         }
 
-        activityFrogoRvListBinding.frogoRecyclerView.injector<ExampleModel>()
+        binding.frogoRecyclerView.injector<ExampleModel>()
             .addData(listData())
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
@@ -85,10 +115,10 @@ class KotlinNoAdapterActivity : BaseActivity() {
         }
 
 
-        activityFrogoRvListBinding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
-            .addData(listData())
+        binding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
+            .addData(listDataBinding())
             .addCallback(adapterCallback)
-            .createLayoutLinearVertical(false,false,true)
+            .createLayoutLinearVertical(false)
             .build()
 
 

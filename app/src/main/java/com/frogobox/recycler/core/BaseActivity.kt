@@ -70,7 +70,7 @@ abstract class BaseActivity : AppCompatActivity() {
         activityKotlinProgressBinding = ActivityKotlinProgressBinding.inflate(baseLayoutInflater())
     }
 
-    private fun baseLayoutInflater() : LayoutInflater {
+    protected fun baseLayoutInflater() : LayoutInflater {
         return LayoutInflater.from(this)
     }
 
