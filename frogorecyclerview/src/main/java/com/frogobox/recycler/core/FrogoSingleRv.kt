@@ -1,10 +1,6 @@
 package com.frogobox.recycler.core
 
 import android.view.View
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
 import com.frogobox.recycler.widget.FrogoRecyclerView
@@ -24,7 +20,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * com.frogobox.recycler
  *
  */
-open class FrogoSingleRv<T> : IFrogoSingleRv<T> {
+open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     protected lateinit var mFrogoRecyclerView: FrogoRecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
@@ -32,16 +28,9 @@ open class FrogoSingleRv<T> : IFrogoSingleRv<T> {
 
     protected var emptyViewId: Int = R.layout.frogo_container_empty_view
 
-    protected val listDataFH = mutableListOf<FrogoHolder<T>>()
-    protected val listData = mutableListOf<T>()
     protected var optionAdapter = ""
     protected var customViewId: Int = 0
     
-    protected var layoutSpanCount = 0
-    protected var optionLayoutManager = ""
-    protected var optionDividerItem = false
-    protected var optionReverseLayout = false
-    protected var optionStackFromEnd = false
     
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T> {
         mFrogoRecyclerView = frogoRecyclerView
@@ -50,12 +39,7 @@ open class FrogoSingleRv<T> : IFrogoSingleRv<T> {
     }
 
     override fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRv<T> {
-        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
-        optionDividerItem = dividerItem
-
-        FLog.d("injector-layoutManager : $optionLayoutManager")
-        FLog.d("injector-divider : $optionDividerItem")
-
+        baseCreateLayoutLinearVertical(dividerItem)
         return this
     }
 
@@ -64,27 +48,12 @@ open class FrogoSingleRv<T> : IFrogoSingleRv<T> {
         reverseLayout: Boolean,
         stackFromEnd: Boolean
     ): FrogoSingleRv<T> {
-
-        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL_REVERSE
-        optionDividerItem = dividerItem
-        optionReverseLayout = reverseLayout
-        optionStackFromEnd = stackFromEnd
-
-        FLog.d("injector-layoutManager : $optionLayoutManager")
-        FLog.d("injector-divider : $optionDividerItem")
-        FLog.d("injector-reverseLayout : $optionReverseLayout")
-        FLog.d("injector-stackFromEnd : $optionStackFromEnd")
-
+        baseCreateLayoutLinearVertical(dividerItem, reverseLayout, stackFromEnd)
         return this
     }
 
     override fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSingleRv<T> {
-        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
-        optionDividerItem = dividerItem
-
-        FLog.d("injector-layoutManager : $optionLayoutManager")
-        FLog.d("injector-divider : $optionDividerItem")
-
+        baseCreateLayoutLinearHorizontal(dividerItem)
         return this
     }
 
@@ -93,40 +62,19 @@ open class FrogoSingleRv<T> : IFrogoSingleRv<T> {
         reverseLayout: Boolean,
         stackFromEnd: Boolean
     ): FrogoSingleRv<T> {
-
-        optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL_REVERSE
-        optionDividerItem = dividerItem
-        optionReverseLayout = reverseLayout
-        optionStackFromEnd = stackFromEnd
-
-        FLog.d("injector-layoutManager : $optionLayoutManager")
-        FLog.d("injector-divider : $optionDividerItem")
-        FLog.d("injector-reverseLayout : $optionReverseLayout")
-        FLog.d("injector-stackFromEnd : $optionStackFromEnd")
-
+        baseCreateLayoutLinearHorizontal(dividerItem, reverseLayout, stackFromEnd)
         return this
     }
 
     override fun createLayoutStaggeredGrid(spanCount: Int): FrogoSingleRv<T> {
-        optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
-        layoutSpanCount = spanCount
-
-        FLog.d("injector-layoutManager : $optionLayoutManager")
-        FLog.d("injector-spanCount : $layoutSpanCount")
-
+        baseCreateLayoutStaggeredGrid(spanCount)
         return this
     }
 
     override fun createLayoutGrid(spanCount: Int): FrogoSingleRv<T> {
-        optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
-        layoutSpanCount = spanCount
-
-        FLog.d("injector-layoutManager : $optionLayoutManager")
-        FLog.d("injector-spanCount : $layoutSpanCount")
-
+        baseCreateLayoutGrid(spanCount)
         return this
     }
-
 
     override fun addData(listData: List<T>): FrogoSingleRv<T> {
         this.listData.addAll(listData)
@@ -157,108 +105,6 @@ open class FrogoSingleRv<T> : IFrogoSingleRv<T> {
         this.frogoAdapterCallback = frogoViewAdapterCallback
         FLog.d("injector-adaptCallback : $frogoAdapterCallback")
         return this
-    }
-
-    private fun setupLayoutManager(frogoRV: FrogoRecyclerView) {
-
-        if (listData.isNotEmpty() || listDataFH.isNotEmpty()) {
-
-            when (optionLayoutManager) {
-                FrogoRvConstant.LAYOUT_LINEAR_VERTICAL -> {
-                    frogoRV.layoutManager = LinearLayoutManager(
-                        frogoRV.context,
-                        LinearLayoutManager.VERTICAL,
-                        false
-                    )
-                    if (optionDividerItem) {
-                        frogoRV.addItemDecoration(
-                            DividerItemDecoration(
-                                frogoRV.context,
-                                LinearLayoutManager.VERTICAL
-                            )
-                        )
-                    }
-                }
-
-                FrogoRvConstant.LAYOUT_LINEAR_VERTICAL_REVERSE -> {
-                    frogoRV.layoutManager = LinearLayoutManager(
-                        frogoRV.context
-                    ).apply {
-                        orientation = LinearLayoutManager.VERTICAL
-                        stackFromEnd = optionStackFromEnd
-                        reverseLayout = optionReverseLayout
-                    }
-                    if (optionDividerItem) {
-                        frogoRV.addItemDecoration(
-                            DividerItemDecoration(
-                                frogoRV.context,
-                                LinearLayoutManager.HORIZONTAL
-                            )
-                        )
-                    }
-                }
-
-                FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL -> {
-                    frogoRV.layoutManager = LinearLayoutManager(
-                        frogoRV.context,
-                        LinearLayoutManager.HORIZONTAL,
-                        false
-                    )
-                    if (optionDividerItem) {
-                        frogoRV.addItemDecoration(
-                            DividerItemDecoration(
-                                frogoRV.context,
-                                LinearLayoutManager.HORIZONTAL
-                            )
-                        )
-                    }
-                }
-
-                FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL_REVERSE -> {
-                    frogoRV.layoutManager = LinearLayoutManager(
-                        frogoRV.context
-                    ).apply {
-                        orientation = LinearLayoutManager.HORIZONTAL
-                        stackFromEnd = optionStackFromEnd
-                        reverseLayout = optionReverseLayout
-                    }
-                    if (optionDividerItem) {
-                        frogoRV.addItemDecoration(
-                            DividerItemDecoration(
-                                frogoRV.context,
-                                LinearLayoutManager.HORIZONTAL
-                            )
-                        )
-                    }
-                }
-
-                FrogoRvConstant.LAYOUT_GRID -> {
-                    frogoRV.layoutManager =
-                        GridLayoutManager(frogoRV.context, layoutSpanCount)
-                }
-
-                FrogoRvConstant.LAYOUT_STAGGERED_GRID -> {
-                    frogoRV.layoutManager =
-                        StaggeredGridLayoutManager(
-                            layoutSpanCount,
-                            StaggeredGridLayoutManager.VERTICAL
-                        )
-                }
-
-                else -> {
-                    frogoRV.layoutManager =
-                        LinearLayoutManager(frogoRV.context, LinearLayoutManager.VERTICAL, false)
-                    if (optionDividerItem) {
-                        frogoRV.addItemDecoration(
-                            DividerItemDecoration(
-                                frogoRV.context,
-                                LinearLayoutManager.VERTICAL
-                            )
-                        )
-                    }
-                }
-            }
-        }
     }
 
     protected open fun createAdapter() {

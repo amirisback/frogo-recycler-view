@@ -1,5 +1,7 @@
 package com.frogobox.recycler.core
 
+import com.frogobox.recycler.widget.FrogoRecyclerView
+
 /*
  * Created by faisalamir on 31/05/21
  * FrogoRecyclerView
@@ -15,29 +17,32 @@ package com.frogobox.recycler.core
 interface IFrogoSingleRvBase<T> {
     
     // Create Linear Vertical Layout Manager
-    fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRvBase<T>
+    fun baseCreateLayoutLinearVertical(dividerItem: Boolean)
 
     // Create Linear Vertical Layout Manager From End
-    fun createLayoutLinearVertical(
+    fun baseCreateLayoutLinearVertical(
         dividerItem: Boolean,
         reverseLayout: Boolean,
         stackFromEnd: Boolean
-    ): FrogoSingleRvBase<T>
+    )
 
     // Create Linear Horizontal Layout Manager
-    fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSingleRvBase<T>
+    fun baseCreateLayoutLinearHorizontal(dividerItem: Boolean)
 
     // Create Linear Horizontal Layout Manager From End
-    fun createLayoutLinearHorizontal(
+    fun baseCreateLayoutLinearHorizontal(
         dividerItem: Boolean,
         reverseLayout: Boolean,
         stackFromEnd: Boolean
-    ): FrogoSingleRvBase<T>
+    )
 
     // Create Staggered Grid Layout Manager
-    fun createLayoutStaggeredGrid(spanCount: Int): FrogoSingleRvBase<T>
+    fun baseCreateLayoutStaggeredGrid(spanCount: Int)
 
     // Create Grid Layout Manager
-    fun createLayoutGrid(spanCount: Int): FrogoSingleRvBase<T>
+    fun baseCreateLayoutGrid(spanCount: Int)
+
+    // Setup Layout Manager
+    fun setupLayoutManager(frogoRV: FrogoRecyclerView)
     
 }
