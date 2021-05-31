@@ -20,7 +20,7 @@ Just following the step until finish
     	 	
 ### Step 2. Setup requirement (Basic Adapter)
 
-#### Kotlin (sample using ViewBinding)
+#### Kotlin (R class)
 
     private fun setupFrogoRecyclerView() {
 
@@ -50,6 +50,38 @@ Just following the step until finish
             .createLayoutLinearVertical(false)
             .build()
     }
+
+#### Kotlin (ViewBinding)
+    private fun setupFrogoRecyclerBinding() {
+
+        val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
+            override fun setupInitComponent(view: FrogoRvListType1Binding, data: ExampleModel) {
+                view.frogoRvListType1TvTitle.text = data.name
+            }
+
+            override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
+                return FrogoRvListType1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+            }
+
+            override fun onItemClicked(data: ExampleModel) {
+                // setup item clicked on frogo recycler view
+                showToast(data.name)
+            }
+
+            override fun onItemLongClicked(data: ExampleModel) {
+                // setup item long clicked on frogo recycler view
+                showToast(data.name)
+            }
+        }
+
+        binding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
+            .addData(listDataBinding())
+            .addCallback(adapterCallback)
+            .createLayoutLinearVertical(false)
+            .build()
+
+    }
+
 
 ## Sample Code
 ### No Adapter
