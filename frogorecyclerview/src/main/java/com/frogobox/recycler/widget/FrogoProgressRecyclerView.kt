@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import com.frogobox.recycler.R
-import com.frogobox.recycler.core.FrogoRvSingle
+import com.frogobox.recycler.core.FrogoSingleRv
 import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentFrogoRecyclerView
 import com.frogobox.recycler.databinding.WidgetFrogoProgressRecyclerviewBinding
 import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentProgressBar
@@ -69,8 +69,8 @@ class FrogoProgressRecyclerView @JvmOverloads constructor(
         }
     }
 
-    override fun <T> defineRecyclerView(): FrogoRvSingle<T> {
-        return FrogoRvSingle<T>().initSingleton(binding.widgetFprvRecyclerview)
+    override fun <T> defineRecyclerView(): FrogoSingleRv<T> {
+        return FrogoSingleRv<T>().initSingleton(binding.widgetFprvRecyclerview)
     }
 
     override fun showProgress() {

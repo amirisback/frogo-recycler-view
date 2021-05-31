@@ -1,7 +1,6 @@
 package com.frogobox.recycler.widget
 
-import com.frogobox.recycler.core.FrogoRvSingle
-import com.frogobox.recycler.core.FrogoSrvSingle
+import com.frogobox.recycler.core.FrogoSingleRv
 
 /*
  * Created by faisalamir on 09/05/21
@@ -18,7 +17,7 @@ import com.frogobox.recycler.core.FrogoSrvSingle
 interface IFrogoProgressRecyclerView {
 
     // Setup RvSingletonRecycler
-    fun <T> defineRecyclerView(): FrogoRvSingle<T>
+    fun <T> defineRecyclerView(): FrogoSingleRv<T>
 
     // Show Progress View
     fun showProgress()

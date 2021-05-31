@@ -16,7 +16,7 @@ import com.frogobox.frogolog.FLog
  *
  */
 
-class FrogoSrvSingle : FrogoRvSingle<String>() {
+class FrogoSingleSrv : FrogoSingleRv<String>() {
 
     protected lateinit var srvFrogoAdapterCallback: IFrogoViewAdapter<String>
     protected lateinit var srvFrogoViewAdapter: FrogoViewAdapter<String>
@@ -24,13 +24,13 @@ class FrogoSrvSingle : FrogoRvSingle<String>() {
     protected var srvSumListItem: Int = 2
     protected var srvCustomViewInt: Int = 0
 
-    fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSrvSingle {
+    fun addShimmerViewPlaceHolder(customViewInt: Int): FrogoSingleSrv {
         srvCustomViewInt = customViewInt
         FLog.d("injector-shimmerView : $srvCustomViewInt")
         return this
     }
 
-    fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSrvSingle {
+    fun addShimmerSumOfItemLoading(sumItem: Int): FrogoSingleSrv {
         srvSumListItem = sumItem
         FLog.d("injector-sumItem : $srvSumListItem")
         return this

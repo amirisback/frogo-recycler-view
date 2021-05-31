@@ -17,53 +17,53 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * com.frogobox.recycler.util
  * 
  */
-interface IFrogoRvSingle<T> {
+interface IFrogoSingleRv<T> {
 
     // Init FrogoRecyclerView
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoRvSingle<T>
-
+    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T>
+    
     // Create Linear Vertical Layout Manager
-    fun createLayoutLinearVertical(dividerItem: Boolean): FrogoRvSingle<T>
+    fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRv<T>
 
     // Create Linear Vertical Layout Manager From End
     fun createLayoutLinearVertical(
         dividerItem: Boolean,
         reverseLayout: Boolean,
         stackFromEnd: Boolean
-    ): FrogoRvSingle<T>
+    ): FrogoSingleRv<T>
 
     // Create Linear Horizontal Layout Manager
-    fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoRvSingle<T>
+    fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSingleRv<T>
 
     // Create Linear Horizontal Layout Manager From End
     fun createLayoutLinearHorizontal(
         dividerItem: Boolean,
         reverseLayout: Boolean,
         stackFromEnd: Boolean
-    ): FrogoRvSingle<T>
+    ): FrogoSingleRv<T>
 
     // Create Staggered Grid Layout Manager
-    fun createLayoutStaggeredGrid(spanCount: Int): FrogoRvSingle<T>
+    fun createLayoutStaggeredGrid(spanCount: Int): FrogoSingleRv<T>
 
     // Create Grid Layout Manager
-    fun createLayoutGrid(spanCount: Int): FrogoRvSingle<T>
-
+    fun createLayoutGrid(spanCount: Int): FrogoSingleRv<T>
+    
     // Adding Data for RecyclerView
-    fun addData(listData: List<T>): FrogoRvSingle<T>
+    fun addData(listData: List<T>): FrogoSingleRv<T>
 
     // Adding Data with object ViewHolder
-    fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoRvSingle<T>
+    fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoSingleRv<T>
 
     // Adding Custom View for RecyclerView
-    fun addCustomView(customViewInt: Int): FrogoRvSingle<T>
+    fun addCustomView(customViewInt: Int): FrogoSingleRv<T>
 
     // Adding Empty View layout if data is Empty
-    fun addEmptyView(emptyViewInt: Int?): FrogoRvSingle<T>
+    fun addEmptyView(emptyViewInt: Int?): FrogoSingleRv<T>
 
     // Adding Callback for adapter
-    fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoRvSingle<T>
+    fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSingleRv<T>
 
     // Build this FrogoRecyclerView
-    fun build(): FrogoRvSingle<T>
+    fun build(): FrogoSingleRv<T>
 
 }
