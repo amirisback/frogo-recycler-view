@@ -5,6 +5,7 @@
 [![JitPack](https://jitpack.io/v/amirisback/frogo-recycler-view.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-recycler-view)
 [![Medium Badge](https://img.shields.io/badge/-faisalamircs-black?style=flat-square&logo=Medium&logoColor=white&link=https://medium.com/@fiqryq)](https://faisalamircs.medium.com/tutorial-recyclerview-cuman-15-detik-dengan-frogorecyclerview-cocok-buat-prototype-untuk-client-ad03b1af907e)
 - RecyclerView No Adapter (Adapter Has Been Handled)
+- RecyclerView No Adapter Using ViewBinding Adapter
 - RecyclerView Multi-View-Type (Stable - Multi ViewHolder)
 - Elegant call using injector()
 - Shimmer Effect
@@ -21,16 +22,16 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.6.0
+    $version_release = 3.7.0
 
 What's New??
 
     * Refactoring Code *
     * Enhance Performance *
-    * Update build.gradle *
     * Fixing Bug *
     * Update Documentation *
-    * New Function : Linear Layout Reverse Stack From End *
+    * Update build.gradle *
+    * Update No Adapter ViewBinding *
 
 ## Download this project
 
@@ -49,7 +50,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.6.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.7.0'
     }
 
 ## Tutorial

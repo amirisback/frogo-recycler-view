@@ -11,7 +11,7 @@ android {
     def nameLibrarySub = nameLibrary.toLowerCase().replace(" ", "-")
 
     def versionMajor = 3
-    def versionMinor = 6
+    def versionMinor = 7
     def versionPatch = 0
 
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
