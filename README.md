@@ -22,16 +22,12 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.7.0
+    $version_release = 3.7.1
 
 What's New??
 
-    * Refactoring Code *
+    * Update Build Gradle *
     * Enhance Performance *
-    * Fixing Bug *
-    * Update Documentation *
-    * Update build.gradle *
-    * Update No Adapter ViewBinding *
 
 ## Download this project
 
@@ -50,7 +46,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.7.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.7.1'
     }
 
 ## Tutorial
