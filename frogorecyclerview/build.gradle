@@ -58,7 +58,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // google recycler-view
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     // facebook shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
@@ -67,9 +67,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:1.0.5'
+    implementation 'com.github.amirisback:frogo-ui-kit:2.0.1'
 
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:2.0.0'
+    implementation 'com.github.amirisback:frogo-log:2.0.1'
 
 }
