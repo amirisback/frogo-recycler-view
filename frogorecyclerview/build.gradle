@@ -67,9 +67,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:2.0.1'
+    implementation 'com.github.amirisback:frogo-ui-kit:2.0.2'
 
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:2.0.1'
+    implementation 'com.github.amirisback:frogo-log:2.0.2'
 
 }
