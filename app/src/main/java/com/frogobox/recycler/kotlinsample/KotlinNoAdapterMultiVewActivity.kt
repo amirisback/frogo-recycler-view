@@ -8,14 +8,18 @@ import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
 import com.frogobox.recycler.core.FrogoHolder
+import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
-class KotlinNoAdapterMultiVewActivity : BaseActivity() {
+class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
+
+    override fun setupViewBinding(): ActivityFrogoRvGridBinding {
+        return ActivityFrogoRvGridBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvGridBinding.root)
         setupFrogoRecyclerView()
         setupDetailActivity("Kotlin No Adapter - Multi View")
     }
@@ -83,7 +87,7 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity() {
     }
 
     private fun setupFrogoRecyclerView() {
-        activityFrogoRvGridBinding.frogoRecyclerView
+        binding.frogoRecyclerView
             .injector<ExampleModel>()
             .addDataFH(data())
             .createLayoutStaggeredGrid(2)

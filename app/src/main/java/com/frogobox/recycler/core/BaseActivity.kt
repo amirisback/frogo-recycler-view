@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.databinding.*
 
 /*
@@ -23,18 +24,15 @@ import com.frogobox.recycler.databinding.*
  * com.frogobox.recycler.base
  * 
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
-    protected lateinit var activityMainBinding: ActivityMainBinding
-    protected lateinit var activityFrogoRvGridBinding: ActivityFrogoRvGridBinding
-    protected lateinit var activityFrogoRvListBinding: ActivityFrogoRvListBinding
-    protected lateinit var activityMainDevBinding: ActivityMainDevBinding
-    protected lateinit var activityKotlinShimmerBinding: ActivityKotlinShimmerBinding
-    protected lateinit var activityKotlinProgressBinding: ActivityKotlinProgressBinding
+    protected val binding: VB by lazy { setupViewBinding() }
+
+    abstract fun setupViewBinding() : VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupViewBinding()
+        setContentView(binding.root)
     }
 
     protected fun setupDetailActivity(title: String) {
@@ -58,20 +56,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun setupViewBinding(){
-        // genereate view binding
-        activityMainBinding = ActivityMainBinding.inflate(baseLayoutInflater())
-        activityFrogoRvGridBinding = ActivityFrogoRvGridBinding.inflate(baseLayoutInflater())
-        activityFrogoRvListBinding = ActivityFrogoRvListBinding.inflate(baseLayoutInflater())
-        activityMainDevBinding = ActivityMainDevBinding.inflate(baseLayoutInflater())
-        activityKotlinShimmerBinding = ActivityKotlinShimmerBinding.inflate(baseLayoutInflater())
-        activityKotlinProgressBinding = ActivityKotlinProgressBinding.inflate(baseLayoutInflater())
-    }
-
-    protected fun baseLayoutInflater() : LayoutInflater {
-        return LayoutInflater.from(this)
     }
 
 }

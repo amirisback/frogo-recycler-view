@@ -15,12 +15,17 @@ import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
+import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
+import com.frogobox.recycler.databinding.ActivityKotlinShimmerBinding
 
-class KotlinNestedActivity : BaseActivity() {
+class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
+
+    override fun setupViewBinding(): ActivityFrogoRvGridBinding {
+        return ActivityFrogoRvGridBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvGridBinding.root)
         setupDetailActivity("Nested RecyclerView")
         setupNewsApi()
     }
@@ -53,7 +58,6 @@ class KotlinNestedActivity : BaseActivity() {
                     Log.d("RxJavaShow", "Show Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        activityKotlinShimmerBinding.rvShimmer.startShimmer()
                     }
                 }
 
@@ -62,7 +66,6 @@ class KotlinNestedActivity : BaseActivity() {
                     Log.d("RxJavaHide", "Hide Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        activityKotlinShimmerBinding.rvShimmer.stopShimmer()
                     }
 
                 }
@@ -103,8 +106,10 @@ class KotlinNestedActivity : BaseActivity() {
                 return object : IFrogoViewHolder<Article> {
                     override fun setupInitComponent(view: View, data: Article) {
                         val iv = view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_iv_poster)
-                        val tv_title = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title)
-                        val tv_sub = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle)
+                        val tv_title =
+                            view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title)
+                        val tv_sub =
+                            view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle)
                         val tv_desc = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc)
 
                         Glide.with(view.context).load(data.urlToImage).into(iv)
@@ -117,11 +122,12 @@ class KotlinNestedActivity : BaseActivity() {
         })
         mAdapter.setupNestedView()
         mAdapter.setupDataNested(data)
-        activityFrogoRvGridBinding.frogoRecyclerView.apply {
+        binding.frogoRecyclerView.apply {
             layoutManager = mLinearLayoutManager
             setHasFixedSize(true)
             adapter = mAdapter
         }
     }
+
 
 }

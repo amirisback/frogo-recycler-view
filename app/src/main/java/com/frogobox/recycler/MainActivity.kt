@@ -3,6 +3,7 @@ package com.frogobox.recycler
 import android.content.Intent
 import android.os.Bundle
 import com.frogobox.recycler.core.BaseActivity
+import com.frogobox.recycler.databinding.ActivityMainBinding
 import com.frogobox.recycler.javasample.JavaNoAdapterActivity
 import com.frogobox.recycler.javasample.JavaNoAdapterMultiViewActivity
 import com.frogobox.recycler.javasample.usingadapter.JavaSampleActivity
@@ -14,17 +15,20 @@ import com.frogobox.recycler.kotlinsample.usingadapter.KotlinNestedActivity
 import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
 import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSimpleNestedActivity
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override fun setupViewBinding(): ActivityMainBinding {
+        return ActivityMainBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityMainBinding.root)
         setupButton()
     }
 
     private fun setupButton() {
 
-        activityMainBinding.apply {
+        binding.apply {
             btnWithData.setOnClickListener {
                 startActivity(Intent(this@MainActivity, KotlinSampleActivity::class.java))
             }
@@ -65,8 +69,6 @@ class MainActivity : BaseActivity() {
                 startActivity(Intent(this@MainActivity, KotlinNestedActivity::class.java))
             }
         }
-
-
 
     }
 

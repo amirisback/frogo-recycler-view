@@ -13,14 +13,18 @@ import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.recycler.databinding.ActivityKotlinShimmerBinding
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
-class KotlinShimmerActivity : BaseActivity() {
+class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
+    
+    override fun setupViewBinding(): ActivityKotlinShimmerBinding {
+        return ActivityKotlinShimmerBinding.inflate(layoutInflater)
+    }
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityKotlinShimmerBinding.root)
         setupDetailActivity("Kotlin FrogoShimmerRecyclerView Sample")
         setupShimmerLoading()
         setupNewsApi()
@@ -56,7 +60,7 @@ class KotlinShimmerActivity : BaseActivity() {
             }
         }
 
-        activityKotlinShimmerBinding.rvShimmer.defineRecyclerView<Article>()
+        binding.rvShimmer.defineRecyclerView<Article>()
             .addData(data)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
@@ -67,15 +71,15 @@ class KotlinShimmerActivity : BaseActivity() {
 
     private fun setupShimmer(state: Boolean) {
         if (state) {
-            activityKotlinShimmerBinding.rvShimmer.startShimmer()
+            binding.rvShimmer.startShimmer()
         } else {
-            activityKotlinShimmerBinding.rvShimmer.stopShimmer()
+            binding.rvShimmer.stopShimmer()
         }
     }
 
     private fun setupButtonShimmer() {
         var bool = false
-        activityKotlinShimmerBinding.buttonShimmer.setOnClickListener {
+        binding.buttonShimmer.setOnClickListener {
             bool = !bool
             setupShimmer(bool)
         }
@@ -107,7 +111,7 @@ class KotlinShimmerActivity : BaseActivity() {
                     Log.d("RxJavaShow", "Show Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        activityKotlinShimmerBinding.rvShimmer.startShimmer()
+                        binding.rvShimmer.startShimmer()
                     }
                 }
 
@@ -116,7 +120,7 @@ class KotlinShimmerActivity : BaseActivity() {
                     Log.d("RxJavaHide", "Hide Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        activityKotlinShimmerBinding.rvShimmer.stopShimmer()
+                        binding.rvShimmer.stopShimmer()
                     }
 
                 }
@@ -125,11 +129,11 @@ class KotlinShimmerActivity : BaseActivity() {
     }
 
     private fun setupShimmerLoading() {
-        activityKotlinShimmerBinding.rvShimmer.defineShimmerView()
+        binding.rvShimmer.defineShimmerView()
             .addShimmerSumOfItemLoading(7)
             .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
             .createLayoutLinearVertical(false)
             .build()
     }
-    
+
 }

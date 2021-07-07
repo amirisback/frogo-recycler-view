@@ -10,18 +10,26 @@ import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.recycler.core.IFrogoViewHolder;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
+import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding;
 import com.frogobox.recycler.model.ExampleModel;
 import com.frogobox.recycler.util.Constant;
 import com.frogobox.recycler.core.FrogoRvConstant;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
-public class JavaNoAdapterMultiViewActivity extends BaseActivity {
+public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRvGridBinding> {
+
+    @NotNull
+    @Override
+    public ActivityFrogoRvGridBinding setupViewBinding() {
+        return ActivityFrogoRvGridBinding.inflate(getLayoutInflater());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activityFrogoRvGridBinding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter - Multi View");
     }
@@ -94,7 +102,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity {
     }
 
     private void setupFrogoRecyclerView() {
-        activityFrogoRvGridBinding.frogoRecyclerView.injector()
+        getBinding().frogoRecyclerView.injector()
                 .addDataFH(data())
                 .createLayoutStaggeredGrid(2)
                 .build();

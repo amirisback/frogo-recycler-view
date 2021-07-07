@@ -7,28 +7,34 @@ import android.widget.TextView;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
 import com.frogobox.recycler.core.IFrogoViewAdapter;
+import com.frogobox.recycler.databinding.ActivityFrogoRvListBinding;
 import com.frogobox.recycler.model.ExampleModel;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaNoAdapterActivity extends BaseActivity {
+public class JavaNoAdapterActivity extends BaseActivity<ActivityFrogoRvListBinding> {
+
+    @NotNull
+    @Override
+    public ActivityFrogoRvListBinding setupViewBinding() {
+        return ActivityFrogoRvListBinding.inflate(getLayoutInflater());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activityFrogoRvListBinding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter");
     }
 
     private ArrayList<ExampleModel> listData() {
         ArrayList<ExampleModel> exampleModels = new ArrayList<>();
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
         return exampleModels;
     }
 
@@ -55,7 +61,7 @@ public class JavaNoAdapterActivity extends BaseActivity {
             }
         };
 
-        activityFrogoRvListBinding.frogoRecyclerView.injector()
+        getBinding().frogoRecyclerView.injector()
                 .addData(listData())
                 .addCustomView(R.layout.frogo_rv_list_type_1)
                 .addEmptyView(null)

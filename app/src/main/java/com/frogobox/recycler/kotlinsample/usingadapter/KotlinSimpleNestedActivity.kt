@@ -6,12 +6,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
+import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
 
-class KotlinSimpleNestedActivity : BaseActivity() {
+class KotlinSimpleNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
+
+    override fun setupViewBinding(): ActivityFrogoRvGridBinding {
+        return ActivityFrogoRvGridBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvGridBinding.root)
         setupDetailActivity("Simple Nested RecyclerView")
         setupRecyclerView()
     }
@@ -64,7 +68,7 @@ class KotlinSimpleNestedActivity : BaseActivity() {
         })
         mAdapter.setupNestedView()
         mAdapter.setupDataNested(setupDataNested())
-        activityFrogoRvGridBinding.frogoRecyclerView.apply {
+        binding.frogoRecyclerView.apply {
             layoutManager = mLinearLayoutManager
             setHasFixedSize(true)
             adapter = mAdapter

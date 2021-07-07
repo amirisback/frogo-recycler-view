@@ -6,26 +6,34 @@ import android.widget.Toast;
 import com.frogobox.recycler.R;
 import com.frogobox.recycler.core.BaseActivity;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
+import com.frogobox.recycler.databinding.ActivityFrogoRvListBinding;
 import com.frogobox.recycler.model.ExampleModel;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaSampleActivity extends BaseActivity {
+public class JavaSampleActivity extends BaseActivity<ActivityFrogoRvListBinding> {
+
+    @NotNull
+    @Override
+    public ActivityFrogoRvListBinding setupViewBinding() {
+        return ActivityFrogoRvListBinding.inflate(getLayoutInflater());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activityFrogoRvListBinding.getRoot());
         setupAdapter();
         setupDetailActivity("Java With Adapter");
     }
 
     private ArrayList<ExampleModel> listData() {
         ArrayList<ExampleModel> exampleModels = new ArrayList<>();
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
-//        exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
+        // exampleModels.add(new ExampleModel(Constant.NICK_NAME));
         return exampleModels;
     }
 
@@ -44,8 +52,9 @@ public class JavaSampleActivity extends BaseActivity {
         });
         adapter.setupEmptyView(null); // Without Custom View
 
-        activityFrogoRvListBinding.frogoRecyclerView.setAdapter(adapter);
-        activityFrogoRvListBinding.frogoRecyclerView.isViewLinearVertical(false);
+        getBinding().frogoRecyclerView.setAdapter(adapter);
+        getBinding().frogoRecyclerView.isViewLinearVertical(false);
     }
+
 
 }

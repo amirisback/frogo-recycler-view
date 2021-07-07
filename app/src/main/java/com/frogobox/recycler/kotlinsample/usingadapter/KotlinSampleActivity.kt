@@ -5,14 +5,18 @@ import android.widget.Toast
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
+import com.frogobox.recycler.databinding.ActivityFrogoRvListBinding
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
-class KotlinSampleActivity : BaseActivity() {
+class KotlinSampleActivity : BaseActivity<ActivityFrogoRvListBinding>() {
+
+    override fun setupViewBinding(): ActivityFrogoRvListBinding {
+        return ActivityFrogoRvListBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityFrogoRvListBinding.root)
         setupAdapter()
         setupDetailActivity("Kotlin With Adapter")
     }
@@ -42,8 +46,8 @@ class KotlinSampleActivity : BaseActivity() {
             }
         )
         adapter.setupEmptyView(R.layout.frogo_container_empty_view) // With Custom View
-        activityFrogoRvListBinding.frogoRecyclerView.adapter = adapter
-        activityFrogoRvListBinding.frogoRecyclerView.isViewLinearVertical(false)
+        binding.frogoRecyclerView.adapter = adapter
+        binding.frogoRecyclerView.isViewLinearVertical(false)
     }
 
 }

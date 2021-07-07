@@ -14,19 +14,19 @@ import com.frogobox.recycler.databinding.ActivityBaseBinding
 import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
-class KotlinNoAdapterActivity : BaseActivity() {
+class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
 
-    private lateinit var binding : ActivityBaseBinding
+    override fun setupViewBinding(): ActivityBaseBinding {
+        return ActivityBaseBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBaseBinding.inflate(baseLayoutInflater())
-        setContentView(binding.root)
         setupDetailActivity("Kotlin No Adapter")
         setupUI()
     }
 
-    private fun setupUI (){
+    private fun setupUI() {
         binding.apply {
             btnBinding.setOnClickListener {
                 setupFrogoRecyclerBinding()
@@ -87,7 +87,7 @@ class KotlinNoAdapterActivity : BaseActivity() {
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
             .addCallback(adapterCallback)
-            .createLayoutLinearVertical(false,false,true)
+            .createLayoutLinearVertical(false, false, true)
             .build()
     }
 
@@ -100,7 +100,11 @@ class KotlinNoAdapterActivity : BaseActivity() {
             }
 
             override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
-                return FrogoRvListType1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return FrogoRvListType1Binding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
             }
 
             override fun onItemClicked(data: ExampleModel) {
@@ -114,14 +118,11 @@ class KotlinNoAdapterActivity : BaseActivity() {
             }
         }
 
-
         binding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
             .addData(listDataBinding())
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .build()
-
-
     }
 
 }

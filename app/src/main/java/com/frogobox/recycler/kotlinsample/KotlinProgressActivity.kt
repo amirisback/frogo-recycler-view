@@ -13,12 +13,17 @@ import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.recycler.databinding.ActivityKotlinProgressBinding
 
-class KotlinProgressActivity : BaseActivity() {
+class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
+
+    override fun setupViewBinding(): ActivityKotlinProgressBinding {
+        return ActivityKotlinProgressBinding.inflate(layoutInflater)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activityKotlinProgressBinding.root)
         setupDetailActivity("Kotlin FrogoProgressRecyclerView Sample")
         setupNewsApi()
         setupButtonProgress()
@@ -44,7 +49,7 @@ class KotlinProgressActivity : BaseActivity() {
             }
         }
 
-        activityKotlinProgressBinding.rvProgress.defineRecyclerView<Article>()
+        binding.rvProgress.defineRecyclerView<Article>()
             .addData(data)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
@@ -54,7 +59,7 @@ class KotlinProgressActivity : BaseActivity() {
     }
 
     private fun setupProgress(state: Boolean) {
-        activityKotlinProgressBinding.apply {
+        binding.apply {
             if (state) {
                 rvProgress.showProgress()
             } else {
@@ -65,7 +70,7 @@ class KotlinProgressActivity : BaseActivity() {
 
     private fun setupButtonProgress() {
         var bool = false
-        activityKotlinProgressBinding.buttonProgress.setOnClickListener {
+        binding.buttonProgress.setOnClickListener {
             bool = !bool
             setupProgress(bool)
         }
@@ -97,7 +102,7 @@ class KotlinProgressActivity : BaseActivity() {
                     Log.d("RxJavaShow", "Show Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        activityKotlinProgressBinding.rvProgress.showProgress()
+                        binding.rvProgress.showProgress()
                     }
                 }
 
@@ -106,13 +111,12 @@ class KotlinProgressActivity : BaseActivity() {
                     Log.d("RxJavaHide", "Hide Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        activityKotlinProgressBinding.rvProgress.hideProgress()
+                        binding.rvProgress.hideProgress()
                     }
 
                 }
 
             })
     }
-
 
 }
