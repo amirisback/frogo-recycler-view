@@ -70,7 +70,7 @@ Just following the step until finish
         })
         mAdapter.setupNestedView()
         mAdapter.setupDataNested(setupDataNested())
-        activityFrogoRvGridBinding.frogoRecyclerView.apply {
+        biinding.frogoRecyclerView.apply {
             layoutManager = mLinearLayoutManager
             setHasFixedSize(true)
             adapter = mAdapter

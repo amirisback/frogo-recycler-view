@@ -43,7 +43,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
             }
         }
 
-        activityKotlinProgressBinding.rvProgress.defineRecyclerView<Article>()
+        binding.rvProgress.defineRecyclerView<Article>()
             .addData(data)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
@@ -54,7 +54,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
 
 ### Step 3. Setup doing progress
     private fun setupProgress(state: Boolean) {
-        activityKotlinProgressBinding.apply {
+        binding.apply {
             if (state) {
                 rvProgress.showProgress()
             } else {

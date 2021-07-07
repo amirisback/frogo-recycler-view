@@ -41,7 +41,7 @@ Just following the step until finish
             }
         }
 
-        activityFrogoRvSampleBinding.frogoRecyclerView
+        binding.frogoRecyclerView
             .injector<ExampleModel>()
             .addData(listData())
             .addCustomView(R.layout.frogo_rv_list_type_1)

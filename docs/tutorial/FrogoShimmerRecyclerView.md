@@ -25,7 +25,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
 ### Step 2. Setup shimmer-recycler-view
 
     private fun setupShimmerLoading() {
-        activityKotlinShimmerBinding.rvShimmer.defineShimmerView()
+        binding.rvShimmer.defineShimmerView()
             .addShimmerSumOfItemLoading(5)
             .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
             .createLayoutLinearVertical(false)
@@ -54,7 +54,7 @@ Just following the step until finish, for basic adapter using step 2, for multi 
             }
         }
 
-        activityKotlinShimmerBinding.rvShimmer.defineRecyclerView<Article>()
+        binding.rvShimmer.defineRecyclerView<Article>()
             .addData(data)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
@@ -67,9 +67,9 @@ Just following the step until finish, for basic adapter using step 2, for multi 
 
     private fun setupShimmer(state: Boolean) {
         if (state) {
-            activityKotlinShimmerBinding.rvShimmer.startShimmer()
+            binding.rvShimmer.startShimmer()
         } else {
-            activityKotlinShimmerBinding.rvShimmer.stopShimmer()
+            binding.rvShimmer.stopShimmer()
         }
     }
 

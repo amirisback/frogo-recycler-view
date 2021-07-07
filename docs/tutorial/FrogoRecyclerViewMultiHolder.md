@@ -88,7 +88,7 @@ Just following the step until finish
     }
 
     private fun setupFrogoRecyclerView() {
-        activityFrogoRvGridBinding.frogoRecyclerView
+        binding.frogoRecyclerView
             .injector<ExampleModel>()
             .addDataFH(data())
             .createLayoutStaggeredGrid(2)
@@ -165,7 +165,7 @@ Just following the step until finish
     }
 
     private void setupFrogoRecyclerView() {
-        activityFrogoRvGridBinding.frogoRecyclerView.injector()
+        binding.frogoRecyclerView.injector()
                 .addDataFH(data())
                 .createLayoutStaggeredGrid(2)
                 .build();
