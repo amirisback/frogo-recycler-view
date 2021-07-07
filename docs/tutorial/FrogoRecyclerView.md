@@ -18,7 +18,7 @@ Just following the step until finish
         android:layout_height="match_parent"/>
     
     	 	
-### Step 2. Setup requirement (Basic Adapter)
+### Step 2. Setup requirement (No Adapter)
 
 #### Kotlin (R class)
 
