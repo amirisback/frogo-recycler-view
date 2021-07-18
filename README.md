@@ -22,12 +22,14 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.7.2
+    $version_release = 3.7.3
 
 What's New??
 
     * Update Build Gradle *
     * Enhance Performance *
+    * Renaming param view to binding *
+
 
 ## Download this project
 
@@ -46,7 +48,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.7.2'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.7.3'
     }
 
 ### Step 3. Create xml view
@@ -89,12 +91,13 @@ What's New??
             .build()
     }
 
-#### Kotlin (ViewBinding)
+#### Kotlin (ViewBinding) Can't use emptyView
     private fun setupFrogoRecyclerBinding() {
 
         val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
-            override fun setupInitComponent(view: FrogoRvListType1Binding, data: ExampleModel) {
-                view.frogoRvListType1TvTitle.text = data.name
+            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+                binding.frogoRvListType1TvTitle.text = data.name
+                val context = binding.root.context
             }
 
             override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
