@@ -31,7 +31,6 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
     protected var optionAdapter = ""
     protected var customViewId: Int = 0
     
-    
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T> {
         mFrogoRecyclerView = frogoRecyclerView
         frogoViewAdapter = FrogoViewAdapter()

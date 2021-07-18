@@ -43,7 +43,7 @@ abstract class FrogoRecyclerViewAdapter<T> :
     protected var customLayoutRestId: Int = 0
     protected var emptyLayoutResId: Int = R.layout.frogo_container_empty_view
 
-    fun bindNestedHolder(){
+    fun bindNestedHolder() {
 
     } // component view
 

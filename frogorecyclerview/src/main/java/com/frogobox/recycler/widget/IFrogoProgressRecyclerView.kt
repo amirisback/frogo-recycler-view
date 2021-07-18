@@ -25,5 +25,4 @@ interface IFrogoProgressRecyclerView {
     // Hide Progress View
     fun hideProgress()
 
-
 }

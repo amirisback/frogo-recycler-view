@@ -30,9 +30,6 @@ class FrogoBindingAdapter<T, VB : ViewBinding> : FrogoRecyclerBindingAdapter<T, 
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerBindingHolder<T, VB> {
-        return FrogoBindingHolder(
-            frogoViewHolderCallback!!.setViewBinding(parent),
-            frogoViewHolderCallback
-        )
+        return FrogoBindingHolder(frogoViewHolderCallback!!.setViewBinding(parent), frogoViewHolderCallback)
     }
 }

@@ -27,7 +27,6 @@
         <activity android:name=".kotlinsample.KotlinNoAdapterActivity" />
         <activity android:name=".kotlinsample.usingadapter.KotlinSampleActivity" />
         <activity android:name=".kotlinsample.usingadapter.KotlinSimpleNestedActivity" />
-        <activity android:name=".MainDevActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
