@@ -95,8 +95,8 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
     private fun setupFrogoRecyclerBinding() {
 
         val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
-            override fun setupInitComponent(view: FrogoRvListType1Binding, data: ExampleModel) {
-                view.frogoRvListType1TvTitle.text = data.name
+            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+                binding.frogoRvListType1TvTitle.text = data.name
             }
 
             override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {

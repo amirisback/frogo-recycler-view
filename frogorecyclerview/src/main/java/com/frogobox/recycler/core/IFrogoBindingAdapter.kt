@@ -20,11 +20,11 @@ import androidx.viewbinding.ViewBinding
  */
 interface IFrogoBindingAdapter<T, VB : ViewBinding> {
 
-    // Setup Init Component on ViewHolder
-    fun setupInitComponent(view: VB, data: T)
-
     // Setup View Binding
     fun setViewBinding(parent: ViewGroup): VB
+
+    // Setup Init Component on ViewHolder
+    fun setupInitComponent(binding: VB, data: T)
 
     // Setup item clicked
     fun onItemClicked(data: T)

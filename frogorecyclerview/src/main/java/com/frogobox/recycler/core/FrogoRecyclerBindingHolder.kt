@@ -21,8 +21,8 @@ import androidx.viewbinding.ViewBinding
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerBindingHolder<T, VB : ViewBinding>(private val view: VB) :
-    RecyclerView.ViewHolder(view.root) {
+abstract class FrogoRecyclerBindingHolder<T, VB : ViewBinding>(private val binding: VB) :
+    RecyclerView.ViewHolder(binding.root) {
 
     abstract fun initComponent(data: T) // component view
 
@@ -38,12 +38,12 @@ abstract class FrogoRecyclerBindingHolder<T, VB : ViewBinding>(private val view:
     }
 
     private fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
-        view.root.setOnClickListener {
+        binding.root.setOnClickListener {
             if (data != null) {
                 listener?.onItemClicked(data)
             }
         }
-        view.root.setOnLongClickListener {
+        binding.root.setOnLongClickListener {
             if (data != null) {
                 listener?.onItemLongClicked(data)
             }

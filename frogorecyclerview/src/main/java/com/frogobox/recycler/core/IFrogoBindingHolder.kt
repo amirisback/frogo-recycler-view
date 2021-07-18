@@ -1,6 +1,5 @@
 package com.frogobox.recycler.core
 
-import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 
@@ -21,10 +20,10 @@ import androidx.viewbinding.ViewBinding
  */
 interface IFrogoBindingHolder<T, VB: ViewBinding> {
 
-    // Setup Init Component on ViewHolder
-    fun setupInitComponent(view: VB, data: T)
-
     // Setup View Binding
     fun setViewBinding(parent: ViewGroup) : VB
+
+    // Setup Init Component on ViewHolder
+    fun setupInitComponent(binding: VB, data: T)
 
 }

@@ -18,13 +18,13 @@ import androidx.viewbinding.ViewBinding
  * 
  */
 class FrogoBindingHolder<T, VB : ViewBinding>(
-    private val view: VB,
+    private val binding: VB,
     private val frogoViewHolderCallback: IFrogoBindingHolder<T, VB>?
 ) :
-    FrogoRecyclerBindingHolder<T, VB>(view) {
+    FrogoRecyclerBindingHolder<T, VB>(binding) {
 
     override fun initComponent(data: T) {
-        frogoViewHolderCallback?.setupInitComponent(view, data)
+        frogoViewHolderCallback?.setupInitComponent(binding, data)
     }
 
 }

@@ -88,8 +88,8 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
     protected open fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
         frogoViewAdapter.setCallback(object : IFrogoBindingHolder<T, VB> {
-            override fun setupInitComponent(view: VB, data: T) {
-                frogoAdapterCallback.setupInitComponent(view, data)
+            override fun setupInitComponent(binding: VB, data: T) {
+                frogoAdapterCallback.setupInitComponent(binding, data)
             }
 
             override fun setViewBinding(parent: ViewGroup): VB {
