@@ -10,10 +10,6 @@ android {
     // Declaration apk / aab name
     def nameLibrarySub = nameLibrary.toLowerCase().replace(" ", "-")
 
-    def versionMajor = 3
-    def versionMinor = 7
-    def versionPatch = 2
-
     def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
     def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
 
@@ -30,12 +26,12 @@ android {
         jvmTarget = '1.8'
     }
 
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion projectCompileSdkVersion
+    buildToolsVersion projectBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion projectMinSdkVersion
+        targetSdkVersion projectTargetSdkVersion
         versionCode versionCodeLibrary
         versionName versionNameLibrary
 
