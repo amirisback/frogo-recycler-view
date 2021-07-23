@@ -4,9 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.*
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.core.FrogoSingleRvBinding
-import com.frogobox.recycler.core.FrogoSingleRv
-import com.frogobox.recycler.core.FrogoRvConstant
+import com.frogobox.recycler.core.*
 
 
 /**
@@ -71,7 +69,11 @@ class FrogoRecyclerView : RecyclerView,
         FrogoSingleRv<T>().initSingleton(this)
 
     override fun <T, VB : ViewBinding> injectorBinding(): FrogoSingleRvBinding<T, VB> {
-        return  FrogoSingleRvBinding<T, VB>().initSingleton(this)
+        return FrogoSingleRvBinding<T, VB>().initSingleton(this)
+    }
+
+    override fun <T> builder(listener: FrogoBuilderRvListener<T>) {
+        return FrogoBuilderRv<T>().initBuilder(this).builder(listener)
     }
 
 }

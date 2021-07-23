@@ -1,6 +1,7 @@
 package com.frogobox.recycler.widget
 
 import androidx.viewbinding.ViewBinding
+import com.frogobox.recycler.core.FrogoBuilderRvListener
 import com.frogobox.recycler.core.FrogoSingleRvBinding
 import com.frogobox.recycler.core.FrogoSingleRv
 
@@ -40,6 +41,9 @@ interface IFrogoRecyclerView {
     fun <T> injector(): FrogoSingleRv<T>
 
     // Setup Singleton ViewBinding Class
-    fun <T, VB: ViewBinding> injectorBinding(): FrogoSingleRvBinding<T, VB>
+    fun <T, VB : ViewBinding> injectorBinding(): FrogoSingleRvBinding<T, VB>
+
+    // Setup Builder
+    fun <T> builder(listener: FrogoBuilderRvListener<T>)
 
 }
