@@ -97,9 +97,7 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
             }
         })
 
-        frogoViewAdapter.setupRequirement(listData,
-            object :
-                FrogoRecyclerViewListener<T> {
+        frogoViewAdapter.setupRequirement(listData, object : FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
                     frogoAdapterCallback.onItemClicked(data)
                 }
