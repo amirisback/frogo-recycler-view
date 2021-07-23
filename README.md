@@ -29,7 +29,11 @@ What's New??
     * Update Build Gradle *
     * Enhance Performance *
     * Renaming param view to binding *
-
+    * Add: FrogoLayoutManager *
+    * Add: Function Builder *
+    * Add: New Sample Code *
+    * Delete: IFrogoSingleRvBase *
+    * Refactoring Code *
 
 ## Download this project
 
