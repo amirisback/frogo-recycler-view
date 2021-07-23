@@ -5,8 +5,8 @@ buildscript {
     ext {
 
         versionMajor = 3
-        versionMinor = 7
-        versionPatch = 3
+        versionMinor = 8
+        versionPatch = 0
 
         projectCompileSdkVersion = 30
         projectBuildToolsVersion = "30.0.3"

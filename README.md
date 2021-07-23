@@ -22,7 +22,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.7.3
+    $version_release = 3.8.0
 
 What's New??
 
@@ -48,7 +48,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.7.3'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.8.0'
     }
 
 ### Step 3. Create xml view
