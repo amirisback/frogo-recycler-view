@@ -60,7 +60,7 @@ What's New??
 
 ### Step 4. Setup requirement (No Adapter)
 
-#### Kotlin (R class)
+#### Kotlin Injector (R class)
 
     private fun setupFrogoRecyclerView() {
 
@@ -91,7 +91,7 @@ What's New??
             .build()
     }
 
-#### Kotlin (ViewBinding) Can't use emptyView
+#### Kotlin Injector (ViewBinding) Can't use emptyView
     private fun setupFrogoRecyclerBinding() {
 
         val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
@@ -121,6 +121,46 @@ What's New??
             .createLayoutLinearVertical(false)
             .build()
 
+    }
+
+#### Kotlin Builder (R class)
+    private fun setupRvBuilder() {
+        binding.frogoRecyclerView.builder(object : FrogoBuilderRvListener<ExampleModel>{
+            override fun setupData(): List<ExampleModel> {
+                // Setup data FrogoRecyclerView
+                return listData()
+            }
+
+            override fun setupCustomView(): Int {
+                // Setup Custom View
+                return R.layout.frogo_rv_list_type_1
+            }
+
+            override fun setupEmptyView(): Int? {
+                // Setup Empty View
+                return null
+            }
+
+            override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
+                // Setup Layout Manager of FrogoRecyclerView
+                return FrogoLayoutManager.linearLayoutVertical(context)
+            }
+
+            override fun setupInitComponent(view: View, data: ExampleModel) {
+                // Init component content item recyclerview
+                view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
+            }
+
+            override fun onItemClicked(data: ExampleModel) {
+                // setup item clicked on frogo recycler view
+                showToast(data.name)
+            }
+
+            override fun onItemLongClicked(data: ExampleModel) {
+                // setup item long clicked on frogo recycler view
+                showToast(data.name)
+            }
+        })
     }
 
 ## Tutorial
