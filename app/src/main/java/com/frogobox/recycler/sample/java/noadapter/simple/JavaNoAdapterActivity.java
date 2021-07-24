@@ -1,4 +1,4 @@
-package com.frogobox.recycler.javasample;
+package com.frogobox.recycler.sample.java.noadapter.simple;
 
 import android.os.Bundle;
 import android.view.View;

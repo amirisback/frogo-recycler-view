@@ -1,4 +1,4 @@
-package com.frogobox.recycler.kotlinsample
+package com.frogobox.recycler.sample.kotlin.noadapter.shimmer
 
 import android.os.Bundle
 import android.util.Log
@@ -13,23 +13,23 @@ import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
-import com.frogobox.recycler.databinding.ActivityKotlinProgressBinding
+import com.frogobox.recycler.databinding.ActivityKotlinShimmerBinding
 
-class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
-
-    override fun setupViewBinding(): ActivityKotlinProgressBinding {
-        return ActivityKotlinProgressBinding.inflate(layoutInflater)
+class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
+    
+    override fun setupViewBinding(): ActivityKotlinShimmerBinding {
+        return ActivityKotlinShimmerBinding.inflate(layoutInflater)
     }
-
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupDetailActivity("Kotlin FrogoProgressRecyclerView Sample")
+        setupDetailActivity("Kotlin FrogoShimmerRecyclerView Sample")
+        setupShimmerLoading()
         setupNewsApi()
-        setupButtonProgress()
+        setupButtonShimmer()
     }
 
-    private fun setupFrogoProgressRecyclerView(data: List<Article>) {
+    private fun setupFrogoShimmerRecyclerView(data: List<Article>) {
 
         val adapterCallback = object :
             IFrogoViewAdapter<Article> {
@@ -49,7 +49,7 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
             }
         }
 
-        binding.rvProgress.defineRecyclerView<Article>()
+        binding.rvShimmer.defineRecyclerView<Article>()
             .addData(data)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
@@ -58,21 +58,19 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
             .build()
     }
 
-    private fun setupProgress(state: Boolean) {
-        binding.apply {
-            if (state) {
-                rvProgress.showProgress()
-            } else {
-                rvProgress.hideProgress()
-            }
+    private fun setupShimmer(state: Boolean) {
+        if (state) {
+            binding.rvShimmer.startShimmer()
+        } else {
+            binding.rvShimmer.stopShimmer()
         }
     }
 
-    private fun setupButtonProgress() {
+    private fun setupButtonShimmer() {
         var bool = false
-        binding.buttonProgress.setOnClickListener {
+        binding.buttonShimmer.setOnClickListener {
             bool = !bool
-            setupProgress(bool)
+            setupShimmer(bool)
         }
     }
 
@@ -89,7 +87,7 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
             object : NewsResultCallback<ArticleResponse> {
                 override fun getResultData(data: ArticleResponse) {
                     // Your Ui or data
-                    data.articles?.let { setupFrogoProgressRecyclerView(it) }
+                    data.articles?.let { setupFrogoShimmerRecyclerView(it) }
                 }
 
                 override fun failedResult(statusCode: Int, errorMessage: String?) {
@@ -102,7 +100,7 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
                     Log.d("RxJavaShow", "Show Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        binding.rvProgress.showProgress()
+                        binding.rvShimmer.startShimmer()
                     }
                 }
 
@@ -111,12 +109,20 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
                     Log.d("RxJavaHide", "Hide Progress")
                     runOnUiThread {
                         // Stuff that updates the UI
-                        binding.rvProgress.hideProgress()
+                        binding.rvShimmer.stopShimmer()
                     }
 
                 }
 
             })
+    }
+
+    private fun setupShimmerLoading() {
+        binding.rvShimmer.defineShimmerView()
+            .addShimmerSumOfItemLoading(7)
+            .addShimmerViewPlaceHolder(R.layout.frogo_rv_list_type_1)
+            .createLayoutLinearVertical(false)
+            .build()
     }
 
 }

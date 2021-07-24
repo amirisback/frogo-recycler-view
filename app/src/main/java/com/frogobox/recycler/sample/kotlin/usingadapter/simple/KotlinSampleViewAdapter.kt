@@ -1,4 +1,4 @@
-package com.frogobox.recycler.kotlinsample.usingadapter
+package com.frogobox.recycler.sample.kotlin.usingadapter.simple
 
 import android.view.View
 import android.view.ViewGroup

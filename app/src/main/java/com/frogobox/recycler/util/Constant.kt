@@ -1,5 +1,7 @@
 package com.frogobox.recycler.util
 
+import com.frogobox.recycler.model.ExampleModel
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -22,5 +24,13 @@ object Constant {
 
     const val FULL_NAME = "Muhammad Faisal Amir"
     const val NICK_NAME = "Faisal Amir"
+
+    fun dummyData(cons : String): MutableList<ExampleModel> {
+        val listString = mutableListOf<ExampleModel>()
+        for (i in 1..5) {
+            listString.add(ExampleModel(cons))
+        }
+        return listString
+    }
 
 }

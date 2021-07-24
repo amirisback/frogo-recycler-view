@@ -4,16 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import com.frogobox.recycler.core.BaseActivity
 import com.frogobox.recycler.databinding.ActivityMainBinding
-import com.frogobox.recycler.javasample.JavaNoAdapterActivity
-import com.frogobox.recycler.javasample.JavaNoAdapterMultiViewActivity
-import com.frogobox.recycler.javasample.usingadapter.JavaSampleActivity
-import com.frogobox.recycler.kotlinsample.KotlinNoAdapterActivity
-import com.frogobox.recycler.kotlinsample.KotlinNoAdapterMultiVewActivity
-import com.frogobox.recycler.kotlinsample.KotlinProgressActivity
-import com.frogobox.recycler.kotlinsample.KotlinShimmerActivity
-import com.frogobox.recycler.kotlinsample.usingadapter.KotlinNestedActivity
-import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSampleActivity
-import com.frogobox.recycler.kotlinsample.usingadapter.KotlinSimpleNestedActivity
+import com.frogobox.recycler.sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity
+import com.frogobox.recycler.sample.java.noadapter.simple.JavaNoAdapterActivity
+import com.frogobox.recycler.sample.java.usingadapter.JavaSampleActivity
+import com.frogobox.recycler.sample.kotlin.noadapter.simple.KotlinNoAdapterActivity
+import com.frogobox.recycler.sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity
+import com.frogobox.recycler.sample.kotlin.noadapter.progress.KotlinProgressActivity
+import com.frogobox.recycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
+import com.frogobox.recycler.sample.kotlin.usingadapter.nested.KotlinNestedActivity
+import com.frogobox.recycler.sample.kotlin.usingadapter.simple.KotlinSampleActivity
+import com.frogobox.recycler.sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

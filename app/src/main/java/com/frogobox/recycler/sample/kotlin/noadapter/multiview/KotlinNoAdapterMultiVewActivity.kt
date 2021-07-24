@@ -1,4 +1,4 @@
-package com.frogobox.recycler.kotlinsample
+package com.frogobox.recycler.sample.kotlin.noadapter.multiview
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,6 @@ import com.frogobox.recycler.core.*
 import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.recycler.model.ExampleModel
-import com.frogobox.recycler.util.Constant
 
 class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 

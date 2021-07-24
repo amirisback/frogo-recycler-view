@@ -1,4 +1,4 @@
-package com.frogobox.recycler.kotlinsample
+package com.frogobox.recycler.sample.kotlin.noadapter.simple
 
 import android.content.Context
 import android.os.Bundle
@@ -15,6 +15,11 @@ import com.frogobox.recycler.model.ExampleModel
 import com.frogobox.recycler.util.Constant
 
 class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
+
+    private val dataInjectorRClass = Constant.dummyData("Injector R class")
+    private val dataInjectorBinding = Constant.dummyData("Injector Binding")
+    private val dataBuilderRClass = Constant.dummyData("Builder R class")
+    private val dataBuilderBinding = Constant.dummyData("Builder Binding")
 
     override fun setupViewBinding(): ActivityBaseBinding {
         return ActivityBaseBinding.inflate(layoutInflater)
@@ -37,33 +42,13 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
             btnRBuilder.setOnClickListener {
                 setupRvBuilder()
             }
+            btnBindingBuilder.setOnClickListener {
+                setupRvBuilderBinding()
+            }
         }
-        setupRvInjector()
+        setupRvBuilder()
     }
 
-    private fun listDataBinding(): MutableList<ExampleModel> {
-        val listString = mutableListOf<ExampleModel>()
-        listString.add(ExampleModel("View Binding"))
-        listString.add(ExampleModel("View Binding"))
-        listString.add(ExampleModel("View Binding"))
-        listString.add(ExampleModel("View Binding"))
-        listString.add(ExampleModel("View Binding"))
-        listString.add(ExampleModel("View Binding"))
-        return listString
-    }
-
-    private fun listData(): MutableList<ExampleModel> {
-        val listString = mutableListOf<ExampleModel>()
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        listString.add(ExampleModel(Constant.FULL_NAME))
-        return listString
-    }
 
     private fun setupRvInjector() {
 
@@ -86,11 +71,11 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
         }
 
         binding.frogoRecyclerView.injector<ExampleModel>()
-            .addData(listData())
+            .addData(dataInjectorRClass)
             .addCustomView(R.layout.frogo_rv_list_type_1)
             .addEmptyView(null)
             .addCallback(adapterCallback)
-            .createLayoutLinearVertical(false, false, true)
+            .createLayoutLinearVertical(false)
             .build()
     }
 
@@ -121,17 +106,17 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
         }
 
         binding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
-            .addData(listDataBinding())
+            .addData(dataInjectorBinding)
             .addCallback(adapterCallback)
             .createLayoutLinearVertical(false)
             .build()
     }
 
     private fun setupRvBuilder() {
-        binding.frogoRecyclerView.builder(object : FrogoBuilderRvListener<ExampleModel>{
+        binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel> {
             override fun setupData(): List<ExampleModel> {
                 // Setup data FrogoRecyclerView
-                return listData()
+                return dataBuilderRClass
             }
 
             override fun setupCustomView(): Int {
@@ -163,6 +148,44 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 // setup item long clicked on frogo recycler view
                 showToast(data.name)
             }
+        })
+    }
+
+    private fun setupRvBuilderBinding() {
+        binding.frogoRecyclerView.builderBinding(object :
+            IFrogoBuilderRvBinding<ExampleModel, FrogoRvListType1Binding> {
+            override fun setupData(): List<ExampleModel> {
+                // Setup data FrogoRecyclerView
+                return dataBuilderBinding
+            }
+
+            override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
+                // Setup Layout Manager of FrogoRecyclerView
+                return FrogoLayoutManager.linearLayoutVertical(context)
+            }
+
+            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+                binding.frogoRvListType1TvTitle.text = data.name
+            }
+
+            override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
+                return FrogoRvListType1Binding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            }
+
+            override fun onItemClicked(data: ExampleModel) {
+                // setup item clicked on frogo recycler view
+                showToast(data.name)
+            }
+
+            override fun onItemLongClicked(data: ExampleModel) {
+                // setup item long clicked on frogo recycler view
+                showToast(data.name)
+            }
+
         })
     }
 

@@ -1,4 +1,4 @@
-package com.frogobox.recycler.javasample;
+package com.frogobox.recycler.sample.java.noadapter.multiview;
 
 import android.os.Bundle;
 import android.widget.ImageView;

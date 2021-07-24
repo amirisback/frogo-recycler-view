@@ -1,4 +1,4 @@
-package com.frogobox.recycler.kotlinsample.usingadapter
+package com.frogobox.recycler.sample.kotlin.usingadapter.nested
 
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +16,6 @@ import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
 import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
-import com.frogobox.recycler.databinding.ActivityKotlinShimmerBinding
 
 class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 

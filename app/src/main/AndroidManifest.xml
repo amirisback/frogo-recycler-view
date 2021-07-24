@@ -17,16 +17,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".kotlinsample.KotlinProgressActivity"></activity>
-        <activity android:name=".kotlinsample.usingadapter.KotlinNestedActivity" />
-        <activity android:name=".javasample.JavaNoAdapterMultiViewActivity" />
-        <activity android:name=".javasample.JavaNoAdapterActivity" />
-        <activity android:name=".javasample.usingadapter.JavaSampleActivity" />
-        <activity android:name=".kotlinsample.KotlinShimmerActivity" />
-        <activity android:name=".kotlinsample.KotlinNoAdapterMultiVewActivity" />
-        <activity android:name=".kotlinsample.KotlinNoAdapterActivity" />
-        <activity android:name=".kotlinsample.usingadapter.KotlinSampleActivity" />
-        <activity android:name=".kotlinsample.usingadapter.KotlinSimpleNestedActivity" />
+        <activity android:name=".sample.kotlin.noadapter.progress.KotlinProgressActivity" />
+        <activity android:name=".sample.kotlin.usingadapter.nested.KotlinNestedActivity" />
+        <activity android:name=".sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity" />
+        <activity android:name=".sample.java.noadapter.simple.JavaNoAdapterActivity" />
+        <activity android:name=".sample.java.usingadapter.JavaSampleActivity" />
+        <activity android:name=".sample.kotlin.noadapter.shimmer.KotlinShimmerActivity" />
+        <activity android:name=".sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity" />
+        <activity android:name=".sample.kotlin.noadapter.simple.KotlinNoAdapterActivity" />
+        <activity android:name=".sample.kotlin.usingadapter.simple.KotlinSampleActivity" />
+        <activity android:name=".sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

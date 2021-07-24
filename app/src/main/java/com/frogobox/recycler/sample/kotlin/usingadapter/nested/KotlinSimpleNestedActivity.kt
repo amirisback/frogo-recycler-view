@@ -1,4 +1,4 @@
-package com.frogobox.recycler.kotlinsample.usingadapter
+package com.frogobox.recycler.sample.kotlin.usingadapter.nested
 
 import android.os.Bundle
 import android.view.View

@@ -20,10 +20,11 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:padding="@dimen/frogo_dimen_8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/frogo_dimen_8dp">
 
         <Button
             android:id="@+id/btn_r"
@@ -31,15 +32,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/frogo_bg_teal_4dp"
-            android:text="R Class" />
+            android:text="R Class"
+            android:textColor="@color/frogoColorWhite" />
 
         <Button
             android:id="@+id/btn_binding"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/frogo_bg_lime_4dp"
-            android:text="View Binding" />
+            android:background="@drawable/frogo_bg_amber_4dp"
+            android:text="View Binding"
+            android:textColor="@color/frogoColorWhite" />
 
         <Button
             android:id="@+id/btn_r_builder"
@@ -47,8 +50,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/frogo_bg_orange_4dp"
-            android:text="R Class Builder" />
+            android:text="R Class Builder"
+            android:textColor="@color/frogoColorWhite" />
 
+        <Button
+            android:id="@+id/btn_binding_builder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/frogo_bg_deep_purple_4dp"
+            android:text="Binding Builder"
+            android:textColor="@color/frogoColorWhite" />
 
     </LinearLayout>
 

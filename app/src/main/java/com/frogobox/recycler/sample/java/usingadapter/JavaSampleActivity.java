@@ -1,4 +1,4 @@
-package com.frogobox.recycler.javasample.usingadapter;
+package com.frogobox.recycler.sample.java.usingadapter;
 
 import android.os.Bundle;
 import android.widget.Toast;
