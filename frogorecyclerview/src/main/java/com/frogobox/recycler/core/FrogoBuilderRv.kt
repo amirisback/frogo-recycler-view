@@ -1,7 +1,6 @@
 package com.frogobox.recycler.core
 
 import android.view.View
-import com.frogobox.recycler.R
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
@@ -16,41 +15,29 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * All rights reserved
  *
  */
-class FrogoBuilderRv<T> {
-
-    protected lateinit var mFrogoRecyclerView: FrogoRecyclerView
-    protected lateinit var frogoViewAdapter: FrogoViewAdapter<T>
-
-    protected var emptyViewId: Int = R.layout.frogo_container_empty_view
-
-    protected var optionAdapter = ""
-    protected var customViewId: Int = 0
-
-    protected val listDataFH = mutableListOf<FrogoHolder<T>>()
-    protected val listData = mutableListOf<T>()
+class FrogoBuilderRv<T> : FrogoBuilderRvBase<T>() {
 
     fun initBuilder(frogoRecyclerView: FrogoRecyclerView): FrogoBuilderRv<T> {
-        mFrogoRecyclerView = frogoRecyclerView
-        frogoViewAdapter = FrogoViewAdapter()
+        init(frogoRecyclerView)
         return this
     }
 
-    fun builder(listener: FrogoBuilderRvListener<T>) {
+    fun builder(listener: IFrogoBuilderRv<T>) {
+
+        optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
 
         listData.addAll(listener.setupData())
 
-        optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
+        val frogoViewAdapter = FrogoViewAdapter<T>()
+
         frogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
             override fun setupInitComponent(view: View, data: T) {
                 listener.setupInitComponent(view, data)
             }
         })
 
-        frogoViewAdapter.setupEmptyView(listener.setupEmptyView())
-
         frogoViewAdapter.setupRequirement(
-            customViewId,
-            listData,
+            listener.setupCustomView(), listData,
             object : FrogoRecyclerViewListener<T> {
                 override fun onItemClicked(data: T) {
                     listener.onItemClicked(data)
@@ -60,9 +47,15 @@ class FrogoBuilderRv<T> {
                     listener.onItemLongClicked(data)
                 }
             })
-        frogoViewAdapter.setupEmptyView(emptyViewId)
 
-        mFrogoRecyclerView.layoutManager = listener.setupLayoutManager(mFrogoRecyclerView.context)
+        if (listener.setupEmptyView() != null) {
+            frogoViewAdapter.setupEmptyView(listener.setupEmptyView())
+        } else {
+            frogoViewAdapter.setupEmptyView(emptyViewId)
+        }
+
+        frogoRecyclerView.adapter = frogoViewAdapter
+        frogoRecyclerView.layoutManager = listener.setupLayoutManager(frogoRecyclerView.context)
 
     }
 

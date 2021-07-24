@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
  * All rights reserved
  *
  */
-interface FrogoBuilderRvListener<T> {
+interface IFrogoBuilderRv<T> {
 
     // Setup data FrogoRecyclerView
     fun setupData(): List<T>
