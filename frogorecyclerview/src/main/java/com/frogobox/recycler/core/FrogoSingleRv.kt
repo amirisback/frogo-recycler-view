@@ -22,7 +22,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  */
 open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
-    protected lateinit var mFrogoRecyclerView: FrogoRecyclerView
+    protected lateinit var frogoRecycleView: FrogoRecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
     protected lateinit var frogoViewAdapter: FrogoViewAdapter<T>
 
@@ -32,7 +32,7 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
     protected var customViewId: Int = 0
     
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T> {
-        mFrogoRecyclerView = frogoRecyclerView
+        frogoRecycleView = frogoRecyclerView
         frogoViewAdapter = FrogoViewAdapter()
         return this
     }
@@ -139,12 +139,12 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     protected open fun setupInnerAdapter() {
         FLog.d("injector-optionAdapter : $optionAdapter")
-        mFrogoRecyclerView.adapter = frogoViewAdapter
+        frogoRecycleView.adapter = frogoViewAdapter
     }
 
     override fun build(): FrogoSingleRv<T> {
         createAdapter()
-        setupLayoutManager(mFrogoRecyclerView)
+        setupLayoutManager(frogoRecycleView)
         setupInnerAdapter()
         return this
     }

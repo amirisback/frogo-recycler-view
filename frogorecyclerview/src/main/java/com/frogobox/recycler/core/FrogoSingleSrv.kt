@@ -75,7 +75,7 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
 
     override fun setupInnerAdapter() {
         FLog.d("injector-optionAdapter : $optionAdapter")
-        mFrogoRecyclerView.adapter = srvFrogoViewAdapter
+        frogoRecycleView.adapter = srvFrogoViewAdapter
     }
 
 }
