@@ -72,8 +72,13 @@ class FrogoRecyclerView : RecyclerView,
         return FrogoSingleRvBinding<T, VB>().initSingleton(this)
     }
 
-    override fun <T> builder(listener: FrogoBuilderRvListener<T>) {
+    override fun <T> builder(listener: IFrogoBuilderRv<T>) {
         return FrogoBuilderRv<T>().initBuilder(this).builder(listener)
     }
+
+    override fun <T, VB : ViewBinding> builderBinding(listener: IFrogoBuilderRvBinding<T, VB>) {
+        return FrogoBuilderRvBinding<T, VB>().initBuilder(this).builder(listener)
+    }
+
 
 }
