@@ -173,5 +173,5 @@ Just following the step until finish
 
 
 ## Sample Code (Multi-type-view)
-- Kotlin - [KotlinNoAdapterMultiVewActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/KotlinNoAdapterMultiVewActivity.kt)
-- Java - [JavaNoAdapterMultiViewActivity.java](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/javasample/JavaNoAdapterMultiViewActivity.java)
+- Kotlin - [KotlinNoAdapterMultiVewActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/kotlin/noadapter/KotlinNoAdapterMultiVewActivity.kt)
+- Java - [JavaNoAdapterMultiViewActivity.java](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/java/noadapter/JavaNoAdapterMultiViewActivity.java)

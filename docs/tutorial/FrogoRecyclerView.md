@@ -126,9 +126,9 @@ Just following the step until finish
 
 ## Sample Code
 ### No Adapter
-- Kotlin - [KotlinNoAdapterActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/KotlinNoAdapterActivity.kt)
-- Java - [JavaNoAdapterActivity.java](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/javasample/JavaNoAdapterActivity.java)
+- Kotlin - [KotlinNoAdapterActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/kotlin/noadapter/simple/KotlinNoAdapterActivity.kt)
+- Java - [JavaNoAdapterActivity.java](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/java/noadapter/JavaNoAdapterActivity.java)
 
 ### With Adapter (Some function deprecated)
-- Kotlin - [Using Adapter](https://github.com/amirisback/frogo-recycler-view/tree/master/app/src/main/java/com/frogobox/recycler/kotlinsample/usingadapter)
-- Java - [Using Adapter](https://github.com/amirisback/frogo-recycler-view/tree/master/app/src/main/java/com/frogobox/recycler/javasample/usingadapter)
+- Kotlin - [Using Adapter](https://github.com/amirisback/frogo-recycler-view/tree/master/app/src/main/java/com/frogobox/recycler/sample/kotlin/usingadapter)
+- Java - [Using Adapter](https://github.com/amirisback/frogo-recycler-view/tree/master/app/src/main/java/com/frogobox/recycler/sample/java/usingadapter)

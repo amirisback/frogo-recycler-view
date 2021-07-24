@@ -74,5 +74,5 @@ Just following the step until finish, for basic adapter using step 2, for multi 
     }
 
 ## Sample Code
-- Kotlin - [KotlinShimmerActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/KotlinShimmerActivity.kt)
+- Kotlin - [KotlinShimmerActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/kotlin/noadapter/KotlinShimmerActivity.kt)
 - Java - being developed

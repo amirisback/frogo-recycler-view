@@ -79,5 +79,5 @@ Just following the step until finish
 
 
 ## Sample Code
-- Kotlin - [KotlinNestedActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/usingadapter/KotlinNestedActivity.kt)
-- Kotlin - [KotlinSimpleNestedActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/kotlinsample/usingadapter/KotlinSimpleNestedActivity.kt)
+- Kotlin - [KotlinNestedActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/kotlin/usingadapter/nested/KotlinNestedActivity.kt)
+- Kotlin - [KotlinSimpleNestedActivity.kt](https://github.com/amirisback/frogo-recycler-view/blob/master/app/src/main/java/com/frogobox/recycler/sample/kotlin/usingadapter/nested/KotlinSimpleNestedActivity.kt)
