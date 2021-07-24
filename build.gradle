@@ -6,7 +6,7 @@ buildscript {
 
         versionMajor = 3
         versionMinor = 8
-        versionPatch = 0
+        versionPatch = 1
 
         projectCompileSdkVersion = 30
         projectBuildToolsVersion = "30.0.3"

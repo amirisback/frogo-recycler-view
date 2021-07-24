@@ -22,17 +22,17 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.0
+    $version_release = 3.8.1
 
 What's New??
 
+    * Add: Function Builder Binding *
+    * Add: New Sample Code *
+    * Renaming FrogoBuilderRvListener to IFrogoBuilderRv *
+    * Renaming some variable in library *
+    * Update Tutorial Link *
     * Update Build Gradle *
     * Enhance Performance *
-    * Renaming param view to binding *
-    * Add: FrogoLayoutManager *
-    * Add: Function Builder *
-    * Add: New Sample Code *
-    * Delete: IFrogoSingleRvBase *
     * Refactoring Code *
 
 ## Download this project
@@ -52,7 +52,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.8.0'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.8.1'
     }
 
 ### Step 3. Create xml view
@@ -62,9 +62,9 @@ What's New??
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-### Step 4. Setup requirement (No Adapter)
+### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
 
-#### Kotlin Injector (R class)
+#### <Option 1> Kotlin Injector (R class)
 
     private fun setupFrogoRecyclerView() {
 
@@ -95,7 +95,7 @@ What's New??
             .build()
     }
 
-#### Kotlin Injector (ViewBinding) Can't use emptyView
+#### <Option 2> Kotlin Injector (ViewBinding) Can't use emptyView
     private fun setupFrogoRecyclerBinding() {
 
         val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
@@ -127,9 +127,9 @@ What's New??
 
     }
 
-#### Kotlin Builder (R class)
+#### <Option 3> Kotlin Builder (R class)
     private fun setupRvBuilder() {
-        binding.frogoRecyclerView.builder(object : FrogoBuilderRvListener<ExampleModel>{
+        binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
             override fun setupData(): List<ExampleModel> {
                 // Setup data FrogoRecyclerView
                 return listData()
@@ -164,6 +164,45 @@ What's New??
                 // setup item long clicked on frogo recycler view
                 showToast(data.name)
             }
+        })
+    }
+
+#### <Option 4> Kotlin Builder (ViewBinding)
+    private fun setupRvBuilderBinding() {
+        binding.frogoRecyclerView.builderBinding(object :
+            IFrogoBuilderRvBinding<ExampleModel, FrogoRvListType1Binding> {
+            override fun setupData(): List<ExampleModel> {
+                // Setup data FrogoRecyclerView
+                return dataBuilderBinding
+            }
+
+            override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
+                // Setup Layout Manager of FrogoRecyclerView
+                return FrogoLayoutManager.linearLayoutVertical(context)
+            }
+
+            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+                binding.frogoRvListType1TvTitle.text = data.name
+            }
+
+            override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
+                return FrogoRvListType1Binding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            }
+
+            override fun onItemClicked(data: ExampleModel) {
+                // setup item clicked on frogo recycler view
+                showToast(data.name)
+            }
+
+            override fun onItemLongClicked(data: ExampleModel) {
+                // setup item long clicked on frogo recycler view
+                showToast(data.name)
+            }
+
         })
     }
 
@@ -212,8 +251,6 @@ What's New??
 
 ### Wiki
 - Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
-
-
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
