@@ -18,23 +18,17 @@
 
 |Nested RecyclerView |   Frogo Shimmer              |   Frogo Multi View    | Simple Empty View |
 |:------------------:|:----------------------------:|:---------------------:|:-----------------:|
-|<span align="center"><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/ss_empty.png"></span> |
+|<img width="200px" height="360px" src="docs/image/ss_nested_simple.png"> | <img width="200px" height="360px" src="docs/image/sample_shimmer.gif"> | <img width="200px" height="360px" src="docs/image/ss_multi-view.png"> | <img width="200px" height="360px" src="docs/image/ss_empty.png"> |
 
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.1
+    $version_release = 3.8.2
 
 What's New??
 
-    * Add: Function Builder Binding *
-    * Add: New Sample Code *
-    * Renaming FrogoBuilderRvListener to IFrogoBuilderRv *
-    * Renaming some variable in library *
-    * Update Tutorial Link *
-    * Update Build Gradle *
+    * Update Build Gradle to 7.0.0 *
     * Enhance Performance *
-    * Refactoring Code *
 
 ## Download this project
 
@@ -53,7 +47,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.8.1'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.8.2'
     }
 
 ### Step 3. Create xml view

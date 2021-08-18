@@ -1,39 +1,30 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'maven-publish'
+}
 
 android {
-
-    // Declaration library name
-    def nameLibrary = "Frogo Recycler View"
-
-    // Declaration apk / aab name
-    def nameLibrarySub = nameLibrary.toLowerCase().replace(" ", "-")
-
-    def versionCodeLibrary = (versionMajor * 100) + (versionMinor * 10) + (versionPatch)
-    def versionNameLibrary = "$versionMajor.$versionMinor.$versionPatch"
 
     buildFeatures {
          viewBinding = true
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 
-    compileSdkVersion projectCompileSdkVersion
-    buildToolsVersion projectBuildToolsVersion
+    compileSdk projectCompileSdk
 
     defaultConfig {
-        minSdkVersion projectMinSdkVersion
-        targetSdkVersion projectTargetSdkVersion
-        versionCode versionCodeLibrary
-        versionName versionNameLibrary
+        minSdk projectMinSdk
+        targetSdk projectTargetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -68,4 +59,28 @@ dependencies {
     // library frogo-log
     implementation 'com.github.amirisback:frogo-log:2.0.2'
 
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+
+                // Applies the component for the release build variant.
+                from components.release
+
+                // Library Package Name
+                groupId = "$projectApplicationId"
+
+                // Github Repository Name
+                artifactId = "$nameAPK"
+
+                // Version Library Name
+                version = "$projectVersionName"
+
+            }
+        }
+    }
 }
