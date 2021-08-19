@@ -1,13 +1,11 @@
 package com.frogobox.app.core
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.frogobox.app.databinding.*
 
 /*
  * Created by Faisal Amir
