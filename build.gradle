@@ -9,7 +9,7 @@ buildscript {
 
         def appDomain = "com"
         def appDevConsole = "frogobox"
-        def appName = "app"
+        def appName = "apprecycler"
         def library = "recycler"
 
         def versionMajor = 3
