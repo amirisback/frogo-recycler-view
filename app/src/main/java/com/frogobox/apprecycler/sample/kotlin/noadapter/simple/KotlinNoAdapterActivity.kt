@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.apprecycler.core.BaseActivity
-import com.frogobox.frogodesignkit.databinding.FrogoRvListType1Binding
+import com.frogobox.uikit.databinding.FrogoRvListType1Binding
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
 import com.frogobox.apprecycler.databinding.ActivityBaseBinding
