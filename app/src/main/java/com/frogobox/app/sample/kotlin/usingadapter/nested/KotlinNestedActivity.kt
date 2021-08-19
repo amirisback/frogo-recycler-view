@@ -16,7 +16,7 @@ import com.frogobox.frogonewsapi.util.NewsConstant
 import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
-import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
+import com.frogobox.app.databinding.ActivityFrogoRvGridBinding
 
 class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 

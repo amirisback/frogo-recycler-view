@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.frogobox.recycler.R
 import com.frogobox.app.core.BaseActivity
 import com.frogobox.recycler.core.FrogoRecyclerViewListener
-import com.frogobox.recycler.databinding.ActivityFrogoRvListBinding
+import com.frogobox.app.databinding.ActivityFrogoRvListBinding
 import com.frogobox.app.model.ExampleModel
 import com.frogobox.app.util.Constant
 

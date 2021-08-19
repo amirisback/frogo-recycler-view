@@ -6,7 +6,7 @@ import com.frogobox.app.core.BaseActivity
 import com.frogobox.app.sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity
 import com.frogobox.app.sample.java.noadapter.simple.JavaNoAdapterActivity
 import com.frogobox.app.sample.java.usingadapter.JavaSampleActivity
-import com.frogobox.recycler.databinding.ActivityMainBinding
+import com.frogobox.app.databinding.ActivityMainBinding
 import com.frogobox.app.sample.kotlin.noadapter.simple.KotlinNoAdapterActivity
 import com.frogobox.app.sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity
 import com.frogobox.app.sample.kotlin.noadapter.progress.KotlinProgressActivity

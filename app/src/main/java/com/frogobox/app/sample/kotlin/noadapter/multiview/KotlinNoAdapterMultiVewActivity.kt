@@ -9,7 +9,7 @@ import com.frogobox.app.core.BaseActivity
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
 import com.frogobox.recycler.core.FrogoHolder
-import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
+import com.frogobox.app.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.app.model.ExampleModel
 
 class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>() {

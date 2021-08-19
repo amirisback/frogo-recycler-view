@@ -11,7 +11,7 @@ import com.frogobox.app.core.BaseActivity
 import com.frogobox.frogodesignkit.databinding.FrogoRvListType1Binding
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
-import com.frogobox.recycler.databinding.ActivityBaseBinding
+import com.frogobox.app.databinding.ActivityBaseBinding
 import com.frogobox.app.model.ExampleModel
 import com.frogobox.app.util.Constant
 

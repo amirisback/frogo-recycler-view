@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.frogobox.recycler"
+    package="com.frogobox.app"
     android:targetSandboxVersion="1"
     tools:targetApi="o">
 
@@ -18,19 +18,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
 
-        <activity android:name="com.frogobox.app.sample.kotlin.noadapter.progress.KotlinProgressActivity" />
-        <activity android:name="com.frogobox.app.sample.kotlin.usingadapter.nested.KotlinNestedActivity" />
+        <activity android:name=".sample.kotlin.noadapter.progress.KotlinProgressActivity" />
+        <activity android:name=".sample.kotlin.usingadapter.nested.KotlinNestedActivity" />
         <activity android:name=".sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity" />
         <activity android:name=".sample.java.noadapter.simple.JavaNoAdapterActivity" />
         <activity android:name=".sample.java.usingadapter.JavaSampleActivity" />
-        <activity android:name="com.frogobox.app.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity" />
-        <activity android:name="com.frogobox.app.sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity" />
-        <activity android:name="com.frogobox.app.sample.kotlin.noadapter.simple.KotlinNoAdapterActivity" />
-        <activity android:name="com.frogobox.app.sample.kotlin.usingadapter.simple.KotlinSampleActivity" />
-        <activity android:name="com.frogobox.app.sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity" />
+        <activity android:name=".sample.kotlin.noadapter.shimmer.KotlinShimmerActivity" />
+        <activity android:name=".sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity" />
+        <activity android:name=".sample.kotlin.noadapter.simple.KotlinNoAdapterActivity" />
+        <activity android:name=".sample.kotlin.usingadapter.simple.KotlinSampleActivity" />
+        <activity android:name=".sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity" />
 
         <activity
-            android:name="com.frogobox.app.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

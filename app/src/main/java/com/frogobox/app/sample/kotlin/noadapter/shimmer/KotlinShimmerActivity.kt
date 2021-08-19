@@ -13,7 +13,7 @@ import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.app.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
-import com.frogobox.recycler.databinding.ActivityKotlinShimmerBinding
+import com.frogobox.app.databinding.ActivityKotlinShimmerBinding
 
 class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
     

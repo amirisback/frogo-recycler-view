@@ -13,7 +13,7 @@ import com.frogobox.frogonewsapi.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.app.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
-import com.frogobox.recycler.databinding.ActivityKotlinProgressBinding
+import com.frogobox.app.databinding.ActivityKotlinProgressBinding
 
 class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
 

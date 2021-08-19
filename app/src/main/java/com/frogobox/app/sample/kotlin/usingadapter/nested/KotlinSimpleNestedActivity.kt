@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.frogobox.app.core.BaseActivity
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
-import com.frogobox.recycler.databinding.ActivityFrogoRvGridBinding
+import com.frogobox.app.databinding.ActivityFrogoRvGridBinding
 
 class KotlinSimpleNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 

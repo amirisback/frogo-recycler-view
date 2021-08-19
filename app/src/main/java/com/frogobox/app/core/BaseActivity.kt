@@ -7,7 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.databinding.*
+import com.frogobox.app.databinding.*
 
 /*
  * Created by Faisal Amir
