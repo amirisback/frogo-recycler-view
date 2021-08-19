@@ -23,11 +23,12 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.3
+    $version_release = 3.8.4
 
 What's New??
 
-    * Update Build Gradle to 7.0.0 *
+    * Update Build Gradle to 7.0.1 *
+    * Update Frogo Android UI Kit *
     * Enhance Performance *
 
 ## Download this project
@@ -47,7 +48,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.8.3'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.8.4'
     }
 
 ### Step 3. Create xml view
@@ -209,7 +210,7 @@ What's New??
 - FrogoRecyclerView Multi Holder [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerViewMultiHolder.md)
 
 ## Library Helper
-- frogo-ui-kit [Click Here](https://github.com/amirisback/frogo-ui-kit)
+- frogo-android-ui-kit [Click Here](https://github.com/frogobox/frogo-android-ui-kit)
 - frogo-log [Click Here](https://github.com/amirisback/frogo-log)
 - consumable-code-news-api [Click Here](https://github.com/amirisback/consumable-code-news-api)
 

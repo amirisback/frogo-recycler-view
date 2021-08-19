@@ -7,6 +7,26 @@ plugins {
 
 android {
 
+    compileSdk projectCompileSdk
+
+    defaultConfig {
+        minSdk projectMinSdk
+        targetSdk projectTargetSdk
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
     buildFeatures {
         viewBinding true
         compose true
@@ -33,26 +53,6 @@ android {
         }
     }
 
-    compileSdk projectCompileSdk
-
-    defaultConfig {
-        minSdk projectMinSdk
-        targetSdk projectTargetSdk
-
-        multiDexEnabled true
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
 }
 
 dependencies {
@@ -75,11 +75,11 @@ dependencies {
     // github lib circle-image-view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    // library frogo-ui-kit
-    implementation 'com.github.amirisback:frogo-ui-kit:2.1.0'
+    // library frogo-android-ui-kit
+    implementation 'com.github.frogobox:frogo-android-ui-kit:1.0.4'
 
     // library frogo-log
-    implementation 'com.github.amirisback:frogo-log:2.0.3'
+    implementation 'com.github.amirisback:frogo-log:2.0.4'
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
