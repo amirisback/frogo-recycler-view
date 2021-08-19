@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainDevActivity">
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/button_progress"
