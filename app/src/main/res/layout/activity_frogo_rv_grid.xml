@@ -18,14 +18,14 @@
  -->
 
 <com.frogobox.recycler.widget.FrogoRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frogo_recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/frogoColorWhite"
     android:clipToPadding="false"
-    android:paddingTop="@dimen/frogo_dimen_16dp"
     android:paddingLeft="@dimen/frogo_dimen_16dp"
+    android:paddingTop="@dimen/frogo_dimen_16dp"
     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    tools:listitem="@layout/frogo_rv_grid_type_2"/>
+    tools:listitem="@layout/frogo_rv_grid_type_2" />

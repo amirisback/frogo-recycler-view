@@ -8,12 +8,12 @@
 
     <Button
         android:id="@+id/button_progress"
-        android:layout_marginTop="@dimen/frogo_dimen_16dp"
-        android:layout_marginLeft="@dimen/frogo_dimen_16dp"
-        android:layout_marginRight="@dimen/frogo_dimen_16dp"
-        android:background="@drawable/frogo_bg_amber_4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/frogo_dimen_16dp"
+        android:layout_marginTop="@dimen/frogo_dimen_16dp"
+        android:layout_marginRight="@dimen/frogo_dimen_16dp"
+        android:background="@drawable/frogo_bg_amber_4dp"
         android:text="CLICK ME FOR HANDLE PROGRESS BAR" />
 
     <com.frogobox.recycler.widget.FrogoProgressRecyclerView
@@ -21,6 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:frvClipToPadding="false"
-        app:frvPaddingTop="@dimen/frogo_dimen_16dp"/>
+        app:frvPaddingTop="@dimen/frogo_dimen_16dp" />
 
 </LinearLayout>
