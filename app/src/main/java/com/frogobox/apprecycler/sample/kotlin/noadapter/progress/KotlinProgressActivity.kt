@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import com.frogobox.frogonewsapi.ConsumeNewsApi
-import com.frogobox.frogonewsapi.callback.NewsResultCallback
-import com.frogobox.frogonewsapi.data.model.Article
-import com.frogobox.frogonewsapi.data.response.ArticleResponse
-import com.frogobox.frogonewsapi.util.NewsConstant
-import com.frogobox.frogonewsapi.util.NewsUrl
+import com.frogobox.api.core.ConsumeApiResponse
+import com.frogobox.api.news.ConsumeNewsApi
+import com.frogobox.api.news.model.Article
+import com.frogobox.api.news.response.ArticleResponse
+import com.frogobox.api.news.util.NewsConstant
+import com.frogobox.api.news.util.NewsUrl
 import com.frogobox.recycler.R
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
@@ -76,7 +76,7 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.NEWS_API_KEY)
+        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY)
         consumeNewsApi.usingChuckInterceptor(this)
         consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
             null,
@@ -85,13 +85,13 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
             NewsConstant.COUNTRY_ID,
             null,
             null,
-            object : NewsResultCallback<ArticleResponse> {
-                override fun getResultData(data: ArticleResponse) {
+            object : ConsumeApiResponse<ArticleResponse> {
+                override fun onSuccess(data: ArticleResponse) {
                     // Your Ui or data
                     data.articles?.let { setupFrogoProgressRecyclerView(it) }
                 }
 
-                override fun failedResult(statusCode: Int, errorMessage: String?) {
+                override fun onFailed(statusCode: Int, errorMessage: String?) {
                     // Your failed to do
                     errorMessage?.let { showToast(it) }
                 }
