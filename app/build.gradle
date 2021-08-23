@@ -22,6 +22,10 @@ android {
         // Naming APK // AAB
         setProperty("archivesBaseName", "${nameAPK}(${versionName})#${gitCurrentBranch()}")
 
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
     }
 
     buildTypes {

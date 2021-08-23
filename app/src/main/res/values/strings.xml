@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">frogo-recycler-view</string>
+    <string name="title_activity_recycler_compose">RecyclerComposeActivity</string>
 </resources>
