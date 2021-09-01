@@ -3,6 +3,7 @@ package com.frogobox.recycler.core
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.frogobox.frogolog.FLog
+import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
@@ -74,14 +75,14 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
 
     override fun addData(listData: List<T>): FrogoSingleRvBinding<T, VB> {
         this.listData.addAll(listData)
-        FLog.d("injector-listData : ${this.listData.size}")
+        FLog.d("$FROGO_RV_TAG - injector-listData : ${this.listData.size}")
         return this
     }
 
 
     override fun addCallback(frogoViewAdapterCallback: IFrogoBindingAdapter<T, VB>): FrogoSingleRvBinding<T, VB> {
         this.frogoAdapterCallback = frogoViewAdapterCallback
-        FLog.d("injector-adaptCallback : $frogoAdapterCallback")
+        FLog.d("$FROGO_RV_TAG - injector-adaptCallback : $frogoAdapterCallback")
         return this
     }
 
@@ -109,7 +110,7 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
     }
 
     protected open fun setupInnerAdapter() {
-        FLog.d("injector-optionAdapter : $optionAdapter")
+        FLog.d("$FROGO_RV_TAG - injector-optionAdapter : $optionAdapter")
         frogoRecycleView.adapter = frogoViewAdapter
     }
 

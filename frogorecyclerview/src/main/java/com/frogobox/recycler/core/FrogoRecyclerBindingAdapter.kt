@@ -3,6 +3,7 @@ package com.frogobox.recycler.core
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.frogobox.frogolog.FLog
+import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 
 /*
  * Created by Faisal Amir
@@ -30,7 +31,7 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
     }
 
     override fun onBindViewHolder(holder: FrogoRecyclerBindingHolder<T, VB>, position: Int) {
-        FLog.d("listData : ${listData.size}")
+        FLog.d("$FROGO_RV_TAG - listData : ${listData.size}")
         holder.bindItem(listData[position], viewListener)
     }
 

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
+import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 
 /*
  * Created by Faisal Amir
@@ -80,11 +81,11 @@ abstract class FrogoRecyclerViewAdapter<T> :
 
     override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
 
-        FLog.d("hasMultiHolder : $hasMultiHolder")
-        FLog.d("hasEmptyView : $hasEmptyView")
-        FLog.d("listCount : $listCount")
-        FLog.d("frogoHolder : ${frogoHolder.size}")
-        FLog.d("listData : ${listData.size}")
+        FLog.d("$FROGO_RV_TAG - hasMultiHolder : $hasMultiHolder")
+        FLog.d("$FROGO_RV_TAG - hasEmptyView : $hasEmptyView")
+        FLog.d("$FROGO_RV_TAG - listCount : $listCount")
+        FLog.d("$FROGO_RV_TAG - frogoHolder : ${frogoHolder.size}")
+        FLog.d("$FROGO_RV_TAG - listData : ${listData.size}")
 
         if (hasNestedView) {
             bindNestedHolder()

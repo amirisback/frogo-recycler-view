@@ -3,6 +3,7 @@ package com.frogobox.recycler.core
 import android.view.View
 import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.R
+import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
@@ -77,32 +78,32 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     override fun addData(listData: List<T>): FrogoSingleRv<T> {
         this.listData.addAll(listData)
-        FLog.d("injector-listData : ${this.listData.size}")
+        FLog.d("$FROGO_RV_TAG - injector-listData : ${this.listData.size}")
         return this
     }
 
     override fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoSingleRv<T> {
         this.listDataFH.addAll(listDataFH)
         frogoViewAdapter.setupMultiHolder()
-        FLog.d("injector-listData : ${this.listDataFH.size}")
+        FLog.d("$FROGO_RV_TAG - injector-listData : ${this.listDataFH.size}")
         return this
     }
 
     override fun addCustomView(customViewInt: Int): FrogoSingleRv<T> {
         this.customViewId = customViewInt
-        FLog.d("injector-customView : $customViewId")
+        FLog.d("$FROGO_RV_TAG - injector-customView : $customViewId")
         return this
     }
 
     override fun addEmptyView(emptyViewInt: Int?): FrogoSingleRv<T> {
         if (emptyViewInt != null) this.emptyViewId = emptyViewInt
-        FLog.d("injector-emptyView : $emptyViewId")
+        FLog.d("$FROGO_RV_TAG - injector-emptyView : $emptyViewId")
         return this
     }
 
     override fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSingleRv<T> {
         this.frogoAdapterCallback = frogoViewAdapterCallback
-        FLog.d("injector-adaptCallback : $frogoAdapterCallback")
+        FLog.d("$FROGO_RV_TAG - injector-adaptCallback : $frogoAdapterCallback")
         return this
     }
 
@@ -138,7 +139,7 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
     }
 
     protected open fun setupInnerAdapter() {
-        FLog.d("injector-optionAdapter : $optionAdapter")
+        FLog.d("$FROGO_RV_TAG - injector-optionAdapter : $optionAdapter")
         frogoRecycleView.adapter = frogoViewAdapter
     }
 
