@@ -1,8 +1,10 @@
 package com.frogobox.recycler.compose
 
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyItemScope
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.lazy.*
 import androidx.compose.runtime.Composable
+import com.frogobox.frogolog.FLog
+import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_COMPOSE_TAG
 
 /*
  * Created by faisalamir on 21/08/21
@@ -18,10 +20,45 @@ import androidx.compose.runtime.Composable
  */
 
 @Composable
-fun <T> FrogoRecyclerCompose(data: List<T>, listItem: @Composable() LazyItemScope.(data: T) -> Unit) {
+fun <T> FrogoLazyColumn(
+    listData: List<T>,
+    listItem: @Composable() LazyItemScope.(data: T) -> Unit
+) {
+    FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData.size}")
     LazyColumn() {
-        items(data.size) { index ->
-            listItem(data[index])
+        items(listData.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData[index]}")
+            listItem(listData[index])
+        }
+    }
+}
+
+@Composable
+fun <T> FrogoLazyRow(
+    listData: List<T>,
+    listItem: @Composable() LazyItemScope.(data: T) -> Unit
+) {
+    FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData.size}")
+    LazyRow() {
+        items(listData.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData[index]}")
+            listItem(listData[index])
+        }
+    }
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun <T> FrogoLazyGrid(
+    spanCount: Int,
+    listData: List<T>,
+    listItem: @Composable() LazyGridScope.(data: T) -> Unit
+) {
+    FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData.size}")
+    LazyVerticalGrid(GridCells.Fixed(spanCount)) {
+        items(listData.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData[index]}")
+            listItem(listData[index])
         }
     }
 }

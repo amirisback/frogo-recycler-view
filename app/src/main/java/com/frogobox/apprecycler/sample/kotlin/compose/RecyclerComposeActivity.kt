@@ -1,15 +1,22 @@
 package com.frogobox.apprecycler.sample.kotlin.compose
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.frogobox.apprecycler.model.People
+import com.frogobox.apprecycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
 import com.frogobox.apprecycler.ui.theme.FrogoRecyclerViewTheme
-import com.frogobox.recycler.compose.FrogoRecyclerCompose
+import com.frogobox.recycler.compose.FrogoLazyColumn
+import com.frogobox.uikit.theme.dimen_8dp
 
 class RecyclerComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,28 +27,28 @@ class RecyclerComposeActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
 @Preview(
-    showSystemUi = true,
-    showBackground = true
+    showBackground = true,
+    showSystemUi = true
 )
 @Composable
 fun DefaultPreview() {
     FrogoRecyclerViewTheme {
-        FrogoRecyclerCompose(setupData()) { data ->
+        FrogoLazyColumn(setupData()) { data ->
             ListMessage(data)
         }
     }
 }
 
-
 @Composable
 fun ListMessage(data: People) {
-    Column() {
+    val context = LocalContext.current
+    Column(
+        Modifier
+            .padding(dimen_8dp)
+            .clickable {
+                context.startActivity(Intent(context, KotlinShimmerActivity::class.java))
+            }) {
         Text(text = data.name)
         Text(text = data.role)
     }
