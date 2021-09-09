@@ -13,6 +13,7 @@
 - Empty View Effect
 - Nested Recycler View
 - Progress Recycler View
+- Jetpack Compose UI (Beta Experimental) - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
 ## Screen Shoot Apps
 
@@ -23,13 +24,18 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.5
+    $version_release = 3.8.6
 
 What's New??
 
-    * Update Build Gradle to 7.0.1 *
+    * Update Build Gradle to 7.0.2 *
     * Update Frogo Android UI Kit *
     * Enhance Performance *
+    * FrogoRecyclerCompose - FrogoLazyColumn *
+    * FrogoRecyclerCompose - FrogoLazyRow*
+    * FrogoRecyclerCompose - FrogoLazyGrid *
+
+Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
 ## Download this project
 
@@ -48,7 +54,7 @@ What's New??
     
     dependencies {
             // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.8.5'
+            implementation 'com.github.amirisback:frogo-recycler-view:3.8.6'
     }
 
 ### Step 3. Create xml view
@@ -208,6 +214,7 @@ What's New??
 - FrogoNestedRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoNestedRecyclerView.md)
 - FrogoProgressRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoProgressRecyclerView.md)
 - FrogoRecyclerView Multi Holder [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerViewMultiHolder.md)
+- FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
 ## Library Helper
 - frogo-android-ui-kit [Click Here](https://github.com/frogobox/frogo-android-ui-kit)
