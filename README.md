@@ -32,7 +32,7 @@ What's New??
     * Update Frogo Android UI Kit *
     * Enhance Performance *
     * FrogoRecyclerCompose - FrogoLazyColumn *
-    * FrogoRecyclerCompose - FrogoLazyRow*
+    * FrogoRecyclerCompose - FrogoLazyRow *
     * FrogoRecyclerCompose - FrogoLazyGrid *
 
 Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
