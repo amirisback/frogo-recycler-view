@@ -67,7 +67,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 ### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
 
 #### <Option 1> Kotlin Injector (R class)
-
+```kotlin
     private fun setupFrogoRecyclerView() {
 
         val adapterCallback = object : IFrogoViewAdapter<ExampleModel> {
@@ -96,8 +96,10 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
             .createLayoutLinearVertical(false)
             .build()
     }
+```
 
 #### <Option 2> Kotlin Injector (ViewBinding) Can't use emptyView
+```kotlin
     private fun setupFrogoRecyclerBinding() {
 
         val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
@@ -128,8 +130,10 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
             .build()
 
     }
+```
 
 #### <Option 3> Kotlin Builder (R class)
+```kotlin
     private fun setupRvBuilder() {
         binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
             override fun setupData(): List<ExampleModel> {
@@ -168,8 +172,10 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
             }
         })
     }
+```
 
 #### <Option 4> Kotlin Builder (ViewBinding)
+````kotlin
     private fun setupRvBuilderBinding() {
         binding.frogoRecyclerView.builderBinding(object :
             IFrogoBuilderRvBinding<ExampleModel, FrogoRvListType1Binding> {
@@ -207,6 +213,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 
         })
     }
+```
 
 ## Tutorial
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
