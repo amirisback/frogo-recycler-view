@@ -176,7 +176,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 
 #### <Option 4> Kotlin Builder (ViewBinding)
 
-````kotlin
+```kotlin
     private fun setupRvBuilderBinding() {
         binding.frogoRecyclerView.builderBinding(object :
             IFrogoBuilderRvBinding<ExampleModel, FrogoRvListType1Binding> {
