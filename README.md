@@ -40,18 +40,18 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 ## Download this project
 
 ### Step 1. Add the JitPack repository to your build file (build.gradle : Project)
-    
+
     Add it in your root build.gradle at the end of repositories:
-    
+
     	allprojects {
     		repositories {
     			...
     			maven { url 'https://jitpack.io' }
     		}
     	}
-      
+
 ### Step 2. Add the dependency (build.gradle : Module)
-    
+
     dependencies {
             // library frogo-recycler-view
             implementation 'com.github.amirisback:frogo-recycler-view:3.8.6'
@@ -175,6 +175,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 ```
 
 #### <Option 4> Kotlin Builder (ViewBinding)
+
 ````kotlin
     private fun setupRvBuilderBinding() {
         binding.frogoRecyclerView.builderBinding(object :
@@ -214,6 +215,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
         })
     }
 ```
+
 
 ## Tutorial
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
