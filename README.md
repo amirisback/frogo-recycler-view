@@ -42,7 +42,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 
 #### <Option 1> Groovy Gradle
 
-    Add it in your root build.gradle at the end of repositories:
+    // Add it in your root build.gradle at the end of repositories:
 
     allprojects {
         repositories {
@@ -53,14 +53,16 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 
 #### <Option 2> Kotlin DSL Gradle
 
-    Add it in your root build.gradle.kts at the end of repositories:
+```kotlin
+// Add it in your root build.gradle.kts at the end of repositories:
 
-    allprojects {
-        repositories {
-            ...
-            maven { url = uri("https://jitpack.io") }
-        }
+allprojects {
+    repositories {
+        ...
+        maven { url = uri("https://jitpack.io") }
     }
+}
+```
 
 
 ### Step 2. Add the dependency (build.gradle : Module)
@@ -90,152 +92,152 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 
 #### <Option 1> Kotlin Injector (R class)
 ```kotlin
-    private fun setupFrogoRecyclerView() {
+private fun setupFrogoRecyclerView() {
 
-        val adapterCallback = object : IFrogoViewAdapter<ExampleModel> {
-            override fun setupInitComponent(view: View, data: ExampleModel) {
-                // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.tv_example_item).text = data.name
-            }
-
-            override fun onItemClicked(data: ExampleModel) {
-                // setup item clicked on frogo recycler view
-                showToast(data.name)
-            }
-
-            override fun onItemLongClicked(data: ExampleModel) {
-                // setup item long clicked on frogo recycler view
-                showToast(data.name)
-            }
+    val adapterCallback = object : IFrogoViewAdapter<ExampleModel> {
+        override fun setupInitComponent(view: View, data: ExampleModel) {
+            // Init component content item recyclerview
+            view.findViewById<TextView>(R.id.tv_example_item).text = data.name
         }
 
-        binding.frogoRecyclerView
-            .injector<ExampleModel>()
-            .addData(listData())
-            .addCustomView(R.layout.frogo_rv_list_type_1)
-            .addEmptyView(null)
-            .addCallback(adapterCallback)
-            .createLayoutLinearVertical(false)
-            .build()
+        override fun onItemClicked(data: ExampleModel) {
+            // setup item clicked on frogo recycler view
+            showToast(data.name)
+        }
+
+        override fun onItemLongClicked(data: ExampleModel) {
+            // setup item long clicked on frogo recycler view
+            showToast(data.name)
+        }
     }
+
+    binding.frogoRecyclerView
+        .injector<ExampleModel>()
+        .addData(listData())
+        .addCustomView(R.layout.frogo_rv_list_type_1)
+        .addEmptyView(null)
+        .addCallback(adapterCallback)
+        .createLayoutLinearVertical(false)
+        .build()
+}
 ```
 
 #### <Option 2> Kotlin Injector (ViewBinding) Can't use emptyView
 ```kotlin
-    private fun setupFrogoRecyclerBinding() {
+private fun setupFrogoRecyclerBinding() {
 
-        val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
-            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
-                binding.frogoRvListType1TvTitle.text = data.name
-                val context = binding.root.context
-            }
-
-            override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
-                return FrogoRvListType1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
-            }
-
-            override fun onItemClicked(data: ExampleModel) {
-                // setup item clicked on frogo recycler view
-                showToast(data.name)
-            }
-
-            override fun onItemLongClicked(data: ExampleModel) {
-                // setup item long clicked on frogo recycler view
-                showToast(data.name)
-            }
+    val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
+        override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+            binding.frogoRvListType1TvTitle.text = data.name
+            val context = binding.root.context
         }
 
-        binding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
-            .addData(listDataBinding())
-            .addCallback(adapterCallback)
-            .createLayoutLinearVertical(false)
-            .build()
+        override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
+            return FrogoRvListType1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        }
 
+        override fun onItemClicked(data: ExampleModel) {
+            // setup item clicked on frogo recycler view
+            showToast(data.name)
+        }
+
+        override fun onItemLongClicked(data: ExampleModel) {
+            // setup item long clicked on frogo recycler view
+            showToast(data.name)
+        }
     }
+
+    binding.frogoRecyclerView.injectorBinding<ExampleModel, FrogoRvListType1Binding>()
+        .addData(listDataBinding())
+        .addCallback(adapterCallback)
+        .createLayoutLinearVertical(false)
+        .build()
+
+}
 ```
 
 #### <Option 3> Kotlin Builder (R class)
 ```kotlin
-    private fun setupRvBuilder() {
-        binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
-            override fun setupData(): List<ExampleModel> {
-                // Setup data FrogoRecyclerView
-                return listData()
-            }
+private fun setupRvBuilder() {
+    binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
+        override fun setupData(): List<ExampleModel> {
+            // Setup data FrogoRecyclerView
+            return listData()
+        }
 
-            override fun setupCustomView(): Int {
-                // Setup Custom View
-                return R.layout.frogo_rv_list_type_1
-            }
+        override fun setupCustomView(): Int {
+            // Setup Custom View
+            return R.layout.frogo_rv_list_type_1
+        }
 
-            override fun setupEmptyView(): Int? {
-                // Setup Empty View
-                return null
-            }
+        override fun setupEmptyView(): Int? {
+            // Setup Empty View
+            return null
+        }
 
-            override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
-                // Setup Layout Manager of FrogoRecyclerView
-                return FrogoLayoutManager.linearLayoutVertical(context)
-            }
+        override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
+            // Setup Layout Manager of FrogoRecyclerView
+            return FrogoLayoutManager.linearLayoutVertical(context)
+        }
 
-            override fun setupInitComponent(view: View, data: ExampleModel) {
-                // Init component content item recyclerview
-                view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
-            }
+        override fun setupInitComponent(view: View, data: ExampleModel) {
+            // Init component content item recyclerview
+            view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
+        }
 
-            override fun onItemClicked(data: ExampleModel) {
-                // setup item clicked on frogo recycler view
-                showToast(data.name)
-            }
+        override fun onItemClicked(data: ExampleModel) {
+            // setup item clicked on frogo recycler view
+            showToast(data.name)
+        }
 
-            override fun onItemLongClicked(data: ExampleModel) {
-                // setup item long clicked on frogo recycler view
-                showToast(data.name)
-            }
-        })
-    }
+        override fun onItemLongClicked(data: ExampleModel) {
+            // setup item long clicked on frogo recycler view
+            showToast(data.name)
+        }
+    })
+}
 ```
 
 #### <Option 4> Kotlin Builder (ViewBinding)
 
 ```kotlin
-    private fun setupRvBuilderBinding() {
-        binding.frogoRecyclerView.builderBinding(object :
-            IFrogoBuilderRvBinding<ExampleModel, FrogoRvListType1Binding> {
-            override fun setupData(): List<ExampleModel> {
-                // Setup data FrogoRecyclerView
-                return dataBuilderBinding
-            }
+private fun setupRvBuilderBinding() {
+    binding.frogoRecyclerView.builderBinding(object :
+        IFrogoBuilderRvBinding<ExampleModel, FrogoRvListType1Binding> {
+        override fun setupData(): List<ExampleModel> {
+            // Setup data FrogoRecyclerView
+            return dataBuilderBinding
+        }
 
-            override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
-                // Setup Layout Manager of FrogoRecyclerView
-                return FrogoLayoutManager.linearLayoutVertical(context)
-            }
+        override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
+            // Setup Layout Manager of FrogoRecyclerView
+            return FrogoLayoutManager.linearLayoutVertical(context)
+        }
 
-            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
-                binding.frogoRvListType1TvTitle.text = data.name
-            }
+        override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+            binding.frogoRvListType1TvTitle.text = data.name
+        }
 
-            override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
-                return FrogoRvListType1Binding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
-            }
+        override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
+            return FrogoRvListType1Binding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        }
 
-            override fun onItemClicked(data: ExampleModel) {
-                // setup item clicked on frogo recycler view
-                showToast(data.name)
-            }
+        override fun onItemClicked(data: ExampleModel) {
+            // setup item clicked on frogo recycler view
+            showToast(data.name)
+        }
 
-            override fun onItemLongClicked(data: ExampleModel) {
-                // setup item long clicked on frogo recycler view
-                showToast(data.name)
-            }
+        override fun onItemLongClicked(data: ExampleModel) {
+            // setup item long clicked on frogo recycler view
+            showToast(data.name)
+        }
 
-        })
-    }
+    })
+}
 ```
 
 
