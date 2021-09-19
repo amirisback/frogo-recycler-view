@@ -44,12 +44,12 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 
     Add it in your root build.gradle at the end of repositories:
 
-    	allprojects {
-    		repositories {
-    			...
-    			maven { url 'https://jitpack.io' }
-    		}
-    	}
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
 
 #### <Option 2> Kotlin DSL Gradle
 
