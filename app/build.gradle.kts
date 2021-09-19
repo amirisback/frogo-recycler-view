@@ -16,15 +16,13 @@ android {
         versionName = ProjectSetting.PROJECT_VERSION_NAME
 
         multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Naming APK // AAB
         setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}(${versionName})")
 
-        vectorDrawables {
-            useSupportLibrary = true
-        }
 
     }
 
@@ -50,8 +48,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Dependency.compose_version
-        kotlinCompilerVersion = Dependency.kotlin_version
+        kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
+        kotlinCompilerVersion = Dependency.KOTLIN_VERSION
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -70,7 +68,7 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Dependency.kotlin_version}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Dependency.KOTLIN_VERSION}")
 
     implementation(project(":frogorecyclerview"))
 
@@ -79,9 +77,9 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
-    implementation("androidx.compose.ui:ui:${Dependency.compose_version}")
-    implementation("androidx.compose.material:material:${Dependency.compose_version}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.compose_version}")
+    implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
+    implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
+    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:1.3.1")
@@ -99,7 +97,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.compose_version}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.compose_version}")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.COMPOSE_VERSION}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.COMPOSE_VERSION}")
 
 }

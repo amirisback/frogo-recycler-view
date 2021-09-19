@@ -43,8 +43,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Dependency.compose_version
-        kotlinCompilerVersion = Dependency.kotlin_version
+        kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
+        kotlinCompilerVersion = Dependency.KOTLIN_VERSION
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -63,11 +63,11 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Dependency.kotlin_version}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Dependency.KOTLIN_VERSION}")
 
-    implementation("androidx.compose.ui:ui:${Dependency.compose_version}")
-    implementation("androidx.compose.material:material:${Dependency.compose_version}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.compose_version}")
+    implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
+    implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
+    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:1.3.1")
 
@@ -86,8 +86,8 @@ dependencies {
     // library frogo-log
     implementation("com.github.amirisback:frogo-log:2.0.4")
 
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.compose_version}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.compose_version}")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.COMPOSE_VERSION}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.COMPOSE_VERSION}")
 
 }
 

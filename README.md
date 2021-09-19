@@ -9,11 +9,9 @@
 - RecyclerView No Adapter Using ViewBinding Adapter
 - RecyclerView Multi-View-Type (Stable - Multi ViewHolder)
 - Elegant call using injector()
-- Shimmer Effect
-- Empty View Effect
-- Nested Recycler View
-- Progress Recycler View
+- Shimmer Effect, Empty View Effect, Nested Recycler View, Progress Recycler View
 - Jetpack Compose UI (Beta Experimental) - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
+- Using Kotlin DSL build.gradle.kts
 
 ## Screen Shoot Apps
 
@@ -24,7 +22,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.6
+    $version_release = 3.8.7
 
 What's New??
 
@@ -34,12 +32,15 @@ What's New??
     * FrogoRecyclerCompose - FrogoLazyColumn *
     * FrogoRecyclerCompose - FrogoLazyRow *
     * FrogoRecyclerCompose - FrogoLazyGrid *
+    * Migrate From Groovy to Kotlin DSL *
 
 Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
 ## Download this project
 
 ### Step 1. Add the JitPack repository to your build file (build.gradle : Project)
+
+#### <Option 1> Groovy Gradle
 
     Add it in your root build.gradle at the end of repositories:
 
@@ -50,11 +51,32 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
     		}
     	}
 
+#### <Option 2> Kotlin DSL Gradle
+
+    Add it in your root build.gradle.kts at the end of repositories:
+
+    allprojects {
+        repositories {
+            ...
+            maven { url = uri("https://jitpack.io") }
+        }
+    }
+
+
 ### Step 2. Add the dependency (build.gradle : Module)
 
+#### <Option 1> Groovy Gradle
+
     dependencies {
-            // library frogo-recycler-view
-            implementation 'com.github.amirisback:frogo-recycler-view:3.8.6'
+        // library frogo-recycler-view
+        implementation 'com.github.amirisback:frogo-recycler-view:3.8.7'
+    }
+
+#### <Option 2> Kotlin DSL Gradle
+
+    dependencies {
+        // library frogo-recycler-view
+        implementation("com.github.amirisback:frogo-recycler-view:3.8.7")
     }
 
 ### Step 3. Create xml view
