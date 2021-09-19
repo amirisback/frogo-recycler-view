@@ -82,11 +82,12 @@ allprojects {
     }
 
 ### Step 3. Create xml view
-
-    <com.frogobox.recycler.widget.FrogoRecyclerView
-        android:id="@+id/frogo_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+```xml
+<com.frogobox.recycler.widget.FrogoRecyclerView
+    android:id="@+id/frogo_recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+```
 
 ### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
 
