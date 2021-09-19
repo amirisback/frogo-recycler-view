@@ -1,0 +1,20 @@
+/*
+ * Created by faisalamir on 19/09/21
+ * FrogoRecyclerView
+ * -----------------------------------------
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * -----------------------------------------
+ * Copyright (C) 2021 FrogoBox Inc.
+ * All rights reserved
+ *
+ */
+
+object Dependency {
+
+    // dependencies version
+    val kotlin_version = "1.5.21"
+    val compose_version = "1.0.2"
+
+}
