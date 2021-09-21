@@ -23,7 +23,6 @@ android {
         // Naming APK // AAB
         setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}(${versionName})")
 
-
     }
 
     buildTypes {
