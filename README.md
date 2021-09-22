@@ -31,7 +31,8 @@ What's New??
     * Enhance Performance *
     * FrogoRecyclerCompose - FrogoLazyColumn *
     * FrogoRecyclerCompose - FrogoLazyRow *
-    * FrogoRecyclerCompose - FrogoLazyGrid *
+    * FrogoRecyclerCompose - FrogoLazyFixedGrid *
+    * FrogoRecyclerCompose - FrogoLazyAdaptiveGrid *
     * Migrate From Groovy to Kotlin DSL *
 
 Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
