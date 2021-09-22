@@ -8,10 +8,10 @@
 - RecyclerView No Adapter (Adapter Has Been Handled)
 - RecyclerView No Adapter Using ViewBinding Adapter
 - RecyclerView Multi-View-Type (Stable - Multi ViewHolder)
+- Using Kotlin DSL build.gradle.kts
 - Elegant call using injector()
 - Shimmer Effect, Empty View Effect, Nested Recycler View, Progress Recycler View
 - Jetpack Compose UI (Beta Experimental) - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
-- Using Kotlin DSL build.gradle.kts
 
 ## Screen Shoot Apps
 
@@ -22,7 +22,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.7
+    $version_release = 3.8.8
 
 What's New??
 
@@ -71,14 +71,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:3.8.7'
+        implementation 'com.github.amirisback:frogo-recycler-view:3.8.8'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:3.8.7")
+        implementation("com.github.amirisback:frogo-recycler-view:3.8.8")
     }
 
 ### Step 3. Create xml view

@@ -4,19 +4,28 @@
 
 ## Tutorial
 ### FrogoLazyColumn
-
-    FrogoLazyColumn(setupData()) { data ->
-        ListMessage(data)
-    }
+```kotlin
+FrogoLazyColumn(setupData()) { data ->
+    ListMessage(data)
+}
+```
 
 ### FrogoLazyRow
+```kotlin
+FrogoLazyRow(setupData()) { data ->
+    ListMessage(data)
+}
+```
 
-    FrogoLazyRow(setupData()) { data ->
-        ListMessage(data)
-    }
+### FrogoLazyFixedGrid
+```kotlin
+FrogoLazyFixedGrid(2, setupData()) { data ->
+    ListMessage(data)
+}
+```
 
-### FrogoLazyGrid
-
-    FrogoLazyGrid(2,setupData()) { data ->
-        ListMessage(data)
-    }
+### FrogoLazyAdaptiveGrid
+```kotlin
+FrogoLazyAdaptiveGrid(10.dp, setupData()) { data ->
+    ListMessage(data)}
+```
