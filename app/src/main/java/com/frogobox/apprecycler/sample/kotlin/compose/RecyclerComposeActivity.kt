@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.frogobox.apprecycler.model.People
 import com.frogobox.apprecycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
 import com.frogobox.apprecycler.ui.theme.FrogoRecyclerViewTheme
@@ -34,7 +35,7 @@ class RecyclerComposeActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     FrogoRecyclerViewTheme {
-        FrogoLazyColumn(setupData()) { data ->
+        FrogoLazyColumn(modifier = Modifier.padding(10.dp), data = setupData()) { data ->
             ListMessage(data)
         }
     }

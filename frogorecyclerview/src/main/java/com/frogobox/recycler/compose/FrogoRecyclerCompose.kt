@@ -1,8 +1,16 @@
 package com.frogobox.recycler.compose
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.gestures.FlingBehavior
+import androidx.compose.foundation.gestures.ScrollableDefaults
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.frogobox.frogolog.FLog
 import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_COMPOSE_TAG
 
@@ -21,44 +29,113 @@ import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_COMPOSE_TAG
 
 @Composable
 fun <T> FrogoLazyColumn(
-    listData: List<T>,
-    listItem: @Composable() LazyItemScope.(data: T) -> Unit
+    data: List<T>,
+    modifier: Modifier = Modifier,
+    state: LazyListState = rememberLazyListState(),
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    reverseLayout: Boolean = false,
+    verticalArrangement: Arrangement.Vertical =
+        if (!reverseLayout) Arrangement.Top else Arrangement.Bottom,
+    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
+    flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
+    content: @Composable() LazyItemScope.(data: T) -> Unit
+
 ) {
-    FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData.size}")
-    LazyColumn() {
-        items(listData.size) { index ->
-            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData[index]}")
-            listItem(listData[index])
+    FLog.d("$FROGO_RV_COMPOSE_TAG - FrogoLazyColumn")
+    FLog.d("$FROGO_RV_COMPOSE_TAG - sum data : ${data.size}")
+    LazyColumn(
+        modifier = modifier,
+        state = state,
+        contentPadding = contentPadding,
+        flingBehavior = flingBehavior,
+        horizontalAlignment = horizontalAlignment,
+        verticalArrangement = verticalArrangement,
+        reverseLayout = reverseLayout
+    ) {
+        items(data.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data $index : ${data[index]}")
+            content(data[index])
         }
     }
 }
 
 @Composable
 fun <T> FrogoLazyRow(
-    listData: List<T>,
-    listItem: @Composable() LazyItemScope.(data: T) -> Unit
+    data: List<T>,
+    modifier: Modifier = Modifier,
+    state: LazyListState = rememberLazyListState(),
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    reverseLayout: Boolean = false,
+    horizontalArrangement: Arrangement.Horizontal =
+        if (!reverseLayout) Arrangement.Start else Arrangement.End,
+    verticalAlignment: Alignment.Vertical = Alignment.Top,
+    flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
+    content: @Composable() LazyItemScope.(data: T) -> Unit
 ) {
-    FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData.size}")
-    LazyRow() {
-        items(listData.size) { index ->
-            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData[index]}")
-            listItem(listData[index])
+    FLog.d("$FROGO_RV_COMPOSE_TAG - FrogoLazyRow")
+    FLog.d("$FROGO_RV_COMPOSE_TAG - sum data : ${data.size}")
+    LazyRow(
+        modifier = modifier,
+        state = state,
+        contentPadding = contentPadding,
+        verticalAlignment = verticalAlignment,
+        horizontalArrangement = horizontalArrangement,
+        flingBehavior = flingBehavior,
+        reverseLayout = reverseLayout
+    ) {
+        items(data.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${data[index]}")
+            content(data[index])
         }
     }
 }
 
 @ExperimentalFoundationApi
 @Composable
-fun <T> FrogoLazyGrid(
+fun <T> FrogoLazyFixedGrid(
+    data: List<T>,
     spanCount: Int,
-    listData: List<T>,
-    listItem: @Composable() LazyGridScope.(data: T) -> Unit
+    modifier: Modifier = Modifier,
+    state: LazyListState = rememberLazyListState(),
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    content: @Composable() LazyGridScope.(data: T) -> Unit
 ) {
-    FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData.size}")
-    LazyVerticalGrid(GridCells.Fixed(spanCount)) {
-        items(listData.size) { index ->
-            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${listData[index]}")
-            listItem(listData[index])
+    FLog.d("$FROGO_RV_COMPOSE_TAG - FrogoLazyFixedGrid")
+    FLog.d("$FROGO_RV_COMPOSE_TAG - sum data : ${data.size}")
+    LazyVerticalGrid(
+        modifier = modifier,
+        state = state,
+        contentPadding = contentPadding,
+        cells = GridCells.Fixed(spanCount)
+    ) {
+        items(data.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${data[index]}")
+            content(data[index])
+        }
+    }
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun <T> FrogoLazyAdaptiveGrid(
+    data: List<T>,
+    minSize: Dp,
+    modifier: Modifier = Modifier,
+    state: LazyListState = rememberLazyListState(),
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    content: @Composable() LazyGridScope.(data: T) -> Unit
+) {
+    FLog.d("$FROGO_RV_COMPOSE_TAG - FrogoLazyAdaptiveGrid")
+    FLog.d("$FROGO_RV_COMPOSE_TAG - sum data : ${data.size}")
+    LazyVerticalGrid(
+        modifier = modifier,
+        state = state,
+        contentPadding = contentPadding,
+        cells = GridCells.Adaptive(minSize)
+    ) {
+        items(data.size) { index ->
+            FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${data[index]}")
+            content(data[index])
         }
     }
 }
