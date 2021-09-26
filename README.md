@@ -93,6 +93,9 @@ allprojects {
 ### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
 
 #### <Option 1> Kotlin Injector (R class)
+<details>
+  <summary>Click for detail!</summary>
+
 ```kotlin
 private fun setupFrogoRecyclerView() {
 
@@ -123,8 +126,13 @@ private fun setupFrogoRecyclerView() {
         .build()
 }
 ```
+    
+</details>
 
 #### <Option 2> Kotlin Injector (ViewBinding) Can't use emptyView
+<details>
+  <summary>Click for detail!</summary>
+    
 ```kotlin
 private fun setupFrogoRecyclerBinding() {
 
@@ -157,8 +165,14 @@ private fun setupFrogoRecyclerBinding() {
 
 }
 ```
+    
+</details>
+
 
 #### <Option 3> Kotlin Builder (R class)
+<details>
+  <summary>Click for detail!</summary>
+
 ```kotlin
 private fun setupRvBuilder() {
     binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
@@ -199,8 +213,14 @@ private fun setupRvBuilder() {
     })
 }
 ```
+    
+</details>
+
 
 #### <Option 4> Kotlin Builder (ViewBinding)
+<details>
+  <summary>Click for detail!</summary>
+  
 
 ```kotlin
 private fun setupRvBuilderBinding() {
@@ -241,7 +261,8 @@ private fun setupRvBuilderBinding() {
     })
 }
 ```
-
+    
+</details>
 
 ## Tutorial
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
