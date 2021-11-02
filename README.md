@@ -93,6 +93,9 @@ allprojects {
 ### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
 
 #### <Option 1> Kotlin Injector (R class)
+<details>
+  <summary>Click for detail!</summary>
+
 ```kotlin
 private fun setupFrogoRecyclerView() {
 
@@ -123,8 +126,13 @@ private fun setupFrogoRecyclerView() {
         .build()
 }
 ```
+    
+</details>
 
 #### <Option 2> Kotlin Injector (ViewBinding) Can't use emptyView
+<details>
+  <summary>Click for detail!</summary>
+    
 ```kotlin
 private fun setupFrogoRecyclerBinding() {
 
@@ -157,8 +165,14 @@ private fun setupFrogoRecyclerBinding() {
 
 }
 ```
+    
+</details>
+
 
 #### <Option 3> Kotlin Builder (R class)
+<details>
+  <summary>Click for detail!</summary>
+
 ```kotlin
 private fun setupRvBuilder() {
     binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
@@ -199,8 +213,14 @@ private fun setupRvBuilder() {
     })
 }
 ```
+    
+</details>
+
 
 #### <Option 4> Kotlin Builder (ViewBinding)
+<details>
+  <summary>Click for detail!</summary>
+  
 
 ```kotlin
 private fun setupRvBuilderBinding() {
@@ -241,23 +261,19 @@ private fun setupRvBuilderBinding() {
     })
 }
 ```
-
-
-## Tutorial
+    
+</details>
+    
+## Sample Tutorial
 - FrogoRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerView.md)
 - FrogoShimmerRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoShimmerRecyclerView.md)
 - FrogoNestedRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoNestedRecyclerView.md)
 - FrogoProgressRecyclerView [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoProgressRecyclerView.md)
 - FrogoRecyclerView Multi Holder [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerViewMultiHolder.md)
-- FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
-
-## Library Helper
-- frogo-android-ui-kit [Click Here](https://github.com/frogobox/frogo-android-ui-kit)
-- frogo-log [Click Here](https://github.com/amirisback/frogo-log)
-- consumable-code-news-api [Click Here](https://github.com/amirisback/consumable-code-news-api)
+- FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)    
 
 ##  Alert
-
+    
 ### Cautions :
     >> under Version 3.0.1
     - Please implement library [frogo-ui-kit](https://github.com/amirisback/frogo-ui-kit) in your project
@@ -289,6 +305,12 @@ private fun setupRvBuilderBinding() {
 
 ### Wiki
 - Development Planning [Click Here](https://github.com/amirisback/frogo-recycler-view/wiki/Development-Planning)
+    
+
+### Library Helper
+- frogo-android-ui-kit [Click Here](https://github.com/frogobox/frogo-android-ui-kit)
+- frogo-log [Click Here](https://github.com/amirisback/frogo-log)
+- frogo-consume-api [Click Here](https://github.com/frogobox/frogo-consume-api)
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
