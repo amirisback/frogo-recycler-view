@@ -82,6 +82,7 @@ dependencies {
 
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.4")
     implementation("com.github.frogobox:frogo-consume-api:1.0.7")
+    implementation("com.github.amirisback:frogo-log:2.0.4")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 

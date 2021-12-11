@@ -22,9 +22,9 @@ object ProjectSetting {
 
     const val LIBRARY_NAME = "recycler"
 
-    const val VERSION_MAJOR = 3
-    const val VERSION_MINOR = 8
-    const val VERSION_PATCH = 8
+    const val VERSION_MAJOR = 4
+    const val VERSION_MINOR = 0
+    const val VERSION_PATCH = 0
 
     const val PROJECT_COMPILE_SDK = 31
     const val PROJECT_MIN_SDK = 21

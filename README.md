@@ -22,11 +22,11 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 3.8.8
+    $version_release = 4.0.0
 
 What's New??
 
-    * Update Build Gradle to 7.0.2 *
+    * Update Build Gradle to 7.0.4 *
     * Update Frogo Android UI Kit *
     * Enhance Performance *
     * FrogoRecyclerCompose - FrogoLazyColumn *
@@ -34,6 +34,43 @@ What's New??
     * FrogoRecyclerCompose - FrogoLazyFixedGrid *
     * FrogoRecyclerCompose - FrogoLazyAdaptiveGrid *
     * Migrate From Groovy to Kotlin DSL *
+    * IFrogoViewAdapter, IFrogoBindingAdapter, IFrogoSingleRv *
+
+New Function on FrogoRecyclerView
+```kotlin
+    // Notify Data List
+    fun frogoNotifyData() : MutableList<T>
+
+    // Notify Data Set Changed
+    fun frogoNotifyDataSetChanged()
+
+    // Notify Data Item Changed
+    fun frogoNotifyItemChanged(data: T, position: Int, payload: Any)
+
+    // Notify Data Item Changed
+    fun frogoNotifyItemChanged(data: T, position: Int)
+
+    // Notify Data Item Inserted
+    fun frogoNotifyItemInserted(data: T, position: Int)
+
+    // Notify Data Item Moved
+    fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int)
+
+    // Notify Data Item Range Changed
+    fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any)
+
+    // Notify Data Item Range Changed
+    fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int)
+
+    // Notify Data Item Range Inserted
+    fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int)
+
+    // Notify Data Item Range Removed
+    fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int)
+
+    // Notify Data Item Removed
+    fun frogoNotifyItemRemoved(position: Int)
+```
 
 Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
@@ -72,14 +109,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:3.8.8'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.0.0'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:3.8.8")
+        implementation("com.github.amirisback:frogo-recycler-view:4.0.0")
     }
 
 ### Step 3. Create xml view
@@ -99,19 +136,37 @@ allprojects {
 ```kotlin
 private fun setupFrogoRecyclerView() {
 
-    val adapterCallback = object : IFrogoViewAdapter<ExampleModel> {
-        override fun setupInitComponent(view: View, data: ExampleModel) {
+    val adapterCallback = object :
+        IFrogoViewAdapter<ExampleModel> {
+        override fun setupInitComponent(
+            view: View,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // Init component content item recyclerview
-            view.findViewById<TextView>(R.id.tv_example_item).text = data.name
+            view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
         }
 
-        override fun onItemClicked(data: ExampleModel) {
+        override fun onItemClicked(
+            view: View,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // setup item clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
             showToast(data.name)
         }
 
-        override fun onItemLongClicked(data: ExampleModel) {
+        override fun onItemLongClicked(
+            view: View,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // setup item long clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
             showToast(data.name)
         }
     }
@@ -137,22 +192,42 @@ private fun setupFrogoRecyclerView() {
 private fun setupFrogoRecyclerBinding() {
 
     val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
-        override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+        override fun setupInitComponent(
+            binding: FrogoRvListType1Binding,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             binding.frogoRvListType1TvTitle.text = data.name
-            val context = binding.root.context
         }
 
         override fun setViewBinding(parent: ViewGroup): FrogoRvListType1Binding {
-            return FrogoRvListType1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return FrogoRvListType1Binding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         }
 
-        override fun onItemClicked(data: ExampleModel) {
+        override fun onItemClicked(
+            binding: FrogoRvListType1Binding,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // setup item clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
             showToast(data.name)
         }
 
-        override fun onItemLongClicked(data: ExampleModel) {
+        override fun onItemLongClicked(
+            binding: FrogoRvListType1Binding,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // setup item long clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
             showToast(data.name)
         }
     }
@@ -175,42 +250,59 @@ private fun setupFrogoRecyclerBinding() {
 
 ```kotlin
 private fun setupRvBuilder() {
-    binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel>{
-        override fun setupData(): List<ExampleModel> {
-            // Setup data FrogoRecyclerView
-            return listData()
-        }
+   binding.frogoRecyclerView.builder(object : IFrogoBuilderRv<ExampleModel> {
+       override fun setupData(): List<ExampleModel> {
+           // Setup data FrogoRecyclerView
+           return dataBuilderRClass
+       }
 
-        override fun setupCustomView(): Int {
-            // Setup Custom View
-            return R.layout.frogo_rv_list_type_1
-        }
+       override fun setupCustomView(): Int {
+           // Setup Custom View
+           return R.layout.frogo_rv_list_type_1
+       }
 
-        override fun setupEmptyView(): Int? {
-            // Setup Empty View
-            return null
-        }
+       override fun setupEmptyView(): Int? {
+           // Setup Empty View
+           return null
+       }
 
-        override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
-            // Setup Layout Manager of FrogoRecyclerView
-            return FrogoLayoutManager.linearLayoutVertical(context)
-        }
+       override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
+           // Setup Layout Manager of FrogoRecyclerView
+           return FrogoLayoutManager.linearLayoutVertical(context)
+       }
 
-        override fun setupInitComponent(view: View, data: ExampleModel) {
-            // Init component content item recyclerview
-            view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
-        }
+       override fun setupInitComponent(
+           view: View,
+           data: ExampleModel,
+           position: Int,
+           notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+       ) {
+           // Init component content item recyclerview
+           view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
+       }
 
-        override fun onItemClicked(data: ExampleModel) {
-            // setup item clicked on frogo recycler view
-            showToast(data.name)
-        }
+       override fun onItemClicked(
+           view: View,
+           data: ExampleModel,
+           position: Int,
+           notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+       ) {
+           // setup item clicked on frogo recycler view
+           FLog.d("Clicked on Position : $position")
+           showToast(data.name)
+       }
 
-        override fun onItemLongClicked(data: ExampleModel) {
-            // setup item long clicked on frogo recycler view
-            showToast(data.name)
-        }
-    })
+       override fun onItemLongClicked(
+           view: View,
+           data: ExampleModel,
+           position: Int,
+           notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+       ) {
+           // setup item long clicked on frogo recycler view
+           FLog.d("Clicked on Position : $position")
+           showToast(data.name)
+       }
+   })
 }
 ```
     
@@ -236,7 +328,12 @@ private fun setupRvBuilderBinding() {
             return FrogoLayoutManager.linearLayoutVertical(context)
         }
 
-        override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+        override fun setupInitComponent(
+            binding: FrogoRvListType1Binding,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             binding.frogoRvListType1TvTitle.text = data.name
         }
 
@@ -248,13 +345,25 @@ private fun setupRvBuilderBinding() {
             )
         }
 
-        override fun onItemClicked(data: ExampleModel) {
+        override fun onItemClicked(
+            binding: FrogoRvListType1Binding,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // setup item clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
             showToast(data.name)
         }
 
-        override fun onItemLongClicked(data: ExampleModel) {
+        override fun onItemLongClicked(
+            binding: FrogoRvListType1Binding,
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             // setup item long clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
             showToast(data.name)
         }
 
@@ -273,7 +382,14 @@ private fun setupRvBuilderBinding() {
 - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)    
 
 ##  Alert
-    
+
+### Big Update :
+    ================================================================================================
+    >> on Version 4.0.0
+    - Every listener can get view/binding, position, and notify item change on Adapter
+    - FrogoRecyclerView can notify item changed
+    ================================================================================================
+
 ### Cautions :
     >> under Version 3.0.1
     - Please implement library [frogo-ui-kit](https://github.com/amirisback/frogo-ui-kit) in your project

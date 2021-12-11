@@ -14,6 +14,7 @@ import com.frogobox.recycler.core.*
 import com.frogobox.apprecycler.databinding.ActivityBaseBinding
 import com.frogobox.apprecycler.model.ExampleModel
 import com.frogobox.apprecycler.util.Constant
+import com.frogobox.frogolog.FLog
 
 class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
 
@@ -72,6 +73,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
 
@@ -82,6 +84,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item long clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
         }
@@ -122,6 +125,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
 
@@ -132,6 +136,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item long clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
         }
@@ -182,6 +187,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
 
@@ -192,6 +198,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item long clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
         })
@@ -234,6 +241,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
 
@@ -244,6 +252,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 // setup item long clicked on frogo recycler view
+                FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
 
