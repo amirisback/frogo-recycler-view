@@ -23,8 +23,13 @@ class FrogoBindingHolder<T, VB : ViewBinding>(
 ) :
     FrogoRecyclerBindingHolder<T, VB>(binding) {
 
-    override fun initComponent(data: T) {
-        frogoViewHolderCallback?.setupInitComponent(binding, data)
+    override fun initComponent(
+        binding: VB,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) {
+        frogoViewHolderCallback?.setupInitComponent(binding, data, position, notifyListener)
     }
 
 }

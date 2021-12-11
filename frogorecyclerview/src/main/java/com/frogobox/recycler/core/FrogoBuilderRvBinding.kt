@@ -23,36 +23,54 @@ class FrogoBuilderRvBinding<T, VB : ViewBinding> : FrogoBuilderRvBase<T>() {
         return this
     }
 
-    fun builder(listener: IFrogoBuilderRvBinding<T, VB>) {
+    fun builder(bindingListener: IFrogoBuilderRvBinding<T, VB>) {
 
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_VIEW_BINDING
 
-        listData.addAll(listener.setupData())
+        listData.addAll(bindingListener.setupData())
 
         val frogoBindingAdapter = FrogoBindingAdapter<T, VB>()
 
         frogoBindingAdapter.setCallback(object : IFrogoBindingHolder<T, VB> {
             override fun setViewBinding(parent: ViewGroup): VB {
-                return listener.setViewBinding(parent)
+                return bindingListener.setViewBinding(parent)
             }
 
-            override fun setupInitComponent(binding: VB, data: T) {
-                return listener.setupInitComponent(binding, data)
+            override fun setupInitComponent(
+                binding: VB,
+                data: T,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<T>
+            ) {
+                return bindingListener.setupInitComponent(binding, data, position, notifyListener)
             }
         })
 
-        frogoBindingAdapter.setupRequirement(listData, object : FrogoRecyclerViewListener<T> {
-            override fun onItemClicked(data: T) {
-                listener.onItemClicked(data)
-            }
+        frogoBindingAdapter.setupRequirement(
+            listData,
+            object : FrogoRecyclerBindingListener<T, VB> {
+                override fun onItemClicked(
+                    binding: VB,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    bindingListener.onItemClicked(binding, data, position, notifyListener)
+                }
 
-            override fun onItemLongClicked(data: T) {
-                listener.onItemLongClicked(data)
-            }
-        })
+                override fun onItemLongClicked(
+                    binding: VB,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    bindingListener.onItemLongClicked(binding, data, position, notifyListener)
+                }
+            })
 
         frogoRecyclerView.adapter = frogoBindingAdapter
-        frogoRecyclerView.layoutManager = listener.setupLayoutManager(frogoRecyclerView.context)
+        frogoRecyclerView.layoutManager =
+            bindingListener.setupLayoutManager(frogoRecyclerView.context)
 
     }
 

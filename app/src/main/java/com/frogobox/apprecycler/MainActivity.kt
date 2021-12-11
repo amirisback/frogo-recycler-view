@@ -3,18 +3,18 @@ package com.frogobox.apprecycler
 import android.content.Intent
 import android.os.Bundle
 import com.frogobox.apprecycler.core.BaseActivity
+import com.frogobox.apprecycler.databinding.ActivityMainBinding
 import com.frogobox.apprecycler.sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity
 import com.frogobox.apprecycler.sample.java.noadapter.simple.JavaNoAdapterActivity
 import com.frogobox.apprecycler.sample.java.usingadapter.JavaSampleActivity
-import com.frogobox.apprecycler.databinding.ActivityMainBinding
 import com.frogobox.apprecycler.sample.kotlin.compose.RecyclerComposeActivity
-import com.frogobox.apprecycler.sample.kotlin.noadapter.simple.KotlinNoAdapterActivity
 import com.frogobox.apprecycler.sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity
 import com.frogobox.apprecycler.sample.kotlin.noadapter.progress.KotlinProgressActivity
 import com.frogobox.apprecycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
+import com.frogobox.apprecycler.sample.kotlin.noadapter.simple.KotlinNoAdapterActivity
 import com.frogobox.apprecycler.sample.kotlin.usingadapter.nested.KotlinNestedActivity
-import com.frogobox.apprecycler.sample.kotlin.usingadapter.simple.KotlinSampleActivity
 import com.frogobox.apprecycler.sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity
+import com.frogobox.apprecycler.sample.kotlin.usingadapter.simple.KotlinSampleActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -47,7 +47,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             btnKotlinMultiview.setOnClickListener {
-                startActivity(Intent(this@MainActivity, KotlinNoAdapterMultiVewActivity::class.java))
+                startActivity(
+                    Intent(
+                        this@MainActivity,
+                        KotlinNoAdapterMultiVewActivity::class.java
+                    )
+                )
             }
 
             btnJavaMultiview.setOnClickListener {

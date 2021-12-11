@@ -5,9 +5,9 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.frogobox.apprecycler.core.BaseActivity
+import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
-import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
 
 class KotlinSimpleNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
@@ -48,11 +48,21 @@ class KotlinSimpleNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
             override fun nestedListener(): FrogoRecyclerViewListener<Int> {
                 return object : FrogoRecyclerViewListener<Int> {
-                    override fun onItemClicked(data: Int) {
+                    override fun onItemClicked(
+                        view: View,
+                        data: Int,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<Int>
+                    ) {
                         showToast("Click : $data")
                     }
 
-                    override fun onItemLongClicked(data: Int) {
+                    override fun onItemLongClicked(
+                        view: View,
+                        data: Int,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<Int>
+                    ) {
                         showToast("Long Click : $data")
                     }
                 }
@@ -60,7 +70,12 @@ class KotlinSimpleNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
             override fun nestedCallback(): IFrogoViewHolder<Int> {
                 return object : IFrogoViewHolder<Int> {
-                    override fun setupInitComponent(view: View, data: Int) {
+                    override fun setupInitComponent(
+                        view: View,
+                        data: Int,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<Int>
+                    ) {
                         Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB)
                             .into(view.findViewById(R.id.image))
                     }

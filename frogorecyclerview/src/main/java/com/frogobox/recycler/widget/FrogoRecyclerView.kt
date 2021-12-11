@@ -80,5 +80,4 @@ class FrogoRecyclerView : RecyclerView,
         return FrogoBuilderRvBinding<T, VB>().initBuilder(this).builder(listener)
     }
 
-
 }

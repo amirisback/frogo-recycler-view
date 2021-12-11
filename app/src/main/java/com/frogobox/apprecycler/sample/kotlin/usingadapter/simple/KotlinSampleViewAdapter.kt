@@ -7,6 +7,7 @@ import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewAdapter
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.apprecycler.model.ExampleModel
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
 /**
  * Created by Faisal Amir
@@ -38,7 +39,11 @@ class KotlinSampleViewAdapter : FrogoRecyclerViewAdapter<ExampleModel>() {
 
         private val tvExampleItem = view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title)
 
-        override fun initComponent(data: ExampleModel) {
+        override fun initComponent(
+            data: ExampleModel,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+        ) {
             tvExampleItem.text = data.name
         }
     }

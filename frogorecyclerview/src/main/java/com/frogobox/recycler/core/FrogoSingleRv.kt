@@ -31,7 +31,7 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     protected var optionAdapter = ""
     protected var customViewId: Int = 0
-    
+
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T> {
         frogoRecycleView = frogoRecyclerView
         frogoViewAdapter = FrogoViewAdapter()
@@ -117,20 +117,35 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
         } else {
             optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
             frogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
-                override fun setupInitComponent(view: View, data: T) {
-                    frogoAdapterCallback.setupInitComponent(view, data)
+                override fun setupInitComponent(
+                    view: View,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    frogoAdapterCallback.setupInitComponent(view, data, position, notifyListener)
                 }
             })
 
             frogoViewAdapter.setupRequirement(customViewId, listData,
                 object :
                     FrogoRecyclerViewListener<T> {
-                    override fun onItemClicked(data: T) {
-                        frogoAdapterCallback.onItemClicked(data)
+                    override fun onItemClicked(
+                        view: View,
+                        data: T,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<T>
+                    ) {
+                        frogoAdapterCallback.onItemClicked(view, data, position, notifyListener)
                     }
 
-                    override fun onItemLongClicked(data: T) {
-                        frogoAdapterCallback.onItemLongClicked(data)
+                    override fun onItemLongClicked(
+                        view: View,
+                        data: T,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<T>
+                    ) {
+                        frogoAdapterCallback.onItemLongClicked(view, data, position, notifyListener)
                     }
                 })
             frogoViewAdapter.setupEmptyView(emptyViewId)
@@ -148,6 +163,50 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
         setupLayoutManager(frogoRecycleView)
         setupInnerAdapter()
         return this
+    }
+
+    override fun frogoNotifyData(): MutableList<T> {
+        return frogoViewAdapter.innerFrogoNotifyData()
+    }
+
+    override fun frogoNotifyDataSetChanged() {
+        frogoViewAdapter.innerFrogoNotifyDataSetChanged()
+    }
+
+    override fun frogoNotifyItemChanged(data: T, position: Int, payload: Any) {
+        frogoViewAdapter.innerFrogoNotifyItemChanged(data, position, payload)
+    }
+
+    override fun frogoNotifyItemChanged(data: T, position: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemChanged(data, position)
+    }
+
+    override fun frogoNotifyItemInserted(data: T, position: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemInserted(data, position)
+    }
+
+    override fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemMoved(data, fromPosition, toPosition)
+    }
+
+    override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
+        frogoViewAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart, payload)
+    }
+
+    override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart)
+    }
+
+    override fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemRangeInserted(data, positionStart)
+    }
+
+    override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
+    }
+
+    override fun frogoNotifyItemRemoved(position: Int) {
+        frogoViewAdapter.innerFrogoNotifyItemRemoved(position)
     }
 
 }

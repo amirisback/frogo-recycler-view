@@ -44,19 +44,12 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
-        kotlinCompilerVersion = Dependency.KOTLIN_VERSION
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
-            useIR = true
         }
-    }
-
-    packagingOptions {
-        exclude("META-INF/AL2.0")
-        exclude("META-INF/LGPL2.1")
     }
 
 }

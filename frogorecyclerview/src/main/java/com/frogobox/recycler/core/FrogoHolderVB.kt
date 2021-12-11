@@ -19,5 +19,5 @@ data class FrogoHolderVB<T, VB : ViewBinding>(
     val layoutBinding: VB,
     val option: Int,
     val callback: IFrogoBindingHolder<T, VB>,
-    val listener: FrogoRecyclerViewListener<T>
+    val bindingListener: FrogoRecyclerViewListener<T>
 )

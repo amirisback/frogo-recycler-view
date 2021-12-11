@@ -14,9 +14,9 @@ import com.frogobox.api.news.response.ArticleResponse
 import com.frogobox.api.news.util.NewsConstant
 import com.frogobox.api.news.util.NewsUrl
 import com.frogobox.apprecycler.core.BaseActivity
+import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.*
-import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
 
 class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
@@ -92,11 +92,21 @@ class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
             override fun nestedListener(): FrogoRecyclerViewListener<Article> {
                 return object : FrogoRecyclerViewListener<Article> {
-                    override fun onItemClicked(data: Article) {
+                    override fun onItemClicked(
+                        view: View,
+                        data: Article,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<Article>
+                    ) {
                         showToast("Click : $data")
                     }
 
-                    override fun onItemLongClicked(data: Article) {
+                    override fun onItemLongClicked(
+                        view: View,
+                        data: Article,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<Article>
+                    ) {
                         showToast("Long Click : $data")
                     }
                 }
@@ -104,7 +114,12 @@ class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
             override fun nestedCallback(): IFrogoViewHolder<Article> {
                 return object : IFrogoViewHolder<Article> {
-                    override fun setupInitComponent(view: View, data: Article) {
+                    override fun setupInitComponent(
+                        view: View,
+                        data: Article,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<Article>
+                    ) {
                         val iv = view.findViewById<ImageView>(R.id.frogo_rv_grid_type_3_iv_poster)
                         val tv_title =
                             view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title)

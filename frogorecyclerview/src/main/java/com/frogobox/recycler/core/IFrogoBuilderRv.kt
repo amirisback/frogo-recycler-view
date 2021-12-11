@@ -31,12 +31,27 @@ interface IFrogoBuilderRv<T> {
     fun setupLayoutManager(context: Context): RecyclerView.LayoutManager
 
     // Setup Init Component on ViewHolder
-    fun setupInitComponent(view: View, data: T)
+    fun setupInitComponent(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
     // Setup root item clicked
-    fun onItemClicked(data: T)
+    fun onItemClicked(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
     // Setup root item long clicked
-    fun onItemLongClicked(data: T)
+    fun onItemLongClicked(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
 }

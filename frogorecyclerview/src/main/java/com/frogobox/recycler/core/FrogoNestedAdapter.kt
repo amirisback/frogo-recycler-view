@@ -39,7 +39,6 @@ class FrogoNestedAdapter<T> : FrogoRecyclerViewAdapter<T>() {
         return FrogoNestedHolder(innerRv, frogoNestedHolderCallback)
     }
 
-
     override fun onBindViewHolder(holder: FrogoRecyclerViewHolder<T>, position: Int) {
         val nestedHolder = holder as FrogoNestedHolder<T>
         val p = if (listPosition.containsKey(position) && listPosition[position]!! >= 0) {

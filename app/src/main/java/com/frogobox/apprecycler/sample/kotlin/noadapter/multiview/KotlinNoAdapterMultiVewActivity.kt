@@ -26,7 +26,12 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>
 
     private fun firstCallback(): IFrogoViewHolder<ExampleModel> {
         return object : IFrogoViewHolder<ExampleModel> {
-            override fun setupInitComponent(view: View, data: ExampleModel) {
+            override fun setupInitComponent(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_1_tv_title).text = data.name
                 Glide.with(view.context).load(FrogoRvConstant.LINK_PHOTO_GITHUB).into(view.findViewById(R.id.frogo_rv_grid_type_1_iv_poster))
@@ -36,7 +41,12 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>
 
     private fun secondCallback(): IFrogoViewHolder<ExampleModel> {
         return object : IFrogoViewHolder<ExampleModel>{
-            override fun setupInitComponent(view: View, data: ExampleModel) {
+            override fun setupInitComponent(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_title).text = data.name
                 view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle).text = data.name
@@ -49,11 +59,21 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>
 
     private fun firstListenerType(): FrogoRecyclerViewListener<ExampleModel>{
         return object : FrogoRecyclerViewListener<ExampleModel>{
-            override fun onItemClicked(data: ExampleModel) {
+            override fun onItemClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 showToast(data.name + " First")
             }
 
-            override fun onItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 showToast("LAYOUT TYPE 1")
             }
         }
@@ -61,11 +81,21 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>
 
     private fun secondListenerType() : FrogoRecyclerViewListener<ExampleModel>{
         return object : FrogoRecyclerViewListener<ExampleModel>{
-            override fun onItemClicked(data: ExampleModel) {
+            override fun onItemClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 showToast(data.name + " Second")
             }
 
-            override fun onItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 showToast("LAYOUT TYPE 2")
             }
         }

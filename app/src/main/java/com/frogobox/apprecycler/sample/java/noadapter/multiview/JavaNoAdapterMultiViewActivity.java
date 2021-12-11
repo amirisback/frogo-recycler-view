@@ -1,14 +1,18 @@
 package com.frogobox.apprecycler.sample.java.noadapter.multiview;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.frogobox.apprecycler.core.BaseActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
 import com.frogobox.apprecycler.util.Constant;
 import com.frogobox.recycler.core.FrogoHolder;
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.recycler.core.IFrogoViewHolder;
 import com.frogobox.recycler.R;
@@ -35,7 +39,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRv
     }
 
     private static IFrogoViewHolder<ExampleModel> firstCallback() {
-        return (view, data) -> {
+        return (view, data, position, notifyListener) -> {
             // Init component content item recyclerview
             TextView title = view.findViewById(R.id.frogo_rv_grid_type_1_tv_title);
             ImageView photo = view.findViewById(R.id.frogo_rv_grid_type_1_iv_poster);
@@ -45,7 +49,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRv
     }
 
     private static IFrogoViewHolder<ExampleModel> secondCallback() {
-        return (view, data) -> {
+        return (view, data, position, notifyListener) -> {
             // Init component content item recyclerview
             TextView title = view.findViewById(R.id.frogo_rv_grid_type_3_tv_title);
             TextView subTitle = view.findViewById(R.id.frogo_rv_grid_type_3_tv_subtitle);
@@ -59,28 +63,28 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRv
     }
 
     private FrogoRecyclerViewListener<ExampleModel> firstListenerType() {
-        return new FrogoRecyclerViewListener<ExampleModel>() {
+        return new FrogoRecyclerViewListener<>() {
             @Override
-            public void onItemLongClicked(ExampleModel data) {
+            public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 showToast(data.getName() + " First");
             }
 
             @Override
-            public void onItemClicked(ExampleModel data) {
+            public void onItemClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 showToast("LAYOUT TYPE 1");
             }
         };
     }
 
     private FrogoRecyclerViewListener<ExampleModel> secondListenerType() {
-        return new FrogoRecyclerViewListener<ExampleModel>() {
+        return new FrogoRecyclerViewListener<>() {
             @Override
-            public void onItemLongClicked(ExampleModel data) {
+            public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 showToast(data.getName() + " Second");
             }
 
             @Override
-            public void onItemClicked(ExampleModel data) {
+            public void onItemClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 showToast("LAYOUT TYPE 2");
             }
         };
@@ -107,6 +111,5 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRv
                 .createLayoutStaggeredGrid(2)
                 .build();
     }
-
 
 }

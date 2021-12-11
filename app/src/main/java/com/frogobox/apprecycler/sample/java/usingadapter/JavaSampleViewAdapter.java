@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.frogobox.apprecycler.model.ExampleModel;
 import com.frogobox.recycler.R;
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewAdapter;
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder;
 
@@ -46,7 +47,7 @@ public class JavaSampleViewAdapter extends FrogoRecyclerViewAdapter<ExampleModel
         }
 
         @Override
-        public void initComponent(ExampleModel data) {
+        public void initComponent(ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
             tvExample.setText(data.getName());
         }
     }

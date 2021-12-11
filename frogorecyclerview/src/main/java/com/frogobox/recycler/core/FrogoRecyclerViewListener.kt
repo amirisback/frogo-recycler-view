@@ -1,5 +1,7 @@
 package com.frogobox.recycler.core
 
+import android.view.View
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -20,9 +22,14 @@ package com.frogobox.recycler.core
 interface FrogoRecyclerViewListener<T> {
 
     // on itemview set on click listener
-    fun onItemClicked(data: T)
+    fun onItemClicked(view: View, data: T, position: Int, notifyListener: FrogoRecyclerNotifyListener<T>)
 
     // on itemview set on long click listener
-    fun onItemLongClicked(data: T)
+    fun onItemLongClicked(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
 }

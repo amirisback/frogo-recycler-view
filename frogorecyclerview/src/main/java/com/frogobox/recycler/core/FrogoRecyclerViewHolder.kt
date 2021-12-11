@@ -23,28 +23,38 @@ import androidx.recyclerview.widget.RecyclerView
  */
 abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
 
-    abstract fun initComponent(data: T) // component view
+    abstract fun initComponent(data: T, position: Int, notifyListener: FrogoRecyclerNotifyListener<T>) // component view
 
     fun getLinearLayoutManager(recyclerView: RecyclerView): LinearLayoutManager {
         return recyclerView.layoutManager as LinearLayoutManager
     }
 
-    fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    fun bindItem(
+        data: T?,
+        position: Int,
+        viewListener: FrogoRecyclerViewListener<T>?,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) {
         if (data != null) {
-            onItemViewClicked(data, listener)
-            initComponent(data)
+            onItemViewClicked(data, position, viewListener, notifyListener)
+            initComponent(data, position,notifyListener)
         }
     }
 
-    private fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    private fun onItemViewClicked(
+        data: T?,
+        position: Int,
+        viewListener: FrogoRecyclerViewListener<T>?,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) {
         itemView.setOnClickListener {
             if (data != null) {
-                listener?.onItemClicked(data)
+                viewListener?.onItemClicked(itemView, data, position, notifyListener)
             }
         }
         itemView.setOnLongClickListener {
             if (data != null) {
-                listener?.onItemLongClicked(data)
+                viewListener?.onItemLongClicked(itemView, data, position, notifyListener)
             }
             true
         }

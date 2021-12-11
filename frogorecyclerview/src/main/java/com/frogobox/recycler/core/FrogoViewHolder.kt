@@ -20,8 +20,12 @@ import android.view.View
 class FrogoViewHolder<T>(view: View, private val frogoViewHolderCallback: IFrogoViewHolder<T>?) :
     FrogoRecyclerViewHolder<T>(view) {
 
-    override fun initComponent(data: T) {
-        frogoViewHolderCallback?.setupInitComponent(itemView, data)
+    override fun initComponent(
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) {
+        frogoViewHolderCallback?.setupInitComponent(itemView, data, position, notifyListener)
     }
 
 }

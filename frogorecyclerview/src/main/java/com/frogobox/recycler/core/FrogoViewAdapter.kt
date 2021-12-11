@@ -36,7 +36,12 @@ class FrogoViewAdapter<T> : FrogoRecyclerViewAdapter<T>() {
                 FrogoViewHolder(viewLayout(parent, frogoHolder[viewType].layoutResId), frogoHolder[viewType].callback)
             } else {
                 FrogoViewHolder(viewLayout(parent, emptyLayoutResId), object : IFrogoViewHolder<T>{
-                    override fun setupInitComponent(view: View, data: T) {}
+                    override fun setupInitComponent(
+                        view: View,
+                        data: T,
+                        position: Int,
+                        notifyListener: FrogoRecyclerNotifyListener<T>
+                    ) {}
                 })
             }
         } else {

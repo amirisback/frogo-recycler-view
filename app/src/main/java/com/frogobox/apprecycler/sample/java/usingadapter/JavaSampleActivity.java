@@ -1,11 +1,15 @@
 package com.frogobox.apprecycler.sample.java.usingadapter;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.frogobox.apprecycler.core.BaseActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
 import com.frogobox.recycler.R;
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvListBinding;
 
@@ -41,13 +45,13 @@ public class JavaSampleActivity extends BaseActivity<ActivityFrogoRvListBinding>
         JavaSampleViewAdapter adapter = new JavaSampleViewAdapter();
         adapter.setupRequirement(R.layout.frogo_rv_list_type_1, listData(), new FrogoRecyclerViewListener<ExampleModel>() {
             @Override
-            public void onItemClicked(ExampleModel data) {
-                Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
+            public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
+                Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onItemLongClicked(ExampleModel data) {
-                Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_LONG).show();
+            public void onItemClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
+                Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_SHORT).show();
             }
         });
         adapter.setupEmptyView(null); // Without Custom View

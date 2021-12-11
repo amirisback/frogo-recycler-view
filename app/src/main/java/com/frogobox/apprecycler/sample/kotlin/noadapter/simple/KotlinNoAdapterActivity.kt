@@ -55,17 +55,32 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
 
         val adapterCallback = object :
             IFrogoViewAdapter<ExampleModel> {
-            override fun setupInitComponent(view: View, data: ExampleModel) {
+            override fun setupInitComponent(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
             }
 
-            override fun onItemClicked(data: ExampleModel) {
+            override fun onItemClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item clicked on frogo recycler view
                 showToast(data.name)
             }
 
-            override fun onItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item long clicked on frogo recycler view
                 showToast(data.name)
             }
@@ -83,7 +98,12 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
     private fun setupRvInjectorBinding() {
 
         val adapterCallback = object : IFrogoBindingAdapter<ExampleModel, FrogoRvListType1Binding> {
-            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+            override fun setupInitComponent(
+                binding: FrogoRvListType1Binding,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 binding.frogoRvListType1TvTitle.text = data.name
             }
 
@@ -95,12 +115,22 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 )
             }
 
-            override fun onItemClicked(data: ExampleModel) {
+            override fun onItemClicked(
+                binding: FrogoRvListType1Binding,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item clicked on frogo recycler view
                 showToast(data.name)
             }
 
-            override fun onItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(
+                binding: FrogoRvListType1Binding,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item long clicked on frogo recycler view
                 showToast(data.name)
             }
@@ -135,17 +165,32 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 return FrogoLayoutManager.linearLayoutVertical(context)
             }
 
-            override fun setupInitComponent(view: View, data: ExampleModel) {
+            override fun setupInitComponent(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.name
             }
 
-            override fun onItemClicked(data: ExampleModel) {
+            override fun onItemClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item clicked on frogo recycler view
                 showToast(data.name)
             }
 
-            override fun onItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(
+                view: View,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item long clicked on frogo recycler view
                 showToast(data.name)
             }
@@ -165,7 +210,12 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 return FrogoLayoutManager.linearLayoutVertical(context)
             }
 
-            override fun setupInitComponent(binding: FrogoRvListType1Binding, data: ExampleModel) {
+            override fun setupInitComponent(
+                binding: FrogoRvListType1Binding,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 binding.frogoRvListType1TvTitle.text = data.name
             }
 
@@ -177,12 +227,22 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 )
             }
 
-            override fun onItemClicked(data: ExampleModel) {
+            override fun onItemClicked(
+                binding: FrogoRvListType1Binding,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item clicked on frogo recycler view
                 showToast(data.name)
             }
 
-            override fun onItemLongClicked(data: ExampleModel) {
+            override fun onItemLongClicked(
+                binding: FrogoRvListType1Binding,
+                data: ExampleModel,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
+            ) {
                 // setup item long clicked on frogo recycler view
                 showToast(data.name)
             }

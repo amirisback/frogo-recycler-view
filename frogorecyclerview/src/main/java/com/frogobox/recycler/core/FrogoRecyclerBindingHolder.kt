@@ -24,28 +24,43 @@ import androidx.viewbinding.ViewBinding
 abstract class FrogoRecyclerBindingHolder<T, VB : ViewBinding>(private val binding: VB) :
     RecyclerView.ViewHolder(binding.root) {
 
-    abstract fun initComponent(data: T) // component view
+    abstract fun initComponent(
+        binding: VB,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) // component view
 
     fun getLinearLayoutManager(recyclerView: RecyclerView): LinearLayoutManager {
         return recyclerView.layoutManager as LinearLayoutManager
     }
 
-    fun bindItem(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    fun bindItem(
+        data: T?,
+        position: Int,
+        bindingListener: FrogoRecyclerBindingListener<T, VB>?,
+        notifylistener: FrogoRecyclerNotifyListener<T>
+    ) {
         if (data != null) {
-            onItemViewClicked(data, listener)
-            initComponent(data)
+            onItemViewClicked(data, position, bindingListener, notifylistener)
+            initComponent(binding, data, position, notifylistener)
         }
     }
 
-    private fun onItemViewClicked(data: T?, listener: FrogoRecyclerViewListener<T>?) {
+    private fun onItemViewClicked(
+        data: T?,
+        position: Int,
+        bindingListener: FrogoRecyclerBindingListener<T, VB>?,
+        notifylistener: FrogoRecyclerNotifyListener<T>
+    ) {
         binding.root.setOnClickListener {
             if (data != null) {
-                listener?.onItemClicked(data)
+                bindingListener?.onItemClicked(binding, data, position, notifylistener)
             }
         }
         binding.root.setOnLongClickListener {
             if (data != null) {
-                listener?.onItemLongClicked(data)
+                bindingListener?.onItemLongClicked(binding, data, position, notifylistener)
             }
             true
         }

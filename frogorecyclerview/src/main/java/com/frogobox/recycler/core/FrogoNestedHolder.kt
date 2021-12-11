@@ -37,6 +37,11 @@ class FrogoNestedHolder<T>(
         FrogoStartSnapHelper().attachToRecyclerView(recyclerView)
     }
 
-    override fun initComponent(data: T) {}
+    override fun initComponent(
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) {
+    }
 }
 

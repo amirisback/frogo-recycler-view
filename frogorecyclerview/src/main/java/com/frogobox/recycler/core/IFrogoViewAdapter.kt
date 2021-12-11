@@ -20,12 +20,27 @@ import android.view.View
 interface IFrogoViewAdapter<T> {
 
     // Setup Init Component on ViewHolder
-    fun setupInitComponent(view: View, data: T)
+    fun setupInitComponent(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
     // Setup item clicked
-    fun onItemClicked(data: T)
+    fun onItemClicked(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
     // Setup item long clicked
-    fun onItemLongClicked(data: T)
+    fun onItemLongClicked(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
 }

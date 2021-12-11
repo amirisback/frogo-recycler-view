@@ -21,17 +21,18 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * com.frogobox.recycler
  *
  */
-open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), IFrogoSingleRvBinding<T, VB> {
+open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
+    IFrogoSingleRvBinding<T, VB> {
 
     protected lateinit var frogoRecycleView: FrogoRecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoBindingAdapter<T, VB>
-    protected lateinit var frogoViewAdapter: FrogoBindingAdapter<T, VB>
-    
+    protected lateinit var frogoBindingAdapter: FrogoBindingAdapter<T, VB>
+
     protected var optionAdapter = ""
 
     override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRvBinding<T, VB> {
         frogoRecycleView = frogoRecyclerView
-        frogoViewAdapter = FrogoBindingAdapter()
+        frogoBindingAdapter = FrogoBindingAdapter()
         return this
     }
 
@@ -88,9 +89,14 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
 
     protected open fun createAdapter() {
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
-        frogoViewAdapter.setCallback(object : IFrogoBindingHolder<T, VB> {
-            override fun setupInitComponent(binding: VB, data: T) {
-                frogoAdapterCallback.setupInitComponent(binding, data)
+        frogoBindingAdapter.setCallback(object : IFrogoBindingHolder<T, VB> {
+            override fun setupInitComponent(
+                binding: VB,
+                data: T,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<T>
+            ) {
+                frogoAdapterCallback.setupInitComponent(binding, data, position, notifyListener)
             }
 
             override fun setViewBinding(parent: ViewGroup): VB {
@@ -98,20 +104,32 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
             }
         })
 
-        frogoViewAdapter.setupRequirement(listData, object : FrogoRecyclerViewListener<T> {
-                override fun onItemClicked(data: T) {
-                    frogoAdapterCallback.onItemClicked(data)
+        frogoBindingAdapter.setupRequirement(
+            listData,
+            object : FrogoRecyclerBindingListener<T, VB> {
+                override fun onItemClicked(
+                    binding: VB,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    frogoAdapterCallback.onItemClicked(binding, data, position, notifyListener)
                 }
 
-                override fun onItemLongClicked(data: T) {
-                    frogoAdapterCallback.onItemLongClicked(data)
+                override fun onItemLongClicked(
+                    binding: VB,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    frogoAdapterCallback.onItemLongClicked(binding, data, position, notifyListener)
                 }
             })
     }
 
     protected open fun setupInnerAdapter() {
         FLog.d("$FROGO_RV_TAG - injector-optionAdapter : $optionAdapter")
-        frogoRecycleView.adapter = frogoViewAdapter
+        frogoRecycleView.adapter = frogoBindingAdapter
     }
 
     override fun build(): FrogoSingleRvBinding<T, VB> {
@@ -119,6 +137,50 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(), I
         setupLayoutManager(frogoRecycleView)
         setupInnerAdapter()
         return this
+    }
+
+    override fun frogoNotifyData(): MutableList<T> {
+        return frogoBindingAdapter.innerFrogoNotifyData()
+    }
+
+    override fun frogoNotifyDataSetChanged() {
+        frogoBindingAdapter.innerFrogoNotifyDataSetChanged()
+    }
+
+    override fun frogoNotifyItemChanged(data: T, position: Int, payload: Any) {
+        frogoBindingAdapter.innerFrogoNotifyItemChanged(data, position, payload)
+    }
+
+    override fun frogoNotifyItemChanged(data: T, position: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemChanged(data, position)
+    }
+
+    override fun frogoNotifyItemInserted(data: T, position: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemInserted(data, position)
+    }
+
+    override fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemMoved(data, fromPosition, toPosition)
+    }
+
+    override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
+        frogoBindingAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart, payload)
+    }
+
+    override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart)
+    }
+
+    override fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemRangeInserted(data, positionStart)
+    }
+
+    override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
+    }
+
+    override fun frogoNotifyItemRemoved(position: Int) {
+        frogoBindingAdapter.innerFrogoNotifyItemRemoved(position)
     }
 
 }

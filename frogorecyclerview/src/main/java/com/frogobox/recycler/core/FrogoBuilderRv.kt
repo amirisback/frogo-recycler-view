@@ -22,40 +22,55 @@ class FrogoBuilderRv<T> : FrogoBuilderRvBase<T>() {
         return this
     }
 
-    fun builder(listener: IFrogoBuilderRv<T>) {
+    fun builder(viewListener: IFrogoBuilderRv<T>) {
 
         optionAdapter = FrogoRvConstant.FROGO_ADAPTER_R_CLASS
 
-        listData.addAll(listener.setupData())
+        listData.addAll(viewListener.setupData())
 
         val frogoViewAdapter = FrogoViewAdapter<T>()
 
         frogoViewAdapter.setCallback(object : IFrogoViewHolder<T> {
-            override fun setupInitComponent(view: View, data: T) {
-                listener.setupInitComponent(view, data)
+            override fun setupInitComponent(
+                view: View,
+                data: T,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<T>
+            ) {
+                viewListener.setupInitComponent(view, data, position, notifyListener)
             }
         })
 
         frogoViewAdapter.setupRequirement(
-            listener.setupCustomView(), listData,
+            viewListener.setupCustomView(), listData,
             object : FrogoRecyclerViewListener<T> {
-                override fun onItemClicked(data: T) {
-                    listener.onItemClicked(data)
+                override fun onItemClicked(
+                    view: View,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    viewListener.onItemClicked(view, data, position, notifyListener)
                 }
 
-                override fun onItemLongClicked(data: T) {
-                    listener.onItemLongClicked(data)
+                override fun onItemLongClicked(
+                    view: View,
+                    data: T,
+                    position: Int,
+                    notifyListener: FrogoRecyclerNotifyListener<T>
+                ) {
+                    viewListener.onItemLongClicked(view, data, position, notifyListener)
                 }
             })
 
-        if (listener.setupEmptyView() != null) {
-            frogoViewAdapter.setupEmptyView(listener.setupEmptyView())
+        if (viewListener.setupEmptyView() != null) {
+            frogoViewAdapter.setupEmptyView(viewListener.setupEmptyView())
         } else {
             frogoViewAdapter.setupEmptyView(emptyViewId)
         }
 
         frogoRecyclerView.adapter = frogoViewAdapter
-        frogoRecyclerView.layoutManager = listener.setupLayoutManager(frogoRecyclerView.context)
+        frogoRecyclerView.layoutManager = viewListener.setupLayoutManager(frogoRecyclerView.context)
 
     }
 

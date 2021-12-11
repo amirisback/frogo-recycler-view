@@ -14,6 +14,7 @@ import com.frogobox.recycler.R
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.apprecycler.databinding.ActivityKotlinShimmerBinding
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
 class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
     
@@ -33,17 +34,32 @@ class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
 
         val adapterCallback = object :
             IFrogoViewAdapter<Article> {
-            override fun setupInitComponent(view: View, data: Article) {
+            override fun setupInitComponent(
+                view: View,
+                data: Article,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Article>
+            ) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_1_tv_title).text = data.title
             }
 
-            override fun onItemClicked(data: Article) {
+            override fun onItemClicked(
+                view: View,
+                data: Article,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Article>
+            ) {
                 // setup item clicked on frogo recycler view
                 data.title?.let { showToast(it) }
             }
 
-            override fun onItemLongClicked(data: Article) {
+            override fun onItemLongClicked(
+                view: View,
+                data: Article,
+                position: Int,
+                notifyListener: FrogoRecyclerNotifyListener<Article>
+            ) {
                 // setup item long clicked on frogo recycler view
                 data.title?.let { showToast(it) }
             }

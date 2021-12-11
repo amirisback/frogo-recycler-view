@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.frogobox.apprecycler.core.BaseActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
 import com.frogobox.recycler.R;
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.IFrogoViewAdapter;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvListBinding;
 
@@ -42,22 +45,22 @@ public class JavaNoAdapterActivity extends BaseActivity<ActivityFrogoRvListBindi
 
         IFrogoViewAdapter frogoViewAdapterCallback = new IFrogoViewAdapter<ExampleModel>() {
             @Override
-            public void setupInitComponent(@NotNull View view, ExampleModel data) {
-                // Init component content item recyclerview
-                TextView tvExample = view.findViewById(R.id.frogo_rv_list_type_1_tv_title);
-                tvExample.setText(data.getName());
+            public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
+                // setup item long clicked on frogo recycler view
+                showToast(data.getName());
             }
 
             @Override
-            public void onItemClicked(ExampleModel data) {
+            public void onItemClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 // setup item clicked on frogo recycler view
                 showToast(data.getName());
             }
 
             @Override
-            public void onItemLongClicked(ExampleModel data) {
-                // setup item long clicked on frogo recycler view
-                showToast(data.getName());
+            public void setupInitComponent(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
+                // Init component content item recyclerview
+                TextView tvExample = view.findViewById(R.id.frogo_rv_list_type_1_tv_title);
+                tvExample.setText(data.getName());
             }
         };
 

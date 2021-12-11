@@ -48,19 +48,12 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
-        kotlinCompilerVersion = Dependency.KOTLIN_VERSION
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
-            useIR = true
         }
-    }
-
-    packagingOptions {
-        exclude("META-INF/AL2.0")
-        exclude("META-INF/LGPL2.1")
     }
 
 }
@@ -71,9 +64,9 @@ dependencies {
 
     implementation(project(":frogorecyclerview"))
 
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("androidx.appcompat:appcompat:1.4.0")
     implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
@@ -90,7 +83,7 @@ dependencies {
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.4")
     implementation("com.github.frogobox:frogo-consume-api:1.0.7")
 
-    kapt("com.github.bumptech.glide:compiler:4.11.0")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
