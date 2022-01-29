@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
+    id("kotlin-android")
     id("kotlin-kapt")
 }
 
@@ -64,9 +64,9 @@ dependencies {
 
     implementation(project(":frogorecyclerview"))
 
-    implementation("androidx.appcompat:appcompat:1.4.0")
+    implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
@@ -76,7 +76,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.activity:activity-compose:1.4.0")
 
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.material:material:1.5.0")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
