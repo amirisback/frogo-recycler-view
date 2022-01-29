@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.apprecycler.databinding.ActivityMainBinding
+import com.frogobox.apprecycler.sample.issue.AnswerIssueActivity
 import com.frogobox.apprecycler.sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity
 import com.frogobox.apprecycler.sample.java.noadapter.simple.JavaNoAdapterActivity
 import com.frogobox.apprecycler.sample.java.usingadapter.JavaSampleActivity
@@ -77,6 +78,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             btnJetpackCompose.setOnClickListener {
                 startActivity(Intent(this@MainActivity, RecyclerComposeActivity::class.java))
+            }
+
+            btnAnswerIssue1.setOnClickListener {
+                startActivity(Intent(this@MainActivity, AnswerIssueActivity::class.java))
             }
         }
 
