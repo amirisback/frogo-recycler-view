@@ -22,11 +22,11 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.0.0
+    $version_release = 4.0.1
 
 What's New??
 
-    * Update Build Gradle to 7.0.4 *
+    * Update Build Gradle to 7.1.0 *
     * Update Frogo Android UI Kit *
     * Enhance Performance *
     * FrogoRecyclerCompose - FrogoLazyColumn *
@@ -109,14 +109,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.0.0'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.0.1'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.0.0")
+        implementation("com.github.amirisback:frogo-recycler-view:4.0.1")
     }
 
 ### Step 3. Create xml view
