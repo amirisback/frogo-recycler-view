@@ -17,24 +17,46 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
+
         <activity
             android:name=".sample.issue.AnswerIssueActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".sample.kotlin.compose.RecyclerComposeActivity"
             android:exported="true"
             android:label="@string/title_activity_recycler_compose"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".sample.kotlin.noadapter.progress.KotlinProgressActivity" />
-        <activity android:name=".sample.kotlin.usingadapter.nested.KotlinNestedActivity" />
-        <activity android:name=".sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity" />
-        <activity android:name=".sample.java.noadapter.simple.JavaNoAdapterActivity" />
-        <activity android:name=".sample.java.usingadapter.JavaSampleActivity" />
-        <activity android:name=".sample.kotlin.noadapter.shimmer.KotlinShimmerActivity" />
-        <activity android:name=".sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity" />
-        <activity android:name=".sample.kotlin.noadapter.simple.KotlinNoAdapterActivity" />
-        <activity android:name=".sample.kotlin.usingadapter.simple.KotlinSampleActivity" />
-        <activity android:name=".sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity" />
+        <activity
+            android:name=".sample.kotlin.noadapter.progress.KotlinProgressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.kotlin.usingadapter.nested.KotlinNestedActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.java.noadapter.multiview.JavaNoAdapterMultiViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.java.noadapter.simple.JavaNoAdapterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.java.usingadapter.JavaSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.kotlin.noadapter.shimmer.KotlinShimmerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.kotlin.noadapter.simple.KotlinNoAdapterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.kotlin.usingadapter.simple.KotlinSampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity"
+            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -44,6 +66,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
