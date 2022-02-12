@@ -5,6 +5,7 @@
 [![JitPack](https://jitpack.io/v/amirisback/frogo-recycler-view.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-recycler-view)
 [![Medium Badge](https://img.shields.io/badge/-faisalamircs-black?style=flat-square&logo=Medium&logoColor=white&link=https://medium.com/@fiqryq)](https://faisalamircs.medium.com/tutorial-recyclerview-cuman-15-detik-dengan-frogorecyclerview-cocok-buat-prototype-untuk-client-ad03b1af907e)
 - Available on Google Dev Library [Click Here](https://devlibrary.withgoogle.com/products/android/repos/amirisback-frogo-recycler-view)
+- Easy RecyclerView Implementation
 - RecyclerView No Adapter (Adapter Has Been Handled)
 - RecyclerView No Adapter Using ViewBinding Adapter
 - RecyclerView Multi-View-Type (Stable - Multi ViewHolder)
@@ -22,55 +23,12 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.0.1
+    $version_release = 4.0.2
 
 What's New??
 
-    * Update Build Gradle to 7.1.0 *
-    * Update Frogo Android UI Kit *
     * Enhance Performance *
-    * FrogoRecyclerCompose - FrogoLazyColumn *
-    * FrogoRecyclerCompose - FrogoLazyRow *
-    * FrogoRecyclerCompose - FrogoLazyFixedGrid *
-    * FrogoRecyclerCompose - FrogoLazyAdaptiveGrid *
-    * Migrate From Groovy to Kotlin DSL *
-    * IFrogoViewAdapter, IFrogoBindingAdapter, IFrogoSingleRv *
-
-New Function on FrogoRecyclerView
-```kotlin
-// Notify Data List
-fun frogoNotifyData() : MutableList<T>
-
-// Notify Data Set Changed
-fun frogoNotifyDataSetChanged()
-
-// Notify Data Item Changed
-fun frogoNotifyItemChanged(data: T, position: Int, payload: Any)
-
-// Notify Data Item Changed
-fun frogoNotifyItemChanged(data: T, position: Int)
-
-// Notify Data Item Inserted
-fun frogoNotifyItemInserted(data: T, position: Int)
-
-// Notify Data Item Moved
-fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int)
-
-// Notify Data Item Range Changed
-fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any)
-
-// Notify Data Item Range Changed
-fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int)
-
-// Notify Data Item Range Inserted
-fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int)
-
-// Notify Data Item Range Removed
-fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int)
-
-// Notify Data Item Removed
-fun frogoNotifyItemRemoved(position: Int)
-```
+    * Update Build Gradle Style Latest Version *
 
 Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
@@ -109,14 +67,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.0.1'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.0.2'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.0.1")
+        implementation("com.github.amirisback:frogo-recycler-view:4.0.2")
     }
 
 ### Step 3. Create xml view
