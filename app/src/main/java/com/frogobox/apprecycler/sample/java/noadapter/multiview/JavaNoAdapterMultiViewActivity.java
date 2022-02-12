@@ -15,7 +15,7 @@ import com.frogobox.recycler.core.FrogoHolder;
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.recycler.core.IFrogoViewHolder;
-import com.frogobox.recycler.R;
+import com.frogobox.uikit.R;
 import com.frogobox.recycler.core.FrogoRvConstant;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding;
 

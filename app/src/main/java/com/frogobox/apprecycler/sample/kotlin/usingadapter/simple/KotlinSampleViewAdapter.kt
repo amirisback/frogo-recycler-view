@@ -3,11 +3,11 @@ package com.frogobox.apprecycler.sample.kotlin.usingadapter.simple
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRecyclerViewAdapter
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.apprecycler.model.ExampleModel
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
+import com.frogobox.uikit.R
 
 /**
  * Created by Faisal Amir

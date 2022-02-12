@@ -19,7 +19,7 @@ abstract class FrogoBuilderRvBase<T> {
 
     protected lateinit var frogoRecyclerView: FrogoRecyclerView
 
-    protected var emptyViewId: Int = R.layout.frogo_container_empty_view
+    protected var emptyViewId: Int = R.layout.frogo_rv_container_empty_view
 
     protected var optionAdapter = ""
 

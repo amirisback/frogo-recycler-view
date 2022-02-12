@@ -27,7 +27,7 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
     protected lateinit var frogoViewAdapter: FrogoViewAdapter<T>
 
-    protected var emptyViewId: Int = R.layout.frogo_container_empty_view
+    protected var emptyViewId: Int = R.layout.frogo_rv_container_empty_view
 
     protected var optionAdapter = ""
     protected var customViewId: Int = 0

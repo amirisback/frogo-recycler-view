@@ -10,7 +10,7 @@ import com.frogobox.api.news.model.Article
 import com.frogobox.api.news.response.ArticleResponse
 import com.frogobox.api.news.util.NewsConstant
 import com.frogobox.api.news.util.NewsUrl
-import com.frogobox.recycler.R
+import com.frogobox.uikit.R
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.apprecycler.databinding.ActivityKotlinShimmerBinding

@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     `maven-publish`
 }
@@ -61,7 +61,8 @@ dependencies {
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
 
     // google recycler-view
@@ -70,14 +71,8 @@ dependencies {
     // facebook shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
-    // github lib circle-image-view
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-
-    // library frogo-android-ui-kit
-    implementation("com.github.frogobox:frogo-android-ui-kit:1.0.4")
-
     // library frogo-log
-    implementation("com.github.amirisback:frogo-log:2.0.4")
+    implementation("com.github.amirisback:frogo-log:2.0.6")
 
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.COMPOSE_VERSION}")
     debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.COMPOSE_VERSION}")

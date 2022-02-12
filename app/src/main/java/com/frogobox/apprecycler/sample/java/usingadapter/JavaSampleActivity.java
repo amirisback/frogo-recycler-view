@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.frogobox.apprecycler.core.BaseActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
-import com.frogobox.recycler.R;
+import com.frogobox.uikit.R;
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvListBinding;

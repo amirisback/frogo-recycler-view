@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ * Created by  on 
+ *  Source Code
+ * =========================================
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * =========================================
+ * Copyright (C)  FrogoBox Inc.      
+ * All rights reserved
+ *
+-->
+
+<resources>
+
+    <!--  Frogo Base String  -->
+    <string name="frogo_rv_is_empty_data">is Empty Data</string>
+    <string name="frogo_rv_no_data_found">No data found</string>
+    <string name="frogo_rv_please_insert_data">Please insert data here !!!</string>
+    <string name="frogo_rv_dummy_content_description">This Is Image</string>
+    <string name="frogo_rv_dummy_title">Lorem Ipsum</string>
+    <string name="frogo_rv_dummy_subtitle">Lorem Ipsum is simply dummy text</string>
+    <string name="frogo_rv_dummy_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</string>
+
+</resources>

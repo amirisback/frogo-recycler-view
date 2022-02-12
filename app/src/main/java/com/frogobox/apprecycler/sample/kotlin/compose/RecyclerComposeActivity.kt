@@ -17,7 +17,7 @@ import com.frogobox.apprecycler.model.People
 import com.frogobox.apprecycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
 import com.frogobox.apprecycler.ui.theme.FrogoRecyclerViewTheme
 import com.frogobox.recycler.compose.FrogoLazyColumn
-import com.frogobox.uikit.theme.dimen_8dp
+import com.frogobox.uikit.ui.theme.dimen_8dp
 
 class RecyclerComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
