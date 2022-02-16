@@ -35,4 +35,10 @@ object ProjectSetting {
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
     const val PROJECT_VERSION_NAME = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
 
+    // Key Store
+    const val PLAYSTORE_STORE_FILE = "frogoboxmedia.jks"
+    const val PLAYSTORE_STORE_PASSWORD = "amirisback"
+    const val PLAYSTORE_KEY_ALIAS = "frogoisback"
+    const val PLAYSTORE_KEY_PASSWORD = "amirisback"
+
 }
