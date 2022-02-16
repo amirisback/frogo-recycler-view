@@ -74,9 +74,6 @@ dependencies {
     // library frogo-log
     implementation("com.github.amirisback:frogo-log:2.0.6")
 
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Dependency.COMPOSE_VERSION}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${Dependency.COMPOSE_VERSION}")
-
 }
 
 afterEvaluate {
