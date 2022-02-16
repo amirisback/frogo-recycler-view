@@ -56,17 +56,14 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Dependency.KOTLIN_VERSION}")
-
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
 
-    // google recycler-view
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    // library google material
+    implementation("com.google.android.material:material:1.5.0")
 
     // facebook shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")
