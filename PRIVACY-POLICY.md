@@ -102,4 +102,4 @@ Frogobox Media does not knowingly collect any Personal Identifiable Information 
 
 ## Contact Us
 
-If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at monaprimaveras@gmail.com
+If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at frogoboxmedia@gmail.com
