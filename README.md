@@ -4,6 +4,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--recycler--view-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8205)
 [![JitPack](https://jitpack.io/v/amirisback/frogo-recycler-view.svg?style=flat-square)](https://jitpack.io/#amirisback/frogo-recycler-view)
 [![Medium Badge](https://img.shields.io/badge/-faisalamircs-black?style=flat-square&logo=Medium&logoColor=white&link=https://medium.com/@fiqryq)](https://faisalamircs.medium.com/tutorial-recyclerview-cuman-15-detik-dengan-frogorecyclerview-cocok-buat-prototype-untuk-client-ad03b1af907e)
+- Avaliable on Play Store [Click Here](https://play.google.com/store/apps/details?id=com.frogobox.apprecycler)
 - Available on Google Dev Library [Click Here](https://devlibrary.withgoogle.com/products/android/repos/amirisback-frogo-recycler-view)
 - Privacy Policy [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/PRIVACY-POLICY.md)
 - LICENSE [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/LICENSE)
