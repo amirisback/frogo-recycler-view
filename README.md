@@ -21,19 +21,19 @@
 
 <table>
 
-    <tr>
-        <th>Nested RecyclerView</th>
-        <th>Frogo Shimmer</th>
-        <th>Frogo Multi View</th>
-        <th>Simple Empty View</th>
-    </tr>
+<tr>
+    <th>Nested RecyclerView</th>
+    <th>Frogo Shimmer</th>
+    <th>Frogo Multi View</th>
+    <th>Simple Empty View</th>
+</tr>
 
-    <tr>
-        <td><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></td>
-        <td><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></td>
-        <td><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></td>
-        <td><img width="200px" height="360px" src="docs/image/ss_empty.png"></td>
-    </tr>
+<tr>
+    <td><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></td>
+    <td><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></td>
+    <td><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></td>
+    <td><img width="200px" height="360px" src="docs/image/ss_empty.png"></td>
+</tr>
 
 </table>
 
