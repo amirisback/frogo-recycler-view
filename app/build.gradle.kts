@@ -81,6 +81,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 
     implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
@@ -95,7 +96,7 @@ dependencies {
 
     implementation("com.github.frogobox:frogo-android-ui-kit:1.0.5")
     implementation("com.github.frogobox:frogo-consume-api:1.0.8")
-    implementation("com.github.amirisback:frogo-log:2.0.6")
+    implementation("com.github.amirisback:frogo-log:2.0.8")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 

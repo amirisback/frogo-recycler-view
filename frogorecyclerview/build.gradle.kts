@@ -69,7 +69,7 @@ dependencies {
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
     // library frogo-log
-    implementation("com.github.amirisback:frogo-log:2.0.6")
+    implementation("com.github.amirisback:frogo-log:2.0.8")
 
 }
 
