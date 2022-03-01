@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import com.frogobox.api.core.ConsumeApiResponse
 import com.frogobox.api.news.ConsumeNewsApi
-import com.frogobox.api.news.model.Article
-import com.frogobox.api.news.response.ArticleResponse
-import com.frogobox.api.news.util.NewsConstant
-import com.frogobox.api.news.util.NewsUrl
-import com.frogobox.uikit.R
+import com.frogobox.ui.R
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.apprecycler.databinding.ActivityKotlinShimmerBinding
+import com.frogobox.coreapi.ConsumeApiResponse
+import com.frogobox.coreapi.news.NewsConstant
+import com.frogobox.coreapi.news.NewsUrl
+import com.frogobox.coreapi.news.model.Article
+import com.frogobox.coreapi.news.response.ArticleResponse
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 
 class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {

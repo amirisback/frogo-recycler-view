@@ -7,7 +7,7 @@ import com.frogobox.recycler.core.FrogoRecyclerViewAdapter
 import com.frogobox.recycler.core.FrogoRecyclerViewHolder
 import com.frogobox.apprecycler.model.ExampleModel
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
-import com.frogobox.uikit.R
+import com.frogobox.ui.R
 
 /**
  * Created by Faisal Amir

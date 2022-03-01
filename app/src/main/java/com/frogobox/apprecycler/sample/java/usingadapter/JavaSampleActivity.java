@@ -6,9 +6,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.frogobox.apprecycler.core.BaseActivity;
+import com.frogobox.apprecycler.core.BaseJavaActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
-import com.frogobox.uikit.R;
+import com.frogobox.ui.R;
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvListBinding;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaSampleActivity extends BaseActivity<ActivityFrogoRvListBinding> {
+public class JavaSampleActivity extends BaseJavaActivity<ActivityFrogoRvListBinding> {
 
     @NotNull
     @Override
@@ -28,6 +28,7 @@ public class JavaSampleActivity extends BaseActivity<ActivityFrogoRvListBinding>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(binding.getRoot());
         setupAdapter();
         setupDetailActivity("Java With Adapter");
     }
@@ -56,8 +57,8 @@ public class JavaSampleActivity extends BaseActivity<ActivityFrogoRvListBinding>
         });
         adapter.setupEmptyView(null); // Without Custom View
 
-        getBinding().frogoRecyclerView.setAdapter(adapter);
-        getBinding().frogoRecyclerView.isViewLinearVertical(false);
+        binding.frogoRecyclerView.setAdapter(adapter);
+        binding.frogoRecyclerView.isViewLinearVertical(false);
     }
 
 

@@ -8,14 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
-import com.frogobox.apprecycler.core.BaseActivity;
+import com.frogobox.apprecycler.core.BaseJavaActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
 import com.frogobox.apprecycler.util.Constant;
 import com.frogobox.recycler.core.FrogoHolder;
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.FrogoRecyclerViewListener;
 import com.frogobox.recycler.core.IFrogoViewHolder;
-import com.frogobox.uikit.R;
+import com.frogobox.ui.R;
 import com.frogobox.recycler.core.FrogoRvConstant;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding;
 
@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRvGridBinding> {
+public class JavaNoAdapterMultiViewActivity extends BaseJavaActivity<ActivityFrogoRvGridBinding> {
 
     @NotNull
     @Override
@@ -34,6 +34,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(binding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter - Multi View");
     }
@@ -106,7 +107,7 @@ public class JavaNoAdapterMultiViewActivity extends BaseActivity<ActivityFrogoRv
     }
 
     private void setupFrogoRecyclerView() {
-        getBinding().frogoRecyclerView.injector()
+        binding.frogoRecyclerView.injector()
                 .addDataFH(data())
                 .createLayoutStaggeredGrid(2)
                 .build();

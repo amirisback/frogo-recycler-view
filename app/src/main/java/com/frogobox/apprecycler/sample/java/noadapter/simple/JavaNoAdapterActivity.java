@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.frogobox.apprecycler.core.BaseActivity;
+import com.frogobox.apprecycler.core.BaseJavaActivity;
 import com.frogobox.apprecycler.model.ExampleModel;
-import com.frogobox.uikit.R;
+import com.frogobox.ui.R;
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener;
 import com.frogobox.recycler.core.IFrogoViewAdapter;
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvListBinding;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class JavaNoAdapterActivity extends BaseActivity<ActivityFrogoRvListBinding> {
+public class JavaNoAdapterActivity extends BaseJavaActivity<ActivityFrogoRvListBinding> {
 
     @NotNull
     @Override
@@ -28,6 +28,7 @@ public class JavaNoAdapterActivity extends BaseActivity<ActivityFrogoRvListBindi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(binding.getRoot());
         setupFrogoRecyclerView();
         setupDetailActivity("Java No Adapter");
     }
@@ -64,7 +65,7 @@ public class JavaNoAdapterActivity extends BaseActivity<ActivityFrogoRvListBindi
             }
         };
 
-        getBinding().frogoRecyclerView.injector()
+        binding.frogoRecyclerView.injector()
                 .addData(listData())
                 .addCustomView(R.layout.frogo_rv_list_type_1)
                 .addEmptyView(null)

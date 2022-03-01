@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.compose") version Dependency.COMPOSE_MULTIPLATFORM_VERSION
     id("kotlin-kapt")
 }
 
@@ -61,10 +62,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = Dependency.COMPOSE_VERSION
-    }
-
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
@@ -82,22 +79,30 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
+    implementation("androidx.work:work-runtime:2.8.0-alpha01")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 
-    implementation("androidx.compose.ui:ui:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.compose.material:material:${Dependency.COMPOSE_VERSION}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Dependency.COMPOSE_VERSION}")
-
     implementation("androidx.activity:activity-compose:1.4.0")
+
+    implementation(compose.ui)
+    implementation(compose.runtime)
+    implementation(compose.preview)
+    implementation(compose.uiTooling)
+    implementation(compose.material)
+    implementation(compose.materialIconsExtended)
 
     implementation("com.google.android.material:material:1.5.0")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
-    implementation("com.github.frogobox:frogo-android-ui-kit:1.0.5")
-    implementation("com.github.frogobox:frogo-consume-api:1.0.8")
+    implementation("com.github.frogobox:frogo-ui:0.0.1-beta02")
+    implementation("com.github.frogobox:frogo-consume-api:2.0.0")
+
     implementation("com.github.amirisback:frogo-log:2.0.8")
 
     kapt("com.github.bumptech.glide:compiler:4.12.0")
+
+    debugImplementation(compose.ui)
+    debugImplementation(compose.uiTooling)
 
 }

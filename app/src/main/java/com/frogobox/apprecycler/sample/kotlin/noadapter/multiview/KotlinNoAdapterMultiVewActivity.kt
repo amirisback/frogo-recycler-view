@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.frogobox.apprecycler.core.BaseActivity
-import com.frogobox.uikit.R
+import com.frogobox.ui.R
 import com.frogobox.recycler.core.*
 import com.frogobox.recycler.core.FrogoHolder
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
