@@ -74,16 +74,6 @@ dependencies {
 
     implementation(project(":frogorecyclerview"))
 
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.work:work-runtime-ktx:2.7.1")
-    implementation("androidx.work:work-runtime:2.8.0-alpha01")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-
-    implementation("androidx.activity:activity-compose:1.4.0")
-
     implementation(compose.ui)
     implementation(compose.runtime)
     implementation(compose.preview)
@@ -91,16 +81,24 @@ dependencies {
     implementation(compose.material)
     implementation(compose.materialIconsExtended)
 
-    implementation("com.google.android.material:material:1.5.0")
+    implementation(Androidx.appCompat)
+    implementation(Androidx.constraintLayout)
+    implementation(Androidx.Core.ktx)
+    implementation(Androidx.Work.runtime)
+    implementation(Androidx.Work.runtimeKtx)
+    implementation(Androidx.Lifecycle.runtimeKtx)
 
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation(Compose.activity)
 
-    implementation("com.github.frogobox:frogo-ui:0.0.1-beta02")
-    implementation("com.github.frogobox:frogo-consume-api:2.0.0")
+    implementation(Google.material)
 
-    implementation("com.github.amirisback:frogo-log:2.0.8")
+    implementation(Util.glide)
 
-    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.github.frogobox:frogo-ui:0.0.1-beta04")
+    implementation("com.github.frogobox:frogo-consume-api:2.0.1")
+    implementation("com.github.amirisback:frogo-log:2.0.9")
+
+    kapt(Util.glideCompiler)
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)

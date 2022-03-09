@@ -61,13 +61,13 @@ dependencies {
     implementation(compose.materialIconsExtended)
 
     // library google material
-    implementation("com.google.android.material:material:1.5.0")
+    implementation(Google.material)
 
     // facebook shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
     // library frogo-log
-    implementation("com.github.amirisback:frogo-log:2.0.8")
+    implementation("com.github.amirisback:frogo-log:2.0.9")
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)
