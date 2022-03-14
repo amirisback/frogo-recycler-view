@@ -1,4 +1,4 @@
-name: Generate APK / AAB
+name: Android CI
 
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
@@ -6,6 +6,8 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+
+  workflow_dispatch:
 
 jobs:
   build:
