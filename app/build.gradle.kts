@@ -88,7 +88,7 @@ dependencies {
     implementation(Androidx.Work.runtimeKtx)
     implementation(Androidx.Lifecycle.runtimeKtx)
 
-    implementation(Compose.activity)
+    implementation(Androidx.Compose.activity)
 
     implementation(Google.material)
 
