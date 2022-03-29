@@ -1,4 +1,4 @@
-![ScreenShoot Apps](docs/image/ss_banner.png?raw=true)
+![ScreenShoot Apps](https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_banner.png?raw=true)
 
 ## About This Project
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--recycler--view-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8205)
@@ -42,7 +42,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.0.6
+    $version_release = 4.0.7
 
 What's New??
 
@@ -86,14 +86,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.0.6'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.0.7'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.0.6")
+        implementation("com.github.amirisback:frogo-recycler-view:4.0.7")
     }
 
 ### Step 3. Create xml view
