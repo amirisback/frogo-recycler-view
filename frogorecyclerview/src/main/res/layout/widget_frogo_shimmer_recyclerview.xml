@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.facebook.shimmer.ShimmerFrameLayout
+    <com.frogobox.recycler.shimmer.ShimmerFrameLayout
         android:id="@+id/widget_fsrv_shimmer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,6 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+    </com.frogobox.recycler.shimmer.ShimmerFrameLayout>
 
 </RelativeLayout>

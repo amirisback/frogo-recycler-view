@@ -63,9 +63,6 @@ dependencies {
     // library google material
     implementation(Google.material)
 
-    // facebook shimmer
-    implementation("com.facebook.shimmer:shimmer:0.5.0")
-
     // library frogo-log
     implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2-beta02")
 
