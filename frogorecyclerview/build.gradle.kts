@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -43,7 +45,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    tasks.withType<KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()
         }
@@ -64,7 +66,7 @@ dependencies {
     implementation(Google.material)
 
     // library frogo-log
-    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2-beta02")
+    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2")
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -62,8 +64,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11.toString()
+        }
     }
 
 }
@@ -90,13 +94,13 @@ dependencies {
 
     implementation(Google.material)
 
-    implementation(Util.glide)
+    implementation(GitHub.glide)
 
-    implementation("com.github.frogobox:frogo-ui:0.0.1-beta07")
+    implementation("com.github.frogobox:frogo-ui:0.0.1")
     implementation("com.github.frogobox:frogo-consume-api:2.0.4")
-    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2-beta02")
+    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2")
 
-    kapt(Util.glideCompiler)
+    kapt(GitHub.glideCompiler)
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)
