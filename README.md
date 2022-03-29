@@ -74,7 +74,7 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 allprojects {
     repositories {
         ...
-        maven { url = uri("https://jitpack.io") }
+        maven("https://jitpack.io")
     }
 }
 ```
