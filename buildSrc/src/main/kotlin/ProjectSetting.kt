@@ -24,10 +24,10 @@ object ProjectSetting {
 
     const val VERSION_MAJOR = 4
     const val VERSION_MINOR = 0
-    const val VERSION_PATCH = 5
+    const val VERSION_PATCH = 6
 
-    const val PROJECT_COMPILE_SDK = 31
     const val PROJECT_MIN_SDK = 21
+    const val PROJECT_COMPILE_SDK = 32
     const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"

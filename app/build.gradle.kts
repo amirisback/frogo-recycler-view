@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.compose") version Dependency.COMPOSE_MULTIPLATFORM_VERSION
+    id("org.jetbrains.compose") version DependencyGradle.COMPOSE_MULTIPLATFORM_VERSION
     id("kotlin-kapt")
 }
 
@@ -62,17 +62,15 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11.toString()
-        }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
 }
 
 dependencies {
 
-    implementation(project(":frogorecyclerview"))
+    implementation(project(DependencyGradle.FROGO_PATH_RECYCLER_VIEW))
 
     implementation(compose.ui)
     implementation(compose.runtime)
@@ -94,9 +92,9 @@ dependencies {
 
     implementation(Util.glide)
 
-    implementation("com.github.frogobox:frogo-ui:0.0.1-beta04")
-    implementation("com.github.frogobox:frogo-consume-api:2.0.1")
-    implementation("com.github.amirisback:frogo-log:2.0.9")
+    implementation("com.github.frogobox:frogo-ui:0.0.1-beta07")
+    implementation("com.github.frogobox:frogo-consume-api:2.0.4")
+    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2-beta02")
 
     kapt(Util.glideCompiler)
 

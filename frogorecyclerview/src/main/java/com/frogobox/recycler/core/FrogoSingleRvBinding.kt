@@ -2,7 +2,7 @@ package com.frogobox.recycler.core
 
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 import com.frogobox.recycler.widget.FrogoRecyclerView
 

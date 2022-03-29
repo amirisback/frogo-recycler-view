@@ -14,7 +14,7 @@ import com.frogobox.recycler.core.*
 import com.frogobox.apprecycler.databinding.ActivityBaseBinding
 import com.frogobox.apprecycler.model.ExampleModel
 import com.frogobox.apprecycler.util.Constant
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 
 class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
 

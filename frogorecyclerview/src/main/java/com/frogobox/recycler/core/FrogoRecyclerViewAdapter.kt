@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 

@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.compose") version Dependency.COMPOSE_MULTIPLATFORM_VERSION
+    id("org.jetbrains.compose") version DependencyGradle.COMPOSE_MULTIPLATFORM_VERSION
     id("kotlin-kapt")
     `maven-publish`
 }
@@ -67,7 +67,7 @@ dependencies {
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
     // library frogo-log
-    implementation("com.github.amirisback:frogo-log:2.0.9")
+    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.2-beta02")
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)

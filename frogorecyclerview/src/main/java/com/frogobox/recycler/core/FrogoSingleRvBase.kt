@@ -1,6 +1,6 @@
 package com.frogobox.recycler.core
 
-import com.frogobox.frogolog.FLog
+import com.frogobox.log.FLog
 import com.frogobox.recycler.core.FrogoLayoutManager.dividerItemVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.gridLayout
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutHorizontal
