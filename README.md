@@ -42,7 +42,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.0.7
+    $version_release = 4.0.8
 
 What's New??
 
@@ -86,14 +86,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.0.7'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.0.8'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.0.7")
+        implementation("com.github.amirisback:frogo-recycler-view:4.0.8")
     }
 
 ### Step 3. Create xml view
