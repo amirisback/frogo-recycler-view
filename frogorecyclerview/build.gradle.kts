@@ -55,18 +55,18 @@ android {
 
 dependencies {
 
-    implementation(compose.ui)
-    implementation(compose.runtime)
-    implementation(compose.preview)
-    implementation(compose.uiTooling)
-    implementation(compose.material)
-    implementation(compose.materialIconsExtended)
+    api(compose.ui)
+    api(compose.runtime)
+    api(compose.preview)
+    api(compose.uiTooling)
+    api(compose.material)
+    api(compose.materialIconsExtended)
 
     // library google material
-    implementation(Google.material)
+    api(Google.material)
 
     // library frogo-log
-    implementation("com.github.frogobox.frogo-sdk:frogolog:0.0.3")
+    api("com.github.frogobox.frogo-sdk:frogolog:0.0.3")
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)
