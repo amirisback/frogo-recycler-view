@@ -17,7 +17,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-
+        <activity
+            android:name=".sample.kotlin.FrogoRvExtActivity"
+            android:exported="false" />
         <activity
             android:name=".sample.issue.AnswerIssueActivity"
             android:exported="true" />
@@ -56,7 +58,6 @@
         <activity
             android:name=".sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -66,7 +67,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
