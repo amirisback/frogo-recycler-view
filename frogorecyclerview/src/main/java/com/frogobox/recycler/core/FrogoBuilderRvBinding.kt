@@ -1,8 +1,8 @@
 package com.frogobox.recycler.core
 
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
  * Created by faisalamir on 24/07/21
@@ -18,7 +18,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  */
 class FrogoBuilderRvBinding<T, VB : ViewBinding> : FrogoBuilderRvBase<T>() {
 
-    fun initBuilder(frogoRecyclerView: FrogoRecyclerView): FrogoBuilderRvBinding<T, VB> {
+    fun initBuilder(frogoRecyclerView: RecyclerView): FrogoBuilderRvBinding<T, VB> {
         init(frogoRecyclerView)
         return this
     }

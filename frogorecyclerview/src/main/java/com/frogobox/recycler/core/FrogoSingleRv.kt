@@ -1,15 +1,16 @@
 package com.frogobox.recycler.core
 
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.log.FLog
 import com.frogobox.recycler.R
 import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
-import com.frogobox.recycler.widget.FrogoRecyclerView
+
 
 /*
  * Created by Faisal Amir
  * =========================================
- * FrogoRecyclerViewAdapter
+ * RecyclerViewAdapter
  * Copyright (C) 27/04/2020.
  * All rights reserved
  * -----------------------------------------
@@ -23,7 +24,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  */
 open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
-    protected lateinit var frogoRecycleView: FrogoRecyclerView
+    protected lateinit var frogoRecycleView: RecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
     protected lateinit var frogoViewAdapter: FrogoViewAdapter<T>
 
@@ -32,7 +33,7 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
     protected var optionAdapter = ""
     protected var customViewId: Int = 0
 
-    override fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T> {
+    override fun initSingleton(frogoRecyclerView: RecyclerView): FrogoSingleRv<T> {
         frogoRecycleView = frogoRecyclerView
         frogoViewAdapter = FrogoViewAdapter()
         return this

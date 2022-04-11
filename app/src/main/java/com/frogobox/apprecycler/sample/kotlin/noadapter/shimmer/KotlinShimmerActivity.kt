@@ -106,9 +106,13 @@ class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
                     data.articles?.let { setupFrogoShimmerRecyclerView(it) }
                 }
 
-                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                override fun onFailed(statusCode: Int, errorMessage: String) {
                     // Your failed to do
-                    errorMessage?.let { showToast(it) }
+                    showToast(errorMessage)
+                }
+
+                override fun onFinish() {
+
                 }
 
                 override fun onShowProgress() {

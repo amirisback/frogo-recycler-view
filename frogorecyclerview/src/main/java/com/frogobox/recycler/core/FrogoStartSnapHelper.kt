@@ -10,8 +10,10 @@ class FrogoStartSnapHelper : LinearSnapHelper() {
     private var mVerticalHelper: OrientationHelper? = null
     private var mHorizontalHelper: OrientationHelper? = null
 
-    override fun calculateDistanceToFinalSnap(layoutManager: RecyclerView.LayoutManager,
-                                              targetView: View): IntArray? {
+    override fun calculateDistanceToFinalSnap(
+        layoutManager: RecyclerView.LayoutManager,
+        targetView: View
+    ): IntArray? {
         val out = IntArray(2)
         if (layoutManager.canScrollHorizontally()) {
             out[0] = distanceToStart(targetView, getHorizontalHelper(layoutManager))
@@ -40,23 +42,27 @@ class FrogoStartSnapHelper : LinearSnapHelper() {
         return helper!!.getDecoratedStart(targetView) - helper.startAfterPadding
     }
 
-    private fun getStartView(layoutManager: RecyclerView.LayoutManager,
-                             helper: OrientationHelper?): View? {
+    private fun getStartView(
+        layoutManager: RecyclerView.LayoutManager,
+        helper: OrientationHelper?
+    ): View? {
         if (layoutManager is LinearLayoutManager) {
             val firstChild = layoutManager.findFirstVisibleItemPosition()
             val isLastItem = (layoutManager
-                    .findLastCompletelyVisibleItemPosition()
+                .findLastCompletelyVisibleItemPosition()
                     == layoutManager.getItemCount() - 1)
             if (firstChild == RecyclerView.NO_POSITION || isLastItem) {
                 return null
             }
             val child = layoutManager.findViewByPosition(firstChild)
             return if (helper!!.getDecoratedEnd(child) >= helper.getDecoratedMeasurement(child) / 2
-                    && helper.getDecoratedEnd(child) > 0) {
+                && helper.getDecoratedEnd(child) > 0
+            ) {
                 child
             } else {
                 if (layoutManager.findLastCompletelyVisibleItemPosition()
-                        == layoutManager.getItemCount() - 1) {
+                    == layoutManager.getItemCount() - 1
+                ) {
                     null
                 } else {
                     layoutManager.findViewByPosition(firstChild + 1)

@@ -1,7 +1,8 @@
 package com.frogobox.recycler.core
 
+import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
-import com.frogobox.recycler.widget.FrogoRecyclerView
+
 
 /*
  * Created by faisalamir on 24/07/21
@@ -11,13 +12,13 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
  * -----------------------------------------
- * Copyright (C) 2021 FrogoBox Inc.      
+ * Copyright (C) 2021 FrogoBox Inc.
  * All rights reserved
  *
  */
 abstract class FrogoBuilderRvBase<T> {
 
-    protected lateinit var frogoRecyclerView: FrogoRecyclerView
+    protected lateinit var frogoRecyclerView: RecyclerView
 
     protected var emptyViewId: Int = R.layout.frogo_rv_container_empty_view
 
@@ -26,7 +27,7 @@ abstract class FrogoBuilderRvBase<T> {
     protected val listDataFH = mutableListOf<FrogoHolder<T>>()
     protected val listData = mutableListOf<T>()
 
-    protected fun init(frogoRecyclerView: FrogoRecyclerView) {
+    protected fun init(frogoRecyclerView: RecyclerView) {
         this.frogoRecyclerView = frogoRecyclerView
     }
 

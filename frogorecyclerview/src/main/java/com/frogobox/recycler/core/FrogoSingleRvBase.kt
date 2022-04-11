@@ -1,5 +1,6 @@
 package com.frogobox.recycler.core
 
+import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.log.FLog
 import com.frogobox.recycler.core.FrogoLayoutManager.dividerItemVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.gridLayout
@@ -7,11 +8,10 @@ import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutHorizontal
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.staggeredGridLayout
 import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
-import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
  * Created by faisalamir on 31/05/21
- * FrogoRecyclerView
+ * RecyclerView
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
@@ -96,7 +96,7 @@ abstract class FrogoSingleRvBase<T> {
         FLog.d("$FROGO_RV_TAG - injector-spanCount : $layoutSpanCount")
     }
 
-    protected fun setupLayoutManager(frogoRV: FrogoRecyclerView) {
+    protected fun setupLayoutManager(frogoRV: RecyclerView) {
 
         val context = frogoRV.context
 

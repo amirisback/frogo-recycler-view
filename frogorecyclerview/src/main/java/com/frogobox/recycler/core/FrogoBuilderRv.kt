@@ -1,7 +1,7 @@
 package com.frogobox.recycler.core
 
 import android.view.View
-import com.frogobox.recycler.widget.FrogoRecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
 /*
  * Created by faisalamir on 23/07/21
@@ -17,7 +17,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
  */
 class FrogoBuilderRv<T> : FrogoBuilderRvBase<T>() {
 
-    fun initBuilder(frogoRecyclerView: FrogoRecyclerView): FrogoBuilderRv<T> {
+    fun initBuilder(frogoRecyclerView: RecyclerView): FrogoBuilderRv<T> {
         init(frogoRecyclerView)
         return this
     }

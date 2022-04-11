@@ -1,7 +1,7 @@
 package com.frogobox.recycler.core
 
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.widget.FrogoRecyclerView
 
 /*
  * Created by Faisal Amir
@@ -21,7 +21,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
 interface IFrogoSingleRvBinding<T, VB : ViewBinding> {
 
     // Init FrogoRecyclerView
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRvBinding<T, VB>
+    fun initSingleton(frogoRecyclerView: RecyclerView): FrogoSingleRvBinding<T, VB>
 
     // Create Linear Vertical Layout Manager
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRvBinding<T, VB>

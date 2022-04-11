@@ -107,9 +107,13 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
                     data.articles?.let { setupFrogoProgressRecyclerView(it) }
                 }
 
-                override fun onFailed(statusCode: Int, errorMessage: String?) {
+                override fun onFailed(statusCode: Int, errorMessage: String) {
                     // Your failed to do
-                    errorMessage?.let { showToast(it) }
+                    showToast(errorMessage)
+                }
+
+                override fun onFinish() {
+                    // Your finish to do
                 }
 
                 override fun onShowProgress() {

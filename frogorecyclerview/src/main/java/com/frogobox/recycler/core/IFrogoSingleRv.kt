@@ -1,6 +1,7 @@
 package com.frogobox.recycler.core
 
-import com.frogobox.recycler.widget.FrogoRecyclerView
+import androidx.recyclerview.widget.RecyclerView
+
 
 /*
  * Created by Faisal Amir
@@ -20,7 +21,7 @@ import com.frogobox.recycler.widget.FrogoRecyclerView
 interface IFrogoSingleRv<T> {
 
     // Init FrogoRecyclerView
-    fun initSingleton(frogoRecyclerView: FrogoRecyclerView): FrogoSingleRv<T>
+    fun initSingleton(frogoRecyclerView: RecyclerView): FrogoSingleRv<T>
     
     // Create Linear Vertical Layout Manager
     fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRv<T>
