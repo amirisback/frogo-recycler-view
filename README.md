@@ -42,12 +42,13 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.0.8
+    $version_release = 4.1.0
 
 What's New??
 
     * Enhance Performance *
     * Update Build Gradle Style Latest Version *
+    * Add Kotlin Ext For RecyclerView *
 
 Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
 
@@ -86,14 +87,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.0.8'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.1.0'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.0.8")
+        implementation("com.github.amirisback:frogo-recycler-view:4.1.0")
     }
 
 ### Step 3. Create xml view
@@ -105,6 +106,63 @@ allprojects {
 ```
 
 ### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
+
+#### <Special Option> RecyclerView Kotlin Ext
+<details>
+    <summary>Click for detail!</summary>
+
+## No Need Change XML to FrogoRecyclerView
+```kotlin
+private fun setupRecyclerView(listData: List<Article>) {
+
+    val adapterCallback = object :
+        IFrogoViewAdapter<Article> {
+        override fun setupInitComponent(
+            view: View,
+            data: Article,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<Article>
+        ) {
+            // Init component content item recyclerview
+            view.findViewById<TextView>(R.id.frogo_rv_list_type_8_tv_title).text = data.title
+            view.findViewById<TextView>(R.id.frogo_rv_list_type_8_tv_subtitle).text = data.description
+            view.findViewById<ImageView>(R.id.frogo_rv_list_type_8_civ_poster)
+                .glideLoad(data.urlToImage)
+        }
+
+        override fun onItemClicked(
+            view: View,
+            data: Article,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<Article>
+        ) {
+            // setup item clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
+            data.title?.let { showToast(it) }
+        }
+
+        override fun onItemLongClicked(
+            view: View,
+            data: Article,
+            position: Int,
+            notifyListener: FrogoRecyclerNotifyListener<Article>
+        ) {
+            // setup item long clicked on frogo recycler view
+            FLog.d("Clicked on Position : $position")
+        }
+    }
+
+    binding.rv.injector<Article>()
+        .addData(listData)
+        .addCustomView(R.layout.frogo_rv_list_type_8)
+        .addEmptyView(null)
+        .addCallback(adapterCallback)
+        .createLayoutLinearVertical(false)
+        .build()
+}
+```
+
+<details>
 
 #### <Option 1> Kotlin Injector (R class)
 <details>
