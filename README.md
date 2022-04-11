@@ -107,7 +107,7 @@ allprojects {
 
 ### Step 4. Setup requirement No Adapter (You can choose 1 of the 4 options below)
 
-#### <Special Option> RecyclerView Kotlin Ext
+#### Special Offering RecyclerView Kotlin Ext
 <details>
     <summary>Click for detail!</summary>
 
