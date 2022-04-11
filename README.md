@@ -162,7 +162,7 @@ private fun setupRecyclerView(listData: List<Article>) {
 }
 ```
 
-<details>
+</details>
 
 #### <Option 1> Kotlin Injector (R class)
 <details>
