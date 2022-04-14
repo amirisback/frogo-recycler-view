@@ -87,14 +87,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.1.0'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.1.1'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.1.0")
+        implementation("com.github.amirisback:frogo-recycler-view:4.1.1")
     }
 
 ### Step 3. Create xml view
