@@ -66,7 +66,7 @@ dependencies {
     api(Google.material)
 
     // library frogo-log
-    api("com.github.frogobox.frogo-sdk:frogolog:1.0.3")
+    api("com.github.frogobox.frogo-sdk:frogolog:1.0.4")
 
     debugImplementation(compose.ui)
     debugImplementation(compose.uiTooling)
