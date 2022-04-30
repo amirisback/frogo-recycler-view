@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.frogobox.api.news.ConsumeNewsApi
+import com.frogobox.apprecycler.BuildConfig
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.coreapi.ConsumeApiResponse
@@ -15,8 +15,9 @@ import com.frogobox.coreapi.news.NewsConstant
 import com.frogobox.coreapi.news.NewsUrl
 import com.frogobox.coreapi.news.model.Article
 import com.frogobox.coreapi.news.response.ArticleResponse
-import com.frogobox.ui.R
 import com.frogobox.recycler.core.*
+import com.frogobox.sdk.ext.glideLoad
+import com.frogobox.ui.R
 
 class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
 
@@ -31,50 +32,50 @@ class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY)
-        consumeNewsApi.usingChuckInterceptor(this)
-        consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
-            null,
-            null,
-            null,
-            NewsConstant.COUNTRY_ID,
-            null,
-            null,
-            object : ConsumeApiResponse<ArticleResponse> {
-                override fun onSuccess(data: ArticleResponse) {
-                    // Your Ui or data
-                    val listData = mutableListOf<Article>()
-                    data.articles?.let { listData.addAll(it) }
-                    setupRecyclerView(setupDataNested(listData))
-                }
-
-                override fun onFailed(statusCode: Int, errorMessage: String) {
-                    // Your failed to do
-                    showToast(errorMessage)
-                }
-
-                override fun onFinish() {
-
-                }
-
-                override fun onShowProgress() {
-                    // Your Progress Show
-                    Log.d("RxJavaShow", "Show Progress")
-                    runOnUiThread {
-                        // Stuff that updates the UI
-                    }
-                }
-
-                override fun onHideProgress() {
-                    // Your Progress Hide
-                    Log.d("RxJavaHide", "Hide Progress")
-                    runOnUiThread {
-                        // Stuff that updates the UI
+        ConsumeNewsApi(NewsUrl.API_KEY).usingChuckInterceptor(BuildConfig.DEBUG, this).apply {
+            getTopHeadline( // Adding Base Parameter on main function
+                null,
+                null,
+                null,
+                NewsConstant.COUNTRY_ID,
+                null,
+                null,
+                object : ConsumeApiResponse<ArticleResponse> {
+                    override fun onSuccess(data: ArticleResponse) {
+                        // Your Ui or data
+                        val listData = mutableListOf<Article>()
+                        data.articles?.let { listData.addAll(it) }
+                        setupRecyclerView(setupDataNested(listData))
                     }
 
-                }
+                    override fun onFailed(statusCode: Int, errorMessage: String) {
+                        // Your failed to do
+                        showToast(errorMessage)
+                    }
 
-            })
+                    override fun onFinish() {
+
+                    }
+
+                    override fun onShowProgress() {
+                        // Your Progress Show
+                        Log.d("RxJavaShow", "Show Progress")
+                        runOnUiThread {
+                            // Stuff that updates the UI
+                        }
+                    }
+
+                    override fun onHideProgress() {
+                        // Your Progress Hide
+                        Log.d("RxJavaHide", "Hide Progress")
+                        runOnUiThread {
+                            // Stuff that updates the UI
+                        }
+
+                    }
+
+                })
+        }
     }
 
     private fun setupDataNested(data: MutableList<Article>): MutableList<MutableList<Article>> {
@@ -131,7 +132,7 @@ class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
                             view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle)
                         val tv_desc = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc)
 
-                        Glide.with(view.context).load(data.urlToImage).into(iv)
+                        iv.glideLoad(data.urlToImage)
                         tv_title.text = data.title
                         tv_sub.text = data.author
                         tv_desc.text = data.description

@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.frogobox.api.news.ConsumeNewsApi
+import com.frogobox.apprecycler.BuildConfig
 import com.frogobox.apprecycler.R
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvExtBinding
@@ -35,40 +36,41 @@ class FrogoRvExtActivity : BaseActivity<ActivityFrogoRvExtBinding>() {
     }
 
     private fun setupApi() {
-        ConsumeNewsApi(NewsUrl.API_KEY).apply {
-            usingChuckInterceptor(this@FrogoRvExtActivity.usingChuck())
-            getTopHeadline(
-                null,
-                null,
-                NewsConstant.CATEGORY_ENTERTAIMENT,
-                NewsConstant.COUNTRY_ID,
-                null,
-                null,
-                object : ConsumeApiResponse<ArticleResponse> {
-                    override fun onFailed(statusCode: Int, errorMessage: String) {
+        ConsumeNewsApi(NewsUrl.API_KEY)
+            .usingChuckInterceptor(BuildConfig.DEBUG, this.usingChuck())
+            .apply {
+                getTopHeadline(
+                    null,
+                    null,
+                    NewsConstant.CATEGORY_ENTERTAIMENT,
+                    NewsConstant.COUNTRY_ID,
+                    null,
+                    null,
+                    object : ConsumeApiResponse<ArticleResponse> {
+                        override fun onFailed(statusCode: Int, errorMessage: String) {
 
-                    }
+                        }
 
-                    override fun onFinish() {
+                        override fun onFinish() {
 
-                    }
+                        }
 
-                    override fun onHideProgress() {
-                        runOnUiThread { binding.progressCircular.gone() }
-                    }
+                        override fun onHideProgress() {
+                            runOnUiThread { binding.progressCircular.gone() }
+                        }
 
-                    override fun onShowProgress() {
-                        runOnUiThread { binding.progressCircular.visible() }
-                    }
+                        override fun onShowProgress() {
+                            runOnUiThread { binding.progressCircular.visible() }
+                        }
 
-                    override fun onSuccess(data: ArticleResponse) {
-                        runOnUiThread {
-                            data.articles?.let { setupRecyclerView(it) }
+                        override fun onSuccess(data: ArticleResponse) {
+                            runOnUiThread {
+                                data.articles?.let { setupRecyclerView(it) }
+                            }
                         }
                     }
-                }
-            )
-        }
+                )
+            }
     }
 
     private fun setupRecyclerView(listData: List<Article>) {
@@ -83,7 +85,8 @@ class FrogoRvExtActivity : BaseActivity<ActivityFrogoRvExtBinding>() {
             ) {
                 // Init component content item recyclerview
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_8_tv_title).text = data.title
-                view.findViewById<TextView>(R.id.frogo_rv_list_type_8_tv_subtitle).text = data.description
+                view.findViewById<TextView>(R.id.frogo_rv_list_type_8_tv_subtitle).text =
+                    data.description
                 view.findViewById<ImageView>(R.id.frogo_rv_list_type_8_civ_poster)
                     .glideLoad(data.urlToImage)
             }

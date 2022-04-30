@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies{
+
     // library frogo-build-src
-    implementation("com.github.frogobox:open-build-src:1.1.1")
+    implementation("com.github.frogobox:open-build-src:1.1.2")
+
 }

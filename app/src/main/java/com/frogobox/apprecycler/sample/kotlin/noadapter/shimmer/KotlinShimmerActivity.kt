@@ -5,9 +5,8 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.frogobox.api.news.ConsumeNewsApi
-import com.frogobox.ui.R
+import com.frogobox.apprecycler.BuildConfig
 import com.frogobox.apprecycler.core.BaseActivity
-import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.apprecycler.databinding.ActivityKotlinShimmerBinding
 import com.frogobox.coreapi.ConsumeApiResponse
 import com.frogobox.coreapi.news.NewsConstant
@@ -15,13 +14,15 @@ import com.frogobox.coreapi.news.NewsUrl
 import com.frogobox.coreapi.news.model.Article
 import com.frogobox.coreapi.news.response.ArticleResponse
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
+import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.ui.R
 
 class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
-    
+
     override fun setupViewBinding(): ActivityKotlinShimmerBinding {
         return ActivityKotlinShimmerBinding.inflate(layoutInflater)
     }
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupDetailActivity("Kotlin FrogoShimmerRecyclerView Sample")
@@ -91,50 +92,53 @@ class KotlinShimmerActivity : BaseActivity<ActivityKotlinShimmerBinding>() {
     }
 
     private fun setupNewsApi() {
-        val consumeNewsApi = ConsumeNewsApi(NewsUrl.API_KEY)
-        consumeNewsApi.usingChuckInterceptor(this)
-        consumeNewsApi.getTopHeadline( // Adding Base Parameter on main function
-            null,
-            null,
-            null,
-            NewsConstant.COUNTRY_ID,
-            null,
-            null,
-            object : ConsumeApiResponse<ArticleResponse> {
-                override fun onSuccess(data: ArticleResponse) {
-                    // Your Ui or data
-                    data.articles?.let { setupFrogoShimmerRecyclerView(it) }
-                }
+        ConsumeNewsApi(NewsUrl.API_KEY)
+            .usingChuckInterceptor(BuildConfig.DEBUG, this)
+            .apply {
+                getTopHeadline( // Adding Base Parameter on main function
+                    null,
+                    null,
+                    null,
+                    NewsConstant.COUNTRY_ID,
+                    null,
+                    null,
+                    object : ConsumeApiResponse<ArticleResponse> {
+                        override fun onSuccess(data: ArticleResponse) {
+                            // Your Ui or data
+                            data.articles?.let { setupFrogoShimmerRecyclerView(it) }
+                        }
 
-                override fun onFailed(statusCode: Int, errorMessage: String) {
-                    // Your failed to do
-                    showToast(errorMessage)
-                }
+                        override fun onFailed(statusCode: Int, errorMessage: String) {
+                            // Your failed to do
+                            showToast(errorMessage)
+                        }
 
-                override fun onFinish() {
+                        override fun onFinish() {
 
-                }
+                        }
 
-                override fun onShowProgress() {
-                    // Your Progress Show
-                    Log.d("RxJavaShow", "Show Progress")
-                    runOnUiThread {
-                        // Stuff that updates the UI
-                        binding.rvShimmer.startShimmer()
-                    }
-                }
+                        override fun onShowProgress() {
+                            // Your Progress Show
+                            Log.d("RxJavaShow", "Show Progress")
+                            runOnUiThread {
+                                // Stuff that updates the UI
+                                binding.rvShimmer.startShimmer()
+                            }
+                        }
 
-                override fun onHideProgress() {
-                    // Your Progress Hide
-                    Log.d("RxJavaHide", "Hide Progress")
-                    runOnUiThread {
-                        // Stuff that updates the UI
-                        binding.rvShimmer.stopShimmer()
-                    }
+                        override fun onHideProgress() {
+                            // Your Progress Hide
+                            Log.d("RxJavaHide", "Hide Progress")
+                            runOnUiThread {
+                                // Stuff that updates the UI
+                                binding.rvShimmer.stopShimmer()
+                            }
 
-                }
+                        }
 
-            })
+                    })
+            }
+
     }
 
     private fun setupShimmerLoading() {

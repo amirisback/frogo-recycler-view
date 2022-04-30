@@ -96,9 +96,9 @@ dependencies {
 
     implementation(GitHub.glide)
 
-    implementation("com.github.frogobox:frogo-ui:1.0.0")
-    implementation("com.github.frogobox:frogo-consume-api:2.2.3")
-    implementation("com.github.frogobox.frogo-sdk:frogolog:1.0.4")
+    implementation(DependencyGradle.FROGO_UI)
+    implementation(DependencyGradle.FROGO_SDK_LOG)
+    implementation(DependencyGradle.FROGO_CONSUME_API)
 
     kapt(GitHub.glideCompiler)
 
