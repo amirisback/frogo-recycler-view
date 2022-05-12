@@ -10,6 +10,7 @@ plugins {
 android {
 
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
+    namespace = ProjectSetting.PROJECT_APP_ID
 
     defaultConfig {
         applicationId = ProjectSetting.PROJECT_APP_ID
