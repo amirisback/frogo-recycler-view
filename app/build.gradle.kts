@@ -87,10 +87,10 @@ dependencies {
     implementation(Androidx.Work.runtimeKtx)
     implementation(Androidx.Lifecycle.runtimeKtx)
 
-    implementation(Androidx.Compose.uiToolingPreview)
     implementation(Androidx.Compose.activity)
-    implementation(Androidx.Compose.ui)
     implementation(Androidx.Compose.material)
+    implementation(Androidx.Compose.ui)
+    implementation(Androidx.Compose.uiToolingPreview)
 
     implementation(Google.material)
 
