@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.compose") version DependencyGradle.COMPOSE_MULTIPLATFORM_VERSION
     id("kotlin-kapt")
     `maven-publish`
 }
@@ -41,6 +40,10 @@ android {
         compose = true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -56,12 +59,10 @@ android {
 
 dependencies {
 
-    api(compose.ui)
-    api(compose.runtime)
-    api(compose.preview)
-    api(compose.uiTooling)
-    api(compose.material)
-    api(compose.materialIconsExtended)
+    api(Androidx.Compose.uiToolingPreview)
+    api(Androidx.Compose.activity)
+    api(Androidx.Compose.ui)
+    api(Androidx.Compose.material)
 
     // library google material
     api(Google.material)
@@ -69,8 +70,8 @@ dependencies {
     // library frogo-log
     api(DependencyGradle.FROGO_SDK_LOG)
 
-    debugImplementation(compose.ui)
-    debugImplementation(compose.uiTooling)
+    debugImplementation(Androidx.Compose.uiTooling)
+    debugImplementation(Androidx.Compose.uiTestManifest)
 
 }
 

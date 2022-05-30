@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.compose") version DependencyGradle.COMPOSE_MULTIPLATFORM_VERSION
     id("kotlin-kapt")
 }
 
@@ -60,6 +59,10 @@ android {
         compose = true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -77,13 +80,6 @@ dependencies {
 
     implementation(project(DependencyGradle.FROGO_PATH_RECYCLER_VIEW))
 
-    implementation(compose.ui)
-    implementation(compose.runtime)
-    implementation(compose.preview)
-    implementation(compose.uiTooling)
-    implementation(compose.material)
-    implementation(compose.materialIconsExtended)
-
     implementation(Androidx.appCompat)
     implementation(Androidx.constraintLayout)
     implementation(Androidx.Core.ktx)
@@ -91,7 +87,10 @@ dependencies {
     implementation(Androidx.Work.runtimeKtx)
     implementation(Androidx.Lifecycle.runtimeKtx)
 
+    implementation(Androidx.Compose.uiToolingPreview)
     implementation(Androidx.Compose.activity)
+    implementation(Androidx.Compose.ui)
+    implementation(Androidx.Compose.material)
 
     implementation(Google.material)
 
@@ -103,7 +102,7 @@ dependencies {
 
     kapt(GitHub.glideCompiler)
 
-    debugImplementation(compose.ui)
-    debugImplementation(compose.uiTooling)
+    debugImplementation(Androidx.Compose.uiTooling)
+    debugImplementation(Androidx.Compose.uiTestManifest)
 
 }
