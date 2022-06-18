@@ -23,8 +23,8 @@ object ProjectSetting {
     const val LIBRARY_NAME = "recycler"
 
     const val VERSION_MAJOR = 4
-    const val VERSION_MINOR = 1
-    const val VERSION_PATCH = 8
+    const val VERSION_MINOR = 2
+    const val VERSION_PATCH = 0
 
     const val PROJECT_MIN_SDK = Version.Gradle.minSdk
     const val PROJECT_COMPILE_SDK = Version.Gradle.compileSdk

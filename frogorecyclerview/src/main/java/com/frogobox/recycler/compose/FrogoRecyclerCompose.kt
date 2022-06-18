@@ -6,8 +6,6 @@ import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.*
-import androidx.compose.foundation.lazy.grid.LazyGridScope
-import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -98,17 +96,17 @@ fun <T> FrogoLazyFixedGrid(
     data: List<T>,
     spanCount: Int,
     modifier: Modifier = Modifier,
-    state: LazyGridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState(),
+    state: LazyListState = rememberLazyListState(),
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable() LazyGridScope.(data: T) -> Unit
 ) {
     FLog.d("$FROGO_RV_COMPOSE_TAG - FrogoLazyFixedGrid")
     FLog.d("$FROGO_RV_COMPOSE_TAG - sum data : ${data.size}")
-    androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
+    LazyVerticalGrid(
         modifier = modifier,
         contentPadding = contentPadding,
         state = state,
-        columns = androidx.compose.foundation.lazy.grid.GridCells.Fixed(spanCount),
+        cells = GridCells.Fixed(spanCount),
     ) {
         items(data.size) { index ->
             FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${data[index]}")
@@ -123,18 +121,18 @@ fun <T> FrogoLazyAdaptiveGrid(
     data: List<T>,
     minSize: Dp,
     modifier: Modifier = Modifier,
-    state: LazyGridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState(),
+    state: LazyListState = rememberLazyListState(),
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable() LazyGridScope.(data: T) -> Unit
 ) {
     FLog.d("$FROGO_RV_COMPOSE_TAG - FrogoLazyAdaptiveGrid")
     FLog.d("$FROGO_RV_COMPOSE_TAG - sum data : ${data.size}")
 
-    androidx.compose.foundation.lazy.grid.LazyVerticalGrid(
+    LazyVerticalGrid(
         modifier = modifier,
         contentPadding = contentPadding,
         state = state,
-        columns = androidx.compose.foundation.lazy.grid.GridCells.Adaptive(minSize),
+        cells = GridCells.Adaptive(minSize),
     ) {
         items(data.size) { index ->
             FLog.d("$FROGO_RV_COMPOSE_TAG - list data : ${data[index]}")
