@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.frogobox.log.FLog
+import com.frogobox.recycler.util.FLog
 import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_COMPOSE_TAG
 
 /*

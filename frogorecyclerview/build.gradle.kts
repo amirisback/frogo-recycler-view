@@ -63,12 +63,7 @@ dependencies {
     api(Androidx.Compose.activity)
     api(Androidx.Compose.ui)
     api(Androidx.Compose.material)
-
-    // library google material
     api(Google.material)
-
-    // library frogo-log
-    api(DependencyGradle.FROGO_SDK_LOG)
 
     debugImplementation(Androidx.Compose.uiTooling)
     debugImplementation(Androidx.Compose.uiTestManifest)

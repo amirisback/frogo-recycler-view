@@ -1,7 +1,7 @@
 package com.frogobox.recycler.core
 
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.log.FLog
+import com.frogobox.recycler.util.FLog
 import com.frogobox.recycler.core.FrogoLayoutManager.dividerItemVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.gridLayout
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutHorizontal

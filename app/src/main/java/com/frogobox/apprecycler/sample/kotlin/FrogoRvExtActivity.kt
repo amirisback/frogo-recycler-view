@@ -14,7 +14,7 @@ import com.frogobox.coreapi.news.NewsConstant
 import com.frogobox.coreapi.news.NewsUrl
 import com.frogobox.coreapi.news.model.Article
 import com.frogobox.coreapi.news.response.ArticleResponse
-import com.frogobox.log.FLog
+import com.frogobox.recycler.util.FLog
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.recycler.ext.injector
