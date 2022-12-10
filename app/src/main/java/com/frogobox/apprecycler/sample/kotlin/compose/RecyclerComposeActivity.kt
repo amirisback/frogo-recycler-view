@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.frogobox.apprecycler.model.People
 import com.frogobox.apprecycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
 import com.frogobox.apprecycler.ui.theme.FrogoRecyclerViewTheme
-import com.frogobox.coreui.theme.dimen_8dp
 import com.frogobox.recycler.compose.FrogoLazyColumn
 
 class RecyclerComposeActivity : ComponentActivity() {
@@ -46,7 +45,7 @@ fun ListMessage(data: People) {
     val context = LocalContext.current
     Column(
         Modifier
-            .padding(dimen_8dp)
+            .padding(8.dp)
             .clickable {
                 context.startActivity(Intent(context, KotlinShimmerActivity::class.java))
             }) {
