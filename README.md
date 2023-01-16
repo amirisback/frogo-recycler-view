@@ -17,8 +17,6 @@
 - Using Kotlin DSL build.gradle.kts
 - Elegant call using injector()
 - Shimmer Effect, Empty View Effect, Nested Recycler View, Progress Recycler View
-- Jetpack Compose UI (Beta Experimental) - FrogoRecyclerCompose [Click Here](https://github.com/amirisback/frogo-recycler-view/blob/master/docs/tutorial/FrogoRecyclerCompose.md)
-
 
 <a href="https://play.google.com/store/apps/details?id=com.frogobox.apprecycler">
   <img width="200px" height="75px" src="https://amirisback.github.io/amirisback/docs/image/google-play-badge.png">
@@ -47,7 +45,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.3.2
+    $version_release = 4.3.3
 
 What's New??
 
@@ -92,14 +90,14 @@ allprojects {
 
     dependencies {
         // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.3.2'
+        implementation 'com.github.amirisback:frogo-recycler-view:4.3.3'
     }
 
 #### <Option 2> Kotlin DSL Gradle
 
     dependencies {
         // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.3.2")
+        implementation("com.github.amirisback:frogo-recycler-view:4.3.3")
     }
 
 ### Step 3. Create xml view

@@ -56,11 +56,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     compileOptions {
@@ -87,11 +82,6 @@ dependencies {
     implementation(Androidx.Work.runtimeKtx)
     implementation(Androidx.Lifecycle.runtimeKtx)
 
-    implementation(Androidx.Compose.activity)
-    implementation(Androidx.Compose.material("1.3.1"))
-    implementation(Androidx.Compose.ui)
-    implementation(Androidx.Compose.uiToolingPreview)
-
     implementation(Google.material)
 
     implementation(GitHub.glide)
@@ -101,8 +91,5 @@ dependencies {
     implementation(DependencyGradle.FROGO_CONSUME_API)
 
     kapt(GitHub.glideCompiler)
-
-    debugImplementation(Androidx.Compose.uiTooling)
-    debugImplementation(Androidx.Compose.uiTestManifest)
 
 }

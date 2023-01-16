@@ -37,11 +37,6 @@ android {
 
     buildFeatures {
         viewBinding = true
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyGradle.COMPOSE_VERSION
     }
 
     compileOptions {
@@ -58,16 +53,7 @@ android {
 }
 
 dependencies {
-
-    api(Androidx.Compose.uiToolingPreview)
-    api(Androidx.Compose.activity)
-    api(Androidx.Compose.ui)
-    api(Androidx.Compose.material("1.3.1"))
     api(Google.material)
-
-    debugImplementation(Androidx.Compose.uiTooling)
-    debugImplementation(Androidx.Compose.uiTestManifest)
-
 }
 
 afterEvaluate {

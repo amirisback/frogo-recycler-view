@@ -195,28 +195,6 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_nested_simple" />
 
         <TextView
-            android:id="@+id/tv_title_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Jetpack Compose (Experimental)"
-            android:textColor="@color/frogoColorBlack"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_nested" />
-
-        <Button
-            android:id="@+id/btn_jetpack_compose"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/frogo_dimen_8dp"
-            android:background="@drawable/frogo_bg_cyan_32dp"
-            android:text="Frogo Recycler Compose"
-            android:textColor="@color/frogoColorWhite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_6" />
-
-        <TextView
             android:id="@+id/tv_title_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -224,7 +202,7 @@
             android:text="Solving Issue"
             android:textColor="@color/frogoColorBlack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_jetpack_compose" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_nested" />
 
         <Button
             android:id="@+id/btn_answer_issue_1"

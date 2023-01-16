@@ -9,7 +9,6 @@ import com.frogobox.apprecycler.sample.java.noadapter.multiview.JavaNoAdapterMul
 import com.frogobox.apprecycler.sample.java.noadapter.simple.JavaNoAdapterActivity
 import com.frogobox.apprecycler.sample.java.usingadapter.JavaSampleActivity
 import com.frogobox.apprecycler.sample.kotlin.FrogoRvExtActivity
-import com.frogobox.apprecycler.sample.kotlin.compose.RecyclerComposeActivity
 import com.frogobox.apprecycler.sample.kotlin.noadapter.multiview.KotlinNoAdapterMultiVewActivity
 import com.frogobox.apprecycler.sample.kotlin.noadapter.progress.KotlinProgressActivity
 import com.frogobox.apprecycler.sample.kotlin.noadapter.shimmer.KotlinShimmerActivity
@@ -75,10 +74,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             btnNested.setOnClickListener {
                 startActivity(Intent(this@MainActivity, KotlinNestedActivity::class.java))
-            }
-
-            btnJetpackCompose.setOnClickListener {
-                startActivity(Intent(this@MainActivity, RecyclerComposeActivity::class.java))
             }
 
             btnAnswerIssue1.setOnClickListener {

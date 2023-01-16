@@ -24,7 +24,7 @@ object ProjectSetting {
 
     const val VERSION_MAJOR = 4
     const val VERSION_MINOR = 3
-    const val VERSION_PATCH = 2
+    const val VERSION_PATCH = 3
 
     const val PROJECT_MIN_SDK = Version.Gradle.minSdk
     const val PROJECT_COMPILE_SDK = Version.Gradle.compileSdk
