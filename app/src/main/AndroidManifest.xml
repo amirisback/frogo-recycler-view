@@ -23,11 +23,6 @@
             android:name=".sample.issue.AnswerIssueActivity"
             android:exported="true" />
         <activity
-            android:name=".sample.kotlin.compose.RecyclerComposeActivity"
-            android:exported="true"
-            android:label="@string/title_activity_recycler_compose"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".sample.kotlin.noadapter.progress.KotlinProgressActivity"
             android:exported="true" />
         <activity
