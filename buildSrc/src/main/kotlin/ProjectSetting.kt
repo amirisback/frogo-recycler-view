@@ -22,6 +22,8 @@ object ProjectSetting {
 
     const val LIBRARY_NAME = "recycler"
 
+    val URI_PACKAGE_LIB = "https://maven.pkg.github.com/amirisback/${NAME_APK}"
+
     const val VERSION_MAJOR = 4
     const val VERSION_MINOR = 3
     const val VERSION_PATCH = 3
@@ -31,7 +33,7 @@ object ProjectSetting {
     const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"
-    const val PROJECT_LIB_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME"
+    const val PROJECT_LIB_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE"
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
     const val PROJECT_VERSION_NAME = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
 

@@ -60,6 +60,17 @@ afterEvaluate {
     publishing {
         publications {
 
+            repositories {
+                maven {
+                    name = ProjectSetting.NAME_APP.replace(" ", "")
+                    url = uri(ProjectSetting.URI_PACKAGE_LIB)
+                    credentials {
+                        username = project.findProperty("gpr.user") as String? ?: ""
+                        password = project.findProperty("gpr.key") as String? ?: ""
+                    }
+                }
+            }
+
             // Creates a Maven publication called "release".
             register("release", MavenPublication::class) {
 
