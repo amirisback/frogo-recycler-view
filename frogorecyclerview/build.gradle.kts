@@ -54,6 +54,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_11.toString()
     }
 
+    configurations.all {
+        resolutionStrategy {
+            preferProjectModules()
+        }
+    }
+
 }
 
 dependencies {
