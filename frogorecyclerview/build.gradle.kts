@@ -50,6 +50,10 @@ android {
         }
     }
 
+    tasks.withType<JavaCompile> {
+        targetCompatibility = JavaVersion.VERSION_11.toString()
+    }
+
 }
 
 dependencies {

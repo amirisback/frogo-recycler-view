@@ -14,8 +14,7 @@
 object DependencyGradle {
 
     // dependencies version
-    const val KOTLIN_VERSION = Version.JetBrains.kotlin
-    const val COMPOSE_VERSION = Version.Androidx.composeCompiler
+    const val KOTLIN_VERSION = "1.7.20"
 
     const val FROGO_PATH_RECYCLER_VIEW = ":frogorecyclerview"
 
