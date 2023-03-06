@@ -10,7 +10,7 @@ plugins {
 android {
 
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
-    namespace = ProjectSetting.PROJECT_LIB_ID
+    namespace = ProjectSetting.PROJECT_LIB_NAME_SPACE
 
     defaultConfig {
         minSdk = ProjectSetting.PROJECT_MIN_SDK
