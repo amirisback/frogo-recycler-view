@@ -34,10 +34,10 @@
 </tr>
 
 <tr>
-    <td><img width="200px" height="360px" src="docs/image/ss_nested_simple.png"></td>
-    <td><img width="200px" height="360px" src="docs/image/sample_shimmer.gif"></td>
-    <td><img width="200px" height="360px" src="docs/image/ss_multi-view.png"></td>
-    <td><img width="200px" height="360px" src="docs/image/ss_empty.png"></td>
+    <td><img width="200px" height="360px" src="https://amirisback.github.io/frogo-recycler-view/docs/image/ss_nested_simple.png"></td>
+    <td><img width="200px" height="360px" src="https://amirisback.github.io/frogo-recycler-view/docs/image/sample_shimmer.gif"></td>
+    <td><img width="200px" height="360px" src="https://amirisback.github.io/frogo-recycler-view/docs/image/ss_multi-view.png"></td>
+    <td><img width="200px" height="360px" src="https://amirisback.github.io/frogo-recycler-view/docs/image/ss_empty.png"></td>
 </tr>
 
 </table>
@@ -487,4 +487,4 @@ Waiting for your contribute
 - Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
 
-![ScreenShoot Apps](docs/image/mad_score.png?raw=true)
+![ScreenShoot Apps](https://amirisback.github.io/frogo-recycler-view/docs/image/mad_score.png?raw=true)
