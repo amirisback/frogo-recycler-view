@@ -10,7 +10,7 @@ plugins {
 android {
 
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
-    namespace = ProjectSetting.PROJECT_LIB_NAME_SPACE
+    namespace = LibrarySetting.NAME_SPACE
 
     defaultConfig {
         minSdk = ProjectSetting.PROJECT_MIN_SDK
@@ -72,8 +72,8 @@ afterEvaluate {
 
             repositories {
                 maven {
-                    name = ProjectSetting.NAME_APP.replace(" ", "")
-                    url = uri(ProjectSetting.URI_PACKAGE_LIB)
+                    name = LibrarySetting.LIB_NAME
+                    url = uri(LibrarySetting.MAVEN_URI)
                     credentials {
                         username = project.findProperty("gpr.user") as String? ?: ""
                         password = project.findProperty("gpr.key") as String? ?: ""
@@ -90,11 +90,11 @@ afterEvaluate {
 
                 // Library Package Name (Example : "com.frogobox.androidfirstlib")
                 // NOTE : Different GroupId For Each Library / Module, So That Each Library Is Not Overwritten
-                groupId = ProjectSetting.PROJECT_LIB_ID
+                groupId = LibrarySetting.GROUP_ID
 
                 // Library Name / Module Name (Example : "androidfirstlib")
                 // NOTE : Different ArtifactId For Each Library / Module, So That Each Library Is Not Overwritten
-                artifactId = ProjectSetting.NAME_APK
+                artifactId = LibrarySetting.ARTIFACT_ID
 
                 // Version Library Name (Example : "1.0.0")
                 version = ProjectSetting.PROJECT_VERSION_NAME

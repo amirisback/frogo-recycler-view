@@ -4,9 +4,6 @@ pluginManagement {
         google()
         mavenCentral()
         maven("https://jitpack.io")
-        maven {
-            url = uri("https://maven.pkg.github.com/frogobox/kick-start-library")
-        }
     }
 }
 
@@ -16,9 +13,6 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven("https://jitpack.io")
-        maven {
-            url = uri("https://maven.pkg.github.com/frogobox/kick-start-library")
-        }
     }
 }
 

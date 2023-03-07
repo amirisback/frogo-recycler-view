@@ -18,11 +18,8 @@ object ProjectSetting {
 
     const val APP_DOMAIN = "com"
     const val APP_PLAY_CONSOLE = "frogobox"
+
     const val APP_NAME = "apprecycler"
-
-    const val LIBRARY_NAME = "recycler"
-
-    val URI_PACKAGE_LIB = "https://maven.pkg.github.com/amirisback/${NAME_APK}"
 
     const val VERSION_MAJOR = 4
     const val VERSION_MINOR = 3
@@ -33,8 +30,6 @@ object ProjectSetting {
     const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"
-    const val PROJECT_LIB_ID = "com.github.amirisback"
-    const val PROJECT_LIB_NAME_SPACE = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$LIBRARY_NAME"
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
     const val PROJECT_VERSION_NAME = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
 

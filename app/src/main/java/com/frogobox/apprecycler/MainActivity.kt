@@ -16,7 +16,6 @@ import com.frogobox.apprecycler.sample.kotlin.noadapter.simple.KotlinNoAdapterAc
 import com.frogobox.apprecycler.sample.kotlin.usingadapter.nested.KotlinNestedActivity
 import com.frogobox.apprecycler.sample.kotlin.usingadapter.nested.KotlinSimpleNestedActivity
 import com.frogobox.apprecycler.sample.kotlin.usingadapter.simple.KotlinSampleActivity
-import com.frogobox.frogolib.SimpleClass
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -27,7 +26,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupButton()
-        showToast(SimpleClass.TAG)
     }
 
     private fun setupButton() {

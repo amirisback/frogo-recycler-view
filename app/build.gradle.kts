@@ -84,7 +84,6 @@ android {
 dependencies {
 
     implementation(project(DependencyGradle.FROGO_PATH_RECYCLER_VIEW))
-    implementation("com.frogobox:frogolib:0.0.1")
 
     implementation(Androidx.appCompat)
     implementation(Androidx.constraintLayout)
