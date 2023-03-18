@@ -1,13 +1,11 @@
 package com.frogobox.recycler.core
 
 import androidx.recyclerview.widget.RecyclerView
-import com.frogobox.recycler.util.FLog
 import com.frogobox.recycler.core.FrogoLayoutManager.dividerItemVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.gridLayout
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutHorizontal
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.staggeredGridLayout
-import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 
 /*
  * Created by faisalamir on 31/05/21
@@ -35,9 +33,6 @@ abstract class FrogoSingleRvBase<T> {
     protected fun baseCreateLayoutLinearVertical(dividerItem: Boolean) {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
         optionDividerItem = dividerItem
-
-        FLog.d("$FROGO_RV_TAG - injector-layoutManager : $optionLayoutManager")
-        FLog.d("$FROGO_RV_TAG - injector-divider : $optionDividerItem")
     }
 
     protected fun baseCreateLayoutLinearVertical(
@@ -49,19 +44,11 @@ abstract class FrogoSingleRvBase<T> {
         optionDividerItem = dividerItem
         optionReverseLayout = reverseLayout
         optionStackFromEnd = stackFromEnd
-
-        FLog.d("$FROGO_RV_TAG - injector-layoutManager : $optionLayoutManager")
-        FLog.d("$FROGO_RV_TAG - injector-divider : $optionDividerItem")
-        FLog.d("$FROGO_RV_TAG - injector-reverseLayout : $optionReverseLayout")
-        FLog.d("$FROGO_RV_TAG - injector-stackFromEnd : $optionStackFromEnd")
     }
 
     protected fun baseCreateLayoutLinearHorizontal(dividerItem: Boolean) {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_HORIZONTAL
         optionDividerItem = dividerItem
-
-        FLog.d("$FROGO_RV_TAG - injector-layoutManager : $optionLayoutManager")
-        FLog.d("$FROGO_RV_TAG - injector-divider : $optionDividerItem")
     }
 
     protected fun baseCreateLayoutLinearHorizontal(
@@ -73,27 +60,16 @@ abstract class FrogoSingleRvBase<T> {
         optionDividerItem = dividerItem
         optionReverseLayout = reverseLayout
         optionStackFromEnd = stackFromEnd
-
-        FLog.d("$FROGO_RV_TAG - injector-layoutManager : $optionLayoutManager")
-        FLog.d("$FROGO_RV_TAG - injector-divider : $optionDividerItem")
-        FLog.d("$FROGO_RV_TAG - injector-reverseLayout : $optionReverseLayout")
-        FLog.d("$FROGO_RV_TAG - injector-stackFromEnd : $optionStackFromEnd")
     }
 
     protected fun baseCreateLayoutStaggeredGrid(spanCount: Int) {
         optionLayoutManager = FrogoRvConstant.LAYOUT_STAGGERED_GRID
         layoutSpanCount = spanCount
-
-        FLog.d("$FROGO_RV_TAG - injector-layoutManager : $optionLayoutManager")
-        FLog.d("$FROGO_RV_TAG - injector-spanCount : $layoutSpanCount")
     }
 
     protected fun baseCreateLayoutGrid(spanCount: Int) {
         optionLayoutManager = FrogoRvConstant.LAYOUT_GRID
         layoutSpanCount = spanCount
-
-        FLog.d("$FROGO_RV_TAG - injector-layoutManager : $optionLayoutManager")
-        FLog.d("$FROGO_RV_TAG - injector-spanCount : $layoutSpanCount")
     }
 
     protected fun setupLayoutManager(frogoRV: RecyclerView) {

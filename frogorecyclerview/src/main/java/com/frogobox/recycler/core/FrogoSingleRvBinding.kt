@@ -3,8 +3,6 @@ package com.frogobox.recycler.core
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.util.FLog
-import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 
 /*
  * Created by Faisal Amir
@@ -76,14 +74,12 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
 
     override fun addData(listData: List<T>): FrogoSingleRvBinding<T, VB> {
         this.listData.addAll(listData)
-        FLog.d("$FROGO_RV_TAG - injector-listData : ${this.listData.size}")
         return this
     }
 
 
     override fun addCallback(frogoViewAdapterCallback: IFrogoBindingAdapter<T, VB>): FrogoSingleRvBinding<T, VB> {
         this.frogoAdapterCallback = frogoViewAdapterCallback
-        FLog.d("$FROGO_RV_TAG - injector-adaptCallback : $frogoAdapterCallback")
         return this
     }
 
@@ -128,7 +124,6 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
     }
 
     protected open fun setupInnerAdapter() {
-        FLog.d("$FROGO_RV_TAG - injector-optionAdapter : $optionAdapter")
         frogoRecycleView.adapter = frogoBindingAdapter
     }
 

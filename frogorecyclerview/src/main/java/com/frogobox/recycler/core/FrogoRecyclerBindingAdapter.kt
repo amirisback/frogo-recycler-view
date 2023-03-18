@@ -2,8 +2,6 @@ package com.frogobox.recycler.core
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.util.FLog
-import com.frogobox.recycler.core.FrogoRvConstant.FROGO_RV_TAG
 
 /*
  * Created by Faisal Amir
@@ -80,7 +78,6 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
     }
 
     override fun onBindViewHolder(holder: FrogoRecyclerBindingHolder<T, VB>, position: Int) {
-        FLog.d("$FROGO_RV_TAG - listData : ${listData.size}")
         holder.bindItem(listData[position], position, bindingListener, notifyListener)
     }
 
@@ -93,34 +90,24 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
     // Notify Data Set Changed
     fun innerFrogoNotifyDataSetChanged() {
         notifyDataSetChanged()
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyDataSetChanged")
     }
 
     // Notify Data Item Changed
     fun innerFrogoNotifyItemChanged(data: T, position: Int, payload: Any) {
         listData[position] = data
         notifyItemChanged(position, payload)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemChanged")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemChanged : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemChanged : $position")
     }
 
     // Notify Data Item Changed
     fun innerFrogoNotifyItemChanged(data: T, position: Int) {
         listData[position] = data
         notifyItemChanged(position)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemChanged")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemChanged : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemChanged : $position")
     }
 
     // Notify Data Item Inserted
     fun innerFrogoNotifyItemInserted(data: T, position: Int) {
         listData.add(position, data)
         notifyItemInserted(position)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemInserted")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemInserted : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemInserted : $position")
     }
 
     // Notify Data Item Moved
@@ -128,54 +115,36 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
         listData.removeAt(fromPosition)
         listData.add(toPosition, data)
         notifyItemMoved(fromPosition, toPosition)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemMoved")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemMoved : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemMoved : $fromPosition")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemMoved : $toPosition")
     }
 
     // Notify Data Item Range Changed
     fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size, payload)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged : $positionStart")
     }
 
     // Notify Data Item Range Changed
     fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged : $positionStart")
     }
 
     // Notify Data Item Range Inserted
     fun innerFrogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
         listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeInserted")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged : ${data.toString()}")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeChanged : $positionStart")
     }
 
     // Notify Data Item Range Removed
     fun innerFrogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
         listData.subList(positionStart, (positionStart + itemCount)).clear()
         notifyItemRangeRemoved(positionStart, itemCount)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeRemoved")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeRemoved : $positionStart")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRangeRemoved : $itemCount")
     }
 
     // Notify Data Item Removed
     fun innerFrogoNotifyItemRemoved(position: Int) {
         listData.removeAt(position)
         notifyItemRemoved(position)
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRemoved")
-        FLog.d("$FROGO_RV_TAG - FrogoNotifyListener : frogoNotifyItemRemoved : $position")
     }
 
     fun setupData(data: List<T>?) {

@@ -14,13 +14,13 @@
 object DependencyGradle {
 
     // dependencies version
-    const val KOTLIN_VERSION = "1.7.20"
+    const val KOTLIN_VERSION = Version.JetBrains.kotlin
 
     const val FROGO_PATH_RECYCLER_VIEW = ":frogorecyclerview"
 
-    const val FROGO_UI_VERSION = "1.1.2"
-    const val FROGO_SDK_VERSION = "2.1.4"
-    const val FROGO_CONSUME_API_VERSION = "2.4.3"
+    const val FROGO_UI_VERSION = "1.1.3"
+    const val FROGO_SDK_VERSION = "2.1.5"
+    const val FROGO_CONSUME_API_VERSION = "2.4.4"
 
     const val FROGO_UI = "com.github.frogobox:frogo-ui:$FROGO_UI_VERSION"
     const val FROGO_SDK_LOG = "com.github.frogobox.frogo-sdk:frogolog:$FROGO_SDK_VERSION"
