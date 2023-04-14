@@ -1,4 +1,4 @@
-![ScreenShoot Apps](https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_banner.png?raw=true)
+![App Screenshots](https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_banner.png?raw=true)
 
 ## About This Project
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-frogo--recycler--view-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/8205)
@@ -22,7 +22,7 @@
   <img width="200px" height="75px" src="https://amirisback.github.io/amirisback/docs/image/google-play-badge.png">
 </a>
 
-## Screen Shoot Apps
+## App Screenshots
 
 <table>
 
@@ -487,4 +487,4 @@ Waiting for your contribute
 - Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
 
-![ScreenShoot Apps](https://amirisback.github.io/frogo-recycler-view/docs/image/mad_score.png?raw=true)
+![App Screenshots](https://amirisback.github.io/frogo-recycler-view/docs/image/mad_score.png?raw=true)
