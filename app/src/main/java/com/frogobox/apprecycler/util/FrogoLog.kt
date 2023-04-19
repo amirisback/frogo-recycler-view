@@ -1,9 +1,9 @@
-package com.frogobox.recycler.util
+package com.frogobox.apprecycler.util
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import com.frogobox.recycler.util.LogConstant.SIMPLE_MESSSAGE
+import com.frogobox.apprecycler.util.LogConstant.SIMPLE_MESSSAGE
 
 /**
  * Created by Faisal Amir on 14/01/2021

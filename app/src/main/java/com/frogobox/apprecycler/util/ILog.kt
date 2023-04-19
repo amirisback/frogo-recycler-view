@@ -1,4 +1,4 @@
-package com.frogobox.recycler.util
+package com.frogobox.apprecycler.util
 
 import android.content.Context
 
