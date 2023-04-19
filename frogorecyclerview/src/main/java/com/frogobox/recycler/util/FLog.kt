@@ -5,7 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import com.frogobox.recycler.util.LogConstant.SIMPLE_MESSSAGE
 
-/*
+/**
  * Created by Faisal Amir on 14/02/2021
  * LogCat Source Code
  * -----------------------------------------
@@ -17,7 +17,8 @@ import com.frogobox.recycler.util.LogConstant.SIMPLE_MESSSAGE
  * All rights reserved
  *
  */
-object FLog : IFLog {
+
+object FLog : ILog {
 
     // Tag for get class name this function
     private fun tag(): String {

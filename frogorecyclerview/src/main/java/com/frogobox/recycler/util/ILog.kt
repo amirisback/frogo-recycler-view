@@ -3,7 +3,7 @@ package com.frogobox.recycler.util
 import android.content.Context
 
 /*
- * Created by Faisal Amir on 14/01/2021
+ * Created by Faisal Amir on 14/02/2021
  * LogCat Source Code
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,7 +14,7 @@ import android.content.Context
  * All rights reserved
  *
  */
-interface IFrogoLog {
+interface ILog {
 
     // Function Log Simple Debug without message params
     fun d()
