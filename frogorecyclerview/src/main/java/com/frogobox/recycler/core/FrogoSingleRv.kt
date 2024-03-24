@@ -21,7 +21,7 @@ import com.frogobox.recycler.R
  *
  */
 
-open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
+open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoRv<T> {
 
     protected lateinit var frogoRecycleView: RecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
@@ -73,6 +73,11 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     override fun createLayoutGrid(spanCount: Int): FrogoSingleRv<T> {
         baseCreateLayoutGrid(spanCount)
+        return this
+    }
+
+    override fun createLayoutFlexBox(flexDirection: Int, justifyContent: Int): FrogoSingleRv<T> {
+        baseCreateLayoutFlexBox(flexDirection, justifyContent)
         return this
     }
 

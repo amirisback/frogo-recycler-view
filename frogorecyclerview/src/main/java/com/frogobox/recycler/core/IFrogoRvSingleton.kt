@@ -1,13 +1,14 @@
 package com.frogobox.recycler.core
 
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.JustifyContent
 
-
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 27/04/2020.      
+ * Copyright (C) 27/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,61 +17,54 @@ import androidx.recyclerview.widget.RecyclerView
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.util
- * 
+ *
  */
-interface IFrogoSingleRv<T> {
+
+interface IFrogoRvSingleton<T> {
 
     // Init FrogoRecyclerView
-    fun initSingleton(frogoRecyclerView: RecyclerView): FrogoSingleRv<T>
-    
+    fun initSingleton(frogoRecyclerView: RecyclerView): IFrogoRvSingleton<T>
+
     // Create Linear Vertical Layout Manager
-    fun createLayoutLinearVertical(dividerItem: Boolean = false): FrogoSingleRv<T>
+    fun createLayoutLinearVertical(dividerItem: Boolean = false): IFrogoRvSingleton<T>
 
     // Create Linear Vertical Layout Manager From End
     fun createLayoutLinearVertical(
         dividerItem: Boolean = false,
         reverseLayout: Boolean = false,
         stackFromEnd: Boolean = false
-    ): FrogoSingleRv<T>
+    ): IFrogoRvSingleton<T>
 
     // Create Linear Horizontal Layout Manager
-    fun createLayoutLinearHorizontal(dividerItem: Boolean = false): FrogoSingleRv<T>
+    fun createLayoutLinearHorizontal(dividerItem: Boolean = false): IFrogoRvSingleton<T>
 
     // Create Linear Horizontal Layout Manager From End
     fun createLayoutLinearHorizontal(
         dividerItem: Boolean = false,
         reverseLayout: Boolean = false,
         stackFromEnd: Boolean = false
-    ): FrogoSingleRv<T>
+    ): IFrogoRvSingleton<T>
 
     // Create Staggered Grid Layout Manager
-    fun createLayoutStaggeredGrid(spanCount: Int = 1): FrogoSingleRv<T>
+    fun createLayoutStaggeredGrid(spanCount: Int = 1): IFrogoRvSingleton<T>
 
     // Create Grid Layout Manager
-    fun createLayoutGrid(spanCount: Int = 1): FrogoSingleRv<T>
-    
+    fun createLayoutGrid(spanCount: Int = 1): IFrogoRvSingleton<T>
+
+    // Create FlexBox Layout Manager
+    fun createLayoutFlexBox(
+        flexDirection: Int = FlexDirection.ROW,
+        justifyContent: Int = JustifyContent.FLEX_START
+    ): IFrogoRvSingleton<T>
+
     // Adding Data for RecyclerView
-    fun addData(listData: List<T>): FrogoSingleRv<T>
-
-    // Adding Data with object ViewHolder
-    fun addDataFH(listDataFH: List<FrogoHolder<T>>): FrogoSingleRv<T>
-
-    // Adding Custom View for RecyclerView
-    fun addCustomView(customViewInt: Int): FrogoSingleRv<T>
-
-    // Adding Empty View layout if data is Empty
-    fun addEmptyView(emptyViewInt: Int? = null): FrogoSingleRv<T>
-
-    // Adding Callback for adapter
-    fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSingleRv<T>
+    fun addData(listData: List<T>): IFrogoRvSingleton<T>
 
     // Build this FrogoRecyclerView
-    fun build(): FrogoSingleRv<T>
-
-    // ---------------------------------------------------------------------------------------------
+    fun build(): IFrogoRvSingleton<T>
 
     // Notify Data List
-    fun frogoNotifyData() : MutableList<T>
+    fun frogoNotifyData(): MutableList<T>
 
     // Notify Data Set Changed
     fun frogoNotifyDataSetChanged()

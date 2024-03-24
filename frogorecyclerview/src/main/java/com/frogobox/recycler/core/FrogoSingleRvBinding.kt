@@ -20,7 +20,7 @@ import androidx.viewbinding.ViewBinding
  *
  */
 open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
-    IFrogoSingleRvBinding<T, VB> {
+    IFrogoRvBinding<T, VB> {
 
     protected lateinit var frogoRecycleView: RecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoBindingAdapter<T, VB>
@@ -69,6 +69,14 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
 
     override fun createLayoutGrid(spanCount: Int): FrogoSingleRvBinding<T, VB> {
         baseCreateLayoutGrid(spanCount)
+        return this
+    }
+
+    override fun createLayoutFlexBox(
+        flexDirection: Int,
+        justifyContent: Int
+    ): FrogoSingleRvBinding<T, VB> {
+        baseCreateLayoutFlexBox(flexDirection, justifyContent)
         return this
     }
 

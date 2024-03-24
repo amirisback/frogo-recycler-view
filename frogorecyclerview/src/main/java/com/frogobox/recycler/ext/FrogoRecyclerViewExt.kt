@@ -1,5 +1,7 @@
 package com.frogobox.recycler.ext
 
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.core.FrogoBindingAdapter
@@ -55,4 +57,52 @@ fun <T, VB : ViewBinding> RecyclerView.getAdapterBindingExt(): FrogoBindingAdapt
 
 fun <T, VB : ViewBinding> RecyclerView.setupDataBinding(data: List<T>) {
     this.getAdapterBindingExt<T, VB>().setupData(data)
+}
+
+fun RecyclerView.addOnBottomScrollListener(onBottomReached: () -> Unit = {}) {
+    addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            (recyclerView.layoutManager as? LinearLayoutManager)?.let {
+                if (dy >= 0) {
+                    val visibleItemCount = it.childCount
+                    val totalItemCount = it.itemCount
+                    val pastVisibleItems = it.findFirstVisibleItemPosition()
+                    if (visibleItemCount + pastVisibleItems >= totalItemCount) {
+                        onBottomReached()
+                    }
+                }
+            }
+
+            (recyclerView.layoutManager as? GridLayoutManager)?.let {
+                if (dy >= 0) {
+                    val visibleItemCount = it.childCount
+                    val totalItemCount = it.itemCount
+                    val pastVisibleItems = it.findFirstVisibleItemPosition()
+                    if (visibleItemCount + pastVisibleItems >= totalItemCount) {
+                        onBottomReached()
+                    }
+                }
+            }
+        }
+    })
+}
+
+fun RecyclerView.addOnTopScrollListener(onTopReached: () -> Unit = {}) {
+    addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            (recyclerView.layoutManager as? LinearLayoutManager)?.let {
+                if (dy <= 0) {
+
+                    val visibleItemCount = it.childCount
+                    val totalItemCount = it.itemCount
+                    val pastVisibleItems = it.findFirstVisibleItemPosition()
+                    if (visibleItemCount + pastVisibleItems >= totalItemCount) {
+                        onTopReached()
+                    }
+                }
+            }
+        }
+    })
 }

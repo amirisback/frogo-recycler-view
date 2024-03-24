@@ -2,8 +2,9 @@ package com.frogobox.recycler.core
 
 import android.content.Context
 import androidx.recyclerview.widget.*
+import com.google.android.flexbox.FlexboxLayoutManager
 
-/*
+/**
  * Created by faisalamir on 23/07/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.*
  * All rights reserved
  *
  */
+
 object FrogoLayoutManager : IFrogoLayoutManager {
 
     override fun linearLayoutVertical(context: Context): RecyclerView.LayoutManager {
@@ -66,6 +68,13 @@ object FrogoLayoutManager : IFrogoLayoutManager {
 
     override fun gridLayout(context: Context, spanCount: Int): GridLayoutManager {
         return GridLayoutManager(context, spanCount)
+    }
+
+    override fun flexboxLayout(context: Context, flexDirection: Int, justifyContent: Int): FlexboxLayoutManager {
+        return FlexboxLayoutManager(context).apply {
+            this.flexDirection = flexDirection
+            this.justifyContent = justifyContent
+        }
     }
 
 }

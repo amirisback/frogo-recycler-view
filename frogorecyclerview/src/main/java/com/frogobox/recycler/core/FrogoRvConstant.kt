@@ -1,6 +1,6 @@
 package com.frogobox.recycler.core
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
@@ -15,6 +15,7 @@ package com.frogobox.recycler.core
  * com.frogobox.recycler.util
  * 
  */
+
 object FrogoRvConstant {
 
     const val OPTION_HOLDER_FIRST = 0
@@ -26,6 +27,7 @@ object FrogoRvConstant {
     const val LAYOUT_LINEAR_HORIZONTAL_REVERSE = "LAYOUT_LINEAR_HORIZONTAL_REVERSE"
     const val LAYOUT_STAGGERED_GRID = "LAYOUT_STAGGERED_GRID"
     const val LAYOUT_GRID = "LAYOUT_GRID"
+    const val LAYOUT_FLEXBOX = "LAYOUT_FLEXBOX"
 
     const val FROGO_ADAPTER_R_CLASS = "FROGO_ADAPTER_R_CLASS"
     const val FROGO_ADAPTER_VIEW_BINDING = "FROGO_ADAPTER_VIEW_BINDING"

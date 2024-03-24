@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 
 /*
  * Created by faisalamir on 23/07/21
@@ -43,5 +46,11 @@ interface IFrogoLayoutManager {
     fun staggeredGridLayout(spanCount: Int = 1): StaggeredGridLayoutManager
 
     fun gridLayout(context: Context, spanCount: Int = 1): GridLayoutManager
+
+    fun flexboxLayout(
+        context: Context,
+        flexDirection: Int = FlexDirection.ROW,
+        justifyContent: Int = JustifyContent.FLEX_START
+    ) : FlexboxLayoutManager
 
 }
