@@ -3,8 +3,6 @@ package com.frogobox.recycler.core
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 
@@ -24,7 +22,7 @@ import com.frogobox.recycler.R
  * 
  */
 
-abstract class FrogoRecyclerViewAdapter<T> : BaseRecyclerViewAdapter<T, FrogoRecyclerViewHolder<T>>() {
+abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, FrogoRecyclerViewHolder<T>>() {
 
     var hasEmptyView = false
     var hasMultiHolder = false

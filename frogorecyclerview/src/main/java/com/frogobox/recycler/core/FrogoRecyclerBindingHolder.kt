@@ -22,7 +22,7 @@ import androidx.viewbinding.ViewBinding
  *
  */
 abstract class FrogoRecyclerBindingHolder<T, VB : ViewBinding>(private val binding: VB) :
-    BaseRecyclerViewHolder<T>(binding.root) {
+    CoreFrogoRecyclerViewHolder<T>(binding.root) {
 
     abstract fun initComponent(
         binding: VB,

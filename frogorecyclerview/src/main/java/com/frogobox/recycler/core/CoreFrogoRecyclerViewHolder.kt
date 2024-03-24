@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  */
 
 
-abstract class BaseRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+abstract class CoreFrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
 
     /**
      * Base Of Core FrogoRecyclerViewHolder

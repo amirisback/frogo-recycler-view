@@ -80,4 +80,21 @@ class FrogoRecyclerView : RecyclerView,
         return FrogoBuilderRvBinding<T, VB>().initBuilder(this).builder(listener)
     }
 
+    override fun <T> getAdapterExt(): FrogoViewAdapter<T> {
+        return this.adapter as FrogoViewAdapter<T>
+    }
+
+    override fun <T> setupData(data: List<T>) {
+        this.getAdapterExt<T>().setupData(data)
+    }
+
+    override fun <T, VB : ViewBinding> getAdapterBindingExt(): FrogoBindingAdapter<T, VB> {
+        return this.adapter as FrogoBindingAdapter<T, VB>
+    }
+
+    override fun <T, VB : ViewBinding> setupDataBinding(data: List<T>) {
+        this.getAdapterBindingExt<T, VB>().setupData(data)
+    }
+
+
 }

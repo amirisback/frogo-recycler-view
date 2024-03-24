@@ -21,7 +21,8 @@ import androidx.recyclerview.widget.RecyclerView
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewHolder<T>(view: View) : BaseRecyclerViewHolder<T>(view) {
+
+abstract class FrogoRecyclerViewHolder<T>(view: View) : CoreFrogoRecyclerViewHolder<T>(view) {
 
     abstract fun initComponent(
         data: T,

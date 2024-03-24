@@ -1,8 +1,5 @@
 package com.frogobox.recycler.core
 
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
 /**
@@ -21,7 +18,7 @@ import androidx.viewbinding.ViewBinding
  * 
  */
 
-abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> : BaseRecyclerViewAdapter<T, FrogoRecyclerBindingHolder<T, VB>>() {
+abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> : CoreFrogoRecyclerViewAdapter<T, FrogoRecyclerBindingHolder<T, VB>>() {
 
     protected var bindingListener: FrogoRecyclerBindingListener<T, VB>? = null
 
