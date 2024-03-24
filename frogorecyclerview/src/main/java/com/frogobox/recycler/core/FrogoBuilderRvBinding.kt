@@ -66,6 +66,14 @@ class FrogoBuilderRvBinding<T, VB : ViewBinding> : FrogoBuilderRvBase<T>() {
                 ) {
                     bindingListener.onItemLongClicked(binding, data, position, notifyListener)
                 }
+
+                override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+                    return bindingListener.areItemsTheSame(oldItem, newItem)
+                }
+
+                override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+                    return bindingListener.areContentsTheSame(oldItem, newItem)
+                }
             })
 
         frogoRecyclerView.adapter = frogoBindingAdapter

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
@@ -21,8 +21,8 @@ import com.frogobox.recycler.R
  * com.frogobox.recycler.base
  * 
  */
-abstract class FrogoRecyclerViewAdapter<T> :
-    RecyclerView.Adapter<FrogoRecyclerViewHolder<T>>() {
+
+abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, FrogoRecyclerViewHolder<T>>() {
 
     var hasEmptyView = false
     var hasMultiHolder = false
@@ -30,65 +30,24 @@ abstract class FrogoRecyclerViewAdapter<T> :
 
     protected var viewListener: FrogoRecyclerViewListener<T>? = null
 
-    protected var notifyListener = object : FrogoRecyclerNotifyListener<T> {
-
-        override fun frogoNotifyData(): MutableList<T> {
-            return innerFrogoNotifyData()
-        }
-
-        override fun frogoNotifyDataSetChanged() {
-            innerFrogoNotifyDataSetChanged()
-        }
-
-        override fun frogoNotifyItemChanged(data: T, position: Int, payload: Any) {
-            innerFrogoNotifyItemChanged(data, position, payload)
-        }
-
-        override fun frogoNotifyItemChanged(data: T, position: Int) {
-            innerFrogoNotifyItemChanged(data, position)
-        }
-
-        override fun frogoNotifyItemInserted(data: T, position: Int) {
-            innerFrogoNotifyItemInserted(data, position)
-        }
-
-        override fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
-            innerFrogoNotifyItemMoved(data, fromPosition, toPosition)
-        }
-
-        override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
-            innerFrogoNotifyItemRangeChanged(data, positionStart, payload)
-        }
-
-        override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
-            innerFrogoNotifyItemRangeChanged(data, positionStart)
-        }
-
-        override fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
-            innerFrogoNotifyItemRangeInserted(data, positionStart)
-        }
-
-        override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
-            innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
-        }
-
-        override fun frogoNotifyItemRemoved(position: Int) {
-            innerFrogoNotifyItemRemoved(position)
-        }
-
-    }
-
     protected val listPosition = HashMap<Int, Int>()
     protected val sharedPool = RecyclerView.RecycledViewPool()
 
     protected val frogoHolder = mutableListOf<FrogoHolder<T>>()
-    protected val listData = mutableListOf<T>()
     protected val listDataNested = mutableListOf<MutableList<T>>()
     protected var listCount = 0
 
     protected var layoutRv: Int = 0
     protected var customLayoutRestId: Int = 0
     protected var emptyLayoutResId: Int = R.layout.frogo_rv_container_empty_view
+
+    override fun adapterAreContentsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
+        return viewListener?.areContentsTheSame(oldItem, newItem) ?: false
+    }
+
+    override fun adapterAreItemsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
+        return viewListener?.areItemsTheSame(oldItem, newItem) ?: false
+    }
 
     fun bindNestedHolder() {
 
@@ -112,14 +71,14 @@ abstract class FrogoRecyclerViewAdapter<T> :
                 }
             } else {
                 if (hasEmptyView) {
-                    listCount = if (listData.size == 0) {
+                    listCount = if (asyncListDiffer.currentList.size == 0) {
                         1
                     } else {
-                        listData.size
+                        asyncListDiffer.currentList.size
                     }
                     listCount
                 } else {
-                    listData.size
+                    asyncListDiffer.currentList.size
                 }
             }
         }
@@ -149,11 +108,11 @@ abstract class FrogoRecyclerViewAdapter<T> :
                 }
             } else {
                 if (hasEmptyView) {
-                    if (listData.size != 0) {
-                        holder.bindItem(listData[position], position, viewListener, notifyListener)
+                    if (asyncListDiffer.currentList.size != 0) {
+                        holder.bindItem(asyncListDiffer.currentList[position], position, viewListener, notifyListener)
                     }
                 } else {
-                    holder.bindItem(listData[position], position, viewListener, notifyListener)
+                    holder.bindItem(asyncListDiffer.currentList[position], position, viewListener, notifyListener)
                 }
             }
         }
@@ -181,72 +140,7 @@ abstract class FrogoRecyclerViewAdapter<T> :
         super.onViewRecycled(holder)
     }
 
-    // Notify Data List
-    fun innerFrogoNotifyData(): MutableList<T> {
-        return listData
-    }
-
-    // Notify Data Set Changed
-    fun innerFrogoNotifyDataSetChanged() {
-        notifyDataSetChanged()
-    }
-
-    // Notify Data Item Changed
-    fun innerFrogoNotifyItemChanged(data: T, position: Int, payload: Any) {
-        listData[position] = data
-        notifyItemChanged(position, payload)
-    }
-
-    // Notify Data Item Changed
-    fun innerFrogoNotifyItemChanged(data: T, position: Int) {
-        listData[position] = data
-        notifyItemChanged(position)
-    }
-
-    // Notify Data Item Inserted
-    fun innerFrogoNotifyItemInserted(data: T, position: Int) {
-        listData.add(position, data)
-        notifyItemInserted(position)
-    }
-
-    // Notify Data Item Moved
-    fun innerFrogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
-        listData.removeAt(fromPosition)
-        listData.add(toPosition, data)
-        notifyItemMoved(fromPosition, toPosition)
-    }
-
-    // Notify Data Item Range Changed
-    fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
-        listData.addAll(positionStart, data)
-        notifyItemRangeChanged(positionStart, data.size, payload)
-    }
-
-    // Notify Data Item Range Changed
-    fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
-        listData.addAll(positionStart, data)
-        notifyItemRangeChanged(positionStart, data.size)
-    }
-
-    // Notify Data Item Range Inserted
-    fun innerFrogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
-        listData.addAll(positionStart, data)
-        notifyItemRangeChanged(positionStart, data.size)
-    }
-
-    // Notify Data Item Range Removed
-    fun innerFrogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
-        listData.subList(positionStart, (positionStart + itemCount)).clear()
-        notifyItemRangeRemoved(positionStart, itemCount)
-    }
-
-    // Notify Data Item Removed
-    fun innerFrogoNotifyItemRemoved(position: Int) {
-        listData.removeAt(position)
-        notifyItemRemoved(position)
-    }
-
-    fun layoutHandling() {
+    open fun layoutHandling() {
         if (hasMultiHolder) {
             if (customLayoutRestId != 0) {
                 layoutRv = if (frogoHolder.isNotEmpty()) {
@@ -257,7 +151,7 @@ abstract class FrogoRecyclerViewAdapter<T> :
             }
         } else {
             if (customLayoutRestId != 0) {
-                layoutRv = if (listData.isNotEmpty()) {
+                layoutRv = if (asyncListDiffer.currentList.isNotEmpty()) {
                     customLayoutRestId
                 } else {
                     emptyLayoutResId
@@ -266,25 +160,25 @@ abstract class FrogoRecyclerViewAdapter<T> :
         }
     }
 
-    fun viewLayout(parent: ViewGroup): View {
+    open fun viewLayout(parent: ViewGroup): View {
         return LayoutInflater.from(parent.context).inflate(layoutRv, parent, false)
     }
 
-    fun viewLayout(parent: ViewGroup, layoutResId: Int): View {
+    open fun viewLayout(parent: ViewGroup, layoutResId: Int): View {
         customLayoutRestId = layoutResId
         layoutHandling()
         return LayoutInflater.from(parent.context).inflate(layoutRv, parent, false)
     }
 
-    fun setupNestedView() {
+    open fun setupNestedView() {
         hasNestedView = true
     }
 
-    fun setupMultiHolder() {
+    open fun setupMultiHolder() {
         hasMultiHolder = true
     }
 
-    fun setupEmptyView(emptyView: Int?) {
+    open fun setupEmptyView(emptyView: Int?) {
         hasEmptyView = true
         if (emptyView != null) {
             emptyLayoutResId = emptyView
@@ -292,7 +186,7 @@ abstract class FrogoRecyclerViewAdapter<T> :
         layoutHandling()
     }
 
-    fun setupDataNested(data: List<MutableList<T>>?) {
+    open fun setupDataNested(data: List<MutableList<T>>?) {
         this.listDataNested.clear()
 
         if (data != null) {
@@ -300,25 +194,25 @@ abstract class FrogoRecyclerViewAdapter<T> :
         }
     }
 
-    fun setupData(data: List<T>?) {
-        this.listData.clear()
+    open fun setupData(data: List<T>?) {
+        this.asyncListDiffer.currentList.clear()
 
         if (data != null) {
-            this.listData.addAll(data)
+            this.asyncListDiffer.submitList(data)
         }
     }
 
-    fun setupListener(listener: FrogoRecyclerViewListener<T>?) {
+    open fun setupListener(listener: FrogoRecyclerViewListener<T>?) {
         if (listener != null) {
             viewListener = listener
         }
     }
 
-    fun setupCustomLayout(customViewId: Int) {
+    open fun setupCustomLayout(customViewId: Int) {
         customLayoutRestId = customViewId
     }
 
-    fun setupRequirement(
+    open fun setupRequirement(
         customViewId: Int,
         data: List<T>?,
         listener: FrogoRecyclerViewListener<T>?
@@ -328,17 +222,17 @@ abstract class FrogoRecyclerViewAdapter<T> :
             viewListener = listener
         }
 
-        this.listData.clear()
+        this.asyncListDiffer.currentList.clear()
 
         if (data != null) {
-            this.listData.addAll(data)
+            this.asyncListDiffer.submitList(data)
         }
 
         customLayoutRestId = customViewId
         layoutHandling()
     }
 
-    fun setupRequirement(viewHolder: List<FrogoHolder<T>>) {
+    open fun setupRequirement(viewHolder: List<FrogoHolder<T>>) {
         frogoHolder.addAll(viewHolder)
     }
 

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * RecyclerViewAdapter
@@ -20,7 +20,8 @@ import com.frogobox.recycler.R
  * com.frogobox.recycler
  *
  */
-open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
+
+open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoRv<T> {
 
     protected lateinit var frogoRecycleView: RecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoViewAdapter<T>
@@ -72,6 +73,11 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     override fun createLayoutGrid(spanCount: Int): FrogoSingleRv<T> {
         baseCreateLayoutGrid(spanCount)
+        return this
+    }
+
+    override fun createLayoutFlexBox(flexDirection: Int, justifyContent: Int): FrogoSingleRv<T> {
+        baseCreateLayoutFlexBox(flexDirection, justifyContent)
         return this
     }
 
@@ -140,6 +146,14 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
                         notifyListener: FrogoRecyclerNotifyListener<T>
                     ) {
                         frogoAdapterCallback.onItemLongClicked(view, data, position, notifyListener)
+                    }
+
+                    override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+                        return frogoAdapterCallback.areItemsTheSame(oldItem, newItem)
+                    }
+
+                    override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+                        return frogoAdapterCallback.areContentsTheSame(oldItem, newItem)
                     }
                 })
             frogoViewAdapter.setupEmptyView(emptyViewId)

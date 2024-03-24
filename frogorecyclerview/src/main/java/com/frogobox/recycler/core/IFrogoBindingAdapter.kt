@@ -18,7 +18,7 @@ import androidx.viewbinding.ViewBinding
  * com.frogobox.recycler.callback
  * 
  */
-interface IFrogoBindingAdapter<T, VB : ViewBinding> {
+interface IFrogoBindingAdapter<T, VB : ViewBinding> : FrogoDiffUtilCallback<T> {
 
     // Setup View Binding
     fun setViewBinding(parent: ViewGroup): VB
@@ -45,6 +45,7 @@ interface IFrogoBindingAdapter<T, VB : ViewBinding> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    )
+    ) {
+    }
 
 }

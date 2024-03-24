@@ -2,12 +2,15 @@ package com.frogobox.recycler.core
 
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.core.FrogoLayoutManager.dividerItemVertical
+import com.frogobox.recycler.core.FrogoLayoutManager.flexboxLayout
 import com.frogobox.recycler.core.FrogoLayoutManager.gridLayout
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutHorizontal
 import com.frogobox.recycler.core.FrogoLayoutManager.linearLayoutVertical
 import com.frogobox.recycler.core.FrogoLayoutManager.staggeredGridLayout
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.JustifyContent
 
-/*
+/**
  * Created by faisalamir on 31/05/21
  * RecyclerView
  * -----------------------------------------
@@ -19,6 +22,7 @@ import com.frogobox.recycler.core.FrogoLayoutManager.staggeredGridLayout
  * All rights reserved
  *
  */
+
 abstract class FrogoSingleRvBase<T> {
 
     protected val listDataFH = mutableListOf<FrogoHolder<T>>()
@@ -29,6 +33,8 @@ abstract class FrogoSingleRvBase<T> {
     protected var optionDividerItem = false
     protected var optionReverseLayout = false
     protected var optionStackFromEnd = false
+    protected var flexDirection: Int = FlexDirection.ROW
+    protected var justifyContent: Int = JustifyContent.FLEX_START
 
     protected fun baseCreateLayoutLinearVertical(dividerItem: Boolean) {
         optionLayoutManager = FrogoRvConstant.LAYOUT_LINEAR_VERTICAL
@@ -72,17 +78,23 @@ abstract class FrogoSingleRvBase<T> {
         layoutSpanCount = spanCount
     }
 
-    protected fun setupLayoutManager(frogoRV: RecyclerView) {
+    protected fun baseCreateLayoutFlexBox(flexDirection: Int, justifyContent: Int) {
+        optionLayoutManager = FrogoRvConstant.LAYOUT_FLEXBOX
+        this.flexDirection = flexDirection
+        this.justifyContent = justifyContent
+    }
 
-        val context = frogoRV.context
+    protected fun setupLayoutManager(rv: RecyclerView) {
+
+        val context = rv.context
 
         if (listData.isNotEmpty() || listDataFH.isNotEmpty()) {
 
             if (optionDividerItem) {
-                frogoRV.addItemDecoration(dividerItemVertical(context))
+                rv.addItemDecoration(dividerItemVertical(context))
             }
 
-            frogoRV.layoutManager = when (optionLayoutManager) {
+            rv.layoutManager = when (optionLayoutManager) {
                 FrogoRvConstant.LAYOUT_LINEAR_VERTICAL -> {
                     linearLayoutVertical(context)
                 }
@@ -105,6 +117,10 @@ abstract class FrogoSingleRvBase<T> {
 
                 FrogoRvConstant.LAYOUT_STAGGERED_GRID -> {
                     staggeredGridLayout(layoutSpanCount)
+                }
+
+                FrogoRvConstant.LAYOUT_FLEXBOX -> {
+                    flexboxLayout(context, flexDirection, justifyContent)
                 }
 
                 else -> {

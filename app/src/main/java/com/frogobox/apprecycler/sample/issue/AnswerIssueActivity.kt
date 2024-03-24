@@ -46,6 +46,14 @@ class AnswerIssueActivity : BaseActivity<ActivityAnswerIssueBinding>() {
                 )
             }
 
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
+            }
+
             override fun setupInitComponent(
                 binding: ItemAnswerIssueBinding,
                 data: ExampleModel,

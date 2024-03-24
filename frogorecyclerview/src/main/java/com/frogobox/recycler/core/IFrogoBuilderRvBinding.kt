@@ -17,7 +17,7 @@ import androidx.viewbinding.ViewBinding
  * All rights reserved
  *
  */
-interface IFrogoBuilderRvBinding<T, VB : ViewBinding> {
+interface IFrogoBuilderRvBinding<T, VB : ViewBinding>  : FrogoDiffUtilCallback<T> {
 
     // Setup data FrogoRecyclerView
     fun setupData(): List<T>
@@ -50,6 +50,6 @@ interface IFrogoBuilderRvBinding<T, VB : ViewBinding> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    )
+    ) {}
 
 }

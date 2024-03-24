@@ -1,7 +1,13 @@
 package com.frogobox.recycler.widget
 
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.frogobox.recycler.core.*
+import com.frogobox.recycler.core.FrogoBindingAdapter
+import com.frogobox.recycler.core.FrogoSingleRv
+import com.frogobox.recycler.core.FrogoSingleRvBinding
+import com.frogobox.recycler.core.FrogoViewAdapter
+import com.frogobox.recycler.core.IFrogoBuilderRv
+import com.frogobox.recycler.core.IFrogoBuilderRvBinding
 
 /**
  * Created by Faisal Amir
@@ -24,16 +30,16 @@ import com.frogobox.recycler.core.*
 interface IFrogoRecyclerView {
 
     // Setup linear vertical recycler view
-    fun isViewLinearVertical(dividerItem: Boolean)
+    fun isViewLinearVertical(dividerItem: Boolean = false)
 
     // Setup linear horizontal recycler view
-    fun isViewLinearHorizontal(dividerItem: Boolean)
+    fun isViewLinearHorizontal(dividerItem: Boolean = false)
 
     // Setup staggered grid recycler view
-    fun isViewStaggeredGrid(spanCount: Int)
+    fun isViewStaggeredGrid(spanCount: Int = 1)
 
     // Setup grid recycler view
-    fun isViewGrid(spanCount: Int)
+    fun isViewGrid(spanCount: Int = 1)
 
     // Setup SingletonRclass
     fun <T> injector(): FrogoSingleRv<T>
@@ -46,5 +52,13 @@ interface IFrogoRecyclerView {
 
     // Setup Builder Binding
     fun <T, VB : ViewBinding> builderBinding(listener: IFrogoBuilderRvBinding<T, VB>)
+
+    fun <T> getAdapterExt(): FrogoViewAdapter<T>
+
+    fun <T> setupData(data: List<T>)
+
+    fun <T, VB : ViewBinding> getAdapterBindingExt(): FrogoBindingAdapter<T, VB>
+
+    fun <T, VB : ViewBinding> setupDataBinding(data: List<T>)
 
 }

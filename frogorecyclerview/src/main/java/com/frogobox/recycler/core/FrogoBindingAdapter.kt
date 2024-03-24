@@ -3,7 +3,7 @@ package com.frogobox.recycler.core
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
@@ -18,6 +18,7 @@ import androidx.viewbinding.ViewBinding
  * com.frogobox.recycler.content
  * 
  */
+
 class FrogoBindingAdapter<T, VB : ViewBinding> : FrogoRecyclerBindingAdapter<T, VB>() {
 
     private var frogoViewHolderCallback: IFrogoBindingHolder<T, VB>? = null

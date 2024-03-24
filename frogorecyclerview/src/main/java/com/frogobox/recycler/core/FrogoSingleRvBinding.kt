@@ -20,7 +20,7 @@ import androidx.viewbinding.ViewBinding
  *
  */
 open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
-    IFrogoSingleRvBinding<T, VB> {
+    IFrogoRvBinding<T, VB> {
 
     protected lateinit var frogoRecycleView: RecyclerView
     protected lateinit var frogoAdapterCallback: IFrogoBindingAdapter<T, VB>
@@ -72,6 +72,14 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
         return this
     }
 
+    override fun createLayoutFlexBox(
+        flexDirection: Int,
+        justifyContent: Int
+    ): FrogoSingleRvBinding<T, VB> {
+        baseCreateLayoutFlexBox(flexDirection, justifyContent)
+        return this
+    }
+
     override fun addData(listData: List<T>): FrogoSingleRvBinding<T, VB> {
         this.listData.addAll(listData)
         return this
@@ -119,6 +127,14 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
                     notifyListener: FrogoRecyclerNotifyListener<T>
                 ) {
                     frogoAdapterCallback.onItemLongClicked(binding, data, position, notifyListener)
+                }
+
+                override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+                    return frogoAdapterCallback.areItemsTheSame(oldItem, newItem)
+                }
+
+                override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+                    return frogoAdapterCallback.areContentsTheSame(oldItem, newItem)
                 }
             })
     }

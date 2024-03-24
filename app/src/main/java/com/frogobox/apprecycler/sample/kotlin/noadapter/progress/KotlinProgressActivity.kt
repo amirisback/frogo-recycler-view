@@ -64,6 +64,14 @@ class KotlinProgressActivity : BaseActivity<ActivityKotlinProgressBinding>() {
                 // setup item long clicked on frogo recycler view
                 data.title?.let { showToast(it) }
             }
+
+            override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem.title == newItem.title
+            }
+
+            override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem == newItem
+            }
         }
 
         binding.rvProgress.defineRecyclerView<Article>()
