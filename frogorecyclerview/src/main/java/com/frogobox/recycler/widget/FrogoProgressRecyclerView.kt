@@ -11,7 +11,7 @@ import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentFrogoRecyc
 import com.frogobox.recycler.databinding.WidgetFrogoProgressRecyclerviewBinding
 import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentProgressBar
 
-/*
+/**
  * Created by Faisal Amir on 17/02/2021
  * FrogoRecyclerView Source Code
  * -----------------------------------------
@@ -23,6 +23,7 @@ import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentProgressBa
  * All rights reserved
  *
  */
+
 class FrogoProgressRecyclerView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

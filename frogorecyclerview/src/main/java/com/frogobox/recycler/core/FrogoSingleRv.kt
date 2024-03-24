@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * RecyclerViewAdapter
@@ -20,6 +20,7 @@ import com.frogobox.recycler.R
  * com.frogobox.recycler
  *
  */
+
 open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
 
     protected lateinit var frogoRecycleView: RecyclerView
