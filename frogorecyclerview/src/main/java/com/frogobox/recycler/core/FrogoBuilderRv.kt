@@ -61,6 +61,14 @@ class FrogoBuilderRv<T> : FrogoBuilderRvBase<T>() {
                 ) {
                     viewListener.onItemLongClicked(view, data, position, notifyListener)
                 }
+
+                override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+                    return viewListener.areItemsTheSame(oldItem, newItem)
+                }
+
+                override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+                    return viewListener.areContentsTheSame(oldItem, newItem)
+                }
             })
 
         if (viewListener.setupEmptyView() != null) {

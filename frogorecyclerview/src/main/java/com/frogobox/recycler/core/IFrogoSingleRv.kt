@@ -24,30 +24,30 @@ interface IFrogoSingleRv<T> {
     fun initSingleton(frogoRecyclerView: RecyclerView): FrogoSingleRv<T>
     
     // Create Linear Vertical Layout Manager
-    fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRv<T>
+    fun createLayoutLinearVertical(dividerItem: Boolean = false): FrogoSingleRv<T>
 
     // Create Linear Vertical Layout Manager From End
     fun createLayoutLinearVertical(
-        dividerItem: Boolean,
-        reverseLayout: Boolean,
-        stackFromEnd: Boolean
+        dividerItem: Boolean = false,
+        reverseLayout: Boolean = false,
+        stackFromEnd: Boolean = false
     ): FrogoSingleRv<T>
 
     // Create Linear Horizontal Layout Manager
-    fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSingleRv<T>
+    fun createLayoutLinearHorizontal(dividerItem: Boolean = false): FrogoSingleRv<T>
 
     // Create Linear Horizontal Layout Manager From End
     fun createLayoutLinearHorizontal(
-        dividerItem: Boolean,
-        reverseLayout: Boolean,
-        stackFromEnd: Boolean
+        dividerItem: Boolean = false,
+        reverseLayout: Boolean = false,
+        stackFromEnd: Boolean = false
     ): FrogoSingleRv<T>
 
     // Create Staggered Grid Layout Manager
-    fun createLayoutStaggeredGrid(spanCount: Int): FrogoSingleRv<T>
+    fun createLayoutStaggeredGrid(spanCount: Int = 1): FrogoSingleRv<T>
 
     // Create Grid Layout Manager
-    fun createLayoutGrid(spanCount: Int): FrogoSingleRv<T>
+    fun createLayoutGrid(spanCount: Int = 1): FrogoSingleRv<T>
     
     // Adding Data for RecyclerView
     fun addData(listData: List<T>): FrogoSingleRv<T>
@@ -59,7 +59,7 @@ interface IFrogoSingleRv<T> {
     fun addCustomView(customViewInt: Int): FrogoSingleRv<T>
 
     // Adding Empty View layout if data is Empty
-    fun addEmptyView(emptyViewInt: Int?): FrogoSingleRv<T>
+    fun addEmptyView(emptyViewInt: Int? = null): FrogoSingleRv<T>
 
     // Adding Callback for adapter
     fun addCallback(frogoViewAdapterCallback: IFrogoViewAdapter<T>): FrogoSingleRv<T>

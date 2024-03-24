@@ -66,6 +66,16 @@ public class JavaNoAdapterMultiViewActivity extends BaseJavaActivity<ActivityFro
     private FrogoRecyclerViewListener<ExampleModel> firstListenerType() {
         return new FrogoRecyclerViewListener<>() {
             @Override
+            public boolean areContentsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem == newItem;
+            }
+
+            @Override
+            public boolean areItemsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem.getName().equals(newItem.getName());
+            }
+
+            @Override
             public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 showToast(data.getName() + " First");
             }
@@ -79,6 +89,16 @@ public class JavaNoAdapterMultiViewActivity extends BaseJavaActivity<ActivityFro
 
     private FrogoRecyclerViewListener<ExampleModel> secondListenerType() {
         return new FrogoRecyclerViewListener<>() {
+            @Override
+            public boolean areContentsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem == newItem;
+            }
+
+            @Override
+            public boolean areItemsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem.getName().equals(newItem.getName());
+            }
+
             @Override
             public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 showToast(data.getName() + " Second");

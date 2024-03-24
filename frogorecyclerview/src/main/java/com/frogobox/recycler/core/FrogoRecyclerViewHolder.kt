@@ -21,15 +21,19 @@ import androidx.recyclerview.widget.RecyclerView
  * com.frogobox.frogoviewadapter
  *
  */
-abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+abstract class FrogoRecyclerViewHolder<T>(view: View) : BaseRecyclerViewHolder<T>(view) {
 
-    abstract fun initComponent(data: T, position: Int, notifyListener: FrogoRecyclerNotifyListener<T>) // component view
+    abstract fun initComponent(
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    ) // component view
 
-    fun getLinearLayoutManager(recyclerView: RecyclerView): LinearLayoutManager {
+    open fun getLinearLayoutManager(recyclerView: RecyclerView): LinearLayoutManager {
         return recyclerView.layoutManager as LinearLayoutManager
     }
 
-    fun bindItem(
+    open fun bindItem(
         data: T?,
         position: Int,
         viewListener: FrogoRecyclerViewListener<T>?,
@@ -37,11 +41,11 @@ abstract class FrogoRecyclerViewHolder<T>(view: View) : RecyclerView.ViewHolder(
     ) {
         if (data != null) {
             onItemViewClicked(data, position, viewListener, notifyListener)
-            initComponent(data, position,notifyListener)
+            initComponent(data, position, notifyListener)
         }
     }
 
-    private fun onItemViewClicked(
+    open fun onItemViewClicked(
         data: T?,
         position: Int,
         viewListener: FrogoRecyclerViewListener<T>?,

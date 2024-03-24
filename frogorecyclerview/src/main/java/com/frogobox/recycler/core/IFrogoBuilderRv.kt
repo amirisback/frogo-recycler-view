@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
  * All rights reserved
  *
  */
-interface IFrogoBuilderRv<T> {
+interface IFrogoBuilderRv<T>  : FrogoDiffUtilCallback<T> {
 
     // Setup data FrogoRecyclerView
     fun setupData(): List<T>
@@ -52,6 +52,6 @@ interface IFrogoBuilderRv<T> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    )
+    ) {}
 
 }

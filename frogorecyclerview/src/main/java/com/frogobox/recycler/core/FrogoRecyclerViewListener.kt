@@ -19,7 +19,7 @@ import android.view.View
  * com.frogobox.frogoviewadapter
  *
  */
-interface FrogoRecyclerViewListener<T> {
+interface FrogoRecyclerViewListener<T> : FrogoDiffUtilCallback<T> {
 
     // on itemview set on click listener
     fun onItemClicked(view: View, data: T, position: Int, notifyListener: FrogoRecyclerNotifyListener<T>)
@@ -30,6 +30,6 @@ interface FrogoRecyclerViewListener<T> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    )
+    ) {}
 
 }

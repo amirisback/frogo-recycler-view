@@ -46,6 +46,16 @@ public class JavaNoAdapterActivity extends BaseJavaActivity<ActivityFrogoRvListB
 
         IFrogoViewAdapter frogoViewAdapterCallback = new IFrogoViewAdapter<ExampleModel>() {
             @Override
+            public boolean areContentsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem == newItem;
+            }
+
+            @Override
+            public boolean areItemsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem.getName().equals(newItem.getName());
+            }
+
+            @Override
             public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 // setup item long clicked on frogo recycler view
                 showToast(data.getName());

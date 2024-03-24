@@ -24,17 +24,17 @@ interface IFrogoSingleRvBinding<T, VB : ViewBinding> {
     fun initSingleton(frogoRecyclerView: RecyclerView): FrogoSingleRvBinding<T, VB>
 
     // Create Linear Vertical Layout Manager
-    fun createLayoutLinearVertical(dividerItem: Boolean): FrogoSingleRvBinding<T, VB>
+    fun createLayoutLinearVertical(dividerItem: Boolean= false): FrogoSingleRvBinding<T, VB>
 
     // Create Linear Vertical Layout Manager From End
     fun createLayoutLinearVertical(
-        dividerItem: Boolean,
-        reverseLayout: Boolean,
-        stackFromEnd: Boolean
+        dividerItem: Boolean = false,
+        reverseLayout: Boolean = false,
+        stackFromEnd: Boolean = false
     ): FrogoSingleRvBinding<T, VB>
 
     // Create Linear Horizontal Layout Manager
-    fun createLayoutLinearHorizontal(dividerItem: Boolean): FrogoSingleRvBinding<T, VB>
+    fun createLayoutLinearHorizontal(dividerItem: Boolean = false): FrogoSingleRvBinding<T, VB>
 
     // Create Linear Horizontal Layout Manager From End
     fun createLayoutLinearHorizontal(
@@ -44,10 +44,10 @@ interface IFrogoSingleRvBinding<T, VB : ViewBinding> {
     ): FrogoSingleRvBinding<T, VB>
 
     // Create Staggered Grid Layout Manager
-    fun createLayoutStaggeredGrid(spanCount: Int): FrogoSingleRvBinding<T, VB>
+    fun createLayoutStaggeredGrid(spanCount: Int = 1): FrogoSingleRvBinding<T, VB>
 
     // Create Grid Layout Manager
-    fun createLayoutGrid(spanCount: Int): FrogoSingleRvBinding<T, VB>
+    fun createLayoutGrid(spanCount: Int = 1): FrogoSingleRvBinding<T, VB>
 
     // Adding Data for RecyclerView
     fun addData(listData: List<T>): FrogoSingleRvBinding<T, VB>
@@ -61,7 +61,7 @@ interface IFrogoSingleRvBinding<T, VB : ViewBinding> {
     // ---------------------------------------------------------------------------------------------
 
     // Notify Data List
-    fun frogoNotifyData() : MutableList<T>
+    fun frogoNotifyData(): MutableList<T>
 
     // Notify Data Set Changed
     fun frogoNotifyDataSetChanged()

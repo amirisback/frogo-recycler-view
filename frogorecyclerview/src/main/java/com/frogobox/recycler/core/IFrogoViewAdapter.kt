@@ -2,7 +2,7 @@ package com.frogobox.recycler.core
 
 import android.view.View
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
@@ -17,7 +17,8 @@ import android.view.View
  * com.frogobox.recycler.callback
  * 
  */
-interface IFrogoViewAdapter<T> {
+
+interface IFrogoViewAdapter<T>  : FrogoDiffUtilCallback<T> {
 
     // Setup Init Component on ViewHolder
     fun setupInitComponent(
@@ -41,6 +42,6 @@ interface IFrogoViewAdapter<T> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    )
+    ) {}
 
 }

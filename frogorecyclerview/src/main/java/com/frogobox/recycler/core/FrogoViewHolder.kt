@@ -2,7 +2,7 @@ package com.frogobox.recycler.core
 
 import android.view.View
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
@@ -17,6 +17,7 @@ import android.view.View
  * com.frogobox.recycler
  * 
  */
+
 class FrogoViewHolder<T>(view: View, private val frogoViewHolderCallback: IFrogoViewHolder<T>?) :
     FrogoRecyclerViewHolder<T>(view) {
 

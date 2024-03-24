@@ -46,6 +46,16 @@ public class JavaSampleActivity extends BaseJavaActivity<ActivityFrogoRvListBind
         JavaSampleViewAdapter adapter = new JavaSampleViewAdapter();
         adapter.setupRequirement(R.layout.frogo_rv_list_type_1, listData(), new FrogoRecyclerViewListener<ExampleModel>() {
             @Override
+            public boolean areContentsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem == newItem;
+            }
+
+            @Override
+            public boolean areItemsTheSame(ExampleModel oldItem, ExampleModel newItem) {
+                return oldItem.getName().equals(newItem.getName());
+            }
+
+            @Override
             public void onItemLongClicked(@NonNull View view, ExampleModel data, int position, @NonNull FrogoRecyclerNotifyListener<ExampleModel> notifyListener) {
                 Toast.makeText(JavaSampleActivity.this, data.getName(), Toast.LENGTH_LONG).show();
             }

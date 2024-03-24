@@ -8,13 +8,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.apprecycler.core.BaseActivity
-import com.frogobox.ui.databinding.FrogoRvListType1Binding
-import com.frogobox.ui.R
-import com.frogobox.recycler.core.*
 import com.frogobox.apprecycler.databinding.ActivityBaseBinding
 import com.frogobox.apprecycler.model.ExampleModel
 import com.frogobox.apprecycler.util.Constant
 import com.frogobox.apprecycler.util.FLog
+import com.frogobox.recycler.core.FrogoLayoutManager
+import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
+import com.frogobox.recycler.core.IFrogoBindingAdapter
+import com.frogobox.recycler.core.IFrogoBuilderRv
+import com.frogobox.recycler.core.IFrogoBuilderRvBinding
+import com.frogobox.recycler.core.IFrogoViewAdapter
+import com.frogobox.ui.R
+import com.frogobox.ui.databinding.FrogoRvListType1Binding
 
 class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
 
@@ -87,6 +92,14 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 FLog.d("Clicked on Position : $position")
                 showToast(data.name)
             }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
+            }
+
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
+            }
         }
 
         binding.frogoRecyclerView.injector<ExampleModel>()
@@ -116,6 +129,14 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                     parent,
                     false
                 )
+            }
+
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
             }
 
             override fun onItemClicked(
@@ -168,6 +189,14 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
             override fun setupLayoutManager(context: Context): RecyclerView.LayoutManager {
                 // Setup Layout Manager of FrogoRecyclerView
                 return FrogoLayoutManager.linearLayoutVertical(context)
+            }
+
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
             }
 
             override fun setupInitComponent(
@@ -232,6 +261,14 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                     parent,
                     false
                 )
+            }
+
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
             }
 
             override fun onItemClicked(

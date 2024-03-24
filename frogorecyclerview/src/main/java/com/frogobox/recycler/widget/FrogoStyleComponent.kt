@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.ProgressBar
 import com.frogobox.recycler.R
 
-/*
+/**
  * Created by faisalamir on 09/05/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -17,6 +17,7 @@ import com.frogobox.recycler.R
  * All rights reserved
  *
  */
+
 object FrogoStyleComponent : IFrogoStyleComponent {
 
     override fun setupComponentFrogoRecyclerView(

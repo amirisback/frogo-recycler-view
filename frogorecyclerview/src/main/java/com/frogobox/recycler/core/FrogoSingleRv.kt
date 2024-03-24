@@ -141,6 +141,14 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoSingleRv<T> {
                     ) {
                         frogoAdapterCallback.onItemLongClicked(view, data, position, notifyListener)
                     }
+
+                    override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+                        return frogoAdapterCallback.areItemsTheSame(oldItem, newItem)
+                    }
+
+                    override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+                        return frogoAdapterCallback.areContentsTheSame(oldItem, newItem)
+                    }
                 })
             frogoViewAdapter.setupEmptyView(emptyViewId)
 

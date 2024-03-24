@@ -48,6 +48,20 @@ class KotlinSampleActivity : BaseActivity<ActivityFrogoRvListBinding>() {
                 ) {
                     Toast.makeText(this@KotlinSampleActivity, data.name, Toast.LENGTH_SHORT).show()
                 }
+
+                override fun areItemsTheSame(
+                    oldItem: ExampleModel,
+                    newItem: ExampleModel
+                ): Boolean {
+                    return oldItem.name == newItem.name
+                }
+
+                override fun areContentsTheSame(
+                    oldItem: ExampleModel,
+                    newItem: ExampleModel
+                ): Boolean {
+                    return oldItem == newItem
+                }
             }
         )
         adapter.setupEmptyView(R.layout.frogo_container_empty_view) // With Custom View

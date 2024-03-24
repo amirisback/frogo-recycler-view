@@ -16,7 +16,7 @@ import androidx.viewbinding.ViewBinding
  *
  */
 
-interface FrogoRecyclerBindingListener<T, VB : ViewBinding> {
+interface FrogoRecyclerBindingListener<T, VB : ViewBinding> : FrogoDiffUtilCallback<T> {
 
     // on itemview set on click listener
     fun onItemClicked(

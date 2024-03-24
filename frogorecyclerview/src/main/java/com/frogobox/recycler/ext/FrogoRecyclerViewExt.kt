@@ -5,7 +5,7 @@ import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.core.*
 
 
-/*
+/**
  * Created by faisalamir on 12/04/22
  * FrogoRecyclerView
  * -----------------------------------------

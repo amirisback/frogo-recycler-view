@@ -62,6 +62,14 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
                 position: Int,
                 notifyListener: FrogoRecyclerNotifyListener<String>
             ) {}
+
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+                return oldItem.hashCode() == newItem.hashCode()
+            }
+
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+                return oldItem == newItem
+            }
         }
 
         srvFrogoViewAdapter = FrogoViewAdapter()
@@ -94,6 +102,13 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
                     notifyListener: FrogoRecyclerNotifyListener<String>
                 ) {
                     srvFrogoAdapterCallback.onItemLongClicked(view, data, position, notifyListener)
+                }
+                override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+                    return oldItem.hashCode() == newItem.hashCode()
+                }
+
+                override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+                    return oldItem == newItem
                 }
             })
 

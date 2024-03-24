@@ -114,6 +114,14 @@ class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
                     ) {
                         showToast("Long Click : $data")
                     }
+
+                    override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+                        return oldItem.title == newItem.title
+                    }
+
+                    override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+                        return oldItem == newItem
+                    }
                 }
             }
 

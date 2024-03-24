@@ -111,6 +111,14 @@ class FrogoRvExtActivity : BaseActivity<ActivityFrogoRvExtBinding>() {
                 // setup item long clicked on frogo recycler view
                 FLog.d("Clicked on Position : $position")
             }
+
+            override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem.title == newItem.title
+            }
+
+            override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem == newItem
+            }
         }
 
         binding.rv.injector<Article>()

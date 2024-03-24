@@ -76,6 +76,14 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>
             ) {
                 showToast("LAYOUT TYPE 1")
             }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
+            }
+
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 
@@ -97,6 +105,14 @@ class KotlinNoAdapterMultiVewActivity : BaseActivity<ActivityFrogoRvGridBinding>
                 notifyListener: FrogoRecyclerNotifyListener<ExampleModel>
             ) {
                 showToast("LAYOUT TYPE 2")
+            }
+
+            override fun areItemsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem.name == newItem.name
+            }
+
+            override fun areContentsTheSame(oldItem: ExampleModel, newItem: ExampleModel): Boolean {
+                return oldItem == newItem
             }
         }
     }
