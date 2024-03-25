@@ -212,8 +212,8 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoRv<T> {
         frogoViewAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
     }
 
-    override fun frogoNotifyItemRemoved(position: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemRemoved(position)
+    override fun frogoNotifyItemRemoved(item: T) {
+        frogoViewAdapter.innerFrogoNotifyItemRemoved(item)
     }
 
 }

@@ -27,8 +27,8 @@ object Constant {
 
     fun dummyData(cons : String): MutableList<ExampleModel> {
         val listString = mutableListOf<ExampleModel>()
-        for (i in 1..5) {
-            listString.add(ExampleModel(cons))
+        for (i in 0..5) {
+            listString.add(ExampleModel("$cons - $i"))
         }
         return listString
     }

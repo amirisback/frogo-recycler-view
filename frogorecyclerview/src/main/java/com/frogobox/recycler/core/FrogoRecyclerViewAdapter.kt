@@ -132,7 +132,7 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, Fro
 
     override fun onViewRecycled(holder: FrogoRecyclerViewHolder<T>) {
         if (hasNestedView) {
-            val position = holder.adapterPosition
+            val position = holder.absoluteAdapterPosition
             val nestedHolder = holder as FrogoNestedHolder<T>
             listPosition[position] =
                 nestedHolder.getLinearLayoutManager().findFirstVisibleItemPosition()
@@ -198,7 +198,8 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, Fro
         this.asyncListDiffer.currentList.clear()
 
         if (data != null) {
-            this.asyncListDiffer.submitList(data)
+            listData.addAll(data)
+            this.asyncListDiffer.submitList(listData)
         }
     }
 
@@ -217,18 +218,9 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, Fro
         data: List<T>?,
         listener: FrogoRecyclerViewListener<T>?
     ) {
-
-        if (listener != null) {
-            viewListener = listener
-        }
-
-        this.asyncListDiffer.currentList.clear()
-
-        if (data != null) {
-            this.asyncListDiffer.submitList(data)
-        }
-
-        customLayoutRestId = customViewId
+        setupListener(listener)
+        setupData(data)
+        setupCustomLayout(customViewId)
         layoutHandling()
     }
 

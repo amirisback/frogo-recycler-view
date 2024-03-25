@@ -1,5 +1,6 @@
 package com.frogobox.recycler.core
 
+import android.util.Log
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,8 @@ abstract class CoreFrogoRecyclerViewAdapter<T, VH : CoreFrogoRecyclerViewHolder<
     /**
      * Base Of Core FrogoRecyclerViewHolder
      */
+    
+    protected val listData = mutableListOf<T>()
 
     protected var notifyListener = object : FrogoRecyclerNotifyListener<T> {
 
@@ -62,8 +65,8 @@ abstract class CoreFrogoRecyclerViewAdapter<T, VH : CoreFrogoRecyclerViewHolder<
             innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
         }
 
-        override fun frogoNotifyItemRemoved(position: Int) {
-            innerFrogoNotifyItemRemoved(position)
+        override fun frogoNotifyItemRemoved(item: T) {
+            innerFrogoNotifyItemRemoved(item)
         }
 
     }
@@ -88,7 +91,7 @@ abstract class CoreFrogoRecyclerViewAdapter<T, VH : CoreFrogoRecyclerViewHolder<
 
     // Notify Data List
     fun innerFrogoNotifyData(): MutableList<T> {
-        return asyncListDiffer.currentList
+        return listData
     }
 
     // Notify Data Set Changed
@@ -98,57 +101,67 @@ abstract class CoreFrogoRecyclerViewAdapter<T, VH : CoreFrogoRecyclerViewHolder<
 
     // Notify Data Item Changed
     fun innerFrogoNotifyItemChanged(data: T, position: Int, payload: Any) {
-        asyncListDiffer.currentList[position] = data
+        listData[position] = data
         notifyItemChanged(position, payload)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Changed
     fun innerFrogoNotifyItemChanged(data: T, position: Int) {
-        asyncListDiffer.currentList[position] = data
+        listData[position] = data
         notifyItemChanged(position)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Inserted
     fun innerFrogoNotifyItemInserted(data: T, position: Int) {
-        asyncListDiffer.currentList.add(position, data)
+        listData.add(position, data)
         notifyItemInserted(position)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Moved
     fun innerFrogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
-        asyncListDiffer.currentList.removeAt(fromPosition)
-        asyncListDiffer.currentList.add(toPosition, data)
+        listData.removeAt(fromPosition)
+        listData.add(toPosition, data)
         notifyItemMoved(fromPosition, toPosition)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Range Changed
     fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
-        asyncListDiffer.currentList.addAll(positionStart, data)
+        listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size, payload)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Range Changed
     fun innerFrogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
-        asyncListDiffer.currentList.addAll(positionStart, data)
+        listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Range Inserted
     fun innerFrogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
-        asyncListDiffer.currentList.addAll(positionStart, data)
+        listData.addAll(positionStart, data)
         notifyItemRangeChanged(positionStart, data.size)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Range Removed
     fun innerFrogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
-        asyncListDiffer.currentList.subList(positionStart, (positionStart + itemCount)).clear()
+        listData.subList(positionStart, (positionStart + itemCount)).clear()
         notifyItemRangeRemoved(positionStart, itemCount)
+        asyncListDiffer.submitList(listData)
     }
 
     // Notify Data Item Removed
-    fun innerFrogoNotifyItemRemoved(position: Int) {
-        asyncListDiffer.currentList.removeAt(position)
-        notifyItemRemoved(position)
+    fun innerFrogoNotifyItemRemoved(item : T) {
+        val index = listData.indexOf(item)
+        listData.remove(item)
+        notifyItemRemoved(index)
+        asyncListDiffer.submitList(listData)
     }
 
 }

@@ -190,8 +190,8 @@ open class FrogoSingleRvBinding<T, VB : ViewBinding> : FrogoSingleRvBase<T>(),
         frogoBindingAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
     }
 
-    override fun frogoNotifyItemRemoved(position: Int) {
-        frogoBindingAdapter.innerFrogoNotifyItemRemoved(position)
+    override fun frogoNotifyItemRemoved(item: T) {
+        frogoBindingAdapter.innerFrogoNotifyItemRemoved(item)
     }
 
 }

@@ -43,7 +43,8 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> : CoreFrogoRecyc
         this.asyncListDiffer.currentList.clear()
 
         if (data != null) {
-            this.asyncListDiffer.submitList(data)
+            listData.addAll(data)
+            this.asyncListDiffer.submitList(listData)
         }
     }
 
@@ -57,16 +58,8 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> : CoreFrogoRecyc
         data: List<T>?,
         bindingListener: FrogoRecyclerBindingListener<T, VB>?
     ) {
-
-        if (bindingListener != null) {
-            this.bindingListener = bindingListener
-        }
-
-        this.asyncListDiffer.currentList.clear()
-
-        if (data != null) {
-            this.asyncListDiffer.submitList(data)
-        }
+        setupListener(bindingListener)
+        setupData(data)
     }
 
 }

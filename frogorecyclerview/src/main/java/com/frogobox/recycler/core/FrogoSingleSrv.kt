@@ -159,8 +159,8 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
         srvFrogoViewAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
     }
 
-    override fun frogoNotifyItemRemoved(position: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemRemoved(position)
+    override fun frogoNotifyItemRemoved(item: String) {
+        srvFrogoViewAdapter.innerFrogoNotifyItemRemoved(item)
     }
 
 }

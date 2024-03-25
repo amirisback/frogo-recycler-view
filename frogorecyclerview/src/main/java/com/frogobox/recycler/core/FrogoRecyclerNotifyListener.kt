@@ -47,6 +47,6 @@ interface FrogoRecyclerNotifyListener<T> {
     fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int)
 
     // Notify Data Item Removed
-    fun frogoNotifyItemRemoved(position: Int)
+    fun frogoNotifyItemRemoved(item: T)
     
 }

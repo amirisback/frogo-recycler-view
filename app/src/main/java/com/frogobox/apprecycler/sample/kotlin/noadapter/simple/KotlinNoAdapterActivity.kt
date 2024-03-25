@@ -148,6 +148,7 @@ class KotlinNoAdapterActivity : BaseActivity<ActivityBaseBinding>() {
                 // setup item clicked on frogo recycler view
                 FLog.d("Clicked on Position : $position")
                 showToast(data.name)
+                notifyListener.frogoNotifyItemRemoved(data)
             }
 
             override fun onItemLongClicked(
