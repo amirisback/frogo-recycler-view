@@ -3,7 +3,7 @@ package com.frogobox.recycler.widget
 import com.frogobox.recycler.core.FrogoSingleRv
 import com.frogobox.recycler.core.FrogoSingleSrv
 
-/*
+/**
  * Created by Faisal Amir on 02/06/2020
  * FrogoRecyclerView Source Code
  * -----------------------------------------

@@ -11,7 +11,7 @@ import com.frogobox.recycler.core.FrogoSingleSrv
 import com.frogobox.recycler.widget.FrogoStyleComponent.setupComponentFrogoRecyclerView
 import com.frogobox.recycler.databinding.WidgetFrogoShimmerRecyclerviewBinding
 
-/*
+/**
  * Created by Faisal Amir on 02/06/2020
  * FrogoRecyclerView Source Code
  * -----------------------------------------

@@ -173,47 +173,47 @@ open class FrogoSingleRv<T> : FrogoSingleRvBase<T>(), IFrogoRv<T> {
     }
 
     override fun frogoNotifyData(): MutableList<T> {
-        return frogoViewAdapter.innerFrogoNotifyData()
+        return frogoViewAdapter.frogoNotifyData()
     }
 
     override fun frogoNotifyDataSetChanged() {
-        frogoViewAdapter.innerFrogoNotifyDataSetChanged()
+        frogoViewAdapter.frogoNotifyDataSetChanged()
     }
 
     override fun frogoNotifyItemChanged(data: T, position: Int, payload: Any) {
-        frogoViewAdapter.innerFrogoNotifyItemChanged(data, position, payload)
+        frogoViewAdapter.frogoNotifyItemChanged(data, position, payload)
     }
 
     override fun frogoNotifyItemChanged(data: T, position: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemChanged(data, position)
+        frogoViewAdapter.frogoNotifyItemChanged(data, position)
     }
 
     override fun frogoNotifyItemInserted(data: T, position: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemInserted(data, position)
+        frogoViewAdapter.frogoNotifyItemInserted(data, position)
     }
 
     override fun frogoNotifyItemMoved(data: T, fromPosition: Int, toPosition: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemMoved(data, fromPosition, toPosition)
+        frogoViewAdapter.frogoNotifyItemMoved(data, fromPosition, toPosition)
     }
 
     override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int, payload: Any) {
-        frogoViewAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart, payload)
+        frogoViewAdapter.frogoNotifyItemRangeChanged(data, positionStart, payload)
     }
 
     override fun frogoNotifyItemRangeChanged(data: List<T>, positionStart: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart)
+        frogoViewAdapter.frogoNotifyItemRangeChanged(data, positionStart)
     }
 
     override fun frogoNotifyItemRangeInserted(data: List<T>, positionStart: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemRangeInserted(data, positionStart)
+        frogoViewAdapter.frogoNotifyItemRangeInserted(data, positionStart)
     }
 
     override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
-        frogoViewAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
+        frogoViewAdapter.frogoNotifyItemRangeRemoved(positionStart, itemCount)
     }
 
     override fun frogoNotifyItemRemoved(item: T) {
-        frogoViewAdapter.innerFrogoNotifyItemRemoved(item)
+        frogoViewAdapter.frogoNotifyItemRemoved(item)
     }
 
 }

@@ -5,7 +5,7 @@ package com.frogobox.recycler.core
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 27/04/2020.      
+ * Copyright (C) 27/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -14,7 +14,7 @@ package com.frogobox.recycler.core
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.util
- * 
+ *
  */
 
 interface IFrogoRv<T> : IFrogoRvSingleton<T> {

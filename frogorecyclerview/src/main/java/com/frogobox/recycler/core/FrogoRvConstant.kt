@@ -4,7 +4,7 @@ package com.frogobox.recycler.core
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 26/04/2020.      
+ * Copyright (C) 26/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -13,7 +13,7 @@ package com.frogobox.recycler.core
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.util
- * 
+ *
  */
 
 object FrogoRvConstant {

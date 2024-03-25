@@ -10,7 +10,7 @@ import com.frogobox.recycler.R
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 29/04/2020.      
+ * Copyright (C) 29/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -19,10 +19,11 @@ import com.frogobox.recycler.R
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.base
- * 
+ *
  */
 
-abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, FrogoRecyclerViewHolder<T>>() {
+abstract class FrogoRecyclerViewAdapter<T> :
+    CoreFrogoRecyclerViewAdapter<T, FrogoRecyclerViewHolder<T>>() {
 
     var hasEmptyView = false
     var hasMultiHolder = false
@@ -109,10 +110,20 @@ abstract class FrogoRecyclerViewAdapter<T> : CoreFrogoRecyclerViewAdapter<T, Fro
             } else {
                 if (hasEmptyView) {
                     if (asyncListDiffer.currentList.size != 0) {
-                        holder.bindItem(asyncListDiffer.currentList[position], position, viewListener, notifyListener)
+                        holder.bindItem(
+                            asyncListDiffer.currentList[position],
+                            position,
+                            viewListener,
+                            notifyListener
+                        )
                     }
                 } else {
-                    holder.bindItem(asyncListDiffer.currentList[position], position, viewListener, notifyListener)
+                    holder.bindItem(
+                        asyncListDiffer.currentList[position],
+                        position,
+                        viewListener,
+                        notifyListener
+                    )
                 }
             }
         }

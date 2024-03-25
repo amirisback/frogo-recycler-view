@@ -1,7 +1,11 @@
 package com.frogobox.recycler.core
 
 import android.content.Context
-import androidx.recyclerview.widget.*
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.flexbox.FlexboxLayoutManager
 
 /**
@@ -12,7 +16,7 @@ import com.google.android.flexbox.FlexboxLayoutManager
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
  * -----------------------------------------
- * Copyright (C) 2021 FrogoBox Inc.      
+ * Copyright (C) 2021 FrogoBox Inc.
  * All rights reserved
  *
  */
@@ -70,7 +74,11 @@ object FrogoLayoutManager : IFrogoLayoutManager {
         return GridLayoutManager(context, spanCount)
     }
 
-    override fun flexboxLayout(context: Context, flexDirection: Int, justifyContent: Int): FlexboxLayoutManager {
+    override fun flexboxLayout(
+        context: Context,
+        flexDirection: Int,
+        justifyContent: Int
+    ): FlexboxLayoutManager {
         return FlexboxLayoutManager(context).apply {
             this.flexDirection = flexDirection
             this.justifyContent = justifyContent

@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frogobox.recycler.R
 
 
-/*
+/**
  * Created by faisalamir on 24/07/21
  * FrogoRecyclerView
  * -----------------------------------------

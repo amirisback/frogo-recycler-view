@@ -3,7 +3,7 @@ package com.frogobox.recycler.widget
 import android.content.res.TypedArray
 import android.widget.ProgressBar
 
-/*
+/**
  * Created by faisalamir on 09/05/21
  * FrogoRecyclerView
  * -----------------------------------------

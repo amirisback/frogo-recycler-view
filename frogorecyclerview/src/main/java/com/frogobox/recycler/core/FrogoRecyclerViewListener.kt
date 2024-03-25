@@ -22,7 +22,12 @@ import android.view.View
 interface FrogoRecyclerViewListener<T> : FrogoDiffUtilCallback<T> {
 
     // on itemview set on click listener
-    fun onItemClicked(view: View, data: T, position: Int, notifyListener: FrogoRecyclerNotifyListener<T>)
+    fun onItemClicked(
+        view: View,
+        data: T,
+        position: Int,
+        notifyListener: FrogoRecyclerNotifyListener<T>
+    )
 
     // on itemview set on long click listener
     fun onItemLongClicked(
@@ -30,6 +35,7 @@ interface FrogoRecyclerViewListener<T> : FrogoDiffUtilCallback<T> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    ) {}
+    ) {
+    }
 
 }

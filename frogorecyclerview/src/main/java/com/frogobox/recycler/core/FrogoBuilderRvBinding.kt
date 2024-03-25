@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-/*
+/**
  * Created by faisalamir on 24/07/21
  * FrogoRecyclerView
  * -----------------------------------------

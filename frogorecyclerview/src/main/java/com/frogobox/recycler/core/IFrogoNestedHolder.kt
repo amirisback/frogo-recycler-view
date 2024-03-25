@@ -1,9 +1,6 @@
 package com.frogobox.recycler.core
 
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
-
-/*
+/**
  * Created by Amir on 03/03/2021
  * FrogoRecyclerView Source Code
  * -----------------------------------------
@@ -18,12 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 interface IFrogoNestedHolder<T> {
 
     // Setup Nested Custom View
-    fun nestedCustomView() : Int
+    fun nestedCustomView(): Int
 
     // Setup Nested Listener
-    fun nestedListener() : FrogoRecyclerViewListener<T>
+    fun nestedListener(): FrogoRecyclerViewListener<T>
 
     // Setup Nested Callback
-    fun nestedCallback() : IFrogoViewHolder<T>
+    fun nestedCallback(): IFrogoViewHolder<T>
 
 }

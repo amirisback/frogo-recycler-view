@@ -1,7 +1,7 @@
 package com.frogobox.recycler.core
 
 
-/*
+/**
  * Created by faisalamir on 11/12/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -17,7 +17,7 @@ package com.frogobox.recycler.core
 interface FrogoRecyclerNotifyListener<T> {
 
     // Notify Data List
-    fun frogoNotifyData() : MutableList<T>
+    fun frogoNotifyData(): MutableList<T>
 
     // Notify Data Set Changed
     fun frogoNotifyDataSetChanged()
@@ -48,5 +48,5 @@ interface FrogoRecyclerNotifyListener<T> {
 
     // Notify Data Item Removed
     fun frogoNotifyItemRemoved(item: T)
-    
+
 }

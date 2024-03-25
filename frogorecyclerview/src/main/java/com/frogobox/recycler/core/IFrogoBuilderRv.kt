@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-/*
+/**
  * Created by faisalamir on 23/07/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
  * All rights reserved
  *
  */
-interface IFrogoBuilderRv<T>  : FrogoDiffUtilCallback<T> {
+
+interface IFrogoBuilderRv<T> : FrogoDiffUtilCallback<T> {
 
     // Setup data FrogoRecyclerView
     fun setupData(): List<T>
@@ -52,6 +53,7 @@ interface IFrogoBuilderRv<T>  : FrogoDiffUtilCallback<T> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    ) {}
+    ) {
+    }
 
 }

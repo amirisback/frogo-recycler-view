@@ -1,6 +1,5 @@
 package com.frogobox.recycler.widget
 
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.frogobox.recycler.core.FrogoBindingAdapter
 import com.frogobox.recycler.core.FrogoSingleRv

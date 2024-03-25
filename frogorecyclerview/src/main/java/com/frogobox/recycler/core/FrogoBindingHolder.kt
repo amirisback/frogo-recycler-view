@@ -2,7 +2,7 @@ package com.frogobox.recycler.core
 
 import androidx.viewbinding.ViewBinding
 
-/*
+/**
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter

@@ -6,7 +6,7 @@ import android.view.View
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 14/04/2020.      
+ * Copyright (C) 14/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -15,7 +15,7 @@ import android.view.View
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.callback
- * 
+ *
  */
 
 interface IFrogoViewHolder<T> {

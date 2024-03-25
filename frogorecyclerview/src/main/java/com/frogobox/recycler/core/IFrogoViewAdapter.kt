@@ -6,7 +6,7 @@ import android.view.View
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 14/04/2020.      
+ * Copyright (C) 14/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -15,10 +15,10 @@ import android.view.View
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.callback
- * 
+ *
  */
 
-interface IFrogoViewAdapter<T>  : FrogoDiffUtilCallback<T> {
+interface IFrogoViewAdapter<T> : FrogoDiffUtilCallback<T> {
 
     // Setup Init Component on ViewHolder
     fun setupInitComponent(
@@ -42,6 +42,7 @@ interface IFrogoViewAdapter<T>  : FrogoDiffUtilCallback<T> {
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    ) {}
+    ) {
+    }
 
 }

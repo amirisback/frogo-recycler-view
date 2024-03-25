@@ -18,7 +18,7 @@ import com.google.android.flexbox.JustifyContent
  * E-mail   : faisalamircs@gmail.com
  * Github   : github.com/amirisback
  * -----------------------------------------
- * Copyright (C) 2021 FrogoBox Inc.      
+ * Copyright (C) 2021 FrogoBox Inc.
  * All rights reserved
  *
  */

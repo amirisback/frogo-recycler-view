@@ -7,7 +7,7 @@ import android.view.ViewGroup
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 14/04/2020.      
+ * Copyright (C) 14/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,7 +16,7 @@ import android.view.ViewGroup
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.content
- * 
+ *
  */
 
 class FrogoViewAdapter<T> : FrogoRecyclerViewAdapter<T>() {

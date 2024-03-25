@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-/*
+/**
  * Created by Amir on 03/03/2021
  * FrogoRecyclerView Source Code
  * -----------------------------------------

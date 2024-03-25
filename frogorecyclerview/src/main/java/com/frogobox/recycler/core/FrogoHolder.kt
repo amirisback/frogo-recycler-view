@@ -1,6 +1,6 @@
 package com.frogobox.recycler.core
 
-/*
+/**
  * Created by Faisal Amir on 04/02/2021
  * FrogoRecyclerView Source Code
  * -----------------------------------------

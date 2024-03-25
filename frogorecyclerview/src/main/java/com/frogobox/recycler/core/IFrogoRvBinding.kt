@@ -6,7 +6,7 @@ import androidx.viewbinding.ViewBinding
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 27/04/2020.      
+ * Copyright (C) 27/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -15,7 +15,7 @@ import androidx.viewbinding.ViewBinding
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.util
- * 
+ *
  */
 
 interface IFrogoRvBinding<T, VB : ViewBinding> : IFrogoRvSingleton<T> {

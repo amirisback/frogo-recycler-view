@@ -2,7 +2,7 @@ package com.frogobox.recycler.widget
 
 import com.frogobox.recycler.core.FrogoSingleRv
 
-/*
+/**
  * Created by faisalamir on 09/05/21
  * FrogoRecyclerView
  * -----------------------------------------

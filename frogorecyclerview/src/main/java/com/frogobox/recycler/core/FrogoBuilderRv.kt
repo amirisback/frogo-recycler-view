@@ -3,7 +3,7 @@ package com.frogobox.recycler.core
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-/*
+/**
  * Created by faisalamir on 23/07/21
  * FrogoRecyclerView
  * -----------------------------------------

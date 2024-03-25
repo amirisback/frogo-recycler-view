@@ -2,7 +2,7 @@ package com.frogobox.recycler.core
 
 import android.view.View
 
-/*
+/**
  * Created by Faisal Amir on 04/06/2020
  * FrogoRecyclerView Source Code
  * -----------------------------------------
@@ -49,19 +49,24 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
                 data: String,
                 position: Int,
                 notifyListener: FrogoRecyclerNotifyListener<String>
-            ) {}
+            ) {
+            }
+
             override fun onItemClicked(
                 view: View,
                 data: String,
                 position: Int,
                 notifyListener: FrogoRecyclerNotifyListener<String>
-            ) {}
+            ) {
+            }
+
             override fun onItemLongClicked(
                 view: View,
                 data: String,
                 position: Int,
                 notifyListener: FrogoRecyclerNotifyListener<String>
-            ) {}
+            ) {
+            }
 
             override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
                 return oldItem.hashCode() == newItem.hashCode()
@@ -103,6 +108,7 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
                 ) {
                     srvFrogoAdapterCallback.onItemLongClicked(view, data, position, notifyListener)
                 }
+
                 override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
                     return oldItem.hashCode() == newItem.hashCode()
                 }
@@ -120,47 +126,47 @@ class FrogoSingleSrv : FrogoSingleRv<String>() {
     }
 
     override fun frogoNotifyData(): MutableList<String> {
-        return srvFrogoViewAdapter.innerFrogoNotifyData()
+        return srvFrogoViewAdapter.frogoNotifyData()
     }
 
     override fun frogoNotifyDataSetChanged() {
-        srvFrogoViewAdapter.innerFrogoNotifyDataSetChanged()
+        srvFrogoViewAdapter.frogoNotifyDataSetChanged()
     }
 
     override fun frogoNotifyItemChanged(data: String, position: Int, payload: Any) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemChanged(data, position, payload)
+        srvFrogoViewAdapter.frogoNotifyItemChanged(data, position, payload)
     }
 
     override fun frogoNotifyItemChanged(data: String, position: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemChanged(data, position)
+        srvFrogoViewAdapter.frogoNotifyItemChanged(data, position)
     }
 
     override fun frogoNotifyItemInserted(data: String, position: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemInserted(data, position)
+        srvFrogoViewAdapter.frogoNotifyItemInserted(data, position)
     }
 
     override fun frogoNotifyItemMoved(data: String, fromPosition: Int, toPosition: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemMoved(data, fromPosition, toPosition)
+        srvFrogoViewAdapter.frogoNotifyItemMoved(data, fromPosition, toPosition)
     }
 
     override fun frogoNotifyItemRangeChanged(data: List<String>, positionStart: Int, payload: Any) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart, payload)
+        srvFrogoViewAdapter.frogoNotifyItemRangeChanged(data, positionStart, payload)
     }
 
     override fun frogoNotifyItemRangeChanged(data: List<String>, positionStart: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemRangeChanged(data, positionStart)
+        srvFrogoViewAdapter.frogoNotifyItemRangeChanged(data, positionStart)
     }
 
     override fun frogoNotifyItemRangeInserted(data: List<String>, positionStart: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemRangeInserted(data, positionStart)
+        srvFrogoViewAdapter.frogoNotifyItemRangeInserted(data, positionStart)
     }
 
     override fun frogoNotifyItemRangeRemoved(positionStart: Int, itemCount: Int) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemRangeRemoved(positionStart, itemCount)
+        srvFrogoViewAdapter.frogoNotifyItemRangeRemoved(positionStart, itemCount)
     }
 
     override fun frogoNotifyItemRemoved(item: String) {
-        srvFrogoViewAdapter.innerFrogoNotifyItemRemoved(item)
+        srvFrogoViewAdapter.frogoNotifyItemRemoved(item)
     }
 
 }

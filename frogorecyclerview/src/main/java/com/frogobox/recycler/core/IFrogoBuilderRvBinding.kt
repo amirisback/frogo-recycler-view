@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-/*
+/**
  * Created by faisalamir on 24/07/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -17,7 +17,7 @@ import androidx.viewbinding.ViewBinding
  * All rights reserved
  *
  */
-interface IFrogoBuilderRvBinding<T, VB : ViewBinding>  : FrogoDiffUtilCallback<T> {
+interface IFrogoBuilderRvBinding<T, VB : ViewBinding> : FrogoDiffUtilCallback<T> {
 
     // Setup data FrogoRecyclerView
     fun setupData(): List<T>
@@ -50,6 +50,7 @@ interface IFrogoBuilderRvBinding<T, VB : ViewBinding>  : FrogoDiffUtilCallback<T
         data: T,
         position: Int,
         notifyListener: FrogoRecyclerNotifyListener<T>
-    ) {}
+    ) {
+    }
 
 }

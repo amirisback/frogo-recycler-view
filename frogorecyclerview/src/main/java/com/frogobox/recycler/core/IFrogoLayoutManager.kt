@@ -9,7 +9,7 @@ import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 
-/*
+/**
  * Created by faisalamir on 23/07/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -21,6 +21,7 @@ import com.google.android.flexbox.JustifyContent
  * All rights reserved
  *
  */
+
 interface IFrogoLayoutManager {
 
     fun linearLayoutVertical(context: Context): RecyclerView.LayoutManager
@@ -51,6 +52,6 @@ interface IFrogoLayoutManager {
         context: Context,
         flexDirection: Int = FlexDirection.ROW,
         justifyContent: Int = JustifyContent.FLEX_START
-    ) : FlexboxLayoutManager
+    ): FlexboxLayoutManager
 
 }

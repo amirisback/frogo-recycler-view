@@ -7,7 +7,7 @@ import androidx.viewbinding.ViewBinding
  * Created by Faisal Amir
  * =========================================
  * FrogoRecyclerViewAdapter
- * Copyright (C) 14/04/2020.      
+ * Copyright (C) 14/04/2020.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -16,7 +16,7 @@ import androidx.viewbinding.ViewBinding
  * -----------------------------------------
  * FrogoBox Inc
  * com.frogobox.recycler.content
- * 
+ *
  */
 
 class FrogoBindingAdapter<T, VB : ViewBinding> : FrogoRecyclerBindingAdapter<T, VB>() {
@@ -31,6 +31,9 @@ class FrogoBindingAdapter<T, VB : ViewBinding> : FrogoRecyclerBindingAdapter<T, 
         parent: ViewGroup,
         viewType: Int
     ): FrogoRecyclerBindingHolder<T, VB> {
-        return FrogoBindingHolder(frogoViewHolderCallback!!.setViewBinding(parent), frogoViewHolderCallback)
+        return FrogoBindingHolder(
+            frogoViewHolderCallback!!.setViewBinding(parent),
+            frogoViewHolderCallback
+        )
     }
 }
