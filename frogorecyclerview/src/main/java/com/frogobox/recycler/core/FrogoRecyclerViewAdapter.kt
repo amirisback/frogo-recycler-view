@@ -29,12 +29,13 @@ abstract class FrogoRecyclerViewAdapter<T> :
     var hasMultiHolder = false
     var hasNestedView = false
 
-    protected var viewListener: FrogoRecyclerViewListener<T>? = null
+    protected var listener: FrogoRecyclerViewListener<T>? = null
 
     protected val listPosition = HashMap<Int, Int>()
     protected val sharedPool = RecyclerView.RecycledViewPool()
 
     protected val frogoHolder = mutableListOf<FrogoHolder<T>>()
+
     protected val listDataNested = mutableListOf<MutableList<T>>()
     protected var listCount = 0
 
@@ -43,11 +44,11 @@ abstract class FrogoRecyclerViewAdapter<T> :
     protected var emptyLayoutResId: Int = R.layout.frogo_rv_container_empty_view
 
     override fun adapterAreContentsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
-        return viewListener?.areContentsTheSame(oldItem, newItem) ?: false
+        return listener?.areContentsTheSame(oldItem, newItem) ?: false
     }
 
     override fun adapterAreItemsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
-        return viewListener?.areItemsTheSame(oldItem, newItem) ?: false
+        return listener?.areItemsTheSame(oldItem, newItem) ?: false
     }
 
     fun bindNestedHolder() {
@@ -93,36 +94,36 @@ abstract class FrogoRecyclerViewAdapter<T> :
                 if (hasEmptyView) {
                     if (frogoHolder.size != 0) {
                         holder.bindItem(
-                            frogoHolder[position].data,
-                            position,
-                            frogoHolder[position].viewListener,
-                            notifyListener
+                            data = frogoHolder[position].data,
+                            position = position,
+                            viewListener = frogoHolder[position].viewListener,
+                            notifyListener = this
                         )
                     }
                 } else {
                     holder.bindItem(
-                        frogoHolder[position].data,
-                        position,
-                        frogoHolder[position].viewListener,
-                        notifyListener
+                        data = frogoHolder[position].data,
+                        position = position,
+                        viewListener = frogoHolder[position].viewListener,
+                        notifyListener = this
                     )
                 }
             } else {
                 if (hasEmptyView) {
                     if (asyncListDiffer.currentList.size != 0) {
                         holder.bindItem(
-                            asyncListDiffer.currentList[position],
-                            position,
-                            viewListener,
-                            notifyListener
+                            data = asyncListDiffer.currentList[position],
+                            position = position,
+                            viewListener = listener,
+                            notifyListener = this
                         )
                     }
                 } else {
                     holder.bindItem(
-                        asyncListDiffer.currentList[position],
-                        position,
-                        viewListener,
-                        notifyListener
+                        data = asyncListDiffer.currentList[position],
+                        position = position,
+                        viewListener = listener,
+                        notifyListener = this
                     )
                 }
             }
@@ -216,7 +217,7 @@ abstract class FrogoRecyclerViewAdapter<T> :
 
     open fun setupListener(listener: FrogoRecyclerViewListener<T>?) {
         if (listener != null) {
-            viewListener = listener
+            this.listener = listener
         }
     }
 

@@ -21,14 +21,14 @@ import androidx.viewbinding.ViewBinding
 abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
     CoreFrogoRecyclerViewAdapter<T, FrogoRecyclerBindingHolder<T, VB>>() {
 
-    protected var bindingListener: FrogoRecyclerBindingListener<T, VB>? = null
+    protected var listener: FrogoRecyclerBindingListener<T, VB>? = null
 
     override fun adapterAreContentsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
-        return bindingListener?.areContentsTheSame(oldItem, newItem) ?: false
+        return listener?.areContentsTheSame(oldItem, newItem) ?: false
     }
 
     override fun adapterAreItemsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
-        return bindingListener?.areItemsTheSame(oldItem, newItem) ?: false
+        return listener?.areItemsTheSame(oldItem, newItem) ?: false
     }
 
 
@@ -38,14 +38,14 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
 
     override fun onBindViewHolder(holder: FrogoRecyclerBindingHolder<T, VB>, position: Int) {
         holder.bindItem(
-            asyncListDiffer.currentList[position],
-            position,
-            bindingListener,
-            notifyListener
+            data = asyncListDiffer.currentList[position],
+            position = position,
+            bindingListener = listener,
+            notifylistener = this
         )
     }
 
-    fun setupData(data: List<T>?) {
+    open fun setupData(data: List<T>?) {
         this.asyncListDiffer.currentList.clear()
 
         if (data != null) {
@@ -54,13 +54,13 @@ abstract class FrogoRecyclerBindingAdapter<T, VB : ViewBinding> :
         }
     }
 
-    fun setupListener(bindingListener: FrogoRecyclerBindingListener<T, VB>?) {
+    open fun setupListener(bindingListener: FrogoRecyclerBindingListener<T, VB>?) {
         if (bindingListener != null) {
-            this.bindingListener = bindingListener
+            this.listener = bindingListener
         }
     }
 
-    fun setupRequirement(
+    open fun setupRequirement(
         data: List<T>?,
         bindingListener: FrogoRecyclerBindingListener<T, VB>?
     ) {

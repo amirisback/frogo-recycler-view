@@ -23,8 +23,6 @@ abstract class CoreFrogoRecyclerViewAdapter<T, VH : CoreFrogoRecyclerViewHolder<
 
     protected val listData = mutableListOf<T>()
 
-    protected var notifyListener = this
-
     protected val asyncListDiffer = AsyncListDiffer(this, object : DiffUtil.ItemCallback<T>() {
         override fun areItemsTheSame(oldItem: T & Any, newItem: T & Any): Boolean {
             return adapterAreItemsTheSame(oldItem, newItem)
