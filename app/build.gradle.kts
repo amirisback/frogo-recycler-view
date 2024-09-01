@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -85,20 +85,20 @@ dependencies {
 
     implementation(project(DependencyGradle.FROGO_PATH_RECYCLER_VIEW))
 
-    implementation(Androidx.appCompat)
-    implementation(Androidx.constraintLayout)
-    implementation(Androidx.Core.ktx)
-    implementation(Androidx.Work.runtime)
-    implementation(Androidx.Work.runtimeKtx)
-    implementation(Androidx.Lifecycle.runtimeKtx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.work)
+    implementation(libs.androidx.work.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation(Google.material)
+    implementation(libs.material)
 
-    implementation(GitHub.glide)
+    implementation(libs.github.glide)
 
-    implementation(DependencyGradle.FROGO_UI)
-    implementation(DependencyGradle.FROGO_CONSUME_API)
+    implementation(libs.frogo.ui)
+    implementation(libs.frogo.consume.api)
 
-    kapt(GitHub.glideCompiler)
+    ksp(libs.github.glide.compiler)
 
 }

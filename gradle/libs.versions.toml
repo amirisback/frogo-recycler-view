@@ -1,0 +1,145 @@
+[versions]
+agp = "8.5.1"
+kotlin = "1.9.23"
+ksp = "1.9.23-1.0.19"
+
+coreKtx = "1.13.1"
+appcompat = "1.7.0"
+activity = "1.9.1"
+fragment = "1.8.2"
+constraintlayout = "2.1.4"
+liveCycle = "2.8.4"
+viewPager2 = "1.1.0"
+preference = "1.2.1"
+roomKtx = "2.6.1"
+work = "2.9.1"
+recyclerview = "1.3.2"
+
+# Compose Version
+composeCompiler = "1.5.12" # https://developer.android.com/jetpack/androidx/releases/compose
+composeAnimation = "1.6.6"# https://developer.android.com/jetpack/androidx/releases/compose
+composeActivity = "1.9.1" # https://androidx.tech/artifacts/activity/activity-compose/
+compose = "1.6.8" # https://developer.android.com/jetpack/androidx/releases/compose
+composeMaterial = "1.6.8" # https://developer.android.com/jetpack/androidx/releases/compose
+composeFoundation = "1.6.6" # https://developer.android.com/jetpack/androidx/releases/compose
+composeMaterial3 = "1.2.1" # https://developer.android.com/jetpack/androidx/releases/compose
+composeNavigation = "2.7.7" # https://androidx.tech/artifacts/navigation/navigation-compose/
+composeHiltNavigation = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/hilt
+
+
+material = "1.12.0"
+gson = "2.10.1"
+
+okhttp = "4.12.0"
+retrofit = "2.11.0"
+
+rxandroid3 = "3.0.2"
+rxjava3 = "3.1.8"
+
+chucker = "4.0.0"
+glide = "4.16.0"
+customactivityoncrash = "2.4.0"
+circleimageview = "3.1.0"
+
+flexbox = "3.0.0"
+
+
+koin = "3.5.6"
+
+frogorecylerview = "4.4.1"
+frogosdk = "2.2.7"
+frogoui = "2.0.3"
+frogoConsumeApi = "2.5.4"
+
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
+[libraries]
+# Android Kit
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+androidx-work = { group = "androidx.work", name = "work-runtime", version.ref = "work" }
+androidx-work-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
+
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "liveCycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "liveCycle" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "liveCycle" }
+androidx-lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "liveCycle" }
+
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewPager2" }
+androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
+
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomKtx" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+androidx-room-rxjava3 = { group = "androidx.room", name = "room-rxjava3", version.ref = "roomKtx" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomKtx" }
+
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "composeActivity"}
+androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "composeMaterial"}
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "composeMaterial3"}
+androidx-compose-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "compose"}
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose"}
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose"}
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose"}
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose"}
+
+flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# --------------------------------------------------------------------------------------------------
+# Test Library
+
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+# --------------------------------------------------------------------------------------------------
+# Library
+
+square-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+square-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+square-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+square-retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+square-retrofit-adapter-rxjava3 = { group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref = "retrofit" }
+
+reactivex-rxjava3 = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava3" }
+reactivex-rxandroid3 = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid3" }
+
+github-chucker = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker" }
+github-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+github-glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
+github-customactivityoncrash = { group = "cat.ereza", name = "customactivityoncrash", version.ref = "customactivityoncrash" }
+github-circleimageview =  { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
+
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-android-compat = { group = "io.insert-koin", name = "koin-android-compat", version.ref = "koin" }
+koin-androidx-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager", version.ref = "koin" }
+
+frogo-sdk = { group = "com.github.frogobox", name = "frogo-sdk", version.ref = "frogosdk" }
+frogo-sdk-core = { group = "com.github.frogobox.frogo-sdk", name = "core-sdk", version.ref = "frogosdk" }
+
+frogo-ui = { group = "com.github.frogobox", name = "frogo-ui", version.ref = "frogoui" }
+frogo-ui-core = { group = "com.github.frogobox.frogo-ui", name = "core-ui", version.ref = "frogoui" }
+
+frogo-consume-api = { group = "com.github.frogobox", name = "frogo-consume-api", version.ref = "frogoConsumeApi" }
+
+frogo-recyclerview = { group = "com.github.amirisback", name = "frogo-recycler-view", version.ref = "frogorecylerview" }
+
+# --------------------------------------------------------------------------------------------------
+
+
+[plugins]
+#android-application = { id = "com.android.application", version.ref = "agp" }
+#android.library = { id = "com.android.library", version.ref = "agp"}
+#jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+#jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
+#google-devtools-ksp = { id = "org.google.devtools.ksp", version.ref = "ksp"}

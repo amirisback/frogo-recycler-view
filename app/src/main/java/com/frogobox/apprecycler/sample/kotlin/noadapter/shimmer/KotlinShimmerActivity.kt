@@ -9,10 +9,10 @@ import com.frogobox.apprecycler.BuildConfig
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.apprecycler.databinding.ActivityKotlinShimmerBinding
 import com.frogobox.coreapi.ConsumeApiResponse
-import com.frogobox.coreapi.news.NewsConstant
-import com.frogobox.coreapi.news.NewsUrl
-import com.frogobox.coreapi.news.model.Article
-import com.frogobox.coreapi.news.response.ArticleResponse
+import com.frogobox.coreutil.news.NewsConstant
+import com.frogobox.coreutil.news.NewsUrl
+import com.frogobox.coreutil.news.model.Article
+import com.frogobox.coreutil.news.response.ArticleResponse
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.ui.R

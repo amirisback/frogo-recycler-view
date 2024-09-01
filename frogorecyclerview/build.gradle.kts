@@ -62,8 +62,8 @@ android {
 }
 
 dependencies {
-    api(Androidx.recyclerview)
-    api("com.google.android.flexbox:flexbox:3.0.0")
+    api(libs.androidx.recyclerview)
+    api(libs.flexbox)
 }
 
 afterEvaluate {

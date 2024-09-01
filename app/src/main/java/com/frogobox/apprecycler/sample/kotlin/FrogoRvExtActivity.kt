@@ -10,16 +10,16 @@ import com.frogobox.apprecycler.R
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvExtBinding
 import com.frogobox.coreapi.ConsumeApiResponse
-import com.frogobox.coreapi.news.NewsConstant
-import com.frogobox.coreapi.news.NewsUrl
-import com.frogobox.coreapi.news.model.Article
-import com.frogobox.coreapi.news.response.ArticleResponse
 import com.frogobox.apprecycler.util.FLog
+import com.frogobox.coreutil.news.NewsConstant
+import com.frogobox.coreutil.news.NewsUrl
+import com.frogobox.coreutil.news.model.Article
+import com.frogobox.coreutil.news.response.ArticleResponse
 import com.frogobox.recycler.core.FrogoRecyclerNotifyListener
 import com.frogobox.recycler.core.IFrogoViewAdapter
 import com.frogobox.recycler.ext.injector
-import com.frogobox.sdk.ext.glideLoad
 import com.frogobox.sdk.ext.gone
+import com.frogobox.sdk.ext.setImageExt
 import com.frogobox.sdk.ext.usingChuck
 import com.frogobox.sdk.ext.visible
 
@@ -88,7 +88,7 @@ class FrogoRvExtActivity : BaseActivity<ActivityFrogoRvExtBinding>() {
                 view.findViewById<TextView>(R.id.frogo_rv_list_type_8_tv_subtitle).text =
                     data.description
                 view.findViewById<ImageView>(R.id.frogo_rv_list_type_8_civ_poster)
-                    .glideLoad(data.urlToImage)
+                    .setImageExt(data.urlToImage)
             }
 
             override fun onItemClicked(

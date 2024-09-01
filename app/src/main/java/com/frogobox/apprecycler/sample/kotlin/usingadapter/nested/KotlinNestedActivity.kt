@@ -11,12 +11,12 @@ import com.frogobox.apprecycler.BuildConfig
 import com.frogobox.apprecycler.core.BaseActivity
 import com.frogobox.apprecycler.databinding.ActivityFrogoRvGridBinding
 import com.frogobox.coreapi.ConsumeApiResponse
-import com.frogobox.coreapi.news.NewsConstant
-import com.frogobox.coreapi.news.NewsUrl
-import com.frogobox.coreapi.news.model.Article
-import com.frogobox.coreapi.news.response.ArticleResponse
+import com.frogobox.coreutil.news.NewsConstant
+import com.frogobox.coreutil.news.NewsUrl
+import com.frogobox.coreutil.news.model.Article
+import com.frogobox.coreutil.news.response.ArticleResponse
 import com.frogobox.recycler.core.*
-import com.frogobox.sdk.ext.glideLoad
+import com.frogobox.sdk.ext.setImageExt
 import com.frogobox.ui.R
 
 class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
@@ -140,7 +140,7 @@ class KotlinNestedActivity : BaseActivity<ActivityFrogoRvGridBinding>() {
                             view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_subtitle)
                         val tv_desc = view.findViewById<TextView>(R.id.frogo_rv_grid_type_3_tv_desc)
 
-                        iv.glideLoad(data.urlToImage)
+                        iv.setImageExt(data.urlToImage)
                         tv_title.text = data.title
                         tv_sub.text = data.author
                         tv_desc.text = data.description
