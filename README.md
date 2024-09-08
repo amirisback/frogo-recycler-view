@@ -48,7 +48,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 4.4.1
+    $version_release = 4.4.2
 
 What's New??
 
@@ -63,18 +63,18 @@ Compose Tutorial - FrogoRecyclerCompose [Click Here](https://github.com/amirisba
 ### Step 1. Add the JitPack repository to your build file (build.gradle : Project)
 
 #### <Option 1> Groovy Gradle
+```kotlin
+// Add it in your root build.gradle at the end of repositories:
 
-    // Add it in your root build.gradle at the end of repositories:
-
-    allprojects {
-        repositories {
-            ...
-            maven { url 'https://jitpack.io' }
-        }
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
     }
+}
+```
 
 #### <Option 2> Kotlin DSL Gradle
-
 ```kotlin
 // Add it in your root build.gradle.kts at the end of repositories:
 
@@ -86,22 +86,37 @@ allprojects {
 }
 ```
 
-
 ### Step 2. Add the dependency (build.gradle : Module)
 
 #### <Option 1> Groovy Gradle
-
-    dependencies {
-        // library frogo-recycler-view
-        implementation 'com.github.amirisback:frogo-recycler-view:4.4.1'
-    }
+```groovy
+dependencies {
+    // library frogo-recycler-view
+    implementation 'com.github.amirisback:frogo-recycler-view:4.4.2'
+}
+```
 
 #### <Option 2> Kotlin DSL Gradle
+```kotlin
+dependencies {
+    // library frogo-recycler-view
+    implementation("com.github.amirisback:frogo-recycler-view:4.4.2")
+}
+```
 
-    dependencies {
-        // library frogo-recycler-view
-        implementation("com.github.amirisback:frogo-recycler-view:4.4.1")
-    }
+#### <Option 3> libs.versions.toml
+```yml
+[versions]
+frogorecyclerview = "4.4.2"
+
+[libraries]
+frogo-recyclerview-api = { group = "com.github.amirisback", name = "frogo-recycler-view", version.ref = "frogorecyclerview" }
+
+dependencies {
+    // library frogo-recyclerview
+    implementation(libs.frogo.recyclerview)
+}
+```
 
 ### Step 3. Create xml view
 ```xml
