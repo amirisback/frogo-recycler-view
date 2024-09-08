@@ -25,9 +25,9 @@ object ProjectSetting {
     const val VERSION_MINOR = 4
     const val VERSION_PATCH = 1
 
-    const val PROJECT_MIN_SDK = Version.Gradle.minSdk
-    const val PROJECT_COMPILE_SDK = Version.Gradle.compileSdk
-    const val PROJECT_TARGET_SDK = Version.Gradle.targetSdk
+    const val PROJECT_MIN_SDK = 21
+    const val PROJECT_COMPILE_SDK = 34
+    const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)

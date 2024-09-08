@@ -13,9 +13,6 @@
 
 object DependencyGradle {
 
-    // dependencies version
-    const val KOTLIN_VERSION = "1.9.23"
-
     const val FROGO_PATH_RECYCLER_VIEW = ":frogorecyclerview"
 
 }
