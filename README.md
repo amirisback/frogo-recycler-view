@@ -1,3 +1,9 @@
+![ScreenShoot Apps](https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/deprecated.png?raw=true)
+## DEPRECATED
+- Reason Deprecated, Merge library become single library
+- Please Using This : [deltadox-android](https://github.com/deltadox/deltadox-android)
+##
+
 ![App Screenshots](https://raw.githubusercontent.com/amirisback/frogo-recycler-view/master/docs/image/ss_banner.png?raw=true)
 
 ## About This Project
